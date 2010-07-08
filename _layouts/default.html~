@@ -23,10 +23,10 @@
       <div id='menu'>
         <ul>
           <li><a href='/'>Home</a></li>
-          <li><a href='/resume.html'>About</a></li>
+          <li><a href='/resume.html'>Resume</a></li>
           <li><a href='/open-source.html'>Code</a></li>
-          <li><a href='http://github.com/schacon' target='_blank' rel='me'>GitHub</a></li>
-          <li><a href='http://www.linkedin.com/in/schacon' target='_blank' rel='me'>LinkedIn</a></li>
+          <li><a href='http://github.com/vlandham' target='_blank' rel='me'>GitHub</a></li>
+          <li><a href='http://www.linkedin.com/pub/jim-vallandingham/4/417/61b' target='_blank' rel='me'>LinkedIn</a></li>
         </ul>
       </div>
       <div id='content'>
