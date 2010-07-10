@@ -5,6 +5,15 @@ a {
 
 a:hover {
 	text-decoration: underline;
+	color: #3d3d3d;
+}
+
+a img { 
+	border: 0; 
+}
+
+body {
+	background-color: #ADD9CE;
 }
 
 #wrapper {
@@ -17,6 +26,10 @@ a:hover {
 	border-radius: 1.5em;	
 }
 
+.container {
+	width: 50em;
+}
+
 #header {
 	text-transform: lowercase;
 	text-align: left;	
@@ -27,7 +40,7 @@ a:hover {
 #header h1 {
 	font-size: 6em;
 	display: inline;
-	letter-spacing: -0.08em;
+	letter-spacing: -0.03em;
 	color: #3d3d3d;
 	font-weight: normal;
 }
@@ -40,6 +53,7 @@ a:hover {
 	list-style: none;
 	margin: 0;
 	text-align: right;
+	padding-right: 1.0em;
 }
 
 #menu ul li {
@@ -68,4 +82,16 @@ a:hover {
 	color: #8C0101;
 	font-size: 1.4em;
 	text-decoration: none;
+}
+
+#footer {
+  margin-bottom: 2em;
+  color: #3E423A;
+  font-size: 0.9em;
+  padding: 0.5em;  
+  text-align: right;
+}
+
+#footer p {
+	padding-right: 1.5em;
 }
