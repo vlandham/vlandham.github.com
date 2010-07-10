@@ -1,3 +1,11 @@
+a {
+	color: #6e6e6e;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
 
 #wrapper {
 	width: 50em;
@@ -38,17 +46,11 @@
 	display: inline;
 }
 
-#menu ul li a {
-	color: #6e6e6e;
+#menu ul li a {	
 	font-size: 1.3em;
 	padding: 0 0.5em;
 	line-height: 2.5em;
 	font-weight: normal;
-	text-decoration: none;
-}
-
-#menu ul li a:hover {
-	text-decoration: underline;
 }
 
 #content {
@@ -56,13 +58,14 @@
 }
 
 .project {
-	background: #ffffff;
-  	-moz-border-radius: 1em;
+	/*background: #ffffff;*/
+  	/*-moz-border-radius: 1em;
 	border-radius: 1em;
-	background: #F7FBFF;
+	background: #F7FBFF;*/
 }
 
-.project h3 {
-	padding-left: 0.5em;
-	padding-top: 0.5em;
+.project a.title {
+	color: #8C0101;
+	font-size: 1.4em;
+	text-decoration: none;
 }
