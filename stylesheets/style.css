@@ -95,3 +95,30 @@ body {
 #footer p {
 	padding-right: 1.5em;
 }
+
+h1.resume {
+	text-transform: uppercase;
+	font-size: 2.4em;	
+}
+
+h2.resume-time {
+	float: right;
+}
+
+h2.resume {
+	margin-bottom:0;
+	margin-left: 20px;
+}
+
+h3.resume {
+	margin-left: 35px;
+	margin-bottom: 10px;
+}
+
+ul.resume {
+	margin-left: 15px;
+}
+
+ul.resume li {
+	font-size: 1.5em;
+}
