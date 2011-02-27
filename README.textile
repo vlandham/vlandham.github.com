@@ -1,0 +1,3 @@
+h1. Jim Vallandingham
+
+This is "Jekyll":http://github.com/mojombo/jekyll powered site and blog. Enjoy!
