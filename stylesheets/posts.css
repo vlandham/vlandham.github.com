@@ -1,0 +1,23 @@
+.hud {
+  text-align: center;
+  width: 90%;
+  margin: 10px auto 10px auto;
+  
+  color: white;
+  background-color: #858585;
+  opacity: 0.8;
+  font-size: 1.5em;
+  
+	-moz-border-radius: 0.8em;
+	-webkit-border-radius: 0.8em;
+	border-radius: 0.8em; 
+}
+
+table.ingredients {
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-left: auto;
+  width: 80%;
+}
