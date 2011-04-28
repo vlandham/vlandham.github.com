@@ -82,3 +82,56 @@ h4. Weaknesses
 * While flavor was good, there wasn't a lot of it.
 * Excess amount of flour on the bottom of the loaf.
 
+h3. Complexity
+
+Fairly low - but perhaps not as low as we can go!
+* 4 ingredients
+* 7 dishes to wash
+
+h2. Attempt #2: Add Some Flavor 
+
+We attempted to combat all three weaknesses from the previous attempt - concentrating on our main issue: flavor. To this end, the changes we applied were:
+* Use 1/2 cup of wheat flour in place of 1/2 cup of white flour in the recipe
+    _This should give it a bit of an edge, taste-wise_
+* Baking period with lid off was extended from 30 minutes to 35 minutes
+    _Perhaps this will make it less chewy?_
+* Use very little flour on the parchment paper
+    _Let the parchment paper do the work of not sticking._
+
+In addition, the flour was measured in both cups and grams. This could lead to a reduction in the number of utensils required in ingredient measuring. However, this attempt we just used the scale as well as the cups - to discover the weight of the flour used. The other ingredients were still measured by volume.
+
+h3. Ingredients
+
+table(ingredients).
+|=. *Ingredient* |=. *Brand* |=. *Amount (volume)* |=. *Amount (weight)*|
+|=. white flour |=. King Arthur: unbleached white bread flour |=. 2 and 1/2 cups |=. 340 grams|
+|=. wheat flour |=. King Arthur |=. 1/2 cup |=. 71 grams|
+|=. yeast |=. All purpose yeast from local organic grocery store |=. 1/4 teaspoon ||
+|=. salt |=. Morton's sea salt |=. 1 teaspoon ||
+|=. water |=. From the tap |=. 1 & 1/2 cup ||
+
+h3. Uncontrolled Variables
+
+* *Temperature* - Inside temperature *66 degrees*. 
+* *Humidity* - Inside humidity *54%*.
+
+h3. Results
+
+I think we successfully addressed 2 of the 3 issues we were hoping to fix - which isn't too shabby for our first revision
+
+h4. Strengths
+
+* More flavorful. Its not "wow can you believe this?" kind of flavor, but enough for me to be satisfied.
+* Less flour on the bottom. I guess very little is needed when using parchment paper
+* Same good appearance.
+
+h4. Weaknesses
+
+* Still chewy. Both inside and out is a little less firm than we want it to be.
+* Bottom crust is tough. Did we cook it too long? Is this because of the lack of flour? Blast! We can't know because we changed too many variables! 
+
+h3. Complexity
+
+We add one additional ingredient (wheat flour), but we also pave the way to reducing utensils by starting to use the scale. And with that one ingredient, we conquer our most important issue from attempt 1 - flavor. 
+* 5 ingredients
+* 8 utensils (including scale)
