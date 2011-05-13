@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.7)
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
     directory_watcher (1.4.0)
@@ -20,5 +21,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
   jekyll
   rdiscount
