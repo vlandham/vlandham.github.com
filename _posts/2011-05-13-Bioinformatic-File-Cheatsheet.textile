@@ -1,0 +1,77 @@
+---
+layout: post
+title: Bioinformatic File Cheatsheet
+categories:
+- 
+---
+
+Some quick notes on common file formats used in the bioinformatic world I am now part of.
+
+h2. GFFv2
+
+Apparently there are 3 different versions of GFF from 2 different sources. 
+GFFv2 and GFFv3 are the most interesting currently. 
+
+h3. Name
+
+General Feature Format (v1,v2)
+
+h3. Format
+
+Nine required fields that must be tab-separated.
+
+# seqname - The name of the sequence. Must be a chromosome or scaffold.
+# source - The program or database that generated this feature.
+# feature - The name of this type of feature. Some examples of standard feature types are "CDS", "start_codon", "stop_codon", and "exon".
+# start - The starting position of the feature in the sequence. The first base is numbered 1.
+# end - The ending position of the feature (inclusive).
+# score - A score between 0 and 1000. If no score, then '.' is used 
+# strand - Valid entries include '+', '-', or '.' (for don't know/don't care).
+# frame - If the feature is a coding exon, frame should be a number between 0-2 that represents the reading frame of the first base. If the feature is not a coding exon, the value should be '.'. Field should be called "Phase"
+# attribute - not-well defined field with tag value ; structure
+
+h3. Application Support
+
+* "UCSC Genome Browser":http://genome.ucsc.edu/FAQ/FAQformat.html#format3
+
+h3. Source
+
+*GFF v1* & *GFF v2* come from "The Sanger Institute":http://www.sanger.ac.uk/resources/software/gff/
+
+h2. GFFv3
+
+h3. Name
+
+Generic Feature Format (v3)
+
+h3. Format
+
+Nine fields separated by tab characters
+
+h3. Application Support
+
+* "SnpEff":http://snpeff.sourceforge.net/supportNewGenome.html - for new genome creation
+
+h3. Source
+
+*GFF v3* comes from "The Sequence Ontology Project":http://www.sequenceontology.org/gff3.shtml
+
+h3. Example
+
+<pre>
+ 0  ##gff-version   3
+ 1  ##sequence-region   ctg123 1 1497228       
+ 2  ctg123 . gene            1000  9000  .  +  .  ID=gene00001;Name=EDEN
+
+ 3  ctg123 . TF_binding_site 1000  1012  .  +  .  ID=tfbs00001;Parent=gene00001
+
+ 4  ctg123 . mRNA            1050  9000  .  +  .  ID=mRNA00001;Parent=gene00001;Name=EDEN.1
+ 5  ctg123 . mRNA            1050  9000  .  +  .  ID=mRNA00002;Parent=gene00001;Name=EDEN.2
+ 6  ctg123 . mRNA            1300  9000  .  +  .  ID=mRNA00003;Parent=gene00001;Name=EDEN.3
+
+ 7  ctg123 . exon            1300  1500  .  +  .  ID=exon00001;Parent=mRNA00003
+ 8  ctg123 . exon            1050  1500  .  +  .  ID=exon00002;Parent=mRNA00001,mRNA00002
+ 9  ctg123 . exon            3000  3902  .  +  .  ID=exon00003;Parent=mRNA00001,mRNA00003
+10  ctg123 . exon            5000  5500  .  +  .  ID=exon00004;Parent=mRNA00001,mRNA00002,mRNA00003
+11  ctg123 . exon            7000  9000  .  +  .  ID=exon00005;Parent=mRNA00001,mRNA00002,mRNA00003
+</pre>
