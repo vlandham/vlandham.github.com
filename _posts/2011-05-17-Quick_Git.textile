@@ -1,0 +1,77 @@
+---
+layout: post
+title: Really Quick Git
+categories:
+- git
+---
+
+h3. An attempt to quickly demonstrate the usefulness of Git for the single-developer environment
+
+h2. What does Git give you as an individual developer?
+
+* History of changes you made to your files. 
+** Allows you to see when particular changes / features were implemented.
+** Also can provide an explanation to why you changed something the way you did.
+* 'Universal undo'
+** Revert changes to any file you are tracking in Git.
+** Completely external to the particular editor you are using at the time.
+** Useful when a rm goes bad, or when you get crazy with Vim (":d20j :wq").
+* Test out new changes / ideas without fear.
+** Branching capabilities in Git make it easy to try out large scale modifications to your code that you can always revert if things don't work out. 
+** Also could be useful if you need to have a number of versions of your code with small tweaks in them.
+* Tagging allows you to know exactly how your code looked at a particular revision
+** Useful for when you need to know if a bug / feature was present in the code at version x
+
+h2. What a central Git repository (like Github) gives you
+
+* Easily share code in a consistent, familiar manner.
+* Provide a backup of your source code for when your harddrive crashes.
+* A quick place to share code with yourself on multiple computers.
+** Keep working (and maintaining a history of your work) no matter where you are.
+
+h2. Worth it?
+
+I think it can be hard to prove that the added benefit you get from a version control system is worth the effort it takes to use it. Hopefully I can show that even with just a minimal amount of overhead, Git can be an valuable tool.
+
+h2. Assumptions
+
+* You are on a *nix based machine
+
+* Git is already installed on your system
+
+<pre class="terminal"><code>which git</code></pre>
+
+h2. Initial Setup
+
+There are a few steps that are good to take care of up front, to avoid frustrations later on. We will just execute these commands without too much explanation as to the details of what they do. Commands are executed in the terminal.
+
+h3. Set your get name and email
+
+{% highlight bash %}
+git config --global user.name "Jim Somebody"
+git config --global user.email "jims@domain.com"
+{% endhighlight %}
+
+h3. Turn on color for your git output
+
+{% highlight bash %}
+git config --global color.ui true
+{% endhighlight %}
+
+h3. Add global gitignore file for temporary files
+
+{% highlight bash %}
+# create .gitignore in home directory
+touch ~/.gitignore
+# add some files patterns to ignore
+echo "*.swp" >> ~/.gitignore
+echo ".DS_Store" >> ~/.gitignore
+# tell git about our global ignore
+git config --global core.excludesfile ~/.gitignore
+# you can add to this .gitignore file later
+# and each git project also can have its own 
+# specific .gitignore
+{% endhighlight %}
+
+
+
