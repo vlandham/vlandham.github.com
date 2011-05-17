@@ -36,10 +36,7 @@ I think it can be hard to prove that the added benefit you get from a version co
 h2. Assumptions
 
 * You are on a *nix based machine
-
 * Git is already installed on your system
-
-<pre class="terminal"><code>which git</code></pre>
 
 h2. Initial Setup
 
@@ -73,5 +70,26 @@ git config --global core.excludesfile ~/.gitignore
 # specific .gitignore
 {% endhighlight %}
 
+Ok, that takes care of most of the setup stuff. Lets get to using Git.
 
+h2. How Git works - the basics
 
+Here's a quick rundown of the basic points on how Git operates.
+
+h4. You Commit Changesets to a Git repository
+
+Git works with groups of changes to your files, which we will call changesets. A changeset can include adding / removing text inside a file and / or adding / removing entire files. A changeset is commited to the git repository to track the changes. The idea here is that each changeset should optimally contain changes for a single logical modification to your code.
+
+So, for example, if you codebase is a command line tool, a possible changeset would be adding the ability to specify an output directory. You would commit all the file modifications to complete this change as a single changeset. Another changeset could be the creation of a new class to represent 'xyz'. That would go into its own changeset and that changeset would be commited to the repository. 
+
+You can work at a lower or higher scope than this, but I belive working with individual logical changes as individual changes allows you to get the most from your repository. 
+
+h4. Git has a Staging area to Prepare your Commits
+
+As changesets can and often do include multiple files, you need a way to group your changes before commiting. That's where the staging area comes in. The staging area is a holding place for changes in a changeset that will be commited. 
+
+This makes commiting a change a 2 step process:
+* First, a change is added to the staging area
+* Then, the set of changes in the staging area (your changeset) is commited.
+
+This makes it easy to have lots of modified files, but pick and choose which changes go into individual commits. Without a staging area, you would have to either only work on a single changeset at a time, or be forced to combine modifications from different logical modifications into one large commit. Both of these options are no good - hence the staging area. 
