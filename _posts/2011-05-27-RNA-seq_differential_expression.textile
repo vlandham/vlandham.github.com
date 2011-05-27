@@ -65,7 +65,7 @@ In total, to determine a good value for @-r@ we need:
 The formula then becomes:
 
 {% highlight ruby %}
-Mean_Distance = Library_Size - (2 * Read_Length) - Adapter_Length
+Inner_Distance = Library_Size - (2 * Read_Length) - Adapter_Length
 {% endhighlight %}
 
 Or, for our specific run:
@@ -73,6 +73,8 @@ Or, for our specific run:
 {% highlight ruby %}
 315 - (2 * 40) - 121 = 114
 {% endhighlight %}
+
+315 was the reported average size of the library for this particular sample.
 
 I didn't fully understand all this on my initial run of the TopHat. So, my @-r@ was set to 122 - which is close. I re-ran TopHat using the same parameters, but with an @-r@ of 114, to see if there are any noticeable differences in the mapping quality.
 
