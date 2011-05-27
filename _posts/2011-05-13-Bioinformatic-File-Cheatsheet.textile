@@ -46,7 +46,7 @@ Generic Feature Format (v3)
 
 h3. Format
 
-Nine fields separated by tab characters
+9 fields separated by tab characters
 
 h3. Application Support
 
@@ -74,4 +74,61 @@ h3. Example
  9  ctg123 . exon            3000  3902  .  +  .  ID=exon00003;Parent=mRNA00001,mRNA00003
 10  ctg123 . exon            5000  5500  .  +  .  ID=exon00004;Parent=mRNA00001,mRNA00002,mRNA00003
 11  ctg123 . exon            7000  9000  .  +  .  ID=exon00005;Parent=mRNA00001,mRNA00002,mRNA00003
+</pre>
+
+h2. BED
+
+h3. Name
+
+BED
+
+h3. Format
+
+3 initial required fields and 9 additional optional fields. Fields are separated by a tab.
+
+*Required*
+
+# *chrom* - name of chromosome
+# *chromStart* - Starting position in chromosome. First base in chromosome is numbered 0. This 0 based indexing is different from other formats that use a 1 based index.
+# *chromEnd* - End position of feature in chromosome. 
+
+*Optional*
+
+# *name* - Name of BED line. 
+# *score* - Score with range of @(0..1000)@. Can denote display indcations
+# *strand* - '+' or '-'
+# *thickStart* - The starting position at which feature is drawn thickly
+# *thickEnd* - The ending position at which feature is drawn thickly
+# *itemRgb* - RGB value example: @255,0,0@ which can denote color to display data in BED line. Should limit to 8 colors or less in file.
+# *blockCount* - Number of exons (blocks) in the BED line
+# *blockSizes* - comma separated list of block sizes. Number of items in list should be equal to *blockCount*
+# *blockStarts* - comma separated list of block starts. Values are relative to *chromStart*. Number of items should be equal to *blockCount*
+
+h3. Application Support
+
+* "USCS Genome Browser":http://genome.ucsc.edu/FAQ/FAQformat.html
+
+h3. Source
+
+USCS?
+
+h3. Example
+
+<pre>
+chr1  213941196  213942363
+chr1  213942363  213943530
+chr1  213943530  213944697
+chr2  158364697  158365864
+</pre>
+
+<pre>
+chr7  127473530  127474697  Pos3  0  +  127473530  127474697  255,0,0
+chr7  127474697  127475864  Pos4  0  +  127474697  127475864  255,0,0
+chr7  127475864  127477031  Neg1  0  -  127475864  127477031  0,0,255
+</pre>
+
+<pre>
+track name=pairedReads description="Clone Paired Reads" useScore=1
+chr22 1000 5000 cloneA 960 + 1000 5000 0 2 567,488, 0,3512
+chr22 2000 6000 cloneB 900 - 2000 6000 0 2 433,399, 0,3601
 </pre>
