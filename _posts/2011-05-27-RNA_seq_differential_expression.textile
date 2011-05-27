@@ -51,7 +51,7 @@ Also, when speaking to associates, it sounds like their formula incorrect - or a
 
 We are trying to provide TopHat the average distance between the ends of the paired-end reads. So, we have our library which is composed of fragmented cDNA (the DNA insert), ligated to adapter sequences on both sides. This library is size selected *after* the adapters are ligated to the DNA insert. So, a 300bp library would have 300bp - Adapter_Length size inserts. 
 
-The trick is that during sequencing, sequencing starts at the DNA insert - *not* at the beginning of the adaptor. So, in order to figure out the distance between pair-end sequences, we need to subtract the Adapter_Length from the library size. There are adapter sequences on both sides of the DNA insert, so we need to subtract from both sides as we are reading from both sides. The total length of the Left_Adapter + Right_Adapter should suffice - this is what I'm calling Adapter_Length.
+The trick is that during sequencing, sequencing starts at the DNA insert - *not* at the beginning of the adaptor. You can see that this is the case from Illumina documentation. For example in the "Cluster Generation step shown here":http://www.dkfz.de/gpcf/850.html - it ends with the sequencing primer being hybridized to the DNA-templates. So, in order to figure out the distance between pair-end sequences, we need to subtract the Adapter_Length from the library size. There are adapter sequences on both sides of the DNA insert, so we need to subtract from both sides as we are reading from both sides. The total length of the Left_Adapter + Right_Adapter should suffice - this is what I'm calling Adapter_Length.
 
 h5. Mate-pair Distance Diagram
 
