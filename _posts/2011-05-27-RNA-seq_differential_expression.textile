@@ -33,7 +33,7 @@ h2. Pipeline Run
 
 The pipeline looks to be pretty simple:
 
-<pre class="terminal"><code>Sequence Files -> TopHat -> Manual Check -> Cufflinks -> Analysis</code></pre>
+p(hud). Sequences -> TopHat -> Manual Check -> Cufflinks -> Analysis
 
 h3. TopHat
 
@@ -53,10 +53,14 @@ We are trying to provide TopHat the average distance between the ends of the pai
 
 The trick is that during sequencing, sequencing starts at the DNA insert - *not* at the beginning of the adaptor. So, in order to figure out the distance between pair-end sequences, we need to subtract the Adapter_Length from the library size. There are adapter sequences on both sides of the DNA insert, so we need to subtract from both sides as we are reading from both sides. The total length of the Left_Adapter + Right_Adapter should suffice - this is what I'm calling Adapter_Length.
 
+h5. Mate-pair Distance Diagram
+
+p=. !images/rna_seq/paired_end_distance.png!
+
 In total, to determine a good value for @-r@ we need:
-* The size-selection target for the final library (usually around 300bp)
-* The read length (here 40bp)
-* The adapter length (for TruSeq adapters this looks to be 120bp or 121bp. For other paired-end adaptors, it is 98bp.).
+* The *size-selection* target for the final library (usually around 300bp)
+* The *read length* (here 40bp)
+* The *adapter length* (for TruSeq adapters this looks to be 120bp or 121bp. For other paired-end adaptors, it is 98bp.).
 
 The formula then becomes:
 
@@ -100,7 +104,7 @@ The total TopHat execution string looks something like:
 
 I would also ensure that your output directory exists prior to running. I do not know if TopHat creates this directory or exits out if it is not present.
 
-With @-p 4@ this took around 13 hours to complete. With @-p 8@ it took
+With @-p 4@ this took around *13 hours* to complete. With @-p 8@ it took
 
 h4. TopHat Run Analysis
 
@@ -108,7 +112,7 @@ I wanted to have some level of confidence that the output produced by this run w
 
 Online, I found "some":http://seqanswers.com/forums/showthread.php?t=9098 "posts":http://i.seqanswers.com/questions/80/interpreting-samtools-flagstat-output "using":http://seqanswers.com/forums/showthread.php?t=8389 *samtools flagstat* to look at sam/bam files. 
 
-I don't understand why a tool that everyone seems to know about is "not mentioned at all in the samtools manual page":http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=inurl%3Asamtools.sourceforge.net+flagstat
+I don't understand why a tool that everyone seems to know about is "not mentioned at all in the samtools manual page":http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=inurl%3Asamtools.sourceforge.net+flagstat !!
 
 Running @samtools@ on the command line with no arguments provides a short help section. Here @flagstat@ is listed with the description "simple stats". Very helpful. 
 
