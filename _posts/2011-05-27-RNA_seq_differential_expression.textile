@@ -7,6 +7,10 @@ categories:
 
 Here are some notes on processing RNA-seq data to find differentially expressed genes.
 
+A much abbreviated version of this pipeline comes from "Cufflink's Tutorial Page":http://cufflinks.cbcb.umd.edu/tutorial.html
+
+The extended version given below follows the more exploratory pattern of someone who hasn't done much (any) NGS data analysis before.
+
 h2. Tools Used
 
 * "TopHat":http://tophat.cbcb.umd.edu/manual.html v1.1.2
@@ -76,7 +80,7 @@ Or, for our specific run:
 
 315 was the reported average size of the library for this particular sample.
 
-I didn't fully understand all this on my initial run of the TopHat. So, my @-r@ was set to 122 - which is close. I re-ran TopHat using the same parameters, but with an @-r@ of 114, to see if there are any noticeable differences in the mapping quality.
+I didn't fully understand all this on my initial run of the TopHat. So, my @-r@ was set to 122 - which is close. I *re-ran TopHat* using the same parameters, but with an @-r@ of 114, to see if there are any noticeable differences in the mapping quality.
 
 h5. Gene Model Annotations
 
@@ -106,15 +110,17 @@ The total TopHat execution string looks something like:
 
 I would also ensure that your output directory exists prior to running. I do not know if TopHat creates this directory or exits out if it is not present.
 
-With @-p 4@ this took around *13 hours* to complete. With @-p 8@ it took
+With @-p 4@ this took around *13 hours* to complete. With @-p 8@ it took *ll hours*. 
 
 h4. TopHat Run Analysis
 
-I wanted to have some level of confidence that the output produced by this run was good. The log files produced by TopHat are undocumented and less than helpful. 
+I wanted to have some level of confidence that the output produced by this run was good. The log files produced by TopHat are undocumented and less than helpful.
+
+h5. samtools flagstat
 
 Online, I found "some":http://seqanswers.com/forums/showthread.php?t=9098 "posts":http://i.seqanswers.com/questions/80/interpreting-samtools-flagstat-output "using":http://seqanswers.com/forums/showthread.php?t=8389 *samtools flagstat* to look at sam/bam files. 
 
-I don't understand why a tool that everyone seems to know about is "not mentioned at all in the samtools manual page":http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=inurl%3Asamtools.sourceforge.net+flagstat !!
+I don't understand why a tool that everyone seems to know about is "not mentioned at all in the samtools manual page":http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=inurl%3Asamtools.sourceforge.net+flagstat 
 
 Running @samtools@ on the command line with no arguments provides a short help section. Here @flagstat@ is listed with the description "simple stats". Very helpful. 
 
@@ -136,12 +142,118 @@ $ samtools flagstat accepted_hits.bam
 0 + 0 with mate mapped to a different chr (mapQ>=5)
 {% endhighlight %}
 
+Results from the second run with @-r 114@ were similar:
+
+{% highlight bash %}
+102918381 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 duplicates
+102918381 + 0 mapped (100.00%:nan%)
+102918381 + 0 paired in sequencing
+51850866 + 0 read1
+51067515 + 0 read2
+63594438 + 0 properly paired (61.79%:nan%)
+96054574 + 0 with itself and mate mapped
+6863807 + 0 singletons (6.67%:nan%)
+0 + 0 with mate mapped to a different chr
+0 + 0 with mate mapped to a different chr (mapQ>=5)
+{% endhighlight %}
+
+Since @-r 122@ performed a bit better, I used it for the rest of the experiments
+
+I am not sure as to how useful this output really is. The 100% mapped sequences would indicate that it is not really looking at the whole picture.
+
+From a "flagstat biostar post":http://biostar.stackexchange.com/questions/6143/the-meaning-of-samtools-flagstat-output-of-illuminas-bam-file - we see this information about the "properly paired" section:
+
+bq. "Properly paired" is from the flags set by whatever aligner you've used. For instance, if you use bwa's 'sampe' alingment, you can specify the maximum insert length with -a. For a pair to be "properly paired" it would need to have both reads mapped to the same sequence within this distance.
+
+So the properly paired section is (perhaps) an indication of how well our choice of the mean inner distance worked for this data (63% not being that great?). To clarify, the flag that it looks to be counting is @0x2@ in the sam/bam file. From the "SAM format description":http://samtools.sourceforge.net/SAM1.pdf this flag is described as "each fragment properly aligned according to the aligner"
+
+{% highlight bash %}
+samtools view -c -f 0x2 accepted_hits.bam
+# 65032742
+{% endhighlight %}
+
+h5. samtools view
+
+The *main question* I would like to answer about this data is how many of the raw sequences were aligned and made it into the accepted_hits.bam file. Fastq files have 4 lines per sequence. So, to find the total number of sequences, one can use @wc -l@ and divide by 4:
+
+{% highlight bash %}
+wc -l s_1_1_sequence.txt
+# 188366840
+# 188366840 / 4 = 47091710
+# multiply by 2 to get
+# 94183420 reads from both pairs
+{% endhighlight %}
+
+Then we need to know the number of unique alignments in the accepted_hits.bam file. It is possible for one sequence from the fastq file to align multiple times. 
+
+The accepted_hits.bam have collapsed together the two pairs, so the last component of the sequence names - the @/1@ and @/2@ are missing. (Look at @head s_1_1_sequence.txt@,  then look at the first few values of field 1 of @samtools view accepted_hits.bam@ and you will see the name difference). Hence, the total number will be 2 times the number of unique names found in the .bam file. Here is a piping of commands that should pull out the name of the read and then count unique names to determine how many unique read were aligned:
+
+{% highlight bash %}
+samtools view accepted_hits.bam | cut -f 1 | sort | uniq | wc -l
+# 45153786
+# 45153786 * 2 = 90307572
+{% endhighlight %}
+
+So, from all this, we find that the total number of reads from the original sequence files that made it to the accepted_hits.bam file is:
+
+{% highlight ruby %}
+90307572 / 94183420 = 0.958 = 96%
+{% endhighlight %}
+
+h5. fastqc
+
+It is also possible to run fastqc on .bam files. I did that for the accepted_hits.bam file, but didn't get too much from the resulting output.
+
 h3. Cufflinks
 
-h4. Cufflinks Configuration
+Initially at least, I am only looking for differentially expressed genes, and *not* attempting to discover novel genes and transcripts. Thus, cufflinks was not run - instead we use *cuffdiff*.
 
-h4. Cufflinks Run
+h3. Cuffdiff
 
-h4. Cufflinks Analysis
+From the "cufflinks manual":http://cufflinks.cbcb.umd.edu/manual.html#cuffdiff
+
+bq. Cufflinks includes a program, "Cuffdiff", that you can use to find significant changes in transcript expression, splicing, and promoter use. 
+
+h4. Cuffdiff Configuration
+
+Cuffdiff requires just a few inputs
+
+h5. GTF file
+
+h5. @<transcripts.gtf>@
+
+This is the same gene annotation file that is provided as input with the @-G@ flag to TopHat.
+
+h5. Output directory
+
+h5. @-o@
+
+Same as TopHat, quarantine all the output to a uniquely named directory.
+
+h5. Number of Threads
+
+h5. @-p@
+
+Same as TopHat, number of processes to use.
+
+h5. Labels
+
+h5. @-L/--labels@
+
+Comma separated input to name each sample with.
+
+h5. Sample Bam files
+
+h5. @<sample1.sam>@ 
+
+Bam files produced by TopHat runs
+
+h4. Cuffdiff Run
+
+For this experiment, we have two wild type sample replicates and two mutant sample replicates. Thus, we call Cuffdiff like:
+
+<pre class="terminal"><code>cuffdiff -p 4 -o unique_output_dir/tophat/ -L wt,mut \
+/full/gtf/path/Mus_musculus.NCBIM37.52.gtf wt_1.bam,wt_2.bam mut_1.bam,mut_2.bam</code></pre>
 
 h3. Analysis
