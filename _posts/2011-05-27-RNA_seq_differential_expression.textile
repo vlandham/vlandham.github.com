@@ -158,7 +158,7 @@ Results from the second run with @-r 114@ were similar:
 0 + 0 with mate mapped to a different chr (mapQ>=5)
 {% endhighlight %}
 
-Since @-r 122@ performed a bit better, I used it for the rest of the experiments
+Since @-r 122@ performed a bit better, I used it for the rest of the samples 
 
 I am not sure as to how useful this output really is. The 100% mapped sequences would indicate that it is not really looking at the whole picture.
 
@@ -166,12 +166,19 @@ From a "flagstat biostar post":http://biostar.stackexchange.com/questions/6143/t
 
 bq. "Properly paired" is from the flags set by whatever aligner you've used. For instance, if you use bwa's 'sampe' alingment, you can specify the maximum insert length with -a. For a pair to be "properly paired" it would need to have both reads mapped to the same sequence within this distance.
 
-So the properly paired section is (perhaps) an indication of how well our choice of the mean inner distance worked for this data (63% not being that great?). To clarify, the flag that it looks to be counting is @0x2@ in the sam/bam file. From the "SAM format description":http://samtools.sourceforge.net/SAM1.pdf this flag is described as "each fragment properly aligned according to the aligner"
+So the properly paired section is (perhaps) an indication of how well our choice of the mean inner distance worked for this data (63% not being that great?). 
+
+To clarify, the flag that it looks to be counting is @0x2@ in the sam/bam file. From the "SAM format description":http://samtools.sourceforge.net/SAM1.pdf this flag is described as "each fragment properly aligned according to the aligner"
 
 {% highlight bash %}
 samtools view -c -f 0x2 accepted_hits.bam
 # 65032742
+# same number as above in properly paired
 {% endhighlight %}
+
+According to an "unanswered SEQAnswers question":http://seqanswers.com/forums/showthread.php?t=8186 , TopHat might not be setting this flag correctly or perhaps this flag is used differently in TopHat. I haven't found any answers from the TopHat developers, and I haven't looked in the source code yet.
+
+
 
 h5. samtools view
 
@@ -204,6 +211,32 @@ So, from all this, we find that the total number of reads from the original sequ
 h5. fastqc
 
 It is also possible to run fastqc on .bam files. I did that for the accepted_hits.bam file, but didn't get too much from the resulting output.
+
+h5. Increased @-r@ parameter
+
+As a final experiment, I used @-r 200@ to see what difference it would make (as a decrease lowered the % properly paired). The flagstat results did show an increase in the number of properly paired sequences:
+
+{% highlight bash %}
+103022448 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 duplicates
+103022448 + 0 mapped (100.00%:nan%)
+103022448 + 0 paired in sequencing
+51902899 + 0 read1
+51119549 + 0 read2
+72500578 + 0 properly paired (70.37%:nan%)
+96158642 + 0 with itself and mate mapped
+6863806 + 0 singletons (6.66%:nan%)
+0 + 0 with mate mapped to a different chr
+0 + 0 with mate mapped to a different chr (mapQ>=5)
+{% endhighlight %}
+
+However, I get the same number of unique mappings from the samtools view:
+{% highlight bash %}
+samtools view accepted_hits.bam | cut -f 1 | sort | uniq | wc -l
+# 45153786
+{% endhighlight %}
+
+So we will stick with @-r 122@
 
 h3. Cufflinks
 
