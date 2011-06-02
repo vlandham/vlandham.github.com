@@ -39,7 +39,8 @@ body {
 }
 
 #header h1 {
-	font-size: 6em;
+  font-family: 'Droid Serif', arial, serif;
+	font-size: 5.0em;
 	display: inline;
 	letter-spacing: -0.03em;
 	color: #3d3d3d;
