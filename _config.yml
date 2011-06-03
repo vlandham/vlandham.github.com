@@ -7,7 +7,7 @@ markdown:    rdiscount
 permalink:   /:title.html
 
 #base_url: http://vlandham.com
-# base_url: /
+#base_url: /
 description: ""
 
 rdiscount:

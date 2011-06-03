@@ -18,7 +18,7 @@ body {
 }
 
 #wrapper {
-	width: 55em;
+	width: 850px;
 	margin: 2em auto 0;
 	padding: 0;
 	background: #fff;
@@ -28,7 +28,7 @@ body {
 }
 
 .container {
-	width: 55em;
+	width: 850px;
 }
 
 #header {
@@ -82,7 +82,7 @@ body {
 
 a.title {
 	color: #8C0101;
-	font-size: 1.4em;
+	font-size: 1.6em;
 	text-decoration: none;
 }
 
