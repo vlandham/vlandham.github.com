@@ -1,9 +1,11 @@
 ---
 layout: default
-title: blog
+title: posts
 ---
 <ul class="posts">
-    {% for post in site.posts %}
-    <li><a class="title" href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
+  {% for post in site.posts %}
+  <li><a class="title" href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
 </ul>
+
+<a href="http://github.com/vlandham"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a> 
