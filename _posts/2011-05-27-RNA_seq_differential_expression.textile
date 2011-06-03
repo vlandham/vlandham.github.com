@@ -231,6 +231,7 @@ As a final experiment, I used @-r 200@ to see what difference it would make (as 
 {% endhighlight %}
 
 However, I get the same number of unique mappings from the samtools view:
+
 {% highlight bash %}
 samtools view accepted_hits.bam | cut -f 1 | sort | uniq | wc -l
 # 45153786
