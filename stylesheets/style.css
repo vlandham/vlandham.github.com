@@ -21,7 +21,7 @@ body {
 	width: 850px;
 	margin: 2em auto 0;
 	padding: 0;
-	background: #fff;
+	background: #F9F2E9;
 	-moz-border-radius: 1.5em;
 	-webkit-border-radius: 1.5em;
 	border-radius: 1.5em;
@@ -43,8 +43,12 @@ body {
 	font-size: 5.0em;
 	display: inline;
 	letter-spacing: -0.03em;
-	color: #3d3d3d;
 	font-weight: normal;
+}
+
+#header h1 a {
+  text-decoration: none;
+	color: #3d3d3d;
 }
 
 #menu {
@@ -73,13 +77,6 @@ body {
 	padding: 2em;
 }
 
-.project {
-	/*background: #ffffff;*/
-  	/*-moz-border-radius: 1em;
-	border-radius: 1em;
-	background: #F7FBFF;*/
-}
-
 a.title {
 	color: #8C0101;
 	font-size: 1.6em;
@@ -103,40 +100,18 @@ a.title:hover {
 	padding-right: 1.5em;
 }
 
-.posts {
+#posts {
 	list-style: none;
 }
 
-#post pre {
-    border: 1px solid #ddd;
-    background-color: #eef;
-    padding: 0 .4em;
-  }
+a.post_title {
+	color: #8C0101;
+	font-size: 1.8em;
+	text-decoration: none;
+}
 
-  #post ul,
-  #post ol {
-    margin-left: 1.35em;
-  }
+a.post_title:hover {
+	text-decoration: underline;
+}
 
-  #post code {
-    border: 1px solid #ddd;
-    background-color: #eef;
-    font-size: 85%;
-    padding: 0 .2em;
-  }
-
-    #post pre code {
-      border: none;
-    }
-
-  /* terminal */
-
-  #post pre.terminal {
-    border: 1px solid black;
-    background-color: #333;
-    color: white;
-  }
-
-  #post pre.terminal code {
-    background-color: #333;
-  }
+ 

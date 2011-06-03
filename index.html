@@ -2,9 +2,9 @@
 layout: default
 title: posts
 ---
-<ul class="posts">
+<ul id="posts">
   {% for post in site.posts %}
-  <li><a class="title" href="{{ post.url }}">{{ post.title }}</a></li>
+  <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
