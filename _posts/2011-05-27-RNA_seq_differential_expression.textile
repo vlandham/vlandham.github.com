@@ -39,6 +39,10 @@ The pipeline looks to be pretty simple:
 
 p(hud). Sequences -> TopHat -> Manual Check -> Cufflinks -> Analysis
 
+h3. Removing Duplicates
+
+No duplicate removal step was performed. Pros and Cons that "this seqanswers post":http://seqanswers.com/forums/showthread.php?t=6854 seems to address well. Bottom line is that it is impossible to tell if a duplicate read really is from pcr bias. Removing them causes a loss of information and location based removal methods don't work with RNA-seq data.
+
 h3. TopHat
 
 h4. TopHat Configuration
