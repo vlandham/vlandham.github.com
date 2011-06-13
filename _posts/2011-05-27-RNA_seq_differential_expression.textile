@@ -182,8 +182,6 @@ samtools view -c -f 0x2 accepted_hits.bam
 
 According to an "unanswered SEQAnswers question":http://seqanswers.com/forums/showthread.php?t=8186 , TopHat might not be setting this flag correctly or perhaps this flag is used differently in TopHat. I haven't found any answers from the TopHat developers, and I haven't looked in the source code yet.
 
-
-
 h5. samtools view
 
 The *main question* I would like to answer about this data is how many of the raw sequences were aligned and made it into the accepted_hits.bam file. Fastq files have 4 lines per sequence. So, to find the total number of sequences, one can use @wc -l@ and divide by 4:
@@ -245,7 +243,9 @@ So we will stick with @-r 122@
 
 h3. Cufflinks
 
-Initially at least, I am only looking for differentially expressed genes, and *not* attempting to discover novel genes and transcripts. Thus, cufflinks was not run - instead we use *cuffdiff*.
+Initially at least, I am only looking for differentially expressed genes, and *not* attempting to discover novel genes and transcripts, so I didn't think I would need Cufflinks. However, it does provide raw FPKM values - which I found useful when trying to compare the expression values of the sample replicates. 
+
+I ended up running Cufflinks after I did the analysis with Cuffdiff to go back and show that the replicates were similar. The parameters I used for Cufflinks were pretty much the same as the ones used for cuffdiff.
 
 h3. Cuffdiff
 
@@ -294,4 +294,24 @@ For this experiment, we have two wild type sample replicates and two mutant samp
 <pre class="terminal"><code>cuffdiff -p 4 -o unique_output_dir/tophat/ -L wt,mut \
 /full/gtf/path/Mus_musculus.NCBIM37.52.gtf wt_1.bam,wt_2.bam mut_1.bam,mut_2.bam</code></pre>
 
+And that was it. It produces a set of files - including @gene_exp.diff@ which was the main output that I used for analyzing gene expression differences.
+
 h3. Analysis
+
+Some quick notes on the limited analysis I performed on this data. Most analysis was done using R:
+
+h4. Replicate Analysis
+
+First I wanted to show that the data was good. This included comparing the gene expression profiles of the two replicates for each sample. I normalized the FPKM data by taking the log2 of these values. I also removed values that were marked as having problems from TopHat (one of the columns in the @gene_exp.diff@ has an "OK" if things were ok, and other values if things went wrong. I used only "OK" entries - which proved important when trying to compare replicates), and genes that were not expressed in both replicates.
+
+I produced a lattice of scatterplots that showed correlation between each sample. I also produced a correlation matrix and the resulting correlation values that showed the replicates to be highly correlated.
+
+h4. Differential Expression Analysis
+
+First I plotted the log2 values and highlighted those that cuffdiff thought were statistically significant (Up-regulated in red. Down-regulated in blue). Cuffdiff listed over 8,000 genes as noteworthy, so most of the rest of the analysis here was spent cutting that down to smaller chunks. 
+
+I used the log2 values and took only those genes with a 2-fold or more change. And then cut this down further by specifying to only look in the region we were interested in.
+
+h3. The End
+
+Hopefully this can help others just getting started with RNA-seq data analysis. We hope to evolve this process and get good at finding biologically interesting/relevant changes for the researchers we support.
