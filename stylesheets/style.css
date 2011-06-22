@@ -31,6 +31,11 @@ body {
 	width: 850px;
 }
 
+.instagram .instagram-image {
+  float: left;
+  padding-right: 20px;
+}
+
 #header {
 /*	text-transform: lowercase;*/
 	text-align: left;

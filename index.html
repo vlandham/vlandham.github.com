@@ -2,10 +2,24 @@
 layout: default
 title: posts
 ---
+<h1>Posts</h1>
+<script> 
+  $(document).ready(function() {
+    $(".instagram").instagram({
+      clientId: 'ea6a9d95c5154a98991ab95d6b14c85c',
+      hash: 'vlandham',
+      show: 5
+    });
+  });
+</script>
 <ul id="posts">
   {% for post in site.posts %}
   <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
+
+<h1>Pictures</h1>
+
+<div class="instagram"></div>
 
 <a href="http://github.com/vlandham"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a> 
