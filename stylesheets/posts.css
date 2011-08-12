@@ -1,3 +1,9 @@
+
+#post h2 {
+  border-top: 3px solid #343434;
+  margin-top: 20px;
+}
+
 #post pre {
     border: 1px solid #ddd;
     background-color: #eef;
@@ -59,4 +65,9 @@ table.ingredients {
 .post_date {
   color: #4e4e4e;
   padding-left: 20px;
+}
+
+.box {
+  padding: 10px;
+  border: 2px solid #dddddd;
 }
