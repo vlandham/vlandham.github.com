@@ -13,18 +13,17 @@ a img {
 }
 
 body {
-	background-color: #ADD9CE;
-	background-image: url("../images/background.png");
+  background-color:white;
 }
 
 #wrapper {
 	width: 850px;
 	margin: 2em auto 0;
 	padding: 0;
-	background: #f1f1f1;
-	-moz-border-radius: 1.5em;
-	-webkit-border-radius: 1.5em;
-	border-radius: 1.5em;
+	background-color: white;
+	/*-moz-border-radius: 1.5em;*/
+	/*-webkit-border-radius: 1.5em;*/
+	/*border-radius: 1.5em;*/
 }
 
 .container {
