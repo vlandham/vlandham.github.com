@@ -30,6 +30,10 @@ body {
 	width: 850px;
 }
 
+.instagram {
+  padding-top: 30px;
+}
+
 .instagram .instagram-image {
   float: left;
   padding-right: 20px;
@@ -91,7 +95,6 @@ a.title:hover {
 	text-decoration: underline;
 }
 
-
 #footer {
   margin-bottom: 2em;
   color: #3E423A;
@@ -112,6 +115,7 @@ a.post_title {
 	color: #8C0101;
 	font-size: 1.8em;
 	text-decoration: none;
+  line-height: 60px;
 }
 
 a.post_title:hover {
