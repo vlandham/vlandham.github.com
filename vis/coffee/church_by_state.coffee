@@ -1,3 +1,9 @@
+# Thanks to http://dealloc.me/demos/crime/2011.html for
+# inspiration and a basic template to follow.
+# Also http://projects.flowingdata.com/timeuse/
+# and https://gist.github.com/1203641
+# and https://gist.github.com/1091420
+
 $ ->
   [pt,pl,pb,pr] = [35, 20, 20, 20]
   w = (400 - (pl + pr)) / 2
@@ -6,17 +12,24 @@ $ ->
   arc = d3.svg.arc().outerRadius(r)
   pie = d3.layout.pie().value((d) -> d.percent)
 
+# I don't like this combining the pie
+# angle data with the raw json data.
+# However, I need access to the names of the 
+# sects along with the angle data - so I couldnt
+# think of a better way to do this.
   combine_pie_data = (data) ->
     pies = pie(data.sects)
     return_data = for a_pie, i in pies
       {pie:a_pie, data:data.sects[i]}
     return_data
 
-  key_w = 300
+  key_w = 230
   key_h = 30
   key_r = 10
 
 
+# Where would be a better place to store
+# color information? in another json file?
   colors = {
     "Catholic": "#F3CAA2",
     "Methodist": "#BBD5BE",
@@ -35,13 +48,20 @@ $ ->
     "All Other": "#C08F81"
   }
 
-  colors_array = for name, value of colors
+# Convert colors to an array, because I don't know
+# how to attach a hash to a d3 selection...
+  colors_data = for name, value of colors
     [name, value]
 
 
   d3.json "data/church_by_state.json", (json) ->
+
+    # Keys
+
+    # Is there a way to get the keys construction
+    # separated from the pie charts construction?
     keys = d3.select("#keys").selectAll('.key')
-      .data(colors_array)
+      .data(colors_data)
     .enter().append('div')
       .attr('class', 'key')
 
@@ -51,15 +71,19 @@ $ ->
     .append("svg:g")
       .attr("transform", "translate(#{(key_r)},#{(key_r)})")
 
+    # key circles
     keys_vis.append("svg:circle")
       .attr("r", key_r)
       .attr("fill", (d) -> d[1])
 
+    # key text
     keys_vis.append("svg:text")
       .attr("class", "title")
       .text((d) -> d[0])
       .attr("dy", (key_r / 2))
       .attr("dx", (key_r * 2))
+
+    # Pie Charts
 
     data = json
     containers = d3.select("#vis").selectAll('.state')
@@ -73,6 +97,7 @@ $ ->
     .append("svg:g")
       .attr("transform", "translate(#{(pr)},#{(pt)})")
 
+    # state name
     vis.append("svg:text")
       .attr("class", "title")
       .text((d) -> d.state)
@@ -80,13 +105,14 @@ $ ->
       .attr("transform", "translate(#{(w - (pl + pr)) / 2})")
       .attr("text-anchor", "middle")
 
-    # arc groups
+    # arc groups - pie pieces
     sects = vis.selectAll('.sect')
       .data((d) -> combine_pie_data(d))
     .enter().append("svg:g")
       .attr("class", "sect")
       .attr("transform", "translate(#{r},#{r})")
 
+    # draw pie pieces
     sects.append("svg:path")
       .attr("d", (d, i) -> arc(d.pie))
       .style("fill", (d, i) -> colors[d.data.name])

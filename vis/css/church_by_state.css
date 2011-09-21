@@ -51,7 +51,15 @@ footer p {
 }
 
 #keys {
+  text-align:center;
   margin-top: 20px;
+  height: 170px;
+  width:100%;
+}
+
+.key {
+  display:inline-block;
+  text-align:center;
 }
 
 .state {
