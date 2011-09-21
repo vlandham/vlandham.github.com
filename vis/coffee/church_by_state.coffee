@@ -3,12 +3,22 @@
 # Also http://projects.flowingdata.com/timeuse/
 # and https://gist.github.com/1203641
 # and https://gist.github.com/1091420
+# For more inspiration and answered questions
+
+# TODO: Sorting, Interaction, Different Representations
+# Also, some styling is in css, some in svg. Not sure
+# if this is a good way to do things.
 
 $ ->
   [pt,pl,pb,pr] = [35, 20, 20, 20]
   w = (400 - (pl + pr)) / 2
   h = w
   r = (w - (pl + pr )) / 2
+
+  key_w = 230
+  key_h = 30
+  key_r = 10
+
   arc = d3.svg.arc().outerRadius(r)
   pie = d3.layout.pie().value((d) -> d.percent)
 
@@ -17,19 +27,19 @@ $ ->
 # However, I need access to the names of the 
 # sects along with the angle data - so I couldnt
 # think of a better way to do this.
+#
+# A potential bug in this process: 
+# This only works if the pie pieces are NOT sorted
+# when returned back from pie.
   combine_pie_data = (data) ->
     pies = pie(data.sects)
     return_data = for a_pie, i in pies
       {pie:a_pie, data:data.sects[i]}
     return_data
 
-  key_w = 230
-  key_h = 30
-  key_r = 10
-
-
 # Where would be a better place to store
 # color information? in another json file?
+# In the css somehow?
   colors = {
     "Catholic": "#F3CAA2",
     "Methodist": "#BBD5BE",
@@ -53,13 +63,15 @@ $ ->
   colors_data = for name, value of colors
     [name, value]
 
-
   d3.json "data/church_by_state.json", (json) ->
 
     # Keys
 
     # Is there a way to get the keys construction
     # separated from the pie charts construction?
+    # putting it outside this function made it so
+    # the code wasn't executed. Or perhaps I was 
+    # doing something wrong at the time
     keys = d3.select("#keys").selectAll('.key')
       .data(colors_data)
     .enter().append('div')
@@ -117,9 +129,10 @@ $ ->
       .attr("d", (d, i) -> arc(d.pie))
       .style("fill", (d, i) -> colors[d.data.name])
       .style("stroke", "#333")
-    
-    sects.append("svg:text")
-      .attr("transform", (d) -> "translate(#{arc.centroid(d.pie)})")
-      .attr("text-anchor", "middle")
-      .attr("fill", "#333")
+   
+# arc.centroid returning NaN
+    #sects.append("svg:text")
+    #  .attr("transform", (d) -> "translate(#{arc.centroid(d.pie)})")
+    #  .attr("text-anchor", "middle")
+    #  .attr("fill", "#333")
 
