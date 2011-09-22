@@ -2,8 +2,8 @@
 # most of the design to follow. Also http://mbostock.github.com/d3/ex/population.html
 # and of course http://jashkenas.github.com/coffee-script/
 $ ->
-  w = 800
-  [pt, pr, pb, pl] = [30, 15, 0, 100]
+  w = 780
+  [pt, pr, pb, pl] = [30, 15, 0, 120]
   bar_h = 20
   bar_space = 10
 
