@@ -2,6 +2,8 @@
 # most of the design to follow. Also http://mbostock.github.com/d3/ex/population.html
 # and of course http://jashkenas.github.com/coffee-script/
 $ ->
+  # the width and the left padding are linked.
+  # should one be derived from the other?
   w = 780
   [pt, pr, pb, pl] = [30, 15, 0, 120]
   bar_h = 20
@@ -19,6 +21,10 @@ $ ->
 # Where would be a better place to store
 # color information? in another json file?
 # In the css somehow?
+# For this vis, the names here are only used
+# in the creation of the key section. The
+# color matching is now done using the 'index'
+# parameter of the data.
   colors = {
     "Germany":"#B1C6A9"
     "Ireland":"#EF9E7A"
@@ -74,6 +80,10 @@ $ ->
   d3.json "data/nationality_by_city.json", (json) ->
     data = json
 
+    # ordinal scale wasn't working with the raw data
+    # variable. I assume this is because data couldn't
+    # be converted to a string?
+    # City names is used here in place of raw data.
     city_names = for city in data
       city.city
 
