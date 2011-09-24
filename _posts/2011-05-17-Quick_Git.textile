@@ -2,7 +2,7 @@
 layout: post
 title: Really Quick Git
 categories:
-- git
+- other
 ---
 
 h3. An attempt to quickly demonstrate the usefulness of Git for the single-developer environment

@@ -3,7 +3,7 @@ published: false
 layout: post
 title: The Great Bread Experiment
 categories:
-- food
+- other
 ---
 
 An attempt at making the best no-knead bread with the least amount of work.

@@ -2,8 +2,7 @@
 layout: post
 title: Marketcetera 1.5 on Ubuntu 10.10
 categories:
-- stock
-- linux
+- other
 ---
 
 "Marketcetera":http://www.marketcetera.org/ is an Eclipse-based trading system.

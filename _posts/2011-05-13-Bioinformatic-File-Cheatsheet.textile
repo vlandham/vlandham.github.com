@@ -2,7 +2,7 @@
 layout: post
 title: Bioinformatic File Cheatsheet
 categories:
-- 
+- bioinfo
 ---
 
 Some quick notes on common file formats used in the bioinformatic world I am now part of.

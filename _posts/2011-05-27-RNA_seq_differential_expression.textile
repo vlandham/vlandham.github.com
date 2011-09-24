@@ -2,7 +2,7 @@
 layout: post
 title: "RNA-seq: Finding Differentially Expressed Genes"
 categories:
-- bioinformatics
+- bioinfo
 ---
 
 Here are some notes on processing RNA-seq data to find differentially expressed genes.
