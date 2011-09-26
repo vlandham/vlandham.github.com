@@ -13,6 +13,8 @@ a img {
 }
 
 body {
+  font-family: 'Droid Serif', arial, serif;
+  font-weight:400;
   background-color:white;
 }
 
@@ -32,11 +34,13 @@ body {
 
 .instagram {
   padding-top: 30px;
+  padding-left: 60px;
 }
 
 .instagram .instagram-image {
   float: left;
   padding-right: 20px;
+  padding-bottom: 5px;
 }
 
 #header {
@@ -48,10 +52,10 @@ body {
 
 #header h1 {
   font-family: 'Droid Serif', arial, serif;
+  font-weight:700;
 	font-size: 5.0em;
 	display: inline;
 	letter-spacing: -0.03em;
-	font-weight: normal;
 }
 
 #header h1 a {
@@ -115,11 +119,16 @@ a.post_title {
 	color: #8C0101;
 	font-size: 1.8em;
 	text-decoration: none;
-  line-height: 60px;
+  line-height: 40px;
 }
 
 a.post_title:hover {
 	text-decoration: underline;
 }
 
- 
+.section {
+  border-bottom: 3px solid #3E423A;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+
