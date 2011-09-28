@@ -1,10 +1,10 @@
 ---
 layout: post
-title: What to install on your new Mac 
-categories: code
-- 
+title: What to install on your new - old - Mac 
+categories:
+- other
 ---
-h3. A quick list of the first installs I perform which make using the Mac even more awesome.
+h3. A quick list of the first installs I perform on Mac OSX 10.5 that make using the Mac even more awesome.
 
 h3. (In roughly the order in which I install them)
 
