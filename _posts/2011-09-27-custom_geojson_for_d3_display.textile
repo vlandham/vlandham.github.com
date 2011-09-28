@@ -104,9 +104,9 @@ d3.json "data/kc3.json", (json) ->
     .attr("stroke", "#222")
 {% endhighlight %}
 
-You can see there is an arbitrary translation and scaling involved with the projection. This was done to zoom in on the region of interest. I am not sure what a better way to this would be. Any ideas / suggestions? Some idea of where to start with these values was provided by the "Azimuthal Projection Toy":http://enja.org/advd3/azimuthal/azimuthal.html from "Ian Johnson":http://enja.org/about/ .
+This is mostly the same code as the "D3's choropleth example":http://mbostock.github.com/d3/ex/choropleth.html . You can see there is an arbitrary translation and scaling involved with the projection. This was done to zoom in on the region of interest. I am not sure what a better way to this would be. Any ideas / suggestions? Some idea of where to start with these values was provided by the "Azimuthal Projection Toy":http://enja.org/advd3/azimuthal/azimuthal.html from "Ian Johnson":http://enja.org/about/ .
 
-I also use the "STATEFP10" property of each tract to determine the fill color. This results in different colors for Kansas and Missouri. Here's an image of the result:
+I also use the "STATEFP10" property of each tract to determine the fill color. This results in different colors for Kansas and Missouri, to show that these properties are present in the simplified geoJSON. Here's an image of the result:
 
 !images/gis/kc_tracts_small.png!:images/gis/kc_tracts.png
 
