@@ -19,7 +19,7 @@ $ ->
   map.addLayer(census_layer)
 
   census_layer.on 'featureparse', (e) ->
-    e.layer.setStyle {fillColor: "#ddd", color: "#000", weight:2, opacity:0.5, fillOpacity:0.2, fill:true, stroke:true}
+    e.layer.setStyle {fillColor: "#ddd", color: "#000", weight:2, opacity:0.5, fillOpacity:0.8, fill:true, stroke:true}
 
     # save these for later
     e.layer.json_properties = e.properties
@@ -32,4 +32,25 @@ $ ->
 
   d3.json "data/kc-tracts.json", (json) ->
     census_layer.addGeoJSON(json)
+
+    d3.csv "data/ks_mo_tracts_race.csv", (csv) ->
+      max_pop = d3.max(csv, (d) -> d.P003003 / d.P003001)
+      min_pop = d3.min(csv, (d) -> d.P003003 / d.P003001)
+      color = d3.scale.linear().range(["#F5F5F5", "#303030"]).domain([min_pop, max_pop])
+
+      csv_hash = {}
+      for tract in csv
+        csv_hash[tract.GEOID] = tract
+
+      console.log(csv_hash)
+
+      console.log(census_layer)
+
+      census_layer._iterateLayers (la) ->
+        
+        data = csv_hash[la.json_properties['GEOID10']]
+        if data and data.POP100 > 50
+          col = color(data.P003003 / data.P003001)
+          la.setStyle {fillColor: col}
+
 
