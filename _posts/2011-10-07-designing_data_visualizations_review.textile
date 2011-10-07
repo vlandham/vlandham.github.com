@@ -1,0 +1,55 @@
+---
+layout: post
+title: Designing Data Visualizations Review
+categories:
+- vis
+---
+
+Having just finished reading "Designing Data Visualization":http://shop.oreilly.com/product/0636920022060.do by "Noah Iliinsky":http://twitter.com/#!/noahi and "Julie Steele":http://twitter.com/#!/jsteeleeditor, I wanted to provide a short review of this book. 
+
+p=. !http://vallandingham.me/images/ddv.png!
+
+h3. DDV's Focus
+
+DDV was made for people like me in mind: novices in the world of data visualization. From the preface, we read that the book's purpose is to provide a high-level overview of the visualization landscape:
+
+bq. It will give you the general lay of the land. It is a set of steps and rules to follow that will get you 80% of the way to turning out great work.
+
+I think this is a worthy goal - and one that this book is successful at. 
+
+At first, I was surprised a bit by the physical size of the book. In the same Amazon purchase, I also had grabbed "Visualize This":http://www.amazon.com/Visualize-This-FlowingData-Visualization-Statistics/dp/0470944889/ and "Show Me the Numbers":http://www.amazon.com/Show-Me-Numbers-Designing-Enlighten/dp/0970601999/ . Compared to these two, Designing Data Visualizations is tiny: roughly 85 pages of content, with another 10 pages of appendix. However, given the goal of this work - I believe the size is appropriate. The appendix includes a checklist to go over when designing visualizations. Much of this book then serves to elaborate, explain, and justify this checklist as a way of creating solid visualizations. I think when attempting to explain an entire framework for how visualizations should be created, succinctness is important, less the reader gets lost in the details.
+
+h3. DDV's Content
+
+Designing Data Visualizations is broken up into two parts. Part 1 is short, only two chapters, and serves to provide a vocabulary of visualization types and approaches to categorizing these types. The preface also includes a section entitled "What We Mean When We Say..." which is very reminiscent of the recent "The Many Words for Visualization":http://flowingdata.com/2011/09/29/the-many-words-for-visualization/ from "Flowing Data":http://flowingdata.com/ . I found these definitions to be very useful in defining this vocabulary, and though some definitions are repeated in chapters 1 and 2, I wish they had fleshed out this list as a third chapter. It would have provided a more comprehensive 'language of visualization'. As it stands, its still a good list.
+
+Part 2 is where the meat of the book is, as stated in the Preface:
+
+bq. The goal is to help you think in a linear way about how to select and apply appropriate encodings for your data.
+
+The encoding of data dimensions into visual components is something I have been really looking for more info on - and where Designing Data Visualizations shines. DDV provides a clean, systematic way of understanding, prioritizing, and applying the myriad of the possible encodings available to visualization designers. 
+
+Encoding of data is certainly a main topic of other data visualization books and papers. The "Classic Paper Reading List":http://fellinlovewithdata.com/guides/7-classic-foundational-vis-papers from "Fell in Love with Data":http://fellinlovewithdata.com/ , for example, includes _Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods_, which is mainly on encoding. And as Enrico summarizes:
+
+bq. [V]isual encoding is hard stuff and you shouldn't take it too lightly. And that visual primitives do have a ranking that you have to take into account if you want to design effective data visualizations.
+
+DDV takes these various encoding discussions, combines them, and presents them as part of a larger design framework. This framework for how to think and design visualizations is great and a process that can be immediately followed by beginners and customized or altered by more experienced data encoders. The framework encompasses a lot of topics. Some highlights include: using position as a primary encoding, the proper use of colors, and some pitfalls to avoid - especially when dealing with circle-based graphs.
+
+DDV doesn't spend a lot of ink talking about the specifics of different types of graphs, like bar charts, steamgraphs, etc (although a nice organized list is given). I think this is a good thing. "Visualize This":http://flowingdata.com/2011/09/29/the-many-words-for-visualization/ as well as texts like "Ben Fry's PhD Thesis":http://benfry.com/phd/ already provide through introductions to chart types. Duplication of this effort of "chart enumeration" in DDV would have made many readers of this book glaze over a bit.
+
+h3. DDV's Weaknesses
+
+I have two small issues with the text. The first of which is the format that I purchased it in.
+
+This is one of the first books I've read in a physical form where I thought it would have been better experienced  in the digital version instead. I like reading on paper still, underlining, making notes and what-not (perhaps I should finally buy a Kindle). This book is printed in gray-scale only, but many of the example charts and graphs discussed in it don't really make a lot of sense unless you are looking at the color versions. This is mentioned explicitly at the end of the prefix, with a link providing access to the full-color versions. However, jumping back and forth between a book and a screen is distracting and sometimes not possible (another reason I like books is to get away from my computer screen for awhile). This is why I would recommend getting the ebook version of this text - or even better - get the bundled version and have the digital copy at the ready for viewing graphics. 
+
+Secondly, I think they could have structured the reading list in the appendix a bit to provide more of a guided tour of where to go next in developing a strong data visualization design process. The goal of this book is to "start you down the path" of data visualization - which it does nicely. Now that you are on the path, however, what direction do you go at the crossroads?
+
+That said, the reading list is still very valuable - and includes many more texts I plan on picking up. I just wish they had ended it with a nice big sign that said "Now Go Here for another 10%". Perhaps the authors are planning a sequel...
+
+h3. Summary
+
+All in all, "Designing Data Visualizations":http://shop.oreilly.com/product/0636920022060.do is a great resource for individuals just getting started in the visualization world, and I would guess it will be valuable for experienced designers as well, as a way to organize their processes in the context of data design framework. The book is relatively short and to the point. No words are extraneous. The ink is maximized for content. I would recommend getting the digital copy, if possible, for the smoothest reading experience.
+
+Thanks very much to Julie and Noah for this great resource!
+
