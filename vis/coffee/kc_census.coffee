@@ -30,10 +30,10 @@ $ ->
     text = "#{e.layer.json_properties.GEOID10}"
     e.layer.bindPopup(text)
 
-  d3.json "data/kc-tracts.json", (json) ->
+  d3.json "data/cities/kc_tracts.json", (json) ->
     census_layer.addGeoJSON(json)
 
-    d3.csv "data/ks_mo_tracts_race.csv", (csv) ->
+    d3.csv "data/cities/kc_race.csv", (csv) ->
       max_pop = d3.max(csv, (d) -> d.P003003 / d.P003001)
       min_pop = d3.min(csv, (d) -> d.P003003 / d.P003001)
       color = d3.scale.linear().range(["#F5F5F5", "#303030"]).domain([min_pop, max_pop])
