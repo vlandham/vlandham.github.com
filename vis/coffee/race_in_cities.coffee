@@ -1,10 +1,10 @@
 
 @showCity = (cityId) ->
   cities = {
-    "kc": {id:"kc", name:"kc", x:-1200, y:1040, scale:36000},
-    "sl": {id:"sl", name:"st_louis", x:1, y:1, scale:1},
-    "dn": {id:"dn", name:"denver", x:1, y:1, scale:1},
-    "oc": {id:"oc", name:"ok_city", x:0, y:0, scale:1}
+    "kc": {id:"kc", name:"kc", x:-500, y:800, scale:20000},
+    "sl": {id:"sl", name:"st_louis", x:-1600, y:750, scale:20000},
+    "dn": {id:"dn", name:"denver", x:2300, y:1200, scale:20000},
+    "oc": {id:"oc", name:"ok_city", x:280, y:-550, scale:20000}
   }
 
   data = cities[cityId]
@@ -28,7 +28,7 @@ edge = (a, b) ->
   dy = (a.y - b.y)
   diff = difference_between(a.tract_data, b.tract_data) * 100
   e = {source: a, target:b, distance: Math.sqrt(dx * dx + dy * dy) + diff}
-  #e = {source: a, target:b, distance: 1}
+  #e = {source: a, target:b, distance: Math.sqrt(dx * dx + dy * dy)}
   e
 
 class CityView
@@ -38,8 +38,7 @@ class CityView
     @csv_data = {}
     @color = null
 
-
-    @vis = d3.select("#vis-svg").remove()
+    @remove_vis()
 
     @vis = d3.select("#vis")
       .append("svg:svg")
@@ -59,11 +58,19 @@ class CityView
     min_pop = d3.min(csv, (d) -> tract_ratio(d))
     @color = d3.scale.linear().range(["#F5F5F5", "#303030"]).domain([min_pop, max_pop])
 
+  remove_vis: () =>
+    d3.select("#vis-svg")
+      #.transition()
+      #.duration(500)
+      #.attr("opacity", 0.0)
+      .remove()
+
   color_for: (data) =>
     @color(tract_ratio(data))
 
   display_city: () =>
-    xy = d3.geo.albersUsa().translate([@x,@y]).scale(@scale)
+    xy = d3.geo.albersUsa()
+      .translate([@x,@y]).scale(@scale)
     path = d3.geo.path().projection(xy)
     force = d3.layout.force().size([@width, @height])
 
@@ -92,7 +99,8 @@ class CityView
           .links(links)
           .linkDistance( (d) -> d.distance)
           .charge(-1)
-          .friction(0.6)
+          .friction(0.8)
+          .theta(0.8)
           .start()
 
         link = @vis.selectAll("line")
@@ -125,8 +133,6 @@ class CityView
             .attr("y2", (d) -> d.target.y)
 
           node.attr("transform", (d) -> "translate(#{d.x},#{d.y})")
-
-
-
 $ ->
-  showCity("kc")
+  showCity("oc")
+
