@@ -3,7 +3,7 @@
   cities = {
     "kc": {id:"kc", name:"kc", x:-500, y:800, scale:20000},
     "sl": {id:"sl", name:"st_louis", x:-1600, y:750, scale:20000},
-    "dn": {id:"dn", name:"denver", x:2300, y:1200, scale:20000},
+    "dn": {id:"dn", name:"denver", x:2300, y:1100, scale:20000},
     "oc": {id:"oc", name:"ok_city", x:280, y:-550, scale:20000}
   }
 
@@ -101,7 +101,6 @@ class CityView
           .charge(-1)
           .friction(0.8)
           .theta(0.8)
-          .start()
 
         link = @vis.selectAll("line")
           .data(links)
@@ -121,10 +120,16 @@ class CityView
         .append("svg:path")
           .attr("transform", (d) -> "translate(#{-d.x},#{-d.y})")
           .attr("d", (d) -> path(d.feature))
-          .attr("fill-opacity", 1.0)
+          .attr("fill-opacity", 0.0)
           .attr("fill", (d) => @color_for(d.tract_data))
           .attr("stroke", "#222")
           .attr("stroke-width", "0px")
+
+        node.attr("transform", (d) -> "translate(#{d.x},#{d.y})")
+
+        node.transition()
+          .delay((d,i) -> i / 400 * 1000)
+          .attr("fill-opacity", 1.0)
 
         force.on "tick", (e) ->
           link.attr("x1", (d) -> d.source.x)
