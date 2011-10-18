@@ -1,7 +1,9 @@
 
 body {
   /*background-color: #FFFED3;*/
-  background-color: #E2D6C5;
+  /* background-color: #E2D6C5; */
+  /* background-color: #A7DBD8; */
+  background-color: #E0E4CC;
 }
 
 a {
@@ -52,6 +54,11 @@ padding: 5px;
 background: #E2E2E2;
 cursor: pointer;
 margin-right: 3px;
+}
+
+#cities a.active {
+  background: #343434;
+  color: white;
 }
 
 

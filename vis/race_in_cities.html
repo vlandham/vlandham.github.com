@@ -19,14 +19,15 @@
 	<script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
-
   <div id="container">
-
     <div id="cities">
       <a id="dn">Denver</a>
       <a id="kc">Kansas City</a>
       <a id="sl">St. Louis</a>
       <a id="oc">Oklahoma City</a>
+    </div>
+    <div id="name">
+      
     </div>
   <div id="main" role="main">
     <div id="vis"></div>
@@ -51,11 +52,12 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $('#cities a').click(function() {
-        var cityId = $(this).attr("id");
-        $(this).toggleClass(cityId);
-        showCity(cityId);
+      var cityId = $(this).attr("id");
+      $('#cities a').removeClass("active");
+      $(this).toggleClass("active");
+      showCity(cityId);
     });
-    
+
 });
 </script>
 

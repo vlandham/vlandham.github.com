@@ -1,9 +1,9 @@
 
 @showCity = (cityId) ->
   cities = {
-    "kc": {id:"kc", name:"kc", x:-500, y:800, scale:20000},
-    "sl": {id:"sl", name:"st_louis", x:-1600, y:750, scale:20000},
-    "dn": {id:"dn", name:"denver", x:2300, y:1100, scale:20000},
+    "kc": {id:"kc", name:"kc", x:-500, y:700, scale:20000},
+    "sl": {id:"sl", name:"st_louis", x:-1600, y:650, scale:20000},
+    "dn": {id:"dn", name:"denver", x:2300, y:1050, scale:20000},
     "oc": {id:"oc", name:"ok_city", x:280, y:-550, scale:20000}
   }
 
@@ -128,16 +128,18 @@ class CityView
         node.attr("transform", (d) -> "translate(#{d.x},#{d.y})")
 
         node.transition()
-          .delay((d,i) -> i / 400 * 1000)
+          .duration(1000)
           .attr("fill-opacity", 1.0)
+
+        d3.transition().delay(1500).each("end",() -> force.start())
 
         force.on "tick", (e) ->
           link.attr("x1", (d) -> d.source.x)
             .attr("y1", (d) -> d.source.y)
             .attr("x2", (d) -> d.target.x)
             .attr("y2", (d) -> d.target.y)
-
           node.attr("transform", (d) -> "translate(#{d.x},#{d.y})")
+
 $ ->
-  showCity("oc")
+  $('#oc').trigger('click')
 
