@@ -3,14 +3,18 @@
   cities = {
     "kc": {id:"kc", name:"kc", x:-500, y:700, scale:20000},
     "sl": {id:"sl", name:"st_louis", x:-1600, y:650, scale:20000},
-    "dn": {id:"dn", name:"denver", x:2300, y:1050, scale:20000},
+    "dn": {id:"dn", name:"denver", x:2300, y:900, scale:20000},
     "oc": {id:"oc", name:"ok_city", x:280, y:-550, scale:20000}
   }
 
   data = cities[cityId]
 
-  city_view = new CityView data.name, data.x, data.y, data.scale
-  city_view.display_city()
+  if window.city_view
+    console.log("window")
+    window.city_view.remove_vis()
+
+  window.city_view = new CityView data.name, data.x, data.y, data.scale
+  window.city_view.display_city()
 
 tract_ratio = (tract) ->
   if tract.P003001 > 20
@@ -27,18 +31,17 @@ edge = (a, b) ->
   dx = (a.x - b.x)
   dy = (a.y - b.y)
   diff = difference_between(a.tract_data, b.tract_data) * 100
-  e = {source: a, target:b, distance: Math.sqrt(dx * dx + dy * dy) + diff}
-  #e = {source: a, target:b, distance: Math.sqrt(dx * dx + dy * dy)}
+  distance = Math.sqrt(dx * dx + dy * dy) + diff
+  #distance = Math.sqrt(dx * dx + dy * dy)
+  e = {source: a, target:b, distance: distance }
   e
 
 class CityView
   constructor: (@name, @x, @y, @scale) ->
-    @width = 900
-    @height = 900
+    @width = 800
+    @height = 800
     @csv_data = {}
     @color = null
-
-    @remove_vis()
 
     @vis = d3.select("#vis")
       .append("svg:svg")
@@ -59,6 +62,8 @@ class CityView
     @color = d3.scale.linear().range(["#F5F5F5", "#303030"]).domain([min_pop, max_pop])
 
   remove_vis: () =>
+    @force.stop()
+    @force = null
     d3.select("#vis-svg")
       #.transition()
       #.duration(500)
@@ -72,7 +77,7 @@ class CityView
     xy = d3.geo.albersUsa()
       .translate([@x,@y]).scale(@scale)
     path = d3.geo.path().projection(xy)
-    force = d3.layout.force().size([@width, @height])
+    @force = d3.layout.force().size([@width, @height])
 
     d3.csv "data/cities/#{@name}_race.csv", (csv) =>
       @setup_data(csv)
@@ -93,14 +98,14 @@ class CityView
           links.push(edge(d[1], d[2]))
           links.push(edge(d[2], d[0]))
 
-        force
-          .gravity(0)
+        @force
+          .gravity(0.0)
           .nodes(nodes)
           .links(links)
           .linkDistance( (d) -> d.distance)
-          .charge(-1)
-          .friction(0.8)
-          .theta(0.8)
+          .charge(-0.6)
+          .friction(0.4)
+          .theta(0.9)
 
         link = @vis.selectAll("line")
           .data(links)
@@ -116,7 +121,6 @@ class CityView
           .data(nodes)
         .enter().append("svg:g")
           .attr("transform", (d) -> "translate(#{-d.x},#{-d.y})")
-          .call(force.drag)
         .append("svg:path")
           .attr("transform", (d) -> "translate(#{-d.x},#{-d.y})")
           .attr("d", (d) -> path(d.feature))
@@ -131,15 +135,20 @@ class CityView
           .duration(1000)
           .attr("fill-opacity", 1.0)
 
-        d3.transition().delay(1500).each("end",() -> force.start())
+        d3.transition().delay(1500).each("end",() => @force.start())
 
-        force.on "tick", (e) ->
+        tick_count = 0
+
+        @force.on "tick", (e) =>
           link.attr("x1", (d) -> d.source.x)
             .attr("y1", (d) -> d.source.y)
             .attr("x2", (d) -> d.target.x)
             .attr("y2", (d) -> d.target.y)
           node.attr("transform", (d) -> "translate(#{d.x},#{d.y})")
+          tick_count += 1
+          if tick_count > 150
+            @force.stop()
 
 $ ->
-  $('#oc').trigger('click')
+  $('#kc').trigger('click')
 

@@ -41,10 +41,31 @@ footer p {
   text-transform:uppercase;
 }
 
+#title {
+  margin-left: 20px;
+  width: 400px;
+  margin-bottom: 10px;
+  font-family: 'Cardo', serif;
+}
+
+.white {
+  color: black;
+  background:#F5F5F5;
+}
+
+.black {
+  color: white;
+  background: #303030;
+}
+
 #main {
   width: 900px;
   margin: auto;
   text-align:center;
+}
+
+#cities {
+  margin-left: 20px;
 }
 
 #cities a {
