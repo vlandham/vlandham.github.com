@@ -2,9 +2,9 @@
 @showCity = (cityId) ->
   cities = {
     "kc": {id:"kc", name:"kc", x:-500, y:700, scale:20000},
-    "sl": {id:"sl", name:"st_louis", x:-1600, y:650, scale:20000},
+    "sl": {id:"sl", name:"st_louis", x:-1600, y:550, scale:20000},
     "dn": {id:"dn", name:"denver", x:2300, y:900, scale:20000},
-    "oc": {id:"oc", name:"ok_city", x:280, y:-550, scale:20000}
+    "oc": {id:"oc", name:"ok_city", x:280, y:-650, scale:20000}
   }
 
   data = cities[cityId]
@@ -150,5 +150,5 @@ class CityView
             @force.stop()
 
 $ ->
-  $('#kc').trigger('click')
+  $('#sl').trigger('click')
 
