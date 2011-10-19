@@ -43,7 +43,7 @@ footer p {
   text-transform:uppercase;
 }
 
-#title {
+#desc {
   margin-left: 20px;
   width: 400px;
   margin-bottom: 10px;
@@ -67,16 +67,21 @@ footer p {
 }
 
 #cities {
+  float:left;
   margin-left: 20px;
+  width: 400px;
 }
 
 #cities a {
-color: black;
-font-size: 12px;
-padding: 5px;
-background: #E2E2E2;
-cursor: pointer;
-margin-right: 3px;
+  color: black;
+  font-size: 12px;
+  padding: 5px;
+  background: #E2E2E2;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  float:left;
+  display:block;
 }
 
 #cities a.active {

@@ -1,16 +1,22 @@
 
 @showCity = (cityId) ->
   cities = {
-    "kc": {id:"kc", name:"kc", x:-500, y:700, scale:20000},
-    "sl": {id:"sl", name:"st_louis", x:-1600, y:550, scale:20000},
-    "dn": {id:"dn", name:"denver", x:2300, y:900, scale:20000},
-    "oc": {id:"oc", name:"ok_city", x:280, y:-650, scale:20000}
+    "mw": {id:"mw", name:"milwaukee", display:"Milwaukee, WI", x:-3300, y:3150, scale:30000},
+    "ch": {id:"ch", name:"chicago", x:-2600, y:2050, scale:23000},
+    "dy": {id:"dy", name:"dayton", x:-3600, y:1250, scale:22000},
+    "co": {id:"co", name:"columbus", x:-4500, y:1600, scale:25000},
+    "pt": {id:"pt", name:"pittsburgh", x:-4800, y:1700, scale:22000},
+    "kc": {id:"kc", name:"kc", x:-350, y:600, scale:16000},
+    "sy": {id:"sy", name:"syracuse", x:-5100, y:2700, scale:20000},
+    "sl": {id:"sl", name:"st_louis", x:-1650, y:600, scale:20000},
+    "dn": {id:"dn", name:"denver", x:2300, y:1000, scale:20000},
+    "oc": {id:"oc", name:"ok_city", x:280, y:-600, scale:20000}
+    "wc": {id:"wc", name:"wichita", x:200, y:200, scale:20000}
   }
 
   data = cities[cityId]
 
   if window.city_view
-    console.log("window")
     window.city_view.remove_vis()
 
   window.city_view = new CityView data.name, data.x, data.y, data.scale
@@ -39,7 +45,7 @@ edge = (a, b) ->
 class CityView
   constructor: (@name, @x, @y, @scale) ->
     @width = 800
-    @height = 800
+    @height = 650
     @csv_data = {}
     @color = null
 
@@ -150,5 +156,5 @@ class CityView
             @force.stop()
 
 $ ->
-  $('#sl').trigger('click')
+  $('#mw').trigger('click')
 
