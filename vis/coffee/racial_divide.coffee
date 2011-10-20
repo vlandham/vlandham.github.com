@@ -18,6 +18,7 @@
 
   if window.city_view
     window.city_view.remove_vis()
+    window.city_view = null
 
   window.city_view = new CityView data.name, data.x, data.y, data.scale
   window.city_view.display_city()
@@ -69,7 +70,6 @@ class CityView
 
   remove_vis: () =>
     @force.stop()
-    @force = null
     d3.select("#vis-svg")
       #.transition()
       #.duration(500)
