@@ -647,5 +647,6 @@ Both should return back that they started ok.
 
 Now navigating to your site on the default port 80 and you should see Galaxy.
 
+h2. Installing Galaxy tools
 
-
+See my work in progress "post on installing galaxy tools":http://vallandingham.me/installing_galaxy_tools.html for more info.
