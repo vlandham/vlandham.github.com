@@ -647,6 +647,13 @@ Both should return back that they started ok.
 
 Now navigating to your site on the default port 80 and you should see Galaxy.
 
+h2. Enabling Trackster
+
+Follow the "Instructions on the Galaxy Visualization Wiki page":http://wiki.g2.bx.psu.edu/Learn/Visualization
+
+It involves enabling @enable_tracks@ in the @universe_wsgi.ini@ file and then generating chromosome length files using a provided script.
+
 h2. Installing Galaxy tools
 
 See my work in progress "post on installing galaxy tools":http://vallandingham.me/installing_galaxy_tools.html for more info.
+
