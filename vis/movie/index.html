@@ -149,8 +149,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="span4"><a id="key-link" href="javascript:void(0)">Key</a></div>
-        <div class="span4 offset8"><a id="story-link" href="javascript:void(0)">Stories</a></div>
+        <div class="span4"><a id="key-link" href="javascript:void(0)">Show Key</a></div>
+        <div class="span4 offset8"><a id="story-link" href="javascript:void(0)">Show Stories</a></div>
       </div>
       <div class="row">
         <div class="span7">
@@ -264,11 +264,31 @@
               update_options(new_options);
               });
             $('#key-link').click(function() {
-                $("#key").slideToggle();
+                $("#key").slideToggle( 'slow', function() {
+                  var link = $('#key-link');
+                  if(link.text() == "Show Key")
+                  {
+                  link.text('Hide Key');
+                  }
+                  else
+                  {
+                  link.text('Show Key');
+                  }
+                  });
                 return false;
-              });
+                });
             $('#story-link').click(function() {
-                $("#stories-section").slideToggle();
+                $("#stories-section").slideToggle('slow',function() {
+                  var link = $('#story-link');
+                  if(link.text() == "Show Stories")
+                  {
+                  link.text('Hide Stories');
+                  }
+                  else
+                  {
+                  link.text('Show Stories');
+                  }
+                  });
                 return false;
                 });
 
