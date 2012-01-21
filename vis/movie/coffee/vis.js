@@ -4,7 +4,7 @@
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
   $(function() {
-    var all_data, base_vis, body, color, data, data_key, draw_details, draw_movie_details, draw_movies, filter_genres, filter_number, filter_stories, filter_year, h, hide_details, key_h, key_pb, key_pl, key_pr, key_pt, key_w, movie_body, pb, pl, pr, pre_filter, pt, r_scale, render_key, render_vis, show_details, sort_data, update, update_data, update_scales, vis, w, xAxis, x_scale, yAxis, y_scale, y_scale_reverse, _ref, _ref2,
+    var all_data, base_vis, body, color, data, data_key, draw_details, draw_movie_details, draw_movies, filter_genres, filter_number, filter_stories, filter_year, h, hide_details, key_h, key_pb, key_pl, key_pr, key_pt, key_w, middle_line, movie_body, pb, pl, pr, pre_filter, pt, r_scale, render_key, render_vis, show_details, sort_data, update, update_data, update_scales, vis, w, xAxis, x_scale, yAxis, y_scale, y_scale_reverse, zero_line, _ref, _ref2,
       _this = this;
     data_key = {
       budget: "Budget",
@@ -18,7 +18,7 @@
     _ref = [10, 10, 10, 15], key_pt = _ref[0], key_pr = _ref[1], key_pb = _ref[2], key_pl = _ref[3];
     _ref2 = [20, 20, 50, 60], pt = _ref2[0], pr = _ref2[1], pb = _ref2[2], pl = _ref2[3];
     root.options = {
-      top: 25,
+      top: 50,
       bottom: 0,
       genres: null,
       year: "all",
@@ -31,6 +31,8 @@
     vis = null;
     body = null;
     movie_body = null;
+    zero_line = null;
+    middle_line = null;
     x_scale = d3.scale.linear().range([0, w]);
     y_scale = d3.scale.linear().range([0, h]);
     y_scale_reverse = d3.scale.linear().range([0, h]);
@@ -40,9 +42,6 @@
     color = d3.scale.category10();
     color = d3.scale.ordinal().range(["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf", "#078B78", "#5C1509", "#CECECE", "#FFEA0A"]);
     pre_filter = function(data) {
-      data = data.filter(function(d) {
-        return d["Budget"] && d["Worldwide Gross"] && d["Rotten Tomatoes"] && d["Profit"];
-      });
       return data;
     };
     sort_data = function(sort_type) {
@@ -140,6 +139,8 @@
         return "translate(" + (x_scale(d["Profit"])) + "," + (y_scale(d["Rotten Tomatoes"])) + ")";
       });
       base_vis.transition().duration(1000).select(".x_axis").call(xAxis);
+      zero_line.transition().duration(1000).attr("x1", x_scale(0)).attr("x2", x_scale(0));
+      middle_line.transition().duration(1000).attr("y1", y_scale(50.0)).attr("y2", y_scale(50.0));
       base_vis.transition().duration(1000).select(".y_axis").call(yAxis);
       movies.exit().transition().duration(1000).attr("transform", function(d) {
         return "translate(" + 0 + "," + 0 + ")";
@@ -219,6 +220,8 @@
       vis = base_vis.append("g").attr("transform", "translate(" + 0 + "," + (h + (pt + pb)) + ")scale(1,-1)");
       vis.append("text").attr("x", h / 2).attr("y", 20).attr("text-anchor", "middle").attr("class", "axisTitle").attr("transform", "rotate(270)scale(-1,1)translate(" + pb + "," + 0 + ")").text("Rating (Rotten Tomatoes %)");
       body = vis.append("g").attr("transform", "translate(" + pl + "," + pb + ")").attr("id", "vis-body");
+      zero_line = body.append("line").attr("x1", x_scale(0)).attr("x2", x_scale(0)).attr("y1", 0 + 5).attr("y2", h - 5).attr("stroke", "#aaa").attr("stroke-width", 1).attr("stroke-dasharray", "2");
+      middle_line = body.append("line").attr("x1", 0 + 5).attr("x2", w + 5).attr("y1", y_scale(50.0)).attr("y2", y_scale(50.0)).attr("stroke", "#aaa").attr("stroke-width", 1).attr("stroke-dasharray", "2");
       movie_body = body.append("g").attr("id", "movies");
       draw_movies();
       draw_details();
@@ -254,8 +257,8 @@
         return d.id !== movie_data.id;
       }).selectAll("circle").attr("opacity", 0.3);
       crosshairs_g = body.insert("g", "#movies").attr("id", "crosshairs");
-      crosshairs_g.append("line").attr("class", "crosshair").attr("x1", 0).attr("x2", x_scale(movie_data["Profit"]) - r_scale(movie_data["Budget"])).attr("y1", y_scale(movie_data["Rotten Tomatoes"])).attr("y2", y_scale(movie_data["Rotten Tomatoes"])).attr("stroke-width", 1);
-      return crosshairs_g.append("line").attr("class", "crosshair").attr("x1", x_scale(movie_data["Profit"])).attr("x2", x_scale(movie_data["Profit"])).attr("y1", 0).attr("y2", y_scale(movie_data["Rotten Tomatoes"]) - r_scale(movie_data["Budget"])).attr("stroke-width", 1);
+      crosshairs_g.append("line").attr("class", "crosshair").attr("x1", 0 + 3).attr("x2", x_scale(movie_data["Profit"]) - r_scale(movie_data["Budget"])).attr("y1", y_scale(movie_data["Rotten Tomatoes"])).attr("y2", y_scale(movie_data["Rotten Tomatoes"])).attr("stroke-width", 1);
+      return crosshairs_g.append("line").attr("class", "crosshair").attr("x1", x_scale(movie_data["Profit"])).attr("x2", x_scale(movie_data["Profit"])).attr("y1", 0 + 3).attr("y2", y_scale(movie_data["Rotten Tomatoes"]) - r_scale(movie_data["Budget"])).attr("stroke-width", 1);
     };
     hide_details = function(movie_data) {
       var movies;
@@ -263,7 +266,7 @@
       movies = body.selectAll(".movie").selectAll("circle").attr("opacity", 0.85);
       return body.select("#crosshairs").remove();
     };
-    d3.csv("data/movies_all.csv", render_vis);
+    d3.csv("data/movies_all_final_filter.csv", render_vis);
     update = function() {
       update_data();
       draw_movies();

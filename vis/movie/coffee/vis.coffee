@@ -42,7 +42,7 @@ $ ->
 
   # TODO: remove and filter data manually
   pre_filter = (data) ->
-    data = data.filter (d) -> d["Budget"] and d["Worldwide Gross"] and d["Rotten Tomatoes"] and d["Profit"]
+    #data = data.filter (d) -> d["Budget"] and d["Worldwide Gross"] and d["Rotten Tomatoes"] and d["Profit"]
     data
 
   sort_data = (sort_type) =>
@@ -374,7 +374,7 @@ $ ->
 
     crosshairs_g.append("line")
       .attr("class", "crosshair")
-      .attr("x1", 0)
+      .attr("x1", 0 + 3)
       .attr("x2", x_scale(movie_data["Profit"]) - r_scale(movie_data["Budget"]))
       .attr("y1", y_scale(movie_data["Rotten Tomatoes"]))
       .attr("y2", y_scale(movie_data["Rotten Tomatoes"]))
@@ -384,7 +384,7 @@ $ ->
       .attr("class", "crosshair")
       .attr("x1", x_scale(movie_data["Profit"]))
       .attr("x2", x_scale(movie_data["Profit"]))
-      .attr("y1", 0)
+      .attr("y1", 0 + 3)
       .attr("y2", y_scale(movie_data["Rotten Tomatoes"]) - r_scale(movie_data["Budget"]))
       .attr("stroke-width", 1)
 
@@ -396,8 +396,7 @@ $ ->
 
     body.select("#crosshairs").remove()
       
-
-  d3.csv "data/movies_all.csv", render_vis
+  d3.csv "data/movies_all_final_filter.csv", render_vis
 
   update = () =>
     update_data()
