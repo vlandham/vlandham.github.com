@@ -161,6 +161,9 @@ $ ->
       .attr("id", (d) -> "movie-detail-#{d.id}")
     .append("h3")
       .text((d) -> d["Film"])
+    .append("span")
+      .attr("class", "detail-rating")
+      .text((d) -> " #{d["Rotten Tomatoes"]}%")
 
     detail_div.exit().remove()
  

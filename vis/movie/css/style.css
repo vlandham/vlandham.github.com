@@ -240,6 +240,17 @@ div.control-links a.active:hover {
   padding-bottom: 5px;
 }
 
+#detail-love span.detail-rating {
+  /* color: #DB3039; */
+  color: #DB757B;
+}
+
+#detail-hate span.detail-rating {
+  /* color: #4F95C4; */
+  color: #7EA8C4;
+}
+
+
 path.line {
   fill: none;
   stroke: #666;
