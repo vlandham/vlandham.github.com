@@ -37,7 +37,7 @@
       </div>
       <div class="modal-body">
         <h4>About</h4>
-        <p>How much does a good movie make? How about a bad one?</p>
+        <p>How much money does a good movie make? How about a bad one?</p>
         <p>This visualization lets you explore the connections between movie ratings, budgets, and profits.</p>
         <p>The <strong>x-axis</strong> shows the film's profit margin while the <strong>y-axis</strong> gives the Rotten Tomatoes review percentage (the % of critics that give a positive review to the movie). Each <strong>dot</strong> in the visualization represents a movie. Hover over the dot to get the specifics on that film.</p>
         <h4>Filters</h4>
@@ -49,11 +49,11 @@
         <p>Created Using <a href="http://mbostock.github.com/d3/">d3.js</a>. Best viewed in <a href="">Google Chrome</a> or <a href="">Safari</a></p>
       </div>
       <div class="modal-footer">
-        <a href="#" class="btn primary">Ok</a>
+        <p></p>
       </div>
     </div>
     <header>
-    <h1 id="title-top">How Much Do The Movies We Love Make?</h1>
+    <h1 id="title-top">How Much Money Do The Movies We Love Make?</h1>
     </header>
     <div id="main" role="main">
       <div class="row">
@@ -75,7 +75,7 @@
           </select>
         </div>
         <div class="span5 offset3">
-          <select data-placeholder="Filter by Story Type..." class="chzn-select" id="story-select" multiple style="width:280px;" tabindex="4">
+          <select data-placeholder="Filter by Story..." class="chzn-select" id="story-select" multiple style="width:280px;" tabindex="4">
             <option value=""></option>
             <option value="Comedy">Comedy</option>
             <option value="Discovery">Discovery</option>
@@ -149,16 +149,16 @@
         </div>
       </div>
       <div class="row">
-        <div class="span4"><a id="key-link" href="javascript:void(0)">Show Key</a></div>
-        <div class="span4 offset8"><a id="story-link" href="javascript:void(0)">Show Stories</a></div>
+        <div class="span4"><a id="key-link" href="javascript:void(0)">Hide Key</a></div>
+        <div class="span4 offset8"><a id="story-link" href="javascript:void(0)">Hide Stories</a></div>
       </div>
       <div class="row">
         <div class="span7">
-          <div id="key" style="display:none;"></div>
+          <div id="key"></div>
           <p></p>
         </div>
         <div class="span9">
-          <div id="stories-section" style="display:none;">
+          <div id="stories-section">
             <div id="stories"> 
               <div id="story-list">
                 <ul>
@@ -192,7 +192,7 @@
               </div>
             </div>
             <div id="story-detail">
-              <p></p>
+              <p>Hover over a story name for more information.</p>
             </div>
           </div>
         </div>
@@ -327,7 +327,7 @@
 
 
 <script> // Change UA-XXXXX-X to be your site's ID
-  window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+  window._gaq = [['_setAccount','UA-17355070-1'],['_trackPageview'],['_trackPageLoadTime']];
   Modernizr.load({
     load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
   });

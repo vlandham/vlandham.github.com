@@ -60,14 +60,23 @@ h2 {
   text-align: center;
 }
 
-#title-top .word1, #title-top .word2 {
-  font-size: 110px;
-  line-height: 90px;
+#title-top .word1 {
+  font-size: 30px;
+  line-height: 10px;
+}
+
+#title-top .word2 {
+  font-size: 90px;
+  line-height: 70px;
+  padding-right: 10px;
 }
 
 #title-top .word3 {
-  font-size: 30px;
-  line-height: 10px;
+  font-size: 90px;
+  line-height: 70px;
+  /* color:#438822; */
+  color:#3E7E1F;
+  margin-right: 100px;
 }
 
 #title-top .word4 {
@@ -76,22 +85,27 @@ h2 {
 }
 
 #title-top .word5 {
-  font-size: 60px;
-  line-height:40px;
-}
-
-#title-top .word6 {
   font-size: 30px;
   line-height: 10px;
 }
 
+#title-top .word6 {
+  font-size: 60px;
+  line-height:40px;
+}
+
 #title-top .word7 {
+  font-size: 30px;
+  line-height: 10px;
+}
+
+#title-top .word8 {
   color: #DB3039;
   font-size: 60px;
   line-height: 40px;
 }
 
-#title-top .word8 {
+#title-top .word9 {
   font-size: 30px;
   line-height: 10px;
 }
@@ -171,6 +185,14 @@ h3 {
 #story-list ul li {
   color:#000;
   /* float:left; */
+}
+
+#story-list a, #story-list a:hover {
+  text-decoration:none;
+}
+
+#story-list a:hover {
+  color: #FF9C5E;
 }
 
 #story-detail {
