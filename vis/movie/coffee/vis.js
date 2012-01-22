@@ -152,6 +152,8 @@
         return "movie-detail-" + d.id;
       }).append("h3").text(function(d) {
         return d["Film"];
+      }).append("span").attr("class", "detail-rating").text(function(d) {
+        return " " + d["Rotten Tomatoes"] + "%";
       });
       return detail_div.exit().remove();
     };
@@ -237,8 +239,8 @@
         "x": w + bBox.x,
         "y": h + bBox.y
       };
-      box.x = Math.round(x_scale(movie_data["Profit"])) - (pr + 110) + r_scale(movie_data["Budget"]);
-      box.y = Math.round(y_scale_reverse(movie_data["Rotten Tomatoes"])) - (r_scale(movie_data["Budget"]) + pt + -75);
+      box.x = Math.round(x_scale(movie_data["Profit"])) - (pr + 109) + r_scale(movie_data["Budget"]);
+      box.y = Math.round(y_scale_reverse(movie_data["Rotten Tomatoes"])) - (r_scale(movie_data["Budget"]) + pt + -55);
       tooltipWidth = parseInt(d3.select('#tooltip').style('width').split('px').join(''));
       msg = '<p class="title">' + movie_data["Film"] + '</p>';
       msg += '<table>';
