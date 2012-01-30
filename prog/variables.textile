@@ -1,0 +1,71 @@
+---
+layout: default
+title: variables
+---
+
+h2. Variables
+
+Often times you want to store data somewhere to get back to it later. Variables do just that. A variable gives a piece of data a name that you can get the back from whenever you want. Remember from Math class using x = 2, or whatever? Variables work just like that.
+
+In Ruby, you create a variable by typing its name and then using the @=@ to assign data to it.
+
+{% highlight ruby %}
+a_number = 12321
+a_string = "Hello, and welcome."
+{% endhighlight %}
+
+Here, @a_number@ is a variable that stores the number @12321@. Likewise, @a_string@ is a variable that stores the sentence @Hello, and welcome.@
+
+Try typing these commands into @irb@ yourself.
+
+Now type 
+
+{% highlight ruby %}
+a_number
+{% endhighlight %}
+
+Press Return. The value @12321@ should be output. This indicates that @a_number@ is storing the value. You can get back to that number any time you want. You can also use @a_number@ in place of the value it stores for any other command. With numbers, you often want to do arithmitic, right? Try out these commands:
+
+{% highlight ruby %}
+a_number + 333
+a_number * 12
+a_number - 55
+{% endhighlight %}
+
+Each of these is the same as using the value that the @a_number@ variable points to in the equations. 
+
+h2. Data Types
+
+Notice that when we made @a_string@, we used quotes (@"@) around the string (sentence) we created. However, we didn't use quotes around our number data. 
+
+In programming, there are different data types that variables can store. The two we've just seen are Integers @a_number@ and strings @a_string@. We will learn about data types later, just keep in mind that there are different types of data that will act differently.
+
+h2. Naming Variable
+
+Notice that my varibles are named using letters and underscores (@_@). Also, I used only lowercase letters. Are there restrictions about what you can name a variable? Yes! 
+
+There are actually two things to think about when naming variables: rules and conventions. Each programming language has restrictions on just what characters you can use in your variable name. Each group of programmers that use that language also have some commonly used conventions that are recommended when naming variables. 
+
+In Ruby, you can use upper and lowercase letters, underscores, numbers, and some other characters we will talk about later. However, you cannot start your variable name with a number - @12_strings@ is invalid. Mostly this is to prevent someone naming a variable with the *name* @12@, as you wouldn't be able to tell if it was a number or a variable. 
+
+Same with the dash (@-@). If you had a dash in a variable name, it would be impossible to tell the difference from subtraction:
+
+{% highlight ruby %}
+first-name
+# looks the same to the computer as:
+first - name
+# where first is a variable and name is a variable
+{% endhighlight %}
+
+The *convention* in ruby is to use all lowercase letters for most variables. And to separate words with underscores.
+
+That's all for now. Try to create some more variables. See how multiple variables work in an equation:
+
+{% highlight ruby %}
+value_1 = 21
+value_2 = 12
+
+value_1 * value_2
+{% endhighlight %}
+
+Variables!

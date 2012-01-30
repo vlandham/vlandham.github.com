@@ -1,0 +1,29 @@
+---
+layout: default
+title: Introduction To Programming
+---
+
+h2. Ruby
+
+!{float:left; padding-right: 20px}imgs/ruby.png! For these lessons we will be using the "Ruby programming language":http://www.ruby-lang.org/en/ . Just like there are different languages people speak in (French, Cantonese), there are different languages we can program in. Some languages are better at some things then others. Ruby is a fun language that can do a lot, with a small number of little details to get started with. Its a good language to learn first.
+
+Before we get to making something interesting, we need to start with the basics of programming; the building blocks of a programming language. This might start a bit dry, but we will use these building blocks to create interesting things. Before writing a novel, you must learn about words, sentences, and punctuation. Its the same with creating a program.
+
+h3. Things to remember as we start programming:
+
+* Programming is *creating*.
+** Often people not familiar with programming think of it as 
+* When writing commands, *details* matter
+** If you misspell a word or forget a period when instant messaging your friend, its no big deal. Your friend is smart enough to know that "plz" is the same as "please" and "!?!" means inquisitive alarm (at least when I type it). However when you write programming commands, you are telling the computer what to do. Your computer friend is not nearly as smart as your college buddies. It will throw up errors when it encounters missing punctuation or words it doesn't understand.
+** As long as you are prepared for this, it is not that big of a deal. Just be ready to have to double-check the commands you send and don't get frustrated that your computer isn't as smart or hip as you think it should be. We can't all be coolkid.
+
+h2. The Terminal
+
+!{float:left; padding-right: 20px}imgs/terminal.png! All Macs have a program called "Terminal". This is how we will access ruby. To find this program you can search in Spotlight for "Terminal". Alternatively, you can find it in Applications -> Utilities. Once you open Terminal, you should see a plain white box. Actually this box could be white, black or any other color - depending on how your computer is setup. The important thing about this box is that you can type commands into it and the computer will respond. We will use this box to start typing in ruby.
+
+Usually when creating a program in ruby, you type commands into a text file so that the program is stored somewhere and you can run it again later. However, to get our feet wet, we will be typing ruby commands into a tool called 'irb' or interactive ruby'. irb executes the ruby commands immediately and returns the results - making it an excellent way to experiment and learn about programming. So, start up interactive ruby by typing @irb@ into the Terminal and pressing return.
+
+You should be greeted by something that says what ruby version you are using and then a @>@. We can now type ruby commands here. To exit irb, type @exit@.
+
+Ready to get started? "Lesson 1: Variables":variables.html
+
