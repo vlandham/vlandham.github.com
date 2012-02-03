@@ -132,3 +132,19 @@ a.post_title:hover {
   margin-bottom: 10px;
 }
 
+pre {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    padding: 0 .4em;
+}
+
+code {
+  border: 1px solid #ddd;
+  background-color: #eef;
+  font-size: 85%;
+  padding: 0 .2em;
+}
+
+pre code {
+  border: none;
+}

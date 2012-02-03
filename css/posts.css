@@ -4,26 +4,9 @@
   margin-top: 20px;
 }
 
-#post pre {
-    border: 1px solid #ddd;
-    background-color: #eef;
-    padding: 0 .4em;
-}
-
 #post ul,
 #post ol {
   margin-left: 1.35em;
-}
-
-#post code {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  font-size: 85%;
-  padding: 0 .2em;
-}
-
-#post pre code {
-  border: none;
 }
 
 /* terminal */
