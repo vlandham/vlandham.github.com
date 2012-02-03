@@ -203,7 +203,7 @@ To rehash (no pun intended): Hashes store key value pairs. You use squiggly brac
 
 While perhaps a little confusing, Hashes are extremely powerful. Try to create one now that uses peoples names as keys and then their pet's names as values.
 
-h2. Booleans & Nil
+h2. Booleans
 
 I know you're tired, so we will hit a couple more data types really quickly. Often times we need to store just if some condition is true or not. Is the door currently open? Is this person's name "Sam Tarly". 
 
@@ -218,3 +218,21 @@ I know you're tired, so we will hit a couple more data types really quickly. Oft
 {% endhighlight %}
 
 Here we are comparing two numbers. The first line asks is @1@ equal to @1@? Note that we use two equals signs (@==@). This is because a sign equal sign is used for assigning values to variables, remember? @age = 13@. So to compare, we need to use @==@.
+
+Anyways, @1@ is equal to @1@, so @true@ is returned. This is a Boolean. Likewise, @1@ is *not* greater than @2@, so the Boolean @false@ is returned. Booleans get used a lot, because they are so simple.
+
+h2. Nil
+
+Similar to @true@ and @false@, some times we would like to represent *nothing*. Nihilism aside, there are a lot of practical uses for nothingness. For example, a variable hasn't been given a value yet, or there was an element missing in a questionnaire.
+
+Ruby has a special data type called @nil@ that represents nothing. You can assign variables to it and use it like any other data type
+
+{% highlight ruby %}
+nothing = nil
+1 == nothing
+# => false
+{% endhighlight %}
+
+There are other data types available, but these are the most commonly used and most common in other languages. With these basic storage structures, we can build up lots of complex fun stuff, as we will see!
+
+Data Types!
