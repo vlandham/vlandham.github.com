@@ -80,7 +80,7 @@ h2. Integer
 
 Ok, I've been referring to numbers as just numbers - but that is not entirely accurate. There are actually *two* different types of numbers: @Integers@ and @Floats@. Integers are *whole numbers*. @123@, @40001@, @12@ are all examples of Integers.
 
-In the example above, when we called @123.length()@ - the error message we got indicated that 123 was something called a @Fixnum@. That is just what ruby usually calls an @Integer@. We will keep calling @Integers@ @Integers@, because that is what they are.
+In the example above, when we called @123.length()@ - the error message we got indicated that 123 was something called a @Fixnum@. That is just what ruby usually calls an Integer. We will keep calling Integers "@Integers@", because that is what they are.
 
 One thing to remember about Integers is that performing operations with Integers usually results in an Integer. The big thing to watch out here with is when performing division:
 
@@ -89,13 +89,13 @@ One thing to remember about Integers is that performing operations with Integers
 # => 2
 {% endhighlight %}
 
-Huh? @10 / 4@ in the real world is @2.5@, right? However, with Integers, operations return Integers. @2.5@ is not an @Integer@, so the operation rounds down. Sometimes this is what we want. Other times, we need to use @Floats@.
+Huh? @10 / 4@ in the real world is @2.5@, right? However, with Integers, operations return Integers. @2.5@ is not an Integer, so the operation rounds down. Sometimes this is what we want. Other times, we need to use Floats.
 
 h2. Float
 
-A @Float@ is the other type of number in programming. A @Float@ stores any real number: @12.4@, @1245.5555@, @34.0@. You can see that you always use decimal notation when writing a float. Also, you don't separate numbers with a comma. 
+A @Float@ is the other type of number in programming. A Float stores any real number: @12.4@, @1245.5555@, @34.0@. You can see that you always use decimal notation when writing a float. Also, you don't separate numbers with a comma. 
 
-See the @Float@ @34.0@? This is how we represent a whole number when we want to store it as a @Float@. The @.0@ tells Ruby to not store it as an @Integer@. Operations with @Floats@ return @Floats@:
+See the Float @34.0@? This is how we represent a whole number when we want to store it as a Float. The @.0@ tells Ruby to not store it as an Integer. Operations with Floats return Floats:
 
 {% highlight ruby %}
 10.0 / 4.0
@@ -104,7 +104,7 @@ See the @Float@ @34.0@? This is how we represent a whole number when we want to 
 
 Alright! Math makes sense again.
 
-What about operations involving both @Floats@ and @Integers@?
+What about operations involving both Floats and Integers?
 
 {% highlight ruby %}
 10 / 4.0
@@ -120,19 +120,19 @@ What about operations involving both @Floats@ and @Integers@?
 # => 5.0
 {% endhighlight %}
 
-You see what is happening? Each operation is looked at separately (and in the order of the order of operations). If one of the values in the operation is a @Float@, then the return value is a @Float@. With @10 / 4 + 2.5@, the first operation executed (division of 10 by 4) only has @Integers@ in it - so its returned value is also an @Integer@ (@2@). But then this @2@ is added to @2.5@, which is a @Float@, so the end result is a @Float@. 
+You see what is happening? Each operation is looked at separately (and in the order of the order of operations). If one of the values in the operation is a Float, then the return value is a Float. With @10 / 4 + 2.5@, the first operation executed (division of 10 by 4) only has Integers in it - so its returned value is also an Integer (@2@). But then this @2@ is added to @2.5@, which is a Float, so the end result is a Float. 
 
 Play around with other operations with @Floats@ and @Integers@.
 
 h2. String
 
-We've seen @Strings@ a few times now. We know @Strings@ store characters, words, sentences, paragraphs, etc. Its all text. Strings store text. You indicate the data is a string by surrounding it with quotes (@"@).
+We've seen @Strings@ a few times now. We know Strings store characters, words, sentences, paragraphs, etc. Its all text. Strings store text. You indicate the data is a string by surrounding it with quotes (@"@).
 
 {% highlight ruby %}
 name = "Josh Meyer"
 {% endhighlight %}
 
-One very nice thing about @Strings@ in Ruby is that you can insert variables into them using some special syntax. Let's see an example:
+One very nice thing about Strings in Ruby is that you can insert variables into them using some special syntax. Let's see an example:
 
 {% highlight ruby %}
 name = "Willy Shakes"
@@ -147,8 +147,74 @@ Breaking it down: we first create 3 variables, @name@, @title@, and @count@. The
 
 h2. Array
 
+So far we have been talking about data types that represent individual pieces of data. Integer is *a* number. String is *a* sentence. But often times we want to store many different pieces of data at once. Like a list of names, or a table of scores.
+
+Let's say you have a list of people to invite to a party, and want to work with them in a program. Theoretically, we could keep track each individual name as a separate variable:
+
+{% highlight ruby %}
+name1 = "Jimmy Dean"
+name2 = "Hans Anderson"
+#...
+{% endhighlight %}
+
+That would get really terrible, really quickly. 
+
+This is where @Arrays@ come in. An Array is a data type that stores a list pieces of data. You can create an array in Ruby by using @[@ and @]@. Each piece of data in your Array is separated with a comma:
+
+{% highlight ruby %}
+names = ["Jimmy Dean", "Hans Anderson", "Bob Barker"]
+{% endhighlight %}
+
+So @names@ is an Array that is storing Strings. To get one element out of your Array, you first type your Array's name, then open square bracket (@[@), then the index of the element you want, then close square bracket (@]@). Let's see this in action:
+
+{% highlight ruby %}
+names[0]
+# => "Jimmy Dean"
+{% endhighlight %}
+
+Notice that the first element in the Array's index is @0@. That is to say, to get the first name in @names@, you ask for the name at position @0@ *NOT* @1@. The index @1@ gives you the value in the *second* position. While this may seem a little weird, it's not that hard to get used to, and makes life a lot easier in the long run. Trust me.
+
+Again to recap, an Array can hold multiple pieces of data. You create and index into the Array using square brackets @[]@.
+
 h2. Hash
 
-h2. Boolean
+The @Hash@ is a bit harder to explain, but worth the effort to understand. A Hash is a container that holds multiple pieces of data - just like an Array. With an Array, the data is ordered in a list, and you retrieve data from that list by providing the position of the data you want in that list. @names[0]@ gives you the first name, @names[1]@ the second, etc. In effect, the index @0@,@1@ is the *key* by which you get your data.
 
-h2. Nil
+With Hashes, you define your own keys, instead of having to use the position in the list. Another way to say it is, in a Hash, you define a mapping between a unique name (the *key*) and the data you are storing in the Hash (the *value*). 
+
+Hashes are also called _Associative Arrays_ or _Dictionaries_ in other programming languages. Here is what a Hash looks like:
+
+{% highlight ruby %}
+ages = {"Jimmy Dean" => 34, "Sam Sid" => 68, "Josh Gorton" => 12}
+{% endhighlight %}
+
+We define a Hash using Squiggly brackets (@{}@). Inside the brackets, we first name the *key*, then @=>@ (which looks like an *arrow*), then the *value*. In the example above, The keys are Strings that hold names. The values are Integers, representing ages.
+
+To get a value back out of a Hash, we first type the Hashes name, then open square bracket (@[@), then the *key* of the value we want, then close square bracket (@]@). Here's an example:
+
+{% highlight ruby %}
+ages["Josh Gorton"]
+# => 12
+{% endhighlight %}
+
+It looks a lot like accessing elements in an Array right? But instead of the position in the list, we use the key we've associated with the value we want.
+
+To rehash (no pun intended): Hashes store key value pairs. You use squiggly brackets (@{}@) to create one. To get a value from a Hash, you have to provide the key associated with that value. 
+
+While perhaps a little confusing, Hashes are extremely powerful. Try to create one now that uses peoples names as keys and then their pet's names as values.
+
+h2. Booleans & Nil
+
+I know you're tired, so we will hit a couple more data types really quickly. Often times we need to store just if some condition is true or not. Is the door currently open? Is this person's name "Sam Tarly". 
+
+@Boolean@ is a data type that stores just *true* or *false*. In fact @true@ and @false@ are keywords in Ruby that represent the two possible Boolean values. Lets see them used in an equation:
+
+{% highlight ruby %}
+1 == 1
+# => true
+
+1 > 2
+# => false
+{% endhighlight %}
+
+Here we are comparing two numbers. The first line asks is @1@ equal to @1@? Note that we use two equals signs (@==@). This is because a sign equal sign is used for assigning values to variables, remember? @age = 13@. So to compare, we need to use @==@.
