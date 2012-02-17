@@ -174,3 +174,8 @@ margin-right: auto;
   float: left;
   margin-right: 20px;
 }
+
+.center {
+  text-align: center;
+  margin: auto;
+}
