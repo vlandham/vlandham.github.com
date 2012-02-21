@@ -12,10 +12,19 @@ a img {
 	border: 0;
 }
 
+body, input, textarea {
+  font-family: "Helvetica Neue","Helvetica",arial,sans-serif;
+  font-weight: 300;
+}
+
 body {
-  font-family: 'Droid Serif', arial, serif;
-  font-weight:400;
-  background-color:white;
+  color: #444;
+}
+
+p, li {
+  font-size: 1.1em;
+  letter-spacing: 0.06em;
+  line-height: 1.8em;
 }
 
 #wrapper {
