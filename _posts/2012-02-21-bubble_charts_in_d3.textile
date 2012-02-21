@@ -18,6 +18,12 @@ In order to better understand the budget visualization, I've created a similar b
 
 "You can see the full visualization here":http://vallandingham.me/vis/gates
 
+And the "visualization code is on github"
+
+*Warning Coffeescript*
+
+The example is written in "CoffeeScript":http://coffeescript.org/ as I find it much easier to read and write than javascript. Hopefully this does not get in the way of you understanding what is going on. The original NYT visualization is in javascript. Let me know if something is confusing.
+
 The data for this visualization comes from the "Washington Posts DataPost":http://www.washingtonpost.com/wp-srv/metro/data/gates-grants.html . I've added a categorization to the amount for each grant (low, medium, high) and pulled out the start year, but otherwise have left the data alone.
 
 The rest of this tutorial will walk through the functionality behind this Gates Foundation visualization. This visualization is just a sketch of the functionality in the New York Times graphic - so we can see the relevant parts clearly.
@@ -120,7 +126,7 @@ h3. Animation and Transitions
 
 The original graphic has some nice transitions between views of the data, where bubbles are pulled apart into separate groups. I've replicated this somewhat by having a view that divides up Gate's grants by year.
 
-How is this done? Well the position of each node is determined by the function called for each _tick_ of the simulation. This function gets passed in the tick event, which includes the @alpha@ for this iteration of the simulation.
+How is this done? Well, lets start with the all-together view first. The position of each node is determined by the function called for each _tick_ of the simulation. This function gets passed in the tick event, which includes the @alpha@ for this iteration of the simulation.
 
 We can see this function in the code segment above. I'll highlight it again here:
 
@@ -139,9 +145,54 @@ So, @move_towards_center@ *must* be doing something with the data's @x@ and @y@ 
 {% highlight coffeescript %}
 move_towards_center: (alpha) =>
   (d) =>
-    d.x = d.x + (@center.x - d.x) * (@gravity + 0.02) * alpha
-    d.y = d.y + (@center.y - d.y) * (@gravity + 0.02) * alpha
+    d.x = d.x + (@center.x - d.x) * (@damper + 0.02) * alpha
+    d.y = d.y + (@center.y - d.y) * (@damper + 0.02) * alpha
 {% endhighlight %}
 
-So @move_towards_center@ returns a function that is called for each circle, passing in its data. Inside this function, the @x@ and @y@ values of the data are pushed towards the @@center@ point (which is set to the center of the visualization). This push towards the center is dampened by a constant, 0.02 + @@gravity@ and @alpha@. 
+So @move_towards_center@ returns a function that is called for each circle, passing in its data. Inside this function, the @x@ and @y@ values of the data are pushed towards the @@center@ point (which is set to the center of the visualization). This push towards the center is dampened by a constant, 0.02 + @@damper@ and @alpha@. 
 
+The @alpha@ dampening allows the push towards the center to be reduced over the course of the simulation, giving other forces like @gravity@ and @charge@ the opportunity to push back.
+
+The variable @@damper@ is set to @0.1@. This probably took some time to find a good value for.
+
+Ok, we've now seen how the nodes in the simulation move towards one point, what about multiple locations? The code is just about the same:
+
+{% highlight coffeescript %}
+display_by_year: () =>
+  @force.gravity(@layout_gravity)
+    .charge(this.charge)
+    .friction(0.9)
+    .on "tick", (e) =>
+      @circles.each(this.move_towards_year(e.alpha))
+        .attr("cx", (d) -> d.x)
+        .attr("cy", (d) -> d.y)
+  @force.start()
+
+move_towards_year: (alpha) =>
+  (d) =>
+    target = @year_centers[d.year]
+    d.x = d.x + (target.x - d.x) * (@damper + 0.02) * alpha * 1.1
+    d.y = d.y + (target.y - d.y) * (@damper + 0.02) * alpha * 1.1
+{% endhighlight %}
+
+The switch to displaying by year is done by restarting the force simulation. This time the _tick_ function calls @move_towards_year@. Otherwise it's about the same as @display_group_all@.
+
+@move_towards_year@ is almost the same as @move_towards_center@. The difference being that first the correct year point is extracted from @@year_centers@. Here's what that variable looks like:
+
+{% highlight coffeescript %}
+@year_centers = {
+  "2008": {x: @width / 3, y: @height / 2},
+  "2009": {x: @width / 2, y: @height / 2},
+  "2010": {x: 2 * @width / 3, y: @height / 2}
+}
+{% endhighlight %}
+
+You can see this is just an associative array where each year has its own location to move towards.
+
+@move_towards_year@ also multiplies by @1.1@ to speed up the transition a bit. Again, these numbers take some tweaking and experimentation to find. The code could be simplified a bit if you wanted to pass in the unique multipliers for each transition.  
+
+So we've seen a general pattern for both of these views: setup the _tick_ method to iterate over all the nodes to change their locations. This was done using the @each@ method. 
+
+In fact you can chain multiple @each@ methods that call different move functions. This would allow you to push and pull your nodes in various ways depending on their features. The NYT graphic uses at least two move functions for these transitions. One to move nodes towards a group point (like above), and one to move nodes towards their respective color band.
+
+Hope this tutorial shows you some interesting ways to use D3's force layout. Its not just for force-directed graphs anymore!
