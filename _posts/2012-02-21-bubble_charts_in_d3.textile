@@ -3,8 +3,11 @@ layout: post
 title: Creating Animated Bubble Charts in D3.js
 categories:
 - vis
-published: false
 ---
+
+<div class="left">
+<img src="http://vallandingham.me/images/vis/nyt_thumb.png" alt="nyt bubble chart">
+</div>
 
 Recently, the New York Times featured a "bubble chart of the proposed budget for 2013":http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html . It features some nice, organic, animations, and smooth transitions that add a lot of visual appeal to the graphic. This was all done using "D3.js":http://mbostock.github.com/d3/ .
 
@@ -16,13 +19,19 @@ h2. Simple Animated Bubble Chart
 
 In order to better understand the budget visualization, I've created a similar bubble chart that displays information about what education-based donations the Gates Foundation has made. 
 
+<a href="http://vallandingham.me/vis/gates"><img class="center" src="http://vallandingham.me/images/vis/bubble_chart.png"/></a>
+
 "You can see the full visualization here":http://vallandingham.me/vis/gates
 
-And the "visualization code is on github"
+And the "visualization code is on github":https://github.com/vlandham/vlandham.github.com/blob/master/vis/gates/coffee/vis.coffee
 
+The bubbles are color coded based on grant amount (I know the double encoding using size and color isn't very helpful - but this data set didn't have any quick and easy categorical fields besides year).
+
+<div class="box">
 *Warning Coffeescript*
 
-The example is written in "CoffeeScript":http://coffeescript.org/ as I find it much easier to read and write than javascript. Hopefully this does not get in the way of you understanding what is going on. The original NYT visualization is in javascript. Let me know if something is confusing.
+The example is written in "CoffeeScript":http://coffeescript.org/ as I find it much easier to read and write than javascript. Everything is packaged up in a nice @BubbleChart@ class. Hopefully this does not get in the way of you understanding what is going on. The original NYT visualization is in javascript. Let me know if something is confusing.
+</div>
 
 The data for this visualization comes from the "Washington Posts DataPost":http://www.washingtonpost.com/wp-srv/metro/data/gates-grants.html . I've added a categorization to the amount for each grant (low, medium, high) and pulled out the start year, but otherwise have left the data alone.
 
@@ -36,7 +45,9 @@ This layout essentially starts up a little physics simulation in your visualizat
 
 This means we don't really need to know much about graph theory to understand how this graphic works. However, we do need to know the components that make up a force layout, and how to use them.
 
-h3. Force Layout Reference
+h3. Force Layout Quick Reference
+
+Here are some of the concepts this visualization will use.
 
 h4. nodes
 
@@ -131,6 +142,7 @@ How is this done? Well, lets start with the all-together view first. The positio
 We can see this function in the code segment above. I'll highlight it again here:
 
 {% highlight coffeescript %}
+# ...
 .on "tick", (e) =>
   @circles.each(this.move_towards_center(e.alpha))
     .attr("cx", (d) -> d.x)
@@ -195,4 +207,6 @@ So we've seen a general pattern for both of these views: setup the _tick_ method
 
 In fact you can chain multiple @each@ methods that call different move functions. This would allow you to push and pull your nodes in various ways depending on their features. The NYT graphic uses at least two move functions for these transitions. One to move nodes towards a group point (like above), and one to move nodes towards their respective color band.
 
-Hope this tutorial shows you some interesting ways to use D3's force layout. Its not just for force-directed graphs anymore!
+Hope this tutorial shows you some interesting ways to use D3's force layout. I thought the original NYT visualization was interesting enough to find out more about it. Again, the full visualization code "can be found on github":https://github.com/vlandham/vlandham.github.com/blob/master/vis/gates/coffee/vis.coffee. It is just over 200 lines of code - *including* comments. 
+
+Force layouts: they are not just for force-directed graphs anymore!
