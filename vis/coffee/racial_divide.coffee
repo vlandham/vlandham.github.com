@@ -113,16 +113,16 @@ class CityView
           .friction(0.4)
           .theta(0.9)
 
-        link = @vis.selectAll("line")
-          .data(links)
-        .enter().append("svg:line")
-          .attr("x1", (d) -> d.source.x)
-          .attr("y1", (d) -> d.source.y)
-          .attr("x2", (d) -> d.target.x)
-          .attr("y2", (d) -> d.target.y)
-          .attr("stroke", "#333")
-          .attr("stroke-width", "0")
-          .attr("stroke-opacity", 0.0)
+        # link = @vis.selectAll("line")
+        #   .data(links)
+        # .enter().append("svg:line")
+        #   .attr("x1", (d) -> d.source.x)
+        #   .attr("y1", (d) -> d.source.y)
+        #   .attr("x2", (d) -> d.target.x)
+        #   .attr("y2", (d) -> d.target.y)
+        #   .attr("stroke", "#333")
+        #   .attr("stroke-width", "0")
+        #   .attr("stroke-opacity", 0.0)
 
         node = @vis.selectAll("g")
           .data(nodes)
@@ -148,10 +148,10 @@ class CityView
         tick_count = 0
 
         @force.on "tick", (e) =>
-          link.attr("x1", (d) -> d.source.x)
-            .attr("y1", (d) -> d.source.y)
-            .attr("x2", (d) -> d.target.x)
-            .attr("y2", (d) -> d.target.y)
+          # link.attr("x1", (d) -> d.source.x)
+          #   .attr("y1", (d) -> d.source.y)
+          #   .attr("x2", (d) -> d.target.x)
+          #   .attr("y2", (d) -> d.target.y)
           node.attr("transform", (d) -> "translate(#{d.x},#{d.y})")
           tick_count += 1
           if tick_count > 150
