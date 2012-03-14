@@ -1,0 +1,47 @@
+
+path {
+  stroke-width: 3px;
+  fill: none;
+}
+
+.x_axis, .y_axis {
+  /* shape-rendering: crispEdges; */
+}
+
+.x_axis line, .x_axis path, .y_axis line, .y_axis path {
+  fill:none;
+  stroke: #4e4e4e;
+  stroke-width: 1px;
+}
+
+.detail-background {
+  fill: #ffffff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+footer p {
+  text-align: center;
+}
+
+table th {
+  padding-right: 20px;
+  text-align: left;
+}
+
+table td {
+  padding-right: 10px;
+}
+
+.highlight {
+  fill: #F9CE4E;
+}
+
+.user_name {
+  cursor: pointer;
+}
+
+h4 { 
+  padding-bottom: 10px;
+}
