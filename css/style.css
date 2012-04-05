@@ -1,6 +1,6 @@
 a {
 	color: #6e6e6e;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 a:hover {
@@ -92,6 +92,7 @@ p, li {
 	padding: 0 0.5em;
 	line-height: 2.5em;
 	font-weight: normal;
+	text-decoration: none;
 }
 
 #content {
