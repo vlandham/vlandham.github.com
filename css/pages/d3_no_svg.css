@@ -3,33 +3,30 @@
   position: absolute;
 }
 
-
 .bubbleFill {
-  background: #DEDEDE;
   position: absolute;
   display: block;
-  width: 100px;
-  height: 100px;
   border: solid 1px white;
-  -webkit-transition-property: border-radius;
-  -webkit-transition-duration: 3.5s;
-  -moz-transition-property: border-radius;
-  -moz-transition-duration: 3.5s;
-  -ms-transition-property: border-radius;
-  -ms-transition-duration: 3.5s;
-  transition-property: border-radius;
-  transition-duration: 3.5s;
-}
-
-.circleLayout .bubbleFill {
+  -webkit-border-radius: 70px;
+  -moz-border-radius: 70px;
   border-radius: 70px;
-  box-shadow: 0 2px 0px rgba(0,0,0,0.16);
 }
 
-/* .circleLayout .bubbleFill { */
-/*   zoom: 1; */
-/*   behavior: url(/css/border-radius.htc); */
-/*   border-radius: 70px; */
-/* } */
+.tooltip {
+  position: absolute;
+  display: block;
+}
 
+.tooltipFill {
+  position: absolute;
+  display: block;
+}
+
+.tooltipFill p {
+  position: absolute;
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  padding: 3px 10px 3px 10px;
+}
 
