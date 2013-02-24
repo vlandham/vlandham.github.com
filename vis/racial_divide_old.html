@@ -1,0 +1,86 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Visualizing The Racial Divide</title>
+	<meta name="description" content="">
+	<meta name="author" content="Jim Vallandingham">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/racial_divide.css">
+
+	<script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div id="desc">
+      <h1>Visualizing The Racial Divide</h1>
+      <p>Each city is made up of tracts from the 2010 Census. Census tracts are pushed away from neighboring tracts based on the change in proportion of <span class="white">white</span> and <span class="black">black</span> populations between each neighboring tract.</p>
+      <p>Tracts that have a similar racial mix as their neighbors form groups. Spaces occur where there is a significant change in the racial makeup between neighboring tracts. The space is proportional to the change in racial composition between neighbors. <a href="http://vallandingham.me/visualizing_the_racial_divide.html">(Read More)</a></p>
+    </div>
+    <div id="cities">
+      <a id="mw">Milwaukee</a>
+      <a id="ch">Chicago</a>
+      <a id="sl">St. Louis</a>
+      <a id="sy">Syracuse</a>
+      <a id="dy">Dayton</a>
+      <a id="pt">Pittsburgh</a>
+      <a id="dn">Denver</a>
+      <a id="co">Columbus</a>
+      <a id="kc">Kansas City</a>
+      <a id="oc">Oklahoma City</a>
+      <a id="wc">Wichita</a>
+    </div>
+    <div id="main" role="main">
+    <div id="vis"></div>
+  </div>
+  <div class="clearfix"></div>
+</div> <!--! end of #container -->
+
+<!-- scripts -->
+<script src="js/libs/jquery-1.6.2.min.js"></script>
+<script src="js/libs/underscore.min.js"></script>
+<script src="js/libs/coffee-script.js"></script>
+<script src="js/libs/d3.v3.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/script.js"></script>
+<script type="text/coffeescript" src="coffee/racial_divide.coffee"></script>
+<!-- end scripts-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+    d3.selectAll('#cities a').on('click', function() {
+      var cityId = $(this).attr("id");
+      location.replace('#' + encodeURIComponent(cityId));
+      // return false;
+      d3.event.preventDefault();
+      });
+
+    d3.select(window).on('hashchange', hashChange);
+
+    function hashChange() {
+      var cityId = decodeURIComponent(location.hash.substring(1)).trim();
+      console.log(cityId);
+      $('#cities a').removeClass("active");
+      $('#' + cityId).toggleClass("active");
+      showCity(cityId);
+    };
+
+});
+</script>
+
+
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+</body>
+</html>
