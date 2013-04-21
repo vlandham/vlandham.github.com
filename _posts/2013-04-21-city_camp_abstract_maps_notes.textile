@@ -1,0 +1,29 @@
+---
+layout: post
+title: Abstract Maps Talk at CityCampKC 2013
+categories:
+- vis
+---
+
+I was fortunate to be part of the 2013 "CityCampKC":http://citycampkc.org/ conference that occured 4/20 at the lovely "Kauffman Foundation Conference Center":http://www.kauffman.org/about-foundation/the-kauffman-conference-center.aspx 
+
+This one day _unconference_ focuses on bringing together people from all walks of life under the banner of local community and government improvement. While a majority of the attendees appeared to be connected to the tech and startup scenes in Kansas City,  I also got a chance to meet government officials, librarians, and artists from the community. The variety of people was great, with the caveat that trying to create a talk for this kind of group was difficult. 
+
+I wanted to include a bit of visualization into the mix, so decided to give a talk in the afternoon sessions. The title of my talk was "Abstract Maps for a Powerful Impact". The premise of this talk is that while maps are an extremely potent way to tell a story with data, the ubiquitous use of Google Maps, what I would call the 'default presets' of online mapping, can dilute your data driven story.
+
+So, I attempt to provide an overview of some alternatives to Google Maps, and to traditional maps in general, with applications to local data. I cover "reductionist":http://vallandingham.me/kansas_city_streets_map_with_tilemill.html data/art techniques, "Stamen Maps":maps.stamen.com, cartograms, time-scale maps, and my own "racial divide":http://vallandingham.me/racial_divide/ map.
+
+I tried to show _remixable_ examples of what could be used at a local level, as well as some iterations on failure. For example, my failed attempts to use "dorling cartograms":http://bl.ocks.org/mbostock/4055892 to display census tract data.
+
+You can find the original talk here:
+
+"Abstract Maps for Powerful Impact":http://vallandingham.me/abstract_map_talk/#0
+
+And I put it on SpeakerDeck - just for the fun of it:
+
+<script async class="speakerdeck-embed" data-id="a8dd33008ca00130b2101231381d4b42" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+It was a great chance to meet some new people. And fun to attempt to create some material around a topic that I really enjoy: Maps! I felt I went a little too _lecturey_, not quite hitting the right "entertain/educate":http://www.hilarymason.com/speaking/speaking-entertain-dont-teach/ ratio. But you might enjoy!
+
+Thanks to the CityCampKC organizers, "Neighbor.ly":http://neighbor.ly/, "SingleWing":http://www.singlewingcreative.com/, and everyone else involved in this great event.
+
