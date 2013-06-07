@@ -1,0 +1,27 @@
+---
+layout: html5_post
+title: Abusing The Force Talk
+categories:
+- vis
+---
+
+I was very fortunate to be able to speak at the first "OpenVis Conf":http://openvisconf.com/ in Boston.
+
+The speakers were wonderful. The "organizers":http://bocoup.com/ were graceful. The venue was delightful.
+
+I just wanted to share my slides - in case they could be found to be useful by others. 
+
+"Here are my slides for Abusing the Force":http://vallandingham.me/force_talk/#0
+
+Use the arrow keys on your keyboard to navigate. Each slide is its own html page. The "source is all on github":https://github.com/vlandham/force_talk
+
+I also put the slides on speaker deck for easy viewing:
+
+<script async class="speakerdeck-embed" data-id="e9bb8300a1ec013092ef0af45ce6d40d" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+Finally, "Bocoup":http://bocoup.com/ has graciously put up videos of all the talks. So if you want to hear me stumble through these slides, "check it out on YouTube":http://www.youtube.com/watch?v=Mucmb33711A&list=PLlgxAbM67lYIQ5jid9cXsm72wEpHhAnyb&index=8
+
+It was a great time, and again, I feel very honored and humbled to have been part of OpenVis Conf.
+
+
+
