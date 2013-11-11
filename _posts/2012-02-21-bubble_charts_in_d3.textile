@@ -9,6 +9,8 @@ categories:
 <img src="http://vallandingham.me/images/vis/nyt_thumb.png" alt="nyt bubble chart">
 </div>
 
+*Update:* I moved the code to "its own github repo":https://github.com/vlandham/gates_bubbles - to make it easier to consume and maintain.
+
 Recently, the New York Times featured a "bubble chart of the proposed budget for 2013":http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html by "Shan Carter":https://twitter.com/#!/shancarter . It features some nice, organic, animations, and smooth transitions that add a lot of visual appeal to the graphic. This was all done using "D3.js":http://mbostock.github.com/d3/ .
 
 As "FlowingData commenters point out":http://flowingdata.com/2012/02/15/slicing-obamas-2013-budget-proposal-four-ways/ , the use of bubbles may or may not be the best way to display this dataset. Still, the way this visualization draws you in and gets you to interact makes it a nice piece and one that makes you wonder how they did it.
@@ -19,11 +21,11 @@ h2. Simple Animated Bubble Chart
 
 In order to better understand the budget visualization, I've created a similar bubble chart that displays information about what education-based donations the Gates Foundation has made. 
 
-<a href="http://vallandingham.me/vis/gates"><img class="center" src="http://vallandingham.me/images/vis/bubble_chart.png"/></a>
+<a href="http://vallandingham.me/gates_bubbles/"><img class="center" src="http://vallandingham.me/images/vis/bubble_chart.png"/></a>
 
-"You can see the full visualization here":http://vallandingham.me/vis/gates
+"You can see the full visualization here":http://vallandingham.me/gates_bubbles/
 
-And the "visualization code is on github":https://github.com/vlandham/vlandham.github.com/blob/master/vis/gates/coffee/vis.coffee
+And the "visualization code is on github":https://github.com/vlandham/gates_bubbles
 
 The bubbles are color coded based on grant amount (I know the double encoding using size and color isn't very helpful - but this data set didn't have any quick and easy categorical fields besides year).
 
@@ -207,6 +209,6 @@ So we've seen a general pattern for both of these views: setup the _tick_ method
 
 In fact you can chain multiple @each@ methods that call different move functions. This would allow you to push and pull your nodes in various ways depending on their features. The NYT graphic uses at least two move functions for these transitions. One to move nodes towards a group point (like above), and one to move nodes towards their respective color band.
 
-Hope this tutorial shows you some interesting ways to use D3's force layout. I thought the original NYT visualization was interesting enough to find out more about it. Again, the full visualization code "can be found on github":https://github.com/vlandham/vlandham.github.com/blob/master/vis/gates/coffee/vis.coffee. It is just over 200 lines of code - *including* comments. 
+Hope this tutorial shows you some interesting ways to use D3's force layout. I thought the original NYT visualization was interesting enough to find out more about it. Again, the full visualization code "can be found on github":https://github.com/vlandham/gates_bubbles. It is just over 200 lines of code - *including* comments. 
 
 Force layouts: they are not just for force-directed graphs anymore!
