@@ -11,6 +11,7 @@ return  window.requestAnimationFrame       ||
 };
 })();
 
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 // helper function for loading one or more sound files
 function loadSounds(obj, context, soundMap, callback) {
@@ -102,7 +103,8 @@ function Spectrogram(filename, selector, options) {
   var SMOOTHING = 0.0;
   var FFT_SIZE = 2048;
 
-  this.sampleRate = 256;
+  // this.sampleRate = 256;
+  this.sampleRate = options.sampleSize || 512;
   this.decRange = [-80.0, 80.0];
 
   this.width = options.width || 900;
@@ -111,7 +113,7 @@ function Spectrogram(filename, selector, options) {
 
   this.selector = selector;
   this.filename = filename;
-  this.context = context = new webkitAudioContext();
+  this.context = context = new AudioContext();
   this.analyser = context.createAnalyser();
   this.javascriptNode = context.createScriptProcessor(this.sampleRate, 1, 1);
 
@@ -305,7 +307,7 @@ Spectrogram.prototype.switchButtonText = function() {
 // ---
 Spectrogram.prototype.togglePlayback = function() {
   if (this.isPlaying) {
-    this.source.noteOff(0);
+    this.source.stop(0);
     this.startOffset += this.context.currentTime - this.startTime;
     console.log('paused at', this.startOffset);
     this.button.attr("disabled", null);
