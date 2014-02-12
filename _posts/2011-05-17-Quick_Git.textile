@@ -117,7 +117,7 @@ In this situation, it is beneficial to add all current files at once to git, and
 
 But before we do that, lets make sure that there aren't any files we want to not have tracked in git. Usually, files that are automatically generated and temporary files are good candidates for files we don't want to track. 
 
-Lets say that there is a directory called @temp@ that we don't want to track changes to. To tell git about this directory, we add it to the repositories @.gitignore@ file. So create this file and add @tempt@ to ignore:
+Lets say that there is a directory called @temp@ that we don't want to track changes to. To tell git about this directory, we add it to the repositories @.gitignore@ file. So create this file and add @temp@ to ignore:
 
 {% highlight bash %}
 touch ./.gitignore
