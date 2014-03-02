@@ -27,7 +27,7 @@ Pretty simple right? But "sometimes simple ways are best":http://bost.ocks.org/m
 
 h2. Your Visualization Development Environment
 
-Here's what it looks like when you first "open Lyra":http://idl.cs.washington.edu/projects/lyra/app/
+Here's what it looks like when you first "open Lyra":http://idl.cs.washington.edu/projects/lyra/app/ :
 
 <div class="center">
 <img class="center" src="http://vallandingham.me/images/lyra/lyra_01_small.png" alt="" style="border:1px dotted #cccccc;"/>
@@ -51,7 +51,7 @@ We will start with the data input and manipulation panel first. Far left.
 
 h2. A Simple Data Pipeline
 
-Let's pull in some data. To avoid complications, I used *medals*, one of the sample data sets provided by Lyra. This gives data about who won what at the Olympics. 
+Let's pull in some data. Adding and manipulating data in Lyra is called a *Data Pipeline*. To avoid complications, I used _medals_, one of the sample data sets provided by Lyra. This gives data about who won what at the Olympics. 
 
 Click on the _From Source_ drop down and select _medals_.
 
@@ -59,7 +59,7 @@ Click on the _From Source_ drop down and select _medals_.
 <img class="center" src="http://vallandingham.me/images/lyra/lyra_02_1.png" alt="" style="border:1px dotted #cccccc;"/>
 </div>
 
-The original data includes gold, silver, and bronze medal winnings. Let's just go for golds. 
+The original data includes gold, silver, and bronze medal winnings. Let's just go for gold. 
 
 h3. Filter Transform
 
@@ -203,7 +203,7 @@ Once you release the data element, you should see your visualization preview cha
 <img class="center" src="http://vallandingham.me/images/lyra/lyra_17.png" alt="" style="border:1px dotted #cccccc;"/>
 </div>
 
-Not a bad start. Lets move them off one another. I think you could do this a number of ways, but let's try binding the @Country_Code@ data element to the mark's _Y Position_ property. Since the country code is unique for each bar (as we have already filtered to only include gold medals), this make each bar move to a unique position. Try it. Drag the @Country_Code@ data element to _Y Position_ and release.
+Not a bad start, but a bit crowded. Let's move them off one another. I think you could do this a number of ways, but try binding the @Country_Code@ data element to the mark's _Y Position_ property. Since the country code is unique for each bar (as we have already filtered to only include gold medals), this make each bar move to a unique position. Try it. Drag the @Country_Code@ data element to _Y Position_ and release.
 
 My Lyra looks something like this:
 
