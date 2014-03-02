@@ -233,10 +233,10 @@ Now click on these parameter rectangles and resize each side of the layer until 
 
 You can check the settings in the _Layer 1_ properties. I ended up with the following:
 
-* _X Start_ : 105
-* _Width_ : 580
-* _Y Start_ : 50
-* _Height_ : 400
+* _X Start_ : @105@
+* _Width_ : @580@
+* _Y Start_ : @50@
+* _Height_ : @400@
 
 <div class="center">
 <img class="center" src="http://vallandingham.me/images/lyra/lyra_20_small.png" alt="" style="border:0px dotted #cccccc;"/>
