@@ -30,13 +30,13 @@ h2. Your Visualization Development Environment
 Here's what it looks like when you first "open Lyra":http://idl.cs.washington.edu/projects/lyra/app/ :
 
 <div class="center">
-<img class="center" src="http://vallandingham.me/images/lyra/lyra_01_small.png" alt="" style="border:1px dotted #cccccc;"/>
+<img class="center" src="http://vallandingham.me/images/lyra/lyra_01_small.png" alt="" style="border:0px dotted #cccccc;"/>
 </div>
 
 I've annotated the app with my own terminology to provide a bit of orientation.
 
 <div class="center">
-<img class="center" src="http://vallandingham.me/images/lyra/lyra_01_2_small.png" alt="" style="border:1px dotted #cccccc;"/>
+<img class="center" src="http://vallandingham.me/images/lyra/lyra_01_2_small.png" alt="" style="border:0px dotted #cccccc;"/>
 </div>
 
 The far *left panel* provides capabilities to add data to the visualization and manipulate this data. 
