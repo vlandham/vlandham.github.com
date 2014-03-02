@@ -7,18 +7,22 @@ categories:
 
 Just a few days ago "Arvind Satyanarayan":https://twitter.com/arvindsatya1 from the "UW Interactive Data Lab":http://idl.cs.washington.edu/ released an alpha version of "Lyra":http://idl.cs.washington.edu/projects/lyra/ which promises to be a way to create complex data visualizations without code. 
 
-A sort of open source Adobe Illustrator geared toward data visualizations.
+A sort of open source Adobe Illustrator geared toward data visualizations. Sounds pretty awesome, right? But does it work?!
 
 There are a number of very interesting examples to learn from on the Lyra main page. These recreate some well known complex visuals. 
 
-I wanted to see what would be required in creating a really basic barchart - as a way to start to learn more about this interesting tool. 
+I wanted to see what would be required in creating a really basic bar chart - as a way to start to learn more about this interesting tool. 
 
 Here's the final product:
 
-Pretty simple right? But "sometimes simple ways are the best":http://bost.ocks.org/mike/bar/ . So follow along with me for a bit of Lyra fun!
+<div class="center">
+<img class="center" src="http://vallandingham.me/images/lyra/lyra_final.png" alt="" style="border:1px dotted #cccccc;"/>
+</div>
+
+Pretty simple right? But "sometimes simple ways are best":http://bost.ocks.org/mike/bar/ . So follow along with me for a bit of Lyra fun!
 
 <div class="box">
-*WARNING:* Lyra is labelled as _alpha_ and while already a great tool, its got some issues. A few times I had to restart from scratch after getting the tool into an state I couldn't recover from. I expect these issues to go away over time. 
+*WARNING:* Lyra is labelled as _alpha_ and while already a great tool, its got some "issues":https://github.com/uwdata/lyra/issues . A few times I had to restart from scratch after getting the tool into an state I couldn't recover from. I expect these issues to go away over time, but buyer beware - you might feel some frustrations.
 </div>
 
 h2. Your Visualization Development Environment
@@ -29,21 +33,21 @@ Here's what it looks like when you first "open Lyra":http://idl.cs.washington.ed
 <img class="center" src="http://vallandingham.me/images/lyra/lyra_01_small.png" alt="" style="border:1px dotted #cccccc;"/>
 </div>
 
-I've annotated the app to provide a bit of orientation.
+I've annotated the app with my own terminology to provide a bit of orientation.
 
 <div class="center">
 <img class="center" src="http://vallandingham.me/images/lyra/lyra_01_2_small.png" alt="" style="border:1px dotted #cccccc;"/>
 </div>
 
-So the far left area provides capabilities to add data to the visualization and manipulate this data. 
+The far *left panel* provides capabilities to add data to the visualization and manipulate this data. 
 
-The top bar allows you to drag new visual components or "marks":https://github.com/trifacta/vega/wiki/Tutorial#wiki-marks into the visualization.
+The *top bar* allows you to drag new visual components or "marks":https://github.com/trifacta/vega/wiki/Tutorial#wiki-marks into the visualization.
 
-These marks are organized into layers (just like Illustrator!). Properties of the marks in a visualization can be manipulated in the far right panel. This panel is also used to modify the size of the visual, its axes, etc. 
+These marks are organized into layers (just like Illustrator!). Properties of the marks in a visualization can be manipulated in the far *right panel*. This panel is also used to modify the size of the visual, its axes, etc. 
 
-The middle gives you a preview of the visualization. You can also move around and resize the layers of your work here.
+The *middle* gives you a preview of the visualization. You can also move around and resize the layers of your work here.
 
-We will start with the data input and manipulation panel first.
+We will start with the data input and manipulation panel first. Far left.
 
 h2. A Simple Data Pipeline
 
