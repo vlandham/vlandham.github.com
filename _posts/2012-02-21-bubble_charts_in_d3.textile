@@ -2,7 +2,7 @@
 layout: post
 title: Creating Animated Bubble Charts in D3
 categories:
-- vis
+- tutorial
 ---
 
 <div class="left">

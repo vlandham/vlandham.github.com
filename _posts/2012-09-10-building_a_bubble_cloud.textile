@@ -2,7 +2,7 @@
 layout: html5_post
 title: Building a Bubble Cloud
 categories:
-- vis
+- tutorial
 ---
 
 For the 2012 Republican and Democratic national conventions, "Mike Bostock":http://bost.ocks.org/mike/ , "Shan Carter":http://shancarter.com/ , and "Matthew Ericson":http://www.ericson.net/content/ have created a series of visualizations highlighting the words being used in the speeches of both gatherings. These word-cloud-like word bubble clouds (what I'll call _bubble clouds_, unless you can think of a better name) serve as a great interface for looking at the differences in the two conventions and for browsing through quotes from the talks. 

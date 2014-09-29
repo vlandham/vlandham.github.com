@@ -2,7 +2,7 @@
 layout: html5_post
 title: Steps for Building a Stepper Visualization
 categories:
-- vis
+- tutorial
 ---
 
 As the NYT's Amanda Cox has said "in some of her talks":http://blog.visual.ly/10-things-you-can-learn-from-the-new-york-times-data-visualizations/ , annotating a visualization is one of the most important, but also one of the hardest things to do. In this post, we won't tackle the 'what' to annotate, but an example of the 'how' to implement an annotation layer that needs to change as a user progresses through a visualization. "Here's what we will be building":http://vallandingham.me/stepper_example/final/

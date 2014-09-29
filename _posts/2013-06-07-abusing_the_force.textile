@@ -2,7 +2,7 @@
 layout: html5_post
 title: Abusing The Force Talk
 categories:
-- vis
+- talk
 ---
 
 I was very fortunate to be able to speak at the first "OpenVis Conf":http://openvisconf.com/ in Boston.

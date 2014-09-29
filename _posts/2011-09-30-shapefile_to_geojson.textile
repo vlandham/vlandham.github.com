@@ -2,7 +2,7 @@
 layout: post
 title: From Shapefile to GeoJSON
 categories:
-- vis
+- tutorial
 ---
 
 h3. A method for editing, merging, simplifying, and converting Shapefiles to GeoJSON

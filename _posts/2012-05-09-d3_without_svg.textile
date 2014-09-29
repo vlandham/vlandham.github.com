@@ -3,7 +3,7 @@ layout: html5_post
 title: D3 Without SVG
 css: d3_no_svg.css
 categories:
-- vis
+- tutorial
 ---
 
 <script type="text/javascript" src="vis/js/libs/es5-shim.min.js"></script>

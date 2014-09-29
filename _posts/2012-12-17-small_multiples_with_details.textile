@@ -2,7 +2,7 @@
 layout: html5_post
 title: Small Multiples with Details on Demand
 categories:
-- vis
+- tutorial
 ---
 
 Small multiples are a great way to show changes in data. By lining up multiple visualizations, they effectively allow for direct comparisons to be made with little effort. This is in contrast to potential alternatives such as video or animation, which force the observer to remember previous shots of the visualization to perform the same comparisons.

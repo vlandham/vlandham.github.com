@@ -2,7 +2,7 @@
 layout: html5_post
 title: Let's Make a Bar Chart with Lyra
 categories:
-- vis
+- tutorial
 ---
 
 A few days ago "Arvind Satyanarayan":https://twitter.com/arvindsatya1 from the "UW Interactive Data Lab":http://idl.cs.washington.edu/ released an alpha version of "Lyra":http://idl.cs.washington.edu/projects/lyra/ that promises to be a way to create complex data visualizations without code. Think of it like an open source Adobe Illustrator, for data visualizations. Sounds pretty awesome, right? But does it work?!

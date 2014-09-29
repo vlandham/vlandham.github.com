@@ -2,7 +2,7 @@
 layout: post
 title: Abstract Maps Talk at CityCampKC 2013
 categories:
-- vis
+- talk
 ---
 
 I was fortunate to be part of the 2013 "CityCampKC":http://citycampkc.org/ conference that occured 4/20 at the lovely "Kauffman Foundation Conference Center":http://www.kauffman.org/about-foundation/the-kauffman-conference-center.aspx 

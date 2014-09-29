@@ -2,7 +2,7 @@
 layout: post
 title: iBook Widgets with D3.js
 categories:
-- vis
+- tutorial
 ---
 
 h3. Create a HTML Widget for iBooks using d3.js without Dashcode
