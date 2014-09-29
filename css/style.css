@@ -137,9 +137,9 @@ a.post_title:hover {
 }
 
 .section {
-  border-bottom: 3px solid #3E423A;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
+  border-bottom: 2px solid #777;
+  padding-bottom: 0px;
+  margin-bottom: 30px;
 }
 
 pre {
