@@ -37,6 +37,10 @@ p, li {
 	/*border-radius: 1.5em;*/
 }
 
+#homelink.Home, #vislink.Visualizations, #aboutlink.About {
+  color:#8C0101;
+}
+
 .container {
 	width: 850px;
 }
