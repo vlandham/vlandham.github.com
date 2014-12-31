@@ -2,7 +2,7 @@
 layout: html5_post
 title: Kansas City Streets Map Remix
 categories:
-- vis
+- tutorial
 ---
 
 Technologies change with the times. Nothing stays the same. Awhile back, I "experimented with TileMill":http://vallandingham.me/kansas_city_streets_map_with_tilemill.html to create a "streets only" view of Kansas City - with hopefully enough detail in the instructions that you could do it yourself for your own hometown.
