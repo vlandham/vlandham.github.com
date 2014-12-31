@@ -2,7 +2,7 @@ source:      .
 destination: ./_site
 includes:    ./_includes
 
-pygments:    true
+highlighter:    pygments
 markdown:    rdiscount
 permalink:   /:title.html
 
