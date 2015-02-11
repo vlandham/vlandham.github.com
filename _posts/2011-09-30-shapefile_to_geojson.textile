@@ -5,7 +5,20 @@ categories:
 - tutorial
 ---
 
+<div class="box">
+*UPDATE - Feb 11, 2015* 
+This is an old post, and needed some love. I've updated it a bit with the following changes:
+
+* "New github repo":https://github.com/vlandham/d3_geojson_example - for the D3 visualization part at the end
+* Automatically determines the projection's scale and translation (from a "Bostock Example":http://bl.ocks.org/mbostock/4707858 ) - so this should work easier for any geojson file generated. 
+* JavaScript as well as CoffeeScript implementations for the D3 part. 
+
+Hope this helps keep the content relevant. Let me know if you see improvements that could be made!
+</div>
+
 h3. A method for editing, merging, simplifying, and converting Shapefiles to GeoJSON
+
+FYI - You might also want to check out "Mike Bostock's Let's Make a Map":http://bost.ocks.org/mike/map/ post which covers a lot of the same ground. 
 
 "D3.js":http://mbostock.github.com/d3/ supports cartographic visualizations by being able to display "lines, polygons, and other geometry objects":https://github.com/mbostock/d3/wiki/Geo-Paths . It uses "GeoJSON":http://geojson.org/ as the storage format for this type of visualization.
 
@@ -84,37 +97,21 @@ Note that the output file name comes *before* the input file name.
 
 You should now have a GeoJSON file of your custom Census Tract section, ready to be used in D3.
 
-"Here is my KC Metro GeoJSON file":https://github.com/vlandham/vlandham.github.com/blob/master/vis/data/kc-tracts.json . You can see that the *properties* object maintains the information necessary to map the GeoJSON feature back to a Census Tract.
+"Here is my KC Metro GeoJSON file":https://github.com/vlandham/d3_geojson_example/blob/master/data/kc_tracts.json . You can see (if click on a tract) that the *properties* object maintains the information necessary to map the GeoJSON feature back to a Census Tract.
 
 h3. Display in D3
 
-As a test, I wanted to display my new GeoJSON file in D3. Make sure to include @d3.geo.min.js@ in addition to @d3.min.js@ for the path functions. Below is the minimum amount of code I used to display this GeoJSON file using D3 and coffeescript (though it could be easily translated to plain old javascript). This assumes that there is a div with the id of @vis@ in your html.
+*Update Feb 11, 2015*
+Now this code has its own github repo: "d3 geojson example":https://github.com/vlandham/d3_geojson_example
 
-{% highlight coffeescript %}
-xy = d3.geo.albersUsa().translate([-900,950]).scale(28000)
-path = d3.geo.path().projection(xy)
+As a test, I wanted to display my new GeoJSON file in D3. Make sure to include @d3.geo.min.js@ in addition to @d3.min.js@ for the path functions. Below is the minimum amount of code I used to display this GeoJSON file using D3 and coffeescript (and I now have a "JavaScript version implemented in the repo":https://github.com/vlandham/d3_geojson_example/blob/master/js/vis.js ). This assumes that there is a div with the id of @vis@ "in your html":https://github.com/vlandham/d3_geojson_example/blob/master/index.html .
 
-vis = d3.select("#vis")
-  .append("svg:svg")
-  .attr("width", 900)
-  .attr("height", 900)
+<script src="https://gist.github.com/vlandham/db0b55dab7322eed173a.js"></script>
 
-d3.json "data/kc3.json", (json) ->
-  vis.append("svg:g")
-    .attr("class", "tracts")
-  .selectAll("path")
-    .data(json.features)
-  .enter().append("svg:path")
-    .attr("d", path)
-    .attr("fill-opacity", 0.5)
-    .attr("fill", (d) -> if d.properties["STATEFP10"] == "20" then "#B5D9B9" else "#85C3C0")
-    .attr("stroke", "#222")
-{% endhighlight %}
-
-This is mostly the same code as the "D3's choropleth example":http://mbostock.github.com/d3/ex/choropleth.html . You can see there is an arbitrary translation and scaling involved with the projection. This was done to zoom in on the region of interest. I am not sure what a better way to this would be. Any ideas / suggestions? Some idea of where to start with these values was provided by the "Azimuthal Projection Toy":http://enja.org/advd3/azimuthal/azimuthal.html from "Ian Johnson":http://enja.org/about/ .
+This is mostly the same code as the "D3's choropleth example":http://mbostock.github.com/d3/ex/choropleth.html . This now figures out the translation and scale automatically, "thanks to Mike":http://bl.ocks.org/mbostock/4707858 once again.
 
 I also use the "STATEFP10" property of each tract to determine the fill color. This results in different colors for Kansas and Missouri, to show that these properties are present in the simplified GeoJSON. Here's an image of the result:
 
 p=. !http://vallandingham.me/images/gis/kc_tracts_small.png!:http://vallandingham.me/images/gis/kc_tracts.png
 
-Again, perhaps not the smoothest way to get this GeoJSON file, but perhaps a starting point for others. Let me know if you have a better / different way to accomplish this.
+This is certainly just a start to the possibilities of using D3 and geojson. As mentioned at the top, Mike Bostock also has an "amazing map making tutorial":http://bost.ocks.org/mike/map/ that focuses on the benefits of topojson - so check that out!
