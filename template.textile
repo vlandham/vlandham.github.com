@@ -1,6 +1,9 @@
 ---
 layout: html5_post
-title: 
+title:
+description:
+img:
+twitter: true
 categories:
 - vis
 ---
