@@ -142,24 +142,35 @@ a.post_title:hover {
 
 .section {
   border-bottom: 2px solid #777;
-  padding-bottom: 0px;
+  padding-bottom: 0;
   margin-bottom: 30px;
 }
 
-pre {
-    border: 1px solid #ddd;
-    background-color: #eef;
-    padding: 0 .4em;
-}
-
-code {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .2em;
-}
-
+/* pre { */
+/*     border: 1px solid #ddd; */
+/*     background-color: #eef; */
+/*     padding: 0 .4em; */
+/* } */
+/*  */
+/* code { */
+/*   border: 1px solid #ddd; */
+/*   background-color: #eef; */
+/*   padding: 0 .2em; */
+/* } */
+/*  */
 pre code {
   border: none;
+}
+
+pre {
+  margin: 5px 0 5px 0;
+  padding: 5px 10px 5px 10px;
+}
+
+pre, tt, code {
+  font-size: 12px; line-height: 16px;
+  font-family: 'M+ 1mn', Menlo, Monaco, Consolas, "Lucida Console", monospace;
+  background: #f5f5f8;
 }
 
 .thumbnail {
