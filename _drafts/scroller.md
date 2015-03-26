@@ -104,7 +104,7 @@ I've added a height, width, and background to the `#vis` - just so we can see wh
 
 ## A Reusable Scroller
 
-Now, let's turn to the details of figuring out where the page will be scrolled to. With a bit of work, we can encapsulate most of this code into a stand-alone function that can be reused in other projects. Most of this is based on the Bloomberg Visual's excellent work - so thanks again to Adam Pearce!
+Now, let's turn to the details of figuring out where the page will be scrolled to. With a bit of work, we can encapsulate most of this code into a stand-alone function that can be reused in other projects. Most of this is based on the Bloomberg Visual's excellent work - so thanks again to [Adam Pearce](https://twitter.com/adamrpearce) for all his help!
 
 The code for this scroll detection capability is in [scroller.js](https://github.com/vlandham/scroll_demo/blob/gh-pages/js/scroller.js).
 
