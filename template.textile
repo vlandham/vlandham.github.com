@@ -1,9 +1,10 @@
 ---
 layout: html5_post
 title:
+twitter: true
+twitter_type: summary
 description:
 img:
-twitter: true
 categories:
 - vis
 ---

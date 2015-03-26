@@ -4,6 +4,7 @@ title: Making Learn JS Data
 description: LearnJSData.com is a new guide to data processing in JavaScript. This post describes the process of its creation and the specialness of the people involved.
 img: http://vallandingham.me/images/learnjsdata/learnjsdata_logo.png
 twitter: true
+twitter_type: summary
 categories:
 - tutorial
 ---

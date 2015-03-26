@@ -2,6 +2,4 @@ source "http://rubygems.org"
 gem "jekyll"
 gem "rdiscount"
 gem "RedCloth"
-gem "coffee-script"
-gem "thin"
-gem "sinatra"
+gem 'pygments.rb'
