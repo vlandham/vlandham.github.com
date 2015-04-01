@@ -29,4 +29,6 @@ Perhaps, more usefully, I've collected the examples used in the talk, and some t
 
 The [demo application](http://vallandingham.me/scroll_demo) and [associated tutorial](http://vallandingham.me/scroller.html) can also be found on my site.
 
+And of course, make your own scrolling art with [embroiden](http://vallandingham.me/embroiden/) - my fun little bookmarklet.
+
 Hope these resources are useful to you!
