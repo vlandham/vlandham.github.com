@@ -27,12 +27,13 @@ This technique has been used in many places including the New York Times with [G
 <img class="center" src="http://vallandingham.me/images/vis/scroll/nyt_world_cup.jpg" alt="world cup" style=""/>
 </div>
 
-
 And at Bloomberg with [Adam Pearce’s](https://twitter.com/adamrpearce) [American Truck Addiction](http://www.bloomberg.com/graphics/2015-auto-sales/) and [Measles Outbreak](http://www.bloomberg.com/graphics/2015-measles-outbreaks/) visualizations.
 
 <div class="center">
 <img class="center" src="http://vallandingham.me/images/vis/scroll/bloomberg_measles.jpg" alt="measles" style=""/>
 </div>
+
+You can find a lot more examples [in my talk](http://vallandingham.me/think_you_can_scroll.html) and associated [resources page](http://vallandingham.me/scroll_talk/examples/).
 
 I’ve [created a demo](http://vallandingham.me/scroll_demo/) that attempts to explain a lot of how to make these types of interactives, but covering a much less serious topic then these actual news reporters. As this tutorial will contribute to my upcoming [OpenVis Conf](http://openvisconf.com/) talk in April, I decided to take a look at all the mistakes I made in my [2013 talk](http://vallandingham.me/abusing_the_force.html).
 
@@ -271,6 +272,8 @@ dispatch.progress(currentIndex, progress);
 Here we just find the previous section's top value, and compute how far into the current section we are. The number will range from 0.0 to 1.0, and we send that value along with the current index in the `progress` event.
 
 With this little change, we can now get updates as to where the user has scrolled within a section.
+
+**Warning** : there is some inconsistencies with how far different scrolling mechanisms move the page. If you want to get real specific, you might checkout a tool like [jQuery Mouse Wheel](https://github.com/jquery/jquery-mousewheel) that attempts to normalize this scrolling across devices.
 
 Now, let's **finally** use our scroll events to make some visualizations move!
 
