@@ -18,8 +18,8 @@ $ ->
 
   path = d3.geo.path()
 
-  # Due to the way I started storing the jobs by state data, I did not have a good location 
-  # for this extra data. This array is iterated over manually, which is also probably not 
+  # Due to the way I started storing the jobs by state data, I did not have a good location
+  # for this extra data. This array is iterated over manually, which is also probably not
   # a great idea.
   attrs = [
     {
@@ -71,6 +71,7 @@ $ ->
   vis = d3.select("#vis")
     .append("svg:svg")
     .attr("class", "chart")
+    .attr("width", panel_w + (panel_horiz_space))
     .attr("height", 1050) # hack. should at least be attrs.length * panel_size
 
 
