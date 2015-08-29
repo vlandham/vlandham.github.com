@@ -2,14 +2,14 @@
 layout: post
 title: Really Quick Git
 categories:
-- other
+- tutorial
 ---
 
 h3. An attempt to quickly demonstrate the usefulness of Git for the single-developer environment
 
 h2. What does Git give you as an individual developer?
 
-* History of changes you made to your files. 
+* History of changes you made to your files.
 ** Allows you to see when particular changes / features were implemented.
 ** Also can provide an explanation to why you changed something the way you did.
 * 'Universal undo'
@@ -17,7 +17,7 @@ h2. What does Git give you as an individual developer?
 ** Completely external to the particular editor you are using at the time.
 ** Useful when a rm goes bad, or when you get crazy with Vim (":d20j :wq").
 * Test out new changes / ideas without fear.
-** Branching capabilities in Git make it easy to try out large scale modifications to your code that you can always revert if things don't work out. 
+** Branching capabilities in Git make it easy to try out large scale modifications to your code that you can always revert if things don't work out.
 ** Also could be useful if you need to have a number of versions of your code with small tweaks in them.
 * Tagging allows you to know exactly how your code looked at a particular revision
 ** Useful for when you need to know if a bug / feature was present in the code at version x
@@ -66,7 +66,7 @@ echo ".DS_Store" >> ~/.gitignore
 # tell git about our global ignore
 git config --global core.excludesfile ~/.gitignore
 # you can add to this .gitignore file later
-# and each git project also can have its own 
+# and each git project also can have its own
 # specific .gitignore
 {% endhighlight %}
 
@@ -80,13 +80,13 @@ h4. You Commit Changesets to a Git repository
 
 Git works with groups of changes to your files, which we will call changesets. A changeset can include adding / removing text inside a file and / or adding / removing entire files. A changeset is commited to the git repository to track the changes. The idea here is that each changeset should optimally contain changes for a single logical modification to your code.
 
-So, for example, if you codebase is a command line tool, a possible changeset would be adding the ability to specify an output directory. You would commit all the file modifications to complete this change as a single changeset. Another changeset could be the creation of a new class to represent 'xyz'. That would go into its own changeset and that changeset would be committed to the repository. 
+So, for example, if you codebase is a command line tool, a possible changeset would be adding the ability to specify an output directory. You would commit all the file modifications to complete this change as a single changeset. Another changeset could be the creation of a new class to represent 'xyz'. That would go into its own changeset and that changeset would be committed to the repository.
 
-You can work at a lower or higher scope than this, but I belive working with individual logical changes as individual changes allows you to get the most from your repository. 
+You can work at a lower or higher scope than this, but I belive working with individual logical changes as individual changes allows you to get the most from your repository.
 
 h4. Git has a Staging area to Prepare your Commits
 
-As changesets can and often do include multiple files, you need a way to group your changes before committing. That's where the staging area comes in. The staging area is a holding place for changes in a changeset that will be committed. 
+As changesets can and often do include multiple files, you need a way to group your changes before committing. That's where the staging area comes in. The staging area is a holding place for changes in a changeset that will be committed.
 
 This makes committing a change a 2 step process:
 * First, a change is added to the staging area
@@ -113,9 +113,9 @@ h3. Preparing for the First Commit: Excluding Files
 
 Usually, you will @git init@ in a directory that already has files in it. Lets assume that is the situation for the rest of this article.
 
-In this situation, it is beneficial to add all current files at once to git, and use this as your first commit. 
+In this situation, it is beneficial to add all current files at once to git, and use this as your first commit.
 
-But before we do that, lets make sure that there aren't any files we want to not have tracked in git. Usually, files that are automatically generated and temporary files are good candidates for files we don't want to track. 
+But before we do that, lets make sure that there aren't any files we want to not have tracked in git. Usually, files that are automatically generated and temporary files are good candidates for files we don't want to track.
 
 Lets say that there is a directory called @temp@ that we don't want to track changes to. To tell git about this directory, we add it to the repositories @.gitignore@ file. So create this file and add @temp@ to ignore:
 
@@ -124,11 +124,11 @@ touch ./.gitignore
 echo "temp/*" >> ./.gitignore
 {% endhighlight %}
 
-Notice that we actually give a file matching pattern that says "ignore all files and folders inside of temp". Git automatically ignores empty directories, and so Git will ignore the @temp@ directory as well as we have made it 'empty' by ignoring all the files inside it. 
+Notice that we actually give a file matching pattern that says "ignore all files and folders inside of temp". Git automatically ignores empty directories, and so Git will ignore the @temp@ directory as well as we have made it 'empty' by ignoring all the files inside it.
 
 h3. First Commit
 
-Ok, now we are ready to commit our current set of files to git. 
+Ok, now we are ready to commit our current set of files to git.
 
 First, its nice to see the status of git using @git status@
 
@@ -139,7 +139,7 @@ git status
 
 h3. git add
 
-Like I mentioned above, committing in git is really a 2 step process: add and then commit. This allows you to be very particular about which files go into a specific commit. 
+Like I mentioned above, committing in git is really a 2 step process: add and then commit. This allows you to be very particular about which files go into a specific commit.
 
 As this is our first commit, we want to add all the files to our repository. This can be done a number of ways, but I like the following method:
 
@@ -156,13 +156,13 @@ git status
 
 h3. git commit
 
-Now we are ready to commit these changes to our repository. Each commit in git is given a "commit message" which describes what these changes are about. You can make these messages as long as you want, but for individual developers, its usually easiest to provide short but meaningful comments on what you changed. You can provide this short style comment using the @-m@ flag when committing. 
+Now we are ready to commit these changes to our repository. Each commit in git is given a "commit message" which describes what these changes are about. You can make these messages as long as you want, but for individual developers, its usually easiest to provide short but meaningful comments on what you changed. You can provide this short style comment using the @-m@ flag when committing.
 
 {% highlight bash %}
 git commit -m "initial commit"
 {% endhighlight %}
 
-And that's it! Your new files have been added to git to track. Check @git status@ and you will see that there are no new changes. 
+And that's it! Your new files have been added to git to track. Check @git status@ and you will see that there are no new changes.
 
 h2. Git Workflow
 
@@ -177,7 +177,7 @@ git status
 # see what changes have been made
 git add file1
 git add file2
-# add particular files that have been modified as part 
+# add particular files that have been modified as part
 # of the current change you are working on
 git commit -m "added xyz feature for abc reason"
 # commit with comment
