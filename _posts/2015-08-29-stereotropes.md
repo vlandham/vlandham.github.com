@@ -10,7 +10,7 @@ categories:
 ---
 
 <div class="center">
-<a href="http://stereotropes.bocoup.com"><img class="center" src="http://vallandingham.me/images/stereotropes/trope-page-adjectives.png" alt="logo" style="width:700px;"/></a>
+<a href="http://stereotropes.bocoup.com"><img class="center" src="http://vallandingham.me/images/stereotropes/logo-raster-medium.png" alt="logo" style="width:700px;"/></a>
 </div>
 
 A project I was fortunate to work on, in collaboration with the other members of the [Bocoup Data Vis Team](https://bocoup.com/datavis/), Stereotropes looks at the descriptions made for [TV and film tropes](http://tvtropes.org/pmwiki/pmwiki.php/Main/Trope) through the lens of gender.
