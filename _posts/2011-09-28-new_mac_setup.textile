@@ -1,6 +1,7 @@
 ---
+published: false
 layout: post
-title: What to install on your new - old - Mac 
+title: What to install on your new - old - Mac
 categories:
 - other
 ---
@@ -8,7 +9,7 @@ h3. A quick list of the first installs I perform on Mac OSX 10.5 that make using
 
 h3. (In roughly the order in which I install them)
 
-h2. "Xcode":http://developer.apple.com 
+h2. "Xcode":http://developer.apple.com
 
 This comes on the install disk, but I always try to get the latest from "developer.apple.com":http://developer.apple.com . Even if you are not planning on developing Cococa applications, you still want Xcode because it installs c / c++ compilers required for getting some Unix software up and going on the Mac.
 
@@ -21,7 +22,7 @@ It is kind of tricky to find. You can "go to the download page":http://connect.a
 
 h2. "Homebrew":https://github.com/mxcl/homebrew
 
-Becoming the defacto standard for easily installing Unix tools on the Mac. Homebrew solves the same problems as apt-get or yum in Linux land, however it is made for the Mac. 
+Becoming the defacto standard for easily installing Unix tools on the Mac. Homebrew solves the same problems as apt-get or yum in Linux land, however it is made for the Mac.
 
 There are other tools (Macports & Fink) that used to be the mainstays for installing Unix software on the Mac, however homebrew is becoming the popular choice in part because it is much less opaque than other tools to use. The tool and all its packages are managed on "github":http://github.com . The package installers are really just ruby scripts, which makes it easy to add a new package to the mix. And its really quite easy to use:
 
@@ -37,7 +38,7 @@ sudo chmod -R [USERNAME] /usr/local
 
 h2. "RVM":https://rvm.beginrescueend.com/
 
-The "ruby package manager":https://rvm.beginrescueend.com/ makes it easy to use ruby on Unix systems. It manages multiple versions of ruby and the gems associated with them, so you don't have to worry about incompatible setups when using different versions. 
+The "ruby package manager":https://rvm.beginrescueend.com/ makes it easy to use ruby on Unix systems. It manages multiple versions of ruby and the gems associated with them, so you don't have to worry about incompatible setups when using different versions.
 
 *Note:* I usually have to use the @-k@ switch for the install process to get things working as detailed on the "install page":https://rvm.beginrescueend.com/rvm/install/ .
 
@@ -55,27 +56,27 @@ rvm use 1.9.2 --default
 
 h2. "Quicksilver":http://www.blacktree.com/
 
-Quicksilver is usually the first thing I get setup on my Mac. Without it, I feel lost and alone. With it, I'm unstoppable. 
+Quicksilver is usually the first thing I get setup on my Mac. Without it, I feel lost and alone. With it, I'm unstoppable.
 
 Quicksilver is many things to many people. In its simplest form you can use it as a quick application launcher. With a bit more experience, it becomes a file browser. Eventually, it is the main interaction point you have with your Mac. Forget the mouse, use Quicksilver!
 
-It can be a bit troublesome to get going - but its worth it. I've had good luck so far with using "version B58":https://github.com/downloads/quicksilver/Quicksilver/Quicksilver-b58-3841.tar.gz with 10.5. 
+It can be a bit troublesome to get going - but its worth it. I've had good luck so far with using "version B58":https://github.com/downloads/quicksilver/Quicksilver/Quicksilver-b58-3841.tar.gz with 10.5.
 
 Recently, there has been some movement in the Quicksilver world - a "new website":http://qsapp.com/index.php and a "new release":http://qsapp.com/download.php (along with new developers). I've yet to move up to B60...
 
 h2. "MacFUSE":http://code.google.com/p/macfuse/ & "Macfusion":http://macfusionapp.org/
 
-There are times when I want to mount a SSH login as if it were a filesystem. Sometimes, its a remote machine. Sometimes, its a machine I can already mount, but I need to mount it as a different user. 
+There are times when I want to mount a SSH login as if it were a filesystem. Sometimes, its a remote machine. Sometimes, its a machine I can already mount, but I need to mount it as a different user.
 
-"Macfusion":http://macfusionapp.org/ lets me do this easily, and "MacFUSE":http://code.google.com/p/macfuse/ is the glue that Macfusion uses to get that done. 
+"Macfusion":http://macfusionapp.org/ lets me do this easily, and "MacFUSE":http://code.google.com/p/macfuse/ is the glue that Macfusion uses to get that done.
 
-I'm not sure how difficult this is to get set-up. I didn't really have any problems on 10.5 - but I think 10.6 users might have issues. First download and install MacFUSE. Then grab Macfusion as the frontend. I'm using Macfusion 2.0.3 and MacFUSE 2.0.3 as well. 
+I'm not sure how difficult this is to get set-up. I didn't really have any problems on 10.5 - but I think 10.6 users might have issues. First download and install MacFUSE. Then grab Macfusion as the frontend. I'm using Macfusion 2.0.3 and MacFUSE 2.0.3 as well.
 
 h3. Done with the hard part, now for some easy application installs
 
 h2. "R":http://cran.r-project.org/bin/macosx/ & "RStudio":http://www.rstudio.org/
 
-In the bioinformatic world, you better have a good R setup. I think RStudio is the best I've seen - even if you use command line R for the most part, RStudio is worth having on your system. First get the latest version of "R":http://cran.r-project.org/bin/macosx/ on your mac, then grab the "RStudio Desktop App":http://www.rstudio.org/download/ and use that as your R frontend. 
+In the bioinformatic world, you better have a good R setup. I think RStudio is the best I've seen - even if you use command line R for the most part, RStudio is worth having on your system. First get the latest version of "R":http://cran.r-project.org/bin/macosx/ on your mac, then grab the "RStudio Desktop App":http://www.rstudio.org/download/ and use that as your R frontend.
 
 h2. "Chrome":http://www.google.com/chrome/intl/en/make/download-mac.html & "Firefox":http://www.mozilla.com/
 
@@ -83,12 +84,12 @@ Safari is a fine browser, I just like using Chrome better for the time being. Fi
 
 h2. "MacVim":http://code.google.com/p/macvim/
 
-Vim is Vim is Vim - until you start using "MacVim":http://code.google.com/p/macvim/ . 
+Vim is Vim is Vim - until you start using "MacVim":http://code.google.com/p/macvim/ .
 Try it out, and have a look at "my dotfiles":https://github.com/vlandham/dotfiles to see how to perfect the MacVim experience.
 
 h2. "TextWrangler":http://www.barebones.com/products/textwrangler/
 
-Sometimes you don't want to deal with Vim - even MacVim. There are other times when a more 'normal' text editor makes sense. These are the times to use "TextWrangler":http://www.barebones.com/products/textwrangler/ . 
+Sometimes you don't want to deal with Vim - even MacVim. There are other times when a more 'normal' text editor makes sense. These are the times to use "TextWrangler":http://www.barebones.com/products/textwrangler/ .
 
 It handles large files well, it does syntax highlighting, it has text manipulation tools built in, and its free. There is nothing not to like.
 
