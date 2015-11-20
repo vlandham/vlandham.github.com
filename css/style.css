@@ -193,12 +193,16 @@ border-image: initial;
 margin-bottom: 10px;
 }
 
-.thumbnail > img {
+.thumbnail img {
+  max-width: 260px;
+}
+
+/*.thumbnail > img {
 display: block;
-max-width: 100%;
+max-width: 260px;
 margin-left: auto;
 margin-right: auto;
-}
+}*/
 
 .left {
   float: left;
