@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection"/>
     <link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print"/>
     <!--[if lt IE 8]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"/><![endif]-->
+    {% if page.twitter %}
+    <meta name="twitter:card" content="{{ page.twitter_type }}">
+    <meta name="twitter:site" content="@vlandham">
+    <meta name="twitter:creator" content="@vlandham">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.description }}">
+    <meta name="twitter:image:src" content="{{ page.img }}">
+    {% endif %}
 
     <link rel="stylesheet" href="/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection"/>
 
