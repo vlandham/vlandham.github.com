@@ -2,8 +2,6 @@ source:      .
 destination: ./_site
 includes:    ./_includes
 
-highlighter:    pygments
-markdown:    rdiscount
 permalink:   /:title.html
 
 #base_url: http://vlandham.com
@@ -12,5 +10,5 @@ description: ""
 
 rdiscount:
   extensions: []
-  
+
 exclude: ['Rakefile', 'README.textile', 'config.rb', 'new.rb', 'template.html']
