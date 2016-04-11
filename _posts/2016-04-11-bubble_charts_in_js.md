@@ -41,7 +41,7 @@ And the [visualization code is on github](https://github.com/vlandham/bubble_cha
 
 The bubbles are color coded based on grant amount (I know the double encoding using size and color isn’t very helpful - but this data set didn’t have any quick and easy categorical fields besides year).
 
-The data for this visualization comes from the Washington Posts DataPost. I’ve added a categorization to the amount for each grant (low, medium, high) and pulled out the start year, but otherwise have left the data alone.
+The data for this visualization comes from the Washington Post's DataPost. I’ve added a categorization to the amount for each grant (low, medium, high) and pulled out the start year, but otherwise have left the data alone.
 
 The rest of this tutorial will walk through the functionality behind this Gates Foundation visualization. This visualization is just a sketch of the functionality in the New York Times graphic - so we can see the relevant parts clearly.
 
@@ -49,7 +49,7 @@ The rest of this tutorial will walk through the functionality behind this Gates 
 
 The [Force Layout](https://github.com/mbostock/d3/wiki/Force-Layout) component of D3.js is used to great effect to provide most of the functionality behind the transitions, animations, and collisions in the visualization.
 
-This layout essentially starts up a little physics simulation in your visualization. Components push and pull at one another, eventually settling in to their final positions. Typically, this layout is used for [graph visualization](http://mbostock.github.com/d3/ex/force.html) . Here, however, we forgo the use of edges and instead use it just to move around the nodes of a graph.
+This layout essentially starts up a little physics simulation in your visualization. Components push and pull at one another, eventually settling into their final positions. Typically, this layout is used for [graph visualization](http://mbostock.github.com/d3/ex/force.html) . Here, however, we forgo the use of edges and instead use it just to move around the nodes of a graph.
 
 This means we don’t really need to know much about graph theory to understand how this graphic works. However, we do need to know the components that make up a force layout, and how to use them.
 
@@ -117,7 +117,7 @@ var force = d3.layout.force()
   .friction(0.9);
 ```
 
-Pretty simple right? The [charge documentation](https://github.com/mbostock/d3/wiki/Force-Layout#wiki-charge) provides us with the understanding that this paramater can be a constant, but can also be a function. Sweet!
+Pretty simple right? The [charge documentation](https://github.com/mbostock/d3/wiki/Force-Layout#wiki-charge) provides us with the understanding that this parameter can be a constant, but can also be a function. Sweet!
 
 The charge function takes in an input parameter, `d`, which is the data associated with a node. The method returns the negative of the radius squared of the node, divided by 8.
 
@@ -127,7 +127,7 @@ A couple of other factors are at work that also contribute to the nice looking p
 
 We set its gravity to `-0.01` and its friction value to `0.9` (which is the default). This says that nodes should be ever so slightly pushed away from the center of the layout, but there should be just enough friction to prevent them from scattering away.
 
-So, nodes push away from one another based on their diameter - providing nice looking collision detection. The gravity and friction settings work along with this pushing to ensure nodes are sucked together or pushed away too far. Its a nice combo.
+So, nodes push away from one another based on their diameter - providing nice looking collision detection. The gravity and friction settings work along with this pushing to ensure nodes are sucked together or pushed away too far. It is a nice combo.
 
 
 Here is the code that is used to configure and startup the force directed simulation:
@@ -137,7 +137,7 @@ Here is the code that is used to configure and startup the force directed simula
 
 The capstone of the original graphic is the nice transitions between views of the data, where bubbles are pulled apart into separate groups. I’ve replicated this somewhat by having a view that divides up Gate’s grants by year.
 
-How is this done? Well, lets start with the "single group" view first. The position of each node is determined by the function called for each [tick](https://github.com/mbostock/d3/wiki/Force-Layout#tick) of the simulation. This function gets passed in the `alpha` for this iteration of the simulation.
+How is this done? Well, let's start with the "single group" view first. The position of each node is determined by the function called for each [tick](https://github.com/mbostock/d3/wiki/Force-Layout#tick) of the simulation. This function gets passed in the `alpha` for this iteration of the simulation.
 
 ```javascript
 // Group circles into a single blob.
@@ -206,12 +206,12 @@ var yearCenters = {
 
 You can see each year has its own centroid position mapped to it.
 
-`moveToYears` also multiplies by `1.1` to speed up the transition a bit. Again, these numbers take some tweaking and experimentation to find. The code could be simplified a bit if you wanted to pass in the unique multipliers for each transition.
+`moveToYears` also multiplied by `1.1` to speed up the transition a bit. Again, these numbers take some tweaking and experimentation to find. The code could be simplified a bit if you wanted to pass in the unique multipliers for each transition.
 
 So we’ve seen a general pattern for both of these views: setup the *tick* method to iterate over all the nodes to change their locations. This was done using the `each` method.
 
 In fact you can chain multiple `each` methods that call different move functions. This would allow you to push and pull your nodes in various ways depending on their features. The NYT graphic uses at least two move functions for these transitions. One to move nodes towards a group point (like above), and one to move nodes towards their respective color band.
 
-Hope this tutorial shows you some interesting ways to use D3’s force layout. I thought the original NYT visualization was interesting enough to find out more about it. Again, the full visualization code [can be found on github](https://github.com/vlandham/bubble_chart). It is just over 200 lines of code - **including** comments.
+Hope this tutorial shows you some interesting ways to use D3’s force layout. I thought the original NYT visualization was interesting enough to find out more about it. Again, the full visualization code [can be found on github](https://github.com/vlandham/bubble_chart/blob/gh-pages/src/bubble_chart.js). It is about 400 lines long, but includes copious comments for your perusing pleasure.
 
 Force layouts: they are not just for force-directed graphs anymore!
