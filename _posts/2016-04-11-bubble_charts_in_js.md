@@ -103,7 +103,7 @@ The `charge` of a force layout specifies node-node repulsions, so it could be us
 
 The trick is that along with a static value, `charge` can also take a **function**, which is evaluated for each node in the layout, passing in that node’s data. Here is the charge function for this visualization:
 
-```js
+```javascript
 // Charge Function
 function charge(d) {
   return -Math.pow(d.radius, 2.0) / 8;
@@ -139,7 +139,7 @@ The capstone of the original graphic is the nice transitions between views of th
 
 How is this done? Well, lets start with the "single group" view first. The position of each node is determined by the function called for each [tick](https://github.com/mbostock/d3/wiki/Force-Layout#tick) of the simulation. This function gets passed in the `alpha` for this iteration of the simulation.
 
-```js
+```javascript
 // Group circles into a single blob.
 function groupBubbles() {
   force.on('tick', function (e) {
@@ -171,7 +171,7 @@ The variable `damper` is set to `0.102`. This probably took some time to find a 
 
 Ok, we’ve now seen how the nodes in the simulation move towards one point, what about multiple locations? The code is just about the same:
 
-```js
+```javascript
 // Split circles based on year.
 function splitBubbles() {
   force.on('tick', function (e) {
@@ -196,7 +196,7 @@ The switch to displaying by year is done by restarting the force simulation usin
 
 `moveToYears` is almost the same as `moveToCenter`. The difference being that first the correct year point is extracted from `yearCenters`. Here’s what that object looks like:
 
-```js
+```javascript
 var yearCenters = {
   2008: { x: width / 3, y: height / 2 },
   2009: { x: width / 2, y: height / 2 },
