@@ -176,6 +176,7 @@ pre, tt, code {
   font-size: 12px; line-height: 16px;
   font-family: 'M+ 1mn', Menlo, Monaco, Consolas, "Lucida Console", monospace;
   background: #f5f5f8;
+  margin-bottom: 25px;
 }
 
 .thumbnail {

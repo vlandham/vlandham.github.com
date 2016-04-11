@@ -11,4 +11,3 @@ description: ""
 rdiscount:
   extensions: []
 
-exclude: ['Rakefile', 'README.textile', 'config.rb', 'new.rb', 'template.html']
