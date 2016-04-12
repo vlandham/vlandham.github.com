@@ -11,6 +11,8 @@ categories:
 </div>
 **Update:** I moved the code to [its own github repo](https://github.com/vlandham/gates_bubbles) - to make it easier to consume and maintain.
 
+**Update #2** I've rewritten this tutorial [in straight JavaScript](http://vallandingham.me/bubble_charts_in_js.html). So if you aren't that in to CoffeeScript, check the new one out!
+
 Recently, the New York Times featured a [bubble chart of the proposed budget for 2013](http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html) by [Shan Carter](https://twitter.com/#!/shancarter) . It features some nice, organic, animations, and smooth transitions that add a lot of visual appeal to the graphic. This was all done using [D3.js](http://mbostock.github.com/d3/) .
 
 As [FlowingData commenters point out](http://flowingdata.com/2012/02/15/slicing-obamas-2013-budget-proposal-four-ways/) , the use of bubbles may or may not be the best way to display this dataset. Still, the way this visualization draws you in and gets you to interact makes it a nice piece and one that makes you wonder how they did it.
