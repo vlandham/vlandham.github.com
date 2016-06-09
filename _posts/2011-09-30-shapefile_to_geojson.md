@@ -23,7 +23,7 @@ FYI - You might also want to check out [Mike Bostock’s Let’s Make a Map](htt
 
 [D3.js](http://mbostock.github.com/d3/) supports cartographic visualizations by being able to display [lines, polygons, and other geometry objects](https://github.com/mbostock/d3/wiki/Geo-Paths) . It uses [GeoJSON](http://geojson.org/) as the storage format for this type of visualization.
 
-Likewise, map tiling libraries like [Leaflet](http://leaflet.cloudmade.com/) can [use GeoJSON to create map layers](http://leaflet.cloudmade.com/examples/geojson.html) .
+Likewise, map tiling libraries like [Leaflet](http://leafletjs.com/) can [use GeoJSON to create map layers](http://leafletjs.com/examples/geojson.html) .
 
 You can find some GeoJSON files around, like in [D3’s choropleth example](http://mbostock.github.com/d3/ex/choropleth.html) , but sooner or later you will want to visualize a more specific portion of the world.
 
