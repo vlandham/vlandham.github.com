@@ -4,7 +4,7 @@ title: Becoming a Data Visualization Practitioner
 twitter: false
 draft: true
 categories:
-- talk
+- other
 ---
 
 
