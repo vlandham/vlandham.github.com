@@ -2,7 +2,6 @@
 layout: html5_post
 title: Becoming a Data Visualization Practitioner
 twitter: false
-draft: true
 categories:
 - other
 ---
