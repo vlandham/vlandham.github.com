@@ -11,6 +11,10 @@
   <meta name="twitter:title" content="{{ page.title }}">
   <meta name="twitter:description" content="{{ page.description }}">
   <meta name="twitter:image:src" content="{{ page.img }}">
+  {% else %}
+  <meta name="twitter:site" content="@vlandham">
+  <meta name="twitter:creator" content="@vlandham">
+  <meta name="twitter:title" content="{{ page.title }}">
   {% endif %}
 
   <link href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" title="Jim Vallandingham" type="application/atom+xml" />
