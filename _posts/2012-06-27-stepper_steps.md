@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Steps for Building a Stepper Visualization
 categories:
 - tutorial

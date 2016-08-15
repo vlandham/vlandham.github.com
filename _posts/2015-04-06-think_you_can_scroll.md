@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: So You Think You Can Scroll Talk
 twitter: true
 twitter_type: summary_large_image

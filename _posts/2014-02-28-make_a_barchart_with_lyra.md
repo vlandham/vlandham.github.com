@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Let's Make a Bar Chart with Lyra
 categories:
 - tutorial

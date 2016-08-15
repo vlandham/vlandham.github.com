@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Kansas City Streets Map Remix
 categories:
 - tutorial

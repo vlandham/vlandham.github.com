@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Building a Bubble Cloud
 categories:
 - tutorial

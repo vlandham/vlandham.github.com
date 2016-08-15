@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Interactive Small Multiples
 categories:
 - talk

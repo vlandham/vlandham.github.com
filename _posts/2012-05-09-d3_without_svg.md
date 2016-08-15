@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: D3 Without SVG
 css: d3_no_svg.css
 categories:

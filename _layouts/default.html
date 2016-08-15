@@ -1,62 +1,68 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} - Jim Vallandingham</title>
+  {% if page.twitter %}
+  <meta name="twitter:card" content="{{ page.twitter_type }}">
+  <meta name="twitter:site" content="@vlandham">
+  <meta name="twitter:creator" content="@vlandham">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description }}">
+  <meta name="twitter:image:src" content="{{ page.img }}">
+  {% endif %}
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <title>{{ page.title }} - Jim Vallandingham</title>
-    <link href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" title="Jim Vallandingham" type="application/atom+xml" />
-    <!-- Framework CSS -->
-    <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection"/>
-    <link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print"/>
-    <!--[if lt IE 8]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"/><![endif]-->
-    {% if page.twitter %}
-    <meta name="twitter:card" content="{{ page.twitter_type }}">
-    <meta name="twitter:site" content="@vlandham">
-    <meta name="twitter:creator" content="@vlandham">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.description }}">
-    <meta name="twitter:image:src" content="{{ page.img }}">
-    {% endif %}
+  <link href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" title="Jim Vallandingham" type="application/atom+xml" />
 
-    <link rel="stylesheet" href="/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection"/>
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'/>
 
-    <link rel="stylesheet" href="/css/github.css" type="text/css" media="screen, projection"/>
-    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection"/>
-    {% include styles.html %}
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  <link rel="stylesheet" href="/css/skeleton.css" type="text/css">
 
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'/>
+  <link rel="stylesheet" href="/css/github.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  {% if page.css %}
+  <link rel="stylesheet" href="/css/pages/{{ page.css }}">
+  {% endif %}
 
 
   </head>
   <body>
     <div id='wrapper'>
+        <div class="container">
+          <div class="row">
       <div id='header'>
         <h1><a href="/">Jim Vallandingham</a></h1>
       </div>
       <div id='menu'>
         <ul>
-          <li><a id='homelink' class='{{ page.title }}' href='/'>Posts</a></li>
-          <li><a id='vislink' class='{{ page.title }}' href='/vis'>Visualizations</a></li>
+          <li><a href='/'>Posts</a></li>
+          <li><a href='/vis'>Visualizations</a></li>
           <li><a href='/experiments'>Experiments</a></li>
-          <li><a id='aboutlink' class='{{ page.title }}' href='/about.html'>About</a></li>
+          <li><a href='/about.html'>About</a></li>
         </ul>
       </div>
       <div id='content'>
-        {{ content }}
-        <div class='clearfix'></div>
+            {{ content }}
+          </div>
+        </div>
       </div>
-      <div id='footer'>
-        <p>Jim Vallandingham<br/>
-          <a href="mailto:&#118;&#108;&#097;&#110;&#100;&#104;&#097;&#109;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#118;&#108;&#097;&#110;&#100;&#104;&#097;&#109;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a><br/>
-          <a href="http://twitter.com/vlandham"><img src="http://vallandingham.me/images/twitter-16.png" style="vertical-align:middle;border:0;background-color:#39a9e0;" /></a>&nbsp;<a href="http://twitter.com/#!/vlandham">@vlandham</a><br/>
-          <a href="https://github.com/vlandham"><img src="http://vallandingham.me/images/github-16.png" style="vertical-align:middle;border:0;background-color:#4183C4;" /></a>&nbsp;<a href="https://github.com/vlandham">vlandham</a><br/>
-          <a href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" alt="" style="vertical-align:middle;border:0"/></a>&nbsp;<a href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" type="application/rss+xml">subscribe</a>
-        </p>
-        <!-- http://www.wbwip.com/wbw/emailencoder.html -->
-        <!--http://simpleicons.org/-->
-      </div>
+    <div id='footer'>
+    	<p>Jim Vallandingham<br/>
+      <a href="mailto:&#118;&#108;&#097;&#110;&#100;&#104;&#097;&#109;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#118;&#108;&#097;&#110;&#100;&#104;&#097;&#109;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a><br/>
+      <a href="http://twitter.com/#!/vlandham">vlandham</a><br/>
+      <a href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" alt="" style="vertical-align:middle;border:0"/></a>&nbsp;<a href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" type="application/rss+xml">subscribe</a>
+      </p>
+      <!-- http://www.wbwip.com/wbw/emailencoder.html -->
     </div>
+  </div>
+    <script src="/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+    {% if page.js %}
+    <script src="/js/pages/{{ page.js }}" type="text/javascript" charset="utf-8"></script>
+    {% endif %}
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -67,7 +73,5 @@
     ga('send', 'pageview');
 
     </script>
-    <script src="/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/js/script.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Small Multiples with Details on Demand
 categories:
 - tutorial

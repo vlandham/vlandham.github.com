@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Visualizing Bird Songs with Web Audio
 css: spectrogram.css
 categories:

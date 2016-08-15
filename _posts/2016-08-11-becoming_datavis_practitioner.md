@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Becoming a Data Visualization Practitioner
 twitter: false
 categories:
@@ -10,11 +10,7 @@ categories:
 **If I can do it - so can you!**
 
 Here are some notes on an anecdotal path towards becoming a data visualization practitioner -
-Someone who _does data vis_.
-
-These steps are in rough sequential order, with of course overlap and repeating expected.
-
-All resources are tiny subsets of what could or should be included. Such is the nature of resource lists.
+Someone who _does data vis_. These steps are in rough sequential order, with of course overlap and repeating expected. All resources are tiny subsets of what could or should be included. Such is the nature of resource lists.
 
 ## Step 1 - Ponder
 

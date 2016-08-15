@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: A Git Workflow Walkthrough Series
 twitter: false
 twitter_type: summary

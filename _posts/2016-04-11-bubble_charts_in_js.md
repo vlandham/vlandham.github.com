@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Creating Animated Bubble Charts in JavaScript
 twitter: true
 twitter_type: summary_large_image

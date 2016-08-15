@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: VisKC for KC based Visualizations
 categories:
 - none

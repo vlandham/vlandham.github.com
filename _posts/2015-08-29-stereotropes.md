@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Stereotropes
 twitter: false
 twitter_type: summary

@@ -1,5 +1,5 @@
 ---
-layout: html5_post
+layout: post
 title: Implementing a Vintage Bump Chart
 twitter: false
 twitter_type: summary
