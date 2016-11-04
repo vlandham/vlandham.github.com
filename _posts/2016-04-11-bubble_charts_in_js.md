@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Creating Animated Bubble Charts in JavaScript
+title: Creating Bubble Charts in JavaScript
 twitter: true
 twitter_type: summary_large_image
 description: The classic Bubble Chart tutorial, now with 100% more JavaScript!
 img: http://vallandingham.me/images/vis/bubble_chart/bubble_chart_twitter.jpg
+demo: http://vallandingham.me/bubble_chart/
+source: https://github.com/vlandham/bubble_chart
 categories:
 - tutorial
 ---

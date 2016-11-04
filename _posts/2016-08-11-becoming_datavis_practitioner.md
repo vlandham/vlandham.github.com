@@ -3,7 +3,7 @@ layout: post
 title: Becoming a Data Visualization Practitioner
 twitter: false
 categories:
-- other
+- tutorial
 ---
 
 
@@ -23,7 +23,7 @@ Some options:
 Examples:
 
 * [Irene Ros](http://www.ireneros.com/projects.html)
-* [Peter Beihai](http://peterbeshai.com/academic/projects.html)
+* [Peter Beshai](http://peterbeshai.com/academic/projects.html)
 
 **Design focused**, with entry points into data vis
 
