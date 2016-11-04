@@ -85,3 +85,16 @@ a img {
   -webkit-border-radius: 0.8em;
   border-radius: 0.8em;
 }
+
+.main-body {
+  font-size: 1.9rem;
+}
+
+.main-body li {
+  margin-bottom: 0.5rem;
+}
+
+.post{
+  font-size: 1.8rem;
+  line-height: 1.7;
+}

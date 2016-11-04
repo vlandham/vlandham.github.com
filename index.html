@@ -6,23 +6,25 @@ twitter_type: summary_large_image
 description: Visualizations by Jim Vallandingham.
 img: http://vallandingham.me/images/vis/vis_card.png
 ---
-<h2>Tutorials</h2>
-<ul class="posts">
-{% for post in site.categories.tutorial %}
-<li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
-</ul>
+<div class="main-body">
+  <h2>Tutorials</h2>
+  <ul class="posts">
+    {% for post in site.categories.tutorial %}
+    <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
 
-<h2>Visualizations</h2>
-<ul class="posts">
-{% for post in site.categories.vis %}
-<li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
-</ul>
+  <h2>Visualizations</h2>
+  <ul class="posts">
+    {% for post in site.categories.vis %}
+    <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
 
-<h2>Talks</h2>
-<ul class="posts">
-{% for post in site.categories.talk %}
-<li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
-</ul>
+  <h2>Talks</h2>
+  <ul class="posts">
+    {% for post in site.categories.talk %}
+    <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

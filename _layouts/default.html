@@ -17,6 +17,32 @@
   <meta name="twitter:title" content="{{ page.title }}">
   {% endif %}
 
+  {% if page.twitter_type %}
+  <meta name="twitter:card" content="{{ page.twitter_type }}">
+  {% endif %}
+
+  <meta name="twitter:site" content="@vlandham">
+  <meta name="twitter:creator" content="@vlandham">
+  <meta name="twitter:title" content="{{ page.title }}">
+
+  <meta property="og:url" content="{{ page.url | absolute_path }}" />
+  <meta property="og:title" content="{{ page.title }}" />
+
+  {% if page.ogtype %}
+  <meta property="og:type" content="{{ page.ogtype }}" />
+  {% endif %}
+
+  {% if page.description %}
+  <meta name="twitter:description" content="{{ page.description }}">
+  <meta property="og:description" content="{{ page.description }}" />
+  {% endif %}
+
+  {% if page.img %}
+  <meta property="og:image" content="{{ page.img | absolute_path }}" />
+  <meta name="twitter:image:src" content="{{ page.img | absolute_path }}">
+  {% endif %}
+
+
   <link href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" title="Jim Vallandingham" type="application/atom+xml" />
 
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
