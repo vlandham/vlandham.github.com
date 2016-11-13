@@ -141,6 +141,12 @@ a img {
   line-height: 1.7;
 }
 
+.center {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
 .twitter-tweet {
   margin: auto;
 }

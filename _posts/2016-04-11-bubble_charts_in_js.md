@@ -15,6 +15,8 @@ categories:
 <img style="width:200px;" src="http://vallandingham.me/images/vis/bubble_chart/thumb.png" alt="nyt bubble chart">
 </div>
 
+**Update:** If you would like to use D3v4 to create a bubble chart, [check out my new updated tutorial](http://vallandingham.me//bubble_charts_with_d3v4.html).
+
 This tutorial is a **remake** of my [original Gates bubble chart](http://vallandingham.me/bubble_charts_in_d3.html) tutorial. The content, data, and visualization are all the same. The difference is this one is remade **with absolutely no CoffeeScript**. JavaScript has moved on. I've moved on. I hope this tutorial continues to be useful for folks who don't want to learn or deal with CoffeeScript. I've also stripped out jQuery, Bootstrap, and other cruft - allowing us to focus just on the bubbles.
 
 You can find the [wonderfully annotated sourcecode on GitHub](https://github.com/vlandham/bubble_chart/blob/gh-pages/src/bubble_chart.js) and see it does indeed work as expected on the [live demo](http://vallandingham.me/bubble_chart/).
