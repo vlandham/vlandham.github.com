@@ -3,7 +3,7 @@ layout: post
 title: Creating Bubble Charts with D3v4
 twitter: true
 twitter_type: summary_large_image
-description: Making Bubble Charts with D3v4 - like you've always wanted
+description: Making Bubble Charts with D3v4
 img: http://vallandingham.me/images/vis/bubble_chart_d3v4/bubble_v4_twitter.jpg
 demo: http://vallandingham.me/bubble_chart_v4/
 source: https://github.com/vlandham/bubble_chart_v4
