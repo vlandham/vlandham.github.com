@@ -150,3 +150,8 @@ a img {
 .twitter-tweet {
   margin: auto;
 }
+
+.post img {
+  max-width: 100%;
+  height: auto;
+}
