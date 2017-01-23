@@ -288,6 +288,6 @@ You were too? Great! That's why I created the amazing [Shaw Brothers Actors Netw
 
 With it, you can clearly pick out the Venom Mob on the right, in the screenshot. But that's not all, you can also browse all the movies actors appeared together in, and modify the network in lots of fun ways.
 
-The code is based on my [interactive network Flowing Data tutorial](http://flowingdata.com/2012/08/02/how-to-make-an-interactive-network-visualization/), which recently has been updated to use plain old Javascript and D3v4.
+The code is based on my [interactive network Flowing Data tutorial](http://flowingdata.com/2012/08/02/how-to-make-an-interactive-network-visualization/), which recently has been updated to use [plain old Javascript and D3v4](https://github.com/vlandham/interactive-network-v4).
 
 That wraps up my little data-driven exploration of Shaw Brothers films. As with any analysis, there's plenty more to explore - but hopefully this was fun for you too, and inspires some data-driven exploration of your own.  
