@@ -4,12 +4,14 @@ title: A Data Driven Exploration of Kung Fu Films
 twitter: true
 twitter_type: summary_large_image
 description: Using R & D3 to explore the Shaw Brothers Kung Fu film collection
+ogtype: article
 img: http://vallandingham.me/images/shaw_bros/shaw_twitter4.png
 demo: http://vallandingham.me/shaw_bros/
 source: http://vallandingham.me/shaw_bros/analyze/analyze_shaw.nb.html
 categories:
 - tutorial
 ---
+
 Recently, I've been a bit caught up in old Kung Fu movies. Shorting any technical explorations, I have instead been diving head-first into any and all Netflix accessible martial arts masterpieces from the 70's and 80's.
 
 While I've definitely been enjoying the films, I realized recently that I had little context for the movies I was watching. I wondered if some films, like our latest favorite, [Executioners from Shaolin](http://www.imdb.com/title/tt0076168/), could be enjoyed even more, with better understanding of the context in which these films exist in the Kung Fu universe.
@@ -25,6 +27,8 @@ I figured this company's entire martial arts collection would provide for a cons
 So here is a bit of data exploration fun. The analysis is in R, using tips and tricks from Hadley Wickham's wonderful new [Data Science in R](http://r4ds.had.co.nz/) book.
 
 The full analysis code can be found in this [R Notebook](http://vallandingham.me/shaw_bros/analyze/analyze_shaw.nb.html), which includes the code and graphs in an integrated format. And (spoilers!), the end [Actor Collaboration Network](http://vallandingham.me/shaw_bros/) and the rest of the  code can be [found on github](https://github.com/vlandham/shaw_bros).
+
+Come for the Kung Fu, stay for the word embedding and interactive networks!
 
 ### Shaw Brothers, Through The Ages
 
@@ -284,7 +288,7 @@ igraph is great for digging into properties of nodes, edges, and networks - and 
 
 You were too? Great! That's why I created the amazing [Shaw Brothers Actors Network Visualization](http://vallandingham.me/shaw_bros/).
 
-<a href="http://vallandingham.me/shaw_bros/"><img class="center" src="{{ "images/shaw_bros/network_tool.png" | absolute_url }}" alt="Actor Network" style=""/></a>
+<a href="http://vallandingham.me/shaw_bros/"><img class="center" src="{{ "images/shaw_bros/shaw_networktool2.png" | absolute_url }}" alt="Actor Network" style=""/></a>
 
 With it, you can clearly pick out the Venom Mob on the right, in the screenshot. But that's not all, you can also browse all the movies actors appeared together in, and modify the network in lots of fun ways.
 
