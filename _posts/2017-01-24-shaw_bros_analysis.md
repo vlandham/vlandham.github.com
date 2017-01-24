@@ -28,7 +28,7 @@ So here is a bit of data exploration fun. The analysis is in R, using tips and t
 
 The full analysis code can be found in this [R Notebook](http://vallandingham.me/shaw_bros/analyze/analyze_shaw.nb.html), which includes the code and graphs in an integrated format. And (spoilers!), the end [Actor Collaboration Network](http://vallandingham.me/shaw_bros/) and the rest of the  code can be [found on github](https://github.com/vlandham/shaw_bros).
 
-Come for the Kung Fu, stay for the word embedding and interactive networks!
+Come for the Kung Fu, stay for the [word embedding](http://vallandingham.me/shaw_bros_analysis.html#silly-kung-fu-titles-with-word2vec) and [interactive networks](http://vallandingham.me/shaw_bros_analysis.html#finding-a-mob-of-venoms)!
 
 ### Shaw Brothers, Through The Ages
 
