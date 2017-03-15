@@ -101,7 +101,7 @@ Blogs to scroll through:
 * [Flowing Data](http://flowingdata.com/)
 * [2014 New York Times Interactives](http://www.nytimes.com/interactive/2014/12/29/us/year-in-interactive-storytelling.html)
 * [2015 New York Times Interactives](http://www.nytimes.com/interactive/2015/us/year-in-interactive-storytelling.html)
-* [Mike Bostocks Visual Creations](http://bl.ocks.org/mbostock)
+* [Mike Bostock's Visual Creations](http://bl.ocks.org/mbostock)
 * [Visualizing Economics](http://visualizingeconomics.com/)
 * [Junk Charts](http://junkcharts.typepad.com/junk_charts/)
 * [Eagereyes](https://eagereyes.org/)
@@ -116,12 +116,12 @@ Additional Twitter People to follow:
 * [Martin Wattenberg](https://twitter.com/wattenberg) - google and famous
 * [Jonathan Corum](https://twitter.com/13pt) - science and news
 * [Hadley Wickham](https://twitter.com/hadleywickham) - R, data science
-* [Mike Rostock](https://twitter.com/mbostock) - D3
+* [Mike Bostock](https://twitter.com/mbostock) - D3
 
 Audio:
 
-* [data stories](http://datastori.es/) - podcasts
-* [policy vis](http://policyviz.com/) - podcasts
+* [Data Stories](http://datastori.es/) - podcasts
+* [Policy Vis](http://policyviz.com/) - podcasts
 
 ## Step 4: Learn
 
@@ -137,7 +137,7 @@ Some suggestions. The important thing is to not try to learn them all at once, b
 
 [R](https://www.r-project.org/) - if you want to do static images and data exploration, its hard to beat R. The ‘[Hadleyverse](http://adolfoalvarez.cl/the-hitchhikers-guide-to-the-hadleyverse/ )’(ggplot2, dplyr, etc) of tools built by Hadley Wickham is really a full stack for researching and visualizing data. The R language is weird and not the easiest - but with a few concepts under your belt, you become very powerful.
 
-[Python](https://www.python.org/) - if you want a more standard scripting language to work with, try python. [Pandas](http://pandas.pydata.org/), [matplotlib](http://matplotlib.org/), and [seaborn](https://seaborn.pydata.org/): go a long way to munging and visualizing data.
+[Python](https://www.python.org/) - if you want a more standard scripting language to work with, try python. [Pandas](http://pandas.pydata.org/), [Matplotlib](http://matplotlib.org/), and [Seaborn](https://seaborn.pydata.org/): go a long way to munging and visualizing data.
 
 [Processing](https://processing.org/) - for more design / educational  tool, processing is great. Many of the tutorials are moving to Processing.js - a javascript port of the tool. This allows for the creation of web-based interactive visualizations as well. But standard Processing is still a powerful and interesting option.
 
@@ -145,7 +145,7 @@ Some suggestions. The important thing is to not try to learn them all at once, b
 
 [D3](https://d3js.org/) - Javascript library, still the Czar of interactive data visualizations. If you want to make interactives, and want them on the web - you should probably take a look at D3.
 
-[Processing.js](http://processingjs.org/) - as mentioned, processing.js is a great tool for ‘painting with data’. it takes a different paradigm then D3 - which some might find easier to reason about.
+[Processing.js](http://processingjs.org/) - as mentioned, Processing.js is a great tool for ‘painting with data’. it takes a different paradigm then D3 - which some might find easier to reason about.
 
 **Desktop Applications**
 
@@ -168,7 +168,7 @@ Creations can be in the form of
 
 Start by creating a website to hold your creations.
 
-I would hands down recommend using [github pages](https://pages.github.com/) with a  custom domain name.
+I would hands down recommend using [Github Pages](https://pages.github.com/) with a  custom domain name.
 Jekyll (the tool powering these sites) is powerful and useful tool to learn and use.
 
 You can put javascript interactive as separate repos. its awesome.
@@ -185,4 +185,4 @@ Data to explore:
 
 * [Data is Plural](http://tinyletter.com/data-is-plural/archive) - hand curated and always interesting.
 * Open data portals: [New York](https://data.cityofnewyork.us/data), [Seattle](https://data.seattle.gov/), and more!
-* [My pinboard of data](https://pinboard.in/u:vlandham/t:data/)
+* [My Pinboard of data](https://pinboard.in/u:vlandham/t:data/)
