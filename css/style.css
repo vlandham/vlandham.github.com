@@ -126,6 +126,7 @@ a img {
   color: #ccc;
   margin-right: 1rem;
 }
+
 .post-info-list li:first-child::before {
   display: none;
 }
@@ -153,9 +154,14 @@ a img {
   margin-bottom: 0.5rem;
 }
 
-.post{
+.post {
   font-size: 1.8rem;
   line-height: 1.7;
+  max-width: 860px;
+}
+
+.post p, .post li {
+  font-family: Georgia, serif;
 }
 
 .center {
