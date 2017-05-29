@@ -5,8 +5,14 @@
   max-width: 800px;
 }
 
+.section h2 a {
+  text-decoration: none;
+
+}
+
 .banner {
   width: 800px;
+  padding-bottom: 20px;
 }
 
 
