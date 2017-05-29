@@ -76,6 +76,10 @@ a img {
   text-decoration: none;
 }
 
+#menu .posts-link.posts, #menu .vis-link.vis, #menu .about-link.about {
+  text-decoration: underline;
+}
+
 #footer {
   margin-bottom: 2em;
   color: #3E423A;

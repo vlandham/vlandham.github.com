@@ -1,13 +1,14 @@
 ---
 layout: default
 title: Home
+id: posts
 twitter: true
 twitter_type: summary_large_image
 description: Visualizations by Jim Vallandingham.
 img: http://vallandingham.me/images/vis/vis_card.png
 ---
 <div class="main-body">
-  <h2>Posts</h2>
+  <h2>Tutorials &amp; Posts</h2>
   <ul class="posts">
     {% for post in site.categories.tutorial %}
     <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
@@ -19,6 +20,9 @@ img: http://vallandingham.me/images/vis/vis_card.png
     {% for post in site.categories.vis %}
     <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
+    <li>
+      <a class="post_title" href="http://vallandingham.me/vis/">More Visualizations</a>
+    </li>
   </ul>
 
   <h2>Talks</h2>
