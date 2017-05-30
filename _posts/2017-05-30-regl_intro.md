@@ -448,7 +448,7 @@ Now your triangle should be moving, and blue!
 
 <a href="https://bl.ocks.org/vlandham/a925897220c4b1154b091aba6fcf842c"><img class="center" src="{{ "images/regl/blue_triangle.png" | absolute_url }}" alt="Triangle Example with props" style=""/></a>
 
-[Block](https://bl.ocks.org/vlandham/a925897220c4b1154b091aba6fcf842)
+[Block](https://bl.ocks.org/vlandham/a925897220c4b1154b091aba6fcf842c)
 
 (Click on the Block link to see the animation).
 
