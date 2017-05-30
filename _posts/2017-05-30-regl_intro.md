@@ -28,7 +28,7 @@ The final result will be a data stream visualization:
 
 <a href="https://bl.ocks.org/vlandham/af509ae70a7560b5a72cd3e3da4ff8cf"><img class="center" src="{{ "images/regl/data_stream.gif" | absolute_url }}" alt="Data Stream" style=""/></a>
 
-This falls short of the [amazing regl visualizations](http://peterbeshai.com/beautifully-animate-points-with-webgl-and-regl.html) Peter Beshai has recently produced and discussed recently, but hopefully this tutorial can serve as a stepping stone towards this greatness.
+This falls short of the [amazing regl visualizations](http://peterbeshai.com/beautifully-animate-points-with-webgl-and-regl.html) Peter Beshai has recently produced and discussed, but hopefully this tutorial can serve as a stepping stone towards this greatness.
 
 And if you want to just skip to the results, I've made a bunch of blocks to illustrate the concepts covered:
 
