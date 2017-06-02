@@ -790,9 +790,17 @@ If you installed all those packages I told you about, you should see syntax high
 To import these shader files back into `index.js`, use glslify:
 
 ```
+// import glslify at the top
+var glslify = require('glslify');
+
+// ...
+
 // use glslify to import shader code!
-frag: glslify('./shaders/draw_dots.fs.glsl'),
-vert: glslify('./shaders/draw_dots.vs.glsl'),
+regl({
+  frag: glslify('./shaders/draw_dots.fs.glsl'),
+  vert: glslify('./shaders/draw_dots.vs.glsl'),
+  // ...
+});
 ```
 
 I've made a little starter repo that has this all setup in it, if you'd like to start with it for your explorations:
