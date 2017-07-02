@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Abusing The Force Talk
+twitter: true
+twitter_type: summary_large_image
+description: Slides and resources from Jim Vallandingham's OpenVis Conf 2013 talk on using force directed layouts in interesting ways.
+img: http://vallandingham.me/images/vis/force_talk.png
 categories:
 - talk
 ---
