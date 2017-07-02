@@ -17,6 +17,10 @@ In collaboration with my amazingly talented coworker, [Yannick Assogba](http://c
 
 [The workshop content is available here](http://bocoup.github.io/text-vis-ovc/).
 
+<div class="center">
+<a href="http://bocoup.github.io/text-vis-ovc/"><img class="center" src="http://vallandingham.me/images/vis/textvis_workshop.png" alt="talk" style=""/></a>
+</div>
+
 We started with A series of Jupyter notebooks that familiarized everyone with the basics of working in a iterative notebook environment. We covered the basics of notebook use and of python - in case folks were unfamiliar.
 
 Then we dove into text analysis, starting at the sentence level and working our way up to corpora. We looked at how to turn raw text into data, and a number of different metrics useful for understanding and visualizing the text.

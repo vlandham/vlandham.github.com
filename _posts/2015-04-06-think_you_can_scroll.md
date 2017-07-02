@@ -13,7 +13,7 @@ This April, I had the privilege of coming back to [OpenVis Conf](http://openvisc
 
 ## Video
 
-Check out the video here:
+Check out the video [on youtube](https://youtu.be/fYQGgaE_b4I):
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fYQGgaE_b4I" frameborder="0" allowfullscreen></iframe>
 
