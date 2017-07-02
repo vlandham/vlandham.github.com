@@ -11,7 +11,7 @@ categories:
 
 This April, I had the privilege of coming back to [OpenVis Conf](http://openvisconf.com/) for a second time as a presenter. This is doublely special for me as I recently became an [Open Web Engineer](http://bocoup.com/weblog/author/jim-vallandingham/) at Bocoup - the organizers of this great conference (though it was after they had already accepted my talk).
 
-## videos
+## Video
 
 Check out the video here:
 

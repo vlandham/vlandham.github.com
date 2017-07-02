@@ -5,11 +5,19 @@ categories:
 - talk
 ---
 
-I was very fortunate to be able to speak at the first [OpenVis Conf](http://openvisconf.com/) in Boston.
+I was very fortunate to be able to speak at the first [OpenVis Conf](http://openvisconf.com/) in Boston in April 2013.
 
 The speakers were wonderful. The [organizers](http://bocoup.com/) were graceful. The venue was delightful.
 
-I just wanted to share my slides - in case they could be found to be useful by others.
+## Video
+
+The talk was recorded, and can be found on [Youtube](https://www.youtube.com/watch?v=fYQGgaE_b4I&t=5s):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fYQGgaE_b4I" frameborder="0" allowfullscreen></iframe>
+
+or [the archived OpenVis 2013 Site](https://openvisconf.com/2013/).
+
+## Slides
 
 [Here are my slides for Abusing the Force](http://vallandingham.me/force_talk/#0)
 
@@ -19,6 +27,5 @@ I also put the slides on speaker deck for easy viewing:
 
 <script async class="speakerdeck-embed" data-id="e9bb8300a1ec013092ef0af45ce6d40d" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js">
 </script>
-Finally, [Bocoup](http://bocoup.com/) has graciously put up videos of all the talks. So if you want to hear me stumble through these slides, [check it out on YouTube](http://www.youtube.com/watch?v=Mucmb33711A&list=PLlgxAbM67lYIQ5jid9cXsm72wEpHhAnyb&index=8)
 
 It was a great time, and again, I feel very honored and humbled to have been part of OpenVis Conf.
