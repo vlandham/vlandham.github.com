@@ -15,9 +15,9 @@ The speakers were wonderful. The [organizers](http://bocoup.com/) were graceful.
 
 ## Video
 
-The talk was recorded, and can be found on [Youtube](https://www.youtube.com/watch?v=fYQGgaE_b4I&t=5s):
+The talk was recorded, and can be found on [Youtube](https://www.youtube.com/watch?v=Mucmb33711A):
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fYQGgaE_b4I" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Mucmb33711A" frameborder="0" allowfullscreen></iframe>
 
 or [the archived OpenVis 2013 Site](https://openvisconf.com/2013/).
 
