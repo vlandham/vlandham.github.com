@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Text Analysis & Visualization Workshop
+title: Text Analysis and Visualization Workshop
 twitter: true
 twitter_type: summary_large_image
 description: Workshop given for OpenVis Conf 2016 on how to analyze and visualize text in inventive and informative ways.
