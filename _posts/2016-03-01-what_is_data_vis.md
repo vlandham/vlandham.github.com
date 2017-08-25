@@ -1,8 +1,10 @@
 ---
 layout: post
 title: What is Data Visualization?
-twitter: false
-description: Talk about the basics of data vis for
+twitter: true
+twitter_type: summary_large_image
+description: Talk about the basics of Data Vis geared towards developers in High School.
+img: http://vallandingham.me/images/vis/what_is_datavis.png
 categories:
 - talk
 ---
