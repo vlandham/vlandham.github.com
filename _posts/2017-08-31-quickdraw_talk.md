@@ -9,7 +9,7 @@ categories:
 - talk
 ---
 
-I was honored to be asked to talk at [Uber's Visualization Nights](https://www.uber.com/p/visualization/visualization-nights/) in Seattle, August 31st, 2017.
+I was honored to be asked to talk at [Uber's Visualization Nights](https://www.uber.com/p/visualization/visualization-nights/) in Seattle, August 31st, 2017. Here's the [Meetup Link](https://www.meetup.com/Uber-Engineering-Events-Seattle/events/242258284/).
 
 As you can guess by the amazingly clever title, it was a very serious topic. I used my recent [How Long Does it Take to (Quick) Draw a Dog?](http://vallandingham.me/quickdraw/) visualization to talk about histograms and other fun aggregate views of data.
 
