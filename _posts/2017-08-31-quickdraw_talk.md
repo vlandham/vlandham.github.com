@@ -4,7 +4,7 @@ title: Histograms to View Oodles of Doodles from Google
 twitter: true
 twitter_type: summary_large_image
 description: Talk about Quick Draw and Histograms for Uber-hosted Visualization Night Meetup.
-img: http://vallandingham.me/images/vis/textvis_workshop.png
+img: http://vallandingham.me/images/vis/quickdraw_talk.png
 categories:
 - talk
 ---
