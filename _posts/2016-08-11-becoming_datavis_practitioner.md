@@ -76,7 +76,7 @@ Suggested reading list.
 **Books:**
 
 * [The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi) - Tufte
-* [Visualize This](http://book.flowingdata.com/) - Nathan Yao
+* [Visualize This](http://book.flowingdata.com/) - Nathan Yau
 * [The Functional Art](http://www.thefunctionalart.com/p/about-book.html) - Alberto Cairo
 
 **Research Papers:**
@@ -110,7 +110,7 @@ Blogs to scroll through:
 Additional Twitter People to follow:
 
 * [Lynn Cherney](https://twitter.com/arnicas) - vis, data science & python
-* [Nadir Bremer](https://twitter.com/NadiehBremer) - d3, style & interactives
+* [Nadieh Bremer](https://twitter.com/NadiehBremer) - d3, style & interactives
 * [Elijah Meeks](https://twitter.com/Elijah_Meeks) - networks & opinions
 * [Kim Rees](https://twitter.com/krees) - do good with data
 * [Martin Wattenberg](https://twitter.com/wattenberg) - google and famous
@@ -135,7 +135,7 @@ Some suggestions. The important thing is to not try to learn them all at once, b
 
 **Programming Languages**
 
-[R](https://www.r-project.org/) - if you want to do static images and data exploration, its hard to beat R. The ‘[Hadleyverse](http://adolfoalvarez.cl/the-hitchhikers-guide-to-the-hadleyverse/ )’(ggplot2, dplyr, etc) of tools built by Hadley Wickham is really a full stack for researching and visualizing data. The R language is weird and not the easiest - but with a few concepts under your belt, you become very powerful.
+[R](https://www.r-project.org/) - if you want to do static images and data exploration, its hard to beat R. The ‘[tidyverse](https://www.tidyverse.org/)’(ggplot2, dplyr, etc) of tools originally built by Hadley Wickham is really a full stack for researching and visualizing data. The R language is weird and not the easiest - but with a few concepts under your belt, you become very powerful.
 
 [Python](https://www.python.org/) - if you want a more standard scripting language to work with, try python. [Pandas](http://pandas.pydata.org/), [Matplotlib](http://matplotlib.org/), and [Seaborn](https://seaborn.pydata.org/): go a long way to munging and visualizing data.
 
