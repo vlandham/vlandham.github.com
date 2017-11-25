@@ -1,0 +1,17 @@
+[
+  {
+    "title":"Historical Seattle Maps",
+    "url":"http://vallandingham.me/seattle_maps/",
+    "description": "A collection of old Seattle Maps I've found that are digitized and downloadable."
+  },
+  {
+    "title":"Scrollytelling Examples",
+    "url":"http://vallandingham.me/scroll_talk/examples/",
+    "description": "Collection of great scrollytelling examples from news outlets and other sources."
+  },
+  {
+    "title":"Visualization Experiments",
+    "url":"http://vallandingham.me/experiments/",
+    "description": "Half-done, small, or experimental visualization."
+  }
+]

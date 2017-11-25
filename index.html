@@ -31,4 +31,11 @@ img: http://vallandingham.me/images/vis/vis_card.png
     <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
+
+  <h2>Random Collections</h2>
+  <ul class="posts">
+    {% for collection in site.data.collections %}
+    <li><a class="post_title" href="{{ collection.url }}">{{ collection.title }}</a></li>
+    {% endfor %}
+  </ul>
 </div>
