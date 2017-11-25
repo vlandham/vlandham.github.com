@@ -21,10 +21,6 @@
   <meta name="twitter:card" content="{{ page.twitter_type }}">
   {% endif %}
 
-  <meta name="twitter:site" content="@vlandham">
-  <meta name="twitter:creator" content="@vlandham">
-  <meta name="twitter:title" content="{{ page.title }}">
-
   <meta property="og:url" content="{{ page.url | absolute_url }}" />
   <meta property="og:title" content="{{ page.title }}" />
 
@@ -51,6 +47,10 @@
   crossorigin="anonymous"></script>
   {% endif %}
 
+
+  {% if page.zoom %}
+  <script src="https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js"></script>
+  {% endif %}
 
   <link href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" title="Jim Vallandingham" type="application/atom+xml" />
 
@@ -109,6 +109,10 @@
 
     ga('create', 'UA-17355070-1', 'auto');
     ga('send', 'pageview');
+
+    {% if page.zoom %}
+      mediumZoom(".zoom")
+    {% endif %}
 
     </script>
   </body>

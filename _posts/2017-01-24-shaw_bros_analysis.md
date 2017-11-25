@@ -8,6 +8,7 @@ ogtype: article
 img: http://vallandingham.me/images/shaw_bros/shaw_twitter4.png
 demo: http://vallandingham.me/shaw_bros/
 source: http://vallandingham.me/shaw_bros/analyze/analyze_shaw.nb.html
+zoom: true
 categories:
 - tutorial
 ---
@@ -20,7 +21,7 @@ So, I began a data driven quest for truth and understanding (or at least a semi-
 
 For those not dedicating some portion of their finite lives to these retro wonders, the [Shaw Brothers Studio](https://en.wikipedia.org/wiki/Shaw_Brothers_Studio) is the most famous (to me) Kung Fu film producer of all time. Their memorable title screen is almost always a part of my Kung Fu watching experience.
 
-<img class="center" src="{{ "images/shaw_bros/shaw_scope.jpg" | absolute_url }}" alt="Shaw Bros Title Screen" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/shaw_scope.jpg" | absolute_url }}" alt="Shaw Bros Title Screen" style=""/>
 
 I figured this company's entire martial arts collection would provide for a consistent and thorough look at the genre. Fortunately, after a [bit](http://shawbrothersuniverse.com/shaw-brothers-classic-film-collection/) [of](http://www.silveremulsion.com/review-series/ongoing-review-series/shaw-brothers-martial-arts-films/) [searching](https://en.wikipedia.org/wiki/List_of_Shaw_Brothers_films), I stumbled on what appears to be a [comprehensive list of Shaw Brothers Films](https://letterboxd.com/jewbo23/list/shaw-brothers-martial-arts-films/). I decided to [pull down details](https://github.com/vlandham/scrape_shaw_bros) for each of these movies from the amazingly useful [Letterboxd](https://letterboxd.com/) movie-list-creation site to explore them in a data driven way to see what patterns could be discovered and what context I could learn from those patterns.
 
@@ -34,14 +35,14 @@ Come for the Kung Fu, stay for the [word embedding](http://vallandingham.me/shaw
 
 To get started, here is a look at the count of Shaw Brothers films by year.
 
-<img class="center" src="{{ "images/shaw_bros/films_by_year.png" | absolute_url }}" alt="Shaw Bros Films by Year" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/films_by_year.png" | absolute_url }}" alt="Shaw Bros Films by Year" style=""/>
 _I'm using the wonderful [theme_fivethirtyeight](https://github.com/jrnold/ggthemes) for these charts. Someday, I'll make my own._
 
 That's **260** films over 22 years.
 
 The first Kung Fu Shaw Brothers film in this data set is [Temple of the Red Lotus](https://letterboxd.com/film/temple-of-the-red-lotus/) from 1965. From the reviews, it sounds like it was a bit rough around the edges - but that's about what you would expect from this burgeoning genre.
 
-<img class="center" src="{{ "images/shaw_bros/temple_of_the_red_lotus.png" | absolute_url }}" alt="Temple of the Red Lotus" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/temple_of_the_red_lotus.png" | absolute_url }}" alt="Temple of the Red Lotus" style=""/>
 _Looks pretty sweet to me, I'll have to check it out_
 
 The studio hits its stride in the early 70’s, with a lull in the mid 70’s and another spike in the late 70’s / early 80’s. Keep in mind that even during the lull, most years the studio is still putting out 10 or more Kung Fu movies.
@@ -87,7 +88,7 @@ Well, we can use the Letterboxd "watches" and "likes" metrics to help winnow dow
 
 As you might expect, these two metrics are highly correlated:
 
-<img class="center" src="{{ "images/shaw_bros/watches_vs_likes.png" | absolute_url }}" alt="Watches vs Likes" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/watches_vs_likes.png" | absolute_url }}" alt="Watches vs Likes" style=""/>
 
 Basically, anything with more than 400 watches or 100 likes seems like a good place to start. The standout, with over 800 watches is 1984's [Eight Diagram Pole Fighter](https://letterboxd.com/film/eight-diagram-pole-fighter/). Not the catchiest title, but as one reviewer puts it:
 
@@ -99,7 +100,7 @@ I haven't seen this one yet, so I can't comment - but it's definitely on my list
 
 We have the director for each movie in our dataset, let's look to see if there are any popular standouts.
 
-<img class="center" src="{{ "images/shaw_bros/director_count.png" | absolute_url }}" alt="Top Directors" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/director_count.png" | absolute_url }}" alt="Top Directors" style=""/>
 
 I'd say! [Chang Cheh](https://en.wikipedia.org/wiki/Chang_Cheh) directed 67 or roughly 26% of all Shaw Brothers Kung Fu!
 
@@ -128,11 +129,11 @@ films_top_director_all %>%
 
 and plot:
 
-<img class="center" src="{{ "images/shaw_bros/top_directors_by_year.png" | absolute_url }}" alt="Top Directors by Year" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/top_directors_by_year.png" | absolute_url }}" alt="Top Directors by Year" style=""/>
 
 We can kind of see that Chang Cheh's reign is towards the beginning of the Shaw Brothers timeline and tapers towards the end. Let's view the same data as a percentage of the total movies made each year:
 
-<img class="center" src="{{ "images/shaw_bros/top_directors_by_year_fill.png" | absolute_url }}" alt="Top Directors by Year" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/top_directors_by_year_fill.png" | absolute_url }}" alt="Top Directors by Year" style=""/>
 
 This shows how dominate Chang Cheh was in directing nearly half of Shaw Brothers films in some years. In the mid and later years, Chor Yuen came in to direct many films as well.
 
@@ -174,7 +175,7 @@ titles_filter <- titles %>% anti_join(stop_words, by = "word")
 
 Let's take a look at the most frequently used words in these Shaw Brothers films.
 
-<img class="center" src="{{ "images/shaw_bros/top_words_in_titles.png" | absolute_url }}" alt="Top Words in Titles" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/top_words_in_titles.png" | absolute_url }}" alt="Top Words in Titles" style=""/>
 
 Interesting! Our latest two films from my Netflix history were the afore mentioned [Executioners of Shaolin](https://letterboxd.com/film/executioners-from-shaolin/) and [Shaolin Martial Arts](https://letterboxd.com/film/shaolin-martial-arts/), but I hadn't realized "Shaolin" movies were so prevalent in the Shaw Brothers cannon.
 
@@ -182,11 +183,11 @@ Also interesting is the number of "Swordsman" movies - a term I don't remember s
 
 Were these terms associated with different eras? Let's graph their usage over time:
 
-<img class="center" src="{{ "images/shaw_bros/top_words_by_time.png" | absolute_url }}" alt="Top Words in Titles over time" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/top_words_by_time.png" | absolute_url }}" alt="Top Words in Titles over time" style=""/>
 
 It would appear as if "Swordsman" movies were the hot stuff during early Shaw Brothers years, but they switched to mostly Shaolin's in the mid-seventies. Here are the two terms overlaid:
 
-<img class="center" src="{{ "images/shaw_bros/shaolin_swordsman.png" | absolute_url }}" alt="Top Words in Titles over time" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/shaolin_swordsman.png" | absolute_url }}" alt="Top Words in Titles over time" style=""/>
 
 Now the count-per-year isn't mind-blowing or anything, but it does seem interesting that there was at least one movie with "Swordsman" in the title for six straight years, before an explosion of "Shaolin".
 
@@ -205,7 +206,7 @@ Almost immediately, I found a useful description from [This essential guide to W
 
 Ah Ha! So the Swordsman / Shaolin dichotomy could be representative of the switch from this older style wuxia, to the new hip pure Kung Fu. The reappearance of both terms in the eighties could indicate a new found enjoyment for both styles. Apparently more famous modern films like [Crouching Tiger, Hidden Dragon](http://www.imdb.com/title/tt0190332/?ref_=nv_sr_1) fall into the wuxia category.
 
-<img class="center" src="{{ "images/shaw_bros/crouching_tiger.jpg" | absolute_url }}" alt="Crouching Tiger" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/crouching_tiger.jpg" | absolute_url }}" alt="Crouching Tiger" style=""/>
 _I say "modern" here, but can you believe this movie is 17 years old? Time flies!_
 
 Or, it could be that the creators of these movies were lazy and just wanted to rely on the success of _The One Armed Swordsman_ to make some money. Either way, its an interesting split.
@@ -244,7 +245,7 @@ Even with my novice-level consumption of Shaw Brothers films, one thing you noti
 
 We can see the extent of actor-over-use with another simple chart counting the number of movies frequently seen actors are found in.
 
-<img class="center" src="{{ "images/shaw_bros/actor_counts.png" | absolute_url }}" alt="Actors in Movies" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/actor_counts.png" | absolute_url }}" alt="Actors in Movies" style=""/>
 
 Wow! [Ku Feng](https://en.wikipedia.org/wiki/Ku_Feng) apparently appeared in 82 Kung Fu movies. That's a lot of Kung Fu!
 
@@ -258,13 +259,13 @@ Did most of the top actors' careers span multiple decades, or did actors come an
 
 We can graph the number of years an actor was featured in a movie over the total number of years in our dataset:
 
-<img class="center" src="{{ "images/shaw_bros/actor_percent_active.png" | absolute_url }}" alt="Percent Actors in Movies" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/actor_percent_active.png" | absolute_url }}" alt="Percent Actors in Movies" style=""/>
 
 For the top actors, we see most were active more than half of the entire time Shaw Brothers Studios was making Kung Fu movies.
 
 Here's another quick graph showing the beginning and ending of these actors' tenures:
 
-<img class="center" src="{{ "images/shaw_bros/actor_career_span.png" | absolute_url }}" alt="Actors start and end" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/actor_career_span.png" | absolute_url }}" alt="Actors start and end" style=""/>
 
 ### Finding a Mob of Venoms
 
@@ -276,7 +277,7 @@ Inspired by David Robinson's [network analysis of Love Actually](http://variance
 
 After a lot of filtering and frustration, I ended up with a basic, but still fairly hairball-y network:
 
-<img class="center" src="{{ "images/shaw_bros/actor_network.png" | absolute_url }}" alt="Actor Network" style=""/>
+<img class="zoom center" src="{{ "images/shaw_bros/actor_network.png" | absolute_url }}" alt="Actor Network" style=""/>
 
 In this network, the nodes are actors who have appeared in many films. The edges are co-occurrences of actors in the same movies, with the width of the edges proportional to the number of movies they were found together in.
 
