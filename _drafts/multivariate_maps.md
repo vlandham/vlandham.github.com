@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Multivariate Maps
+title: Multivariate Map Collection
 twitter: true
 twitter_type: summary_large_image
 description: A collection of attempts to encode multiple variables on a map.
@@ -10,11 +10,11 @@ categories:
 - tutorial
 ---
 
-There are many types of maps that are used to display data. [Choropleths](http://axismaps.github.io/thematic-cartography/articles/choropleth.html) and [Cartograms](https://en.wikipedia.org/wiki/Cartogram) provide two great examples. I gave a talk long long ago about [these kinds of interesting maps](http://vallandingham.me/city_camp_abstract_maps_notes.html).
+There are many types of maps that are used to display data. [Choropleths](http://axismaps.github.io/thematic-cartography/articles/choropleth.html) and [Cartograms](https://en.wikipedia.org/wiki/Cartogram) provide two great examples. I gave a talk, long long ago, about some [these map varieties](http://vallandingham.me/city_camp_abstract_maps_notes.html).
 
-But what I wondered is what happens when you try to visualize more than one variable?
+Most of these more common map types focus on a particular variable that is displayed. But what if you have multiple variables that you would like to present on a map at the same time?
 
-Here is my attempt to collect examples of multivariate maps I've found in a loose categorization. Follow along, or dive in to the references to spur on your own investigations and inspirations!
+Here is my attempt to collect examples of multivariate maps I've found and organize them into a loose categorization. Follow along, or dive in to the references to spur on your own investigations and inspirations!
 
 Before we begin, certainly you've heard by now that, even for geo-related data, a map is _not_ always the right answer. With this collection, I am just trying to enumerate the various methods that have been attempted, without too much judgement as to whether it is a 'good' or 'bad' encoding. Ok? Ok!
 
@@ -158,7 +158,7 @@ Hopefully this was a fun romp through the fun and strange possibilities of multi
 
 Have a technique I missed? Let me know!
 
-Of course I'm not the only one who likes collecting, and I'm not even the first to ponder multivariate map encodings!
+Of course I'm not the only one who likes collecting, nor the first to ponder multivariate map encodings!
 
 For more, check out the great [Axis Maps Thematic Cartography Guide](http://axismaps.github.io/thematic-cartography/) which includes a multivariate section.
 
