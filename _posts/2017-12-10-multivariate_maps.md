@@ -4,7 +4,7 @@ title: Multivariate Map Collection
 twitter: true
 twitter_type: summary_large_image
 description: A collection of attempts to encode multiple variables on a map.
-img: http://vallandingham.me/images/multivar/multivar_twitter.png
+img: http://vallandingham.me/images/multivar_map/multivar_twitter.jpg
 zoom: true
 categories:
 - tutorial
