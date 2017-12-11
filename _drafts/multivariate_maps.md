@@ -10,20 +10,18 @@ categories:
 - tutorial
 ---
 
-There are many types of maps that are used to display data. [Choropleths](http://axismaps.github.io/thematic-cartography/articles/choropleth.html) and [Cartograms](https://en.wikipedia.org/wiki/Cartogram) provide two great examples. I gave a talk, long long ago, about some [these map varieties](http://vallandingham.me/city_camp_abstract_maps_notes.html).
+There are many types of maps that are used to display data. [Choropleths](http://axismaps.github.io/thematic-cartography/articles/choropleth.html) and [Cartograms](https://en.wikipedia.org/wiki/Cartogram) provide two great examples. I gave a talk, long long ago, about some of [these map varieties](http://vallandingham.me/city_camp_abstract_maps_notes.html).
 
 Most of these more common map types focus on a particular variable that is displayed. But what if you have multiple variables that you would like to present on a map at the same time?
 
-Here is my attempt to collect examples of multivariate maps I've found and organize them into a loose categorization. Follow along, or dive in to the references to spur on your own investigations and inspirations!
+Here is my attempt to collect examples of multivariate maps I've found and organize them into a loose categorization. Follow along, or dive into the references, to spur on your own investigations and inspirations!
 
 Before we begin, certainly you've heard by now that, even for geo-related data, a map is _not_ always the right answer. With this collection, I am just trying to enumerate the various methods that have been attempted, without too much judgement as to whether it is a 'good' or 'bad' encoding. Ok? Ok!
 
 
 ## 3D
 
-With the interactivity available to the modern map maker, it is not surprising that extruding into the third dimension is a popular way to encode data.
-
-Many of these examples use color as well, extending the concept of the choropleth to 3d and beyond!
+With the interactivity available to the modern map maker, it is not surprising that extending into the third dimension is a popular way to encode data.
 
 **Chicago Energy Map**
 
@@ -31,7 +29,7 @@ Many of these examples use color as well, extending the concept of the choroplet
 
 Source: [Datascope Analysis Chicago Energy Data Map](http://chicagoenergy.datascopeanalytics.com/)
 
-Uses color and 3D height to encode natural gas and electric efficiencies of various neighborhoods in Chicago. Doesn't provide freeform rotation, but does allow you to rotate to different cardinal directions, which helps with the occlusion. This tool also provides a detailed census block view of the data after clicking a neighborhood.
+The above uses color and 3D height to encode natural gas and electric efficiencies of various neighborhoods in Chicago. It doesn't provide freeform rotation, but does allow you to rotate to different cardinal directions, which helps with the occlusion. This tool also provides a detailed census block view of the data after clicking a neighborhood.
 
 **Median Household Income**
 
@@ -39,7 +37,7 @@ Uses color and 3D height to encode natural gas and electric efficiencies of vari
 
 Source: [Visualizing America's Middle Class Squeeze](http://metrocosm.com/income-us-cities-1970-2015/)
 
-Created by [Max Galka](https://twitter.com/galka_max), this map duel encodes median household income for various cities using both color and tract height. So not strictly multivariate, but the same idea.
+Created by [Max Galka](https://twitter.com/galka_max), this map duel encodes median household income for various cities using both color and tract height. This makes it not strictly multivariate, but it uses the same ideas.
 
 **Choropleth Hillshade**
 
@@ -47,7 +45,7 @@ Created by [Max Galka](https://twitter.com/galka_max), this map duel encodes med
 
 Source: [Choropleth Hillshade](https://github.com/jwasilgeo/choropleth-hillshade)
 
-A ArcGIS add-on for creating hillshaded versions of choropleth maps. I don't use ArcGIS, but its fun to see a generic tool to create these kinds of maps.
+This tool is provided as an ArcGIS add-on for creating hillshaded versions of choropleth maps. I don't use ArcGIS, but its interesting to see a generic tool to create these kinds of maps.
 
 **Topographical Crime Maps**
 
@@ -55,7 +53,7 @@ A ArcGIS add-on for creating hillshaded versions of choropleth maps. I don't use
 
 Source: [Topographical Crime Maps](http://www.neatorama.com/2010/06/08/topographical-crime-maps/#!nT1i3)
 
-Created by [Doug McCune](http://dougmccune.com/blog/), not really multivariate, but I always really loved the style of these maps that retain the basemap visual but use hillshading to show geo-data in a very organic way. Seems like a technique that should have caught on more.  
+This was created by [Doug McCune](http://dougmccune.com/blog/). It is not really multivariate, but I always really loved the style where he retains the basemap visual but uses hillshading to show geo-data in a very organic way. It seems like a technique that should have caught on more.  
 
 **Data Mountains**
 
@@ -69,7 +67,7 @@ Taking the idea from exact shapes toward less precise icons are CartoDB's Data M
 
 ## Color
 
-The idea of using just color to represent _multiple_ pieces of data may seem strange, but it can happen! Let's take a look at a few examples
+The idea of using color alone to represent _multiple_ pieces of data may seem strange, but it can happen! Let's take a look at a few examples
 
 **Bivariate Choropleth Maps**
 
@@ -77,7 +75,7 @@ The idea of using just color to represent _multiple_ pieces of data may seem str
 
 Source: [Quartz: Where Medicaid Cuts Hit Hardest](https://qz.com/1008167/map-donald-trumps-mean-mean-mean-health-care-bill-is-meanest-to-his-most-crucial-voters/)
 
-This is just one example of a somewhat popular technique. [Joshua Stevens](https://twitter.com/jscarto) has a great article with [everything you ever wanted to know about bivariate choropleths](http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/), so make sure you check that out.
+This map of Trump voters vs Medicaid coverage is just one example of a somewhat popular technique. [Joshua Stevens](https://twitter.com/jscarto) has a great article with [everything you ever wanted to know about bivariate choropleths](http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/), so make sure you check that out.
 
 **Trivariate Choropleth Map**
 
@@ -93,7 +91,7 @@ If you thought two colors were hard, wait till you see three! This map generated
 
 Source: [Stamen: Trees, Cabs & Crime](https://hi.stamen.com/trees-cabs-crime-in-the-venice-biennale-968ea4983177)
 
-Originally created in 2009 by Shawn Allen while he was at Stamen. This artistic piece no doubt influenced the map above, though with the city-level data, you can see more interesting patterns in this kind of geographic data (if you are familiar with San Francisco).
+Originally created in 2009 by Shawn Allen while he was at Stamen, this artistic piece no doubt influenced the trivariate choropleth we just looked at. With the city-level data in the dot map, you can see more interesting patterns (if you are familiar with San Francisco).
 
 ## Small Multiples
 
@@ -111,7 +109,7 @@ Source: [Andrew Gelman](http://andrewgelman.com/2011/04/04/irritating_pseu/)
 
 ## Embedded Charts and Symbols
 
-Now we get to the interesting stuff! When you have multiple values to display about specific locations on your map, why not layer in other chart types to display these values?
+Now we get to the interesting stuff! When you have multiple values to display specific locations on your map, why not layer in other chart types to display these values?
 
 It seems in some ways obvious, but as we will see below, this just doesn't always work out.
 
@@ -156,10 +154,6 @@ Probably my favorite of the bunch, but that's just cause [I like old maps](http:
 
 Hopefully this was a fun romp through the fun and strange possibilities of multivariate map displays. Come back to this page for potential inspiration or jumping off points the next time someone demands a map for your complex data.
 
+Of course I'm not the only one who likes collecting, nor the first to ponder multivariate map encodings. For more, check out the great [Axis Maps Thematic Cartography Guide](http://axismaps.github.io/thematic-cartography/) which includes a multivariate section.
+
 Have a technique I missed? Let me know!
-
-Of course I'm not the only one who likes collecting, nor the first to ponder multivariate map encodings!
-
-For more, check out the great [Axis Maps Thematic Cartography Guide](http://axismaps.github.io/thematic-cartography/) which includes a multivariate section.
-
-Also, some of these examples came from [this GIS StackExchange](https://gis.stackexchange.com/questions/4568/effectively-displaying-demographic-data-on-a-printed-map).
