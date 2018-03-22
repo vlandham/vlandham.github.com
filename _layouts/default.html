@@ -52,6 +52,12 @@
   <script src="https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js"></script>
   {% endif %}
 
+  {% if page.jslibs %}
+    {% for lib in page.jslibs %}
+  <script src="{{lib}}"></script>
+    {% endfor %}
+  {% endif %}
+
   <link href="http://feeds.feedburner.com/jim-vallandingham" rel="alternate" title="Jim Vallandingham" type="application/atom+xml" />
 
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
