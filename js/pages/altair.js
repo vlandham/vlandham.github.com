@@ -6018,3 +6018,330 @@ var spec7 = {
 }
 
 vegaEmbed('#spec7', spec7, {actions: false})
+
+var spec8 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "config": {
+    "view": {
+      "height": 300,
+      "width": 240
+    }
+  },
+  "data": cars,
+  "facet": {
+    "column": {
+      "field": "Origin",
+      "type": "nominal"
+    }
+  },
+  "spec": {
+    "encoding": {
+      "color": {
+        "field": "Origin",
+        "type": "nominal"
+      },
+      "x": {
+        "bin": true,
+        "field": "Horsepower",
+        "type": "quantitative"
+      },
+      "y": {
+        "aggregate": "count",
+        "field": "*",
+        "type": "quantitative"
+      }
+    },
+    "mark": "bar"
+  }
+}
+
+vegaEmbed('#spec8', spec8, {actions: false})
+
+var spec9 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "config": {
+    "view": {
+      "height": 300,
+      "width": 240
+    }
+  },
+  "data": cars,
+  "facet": {
+    "column": {
+      "field": "Origin",
+      "type": "nominal"
+    }
+  },
+  "spec": {
+    "encoding": {
+      "color": {
+        "field": "Origin",
+        "type": "nominal"
+      },
+      "x": {
+        "bin": {"maxbins": 40},
+        "field": "Horsepower",
+        "type": "quantitative"
+      },
+      "y": {
+        "aggregate": "count",
+        "field": "*",
+        "type": "quantitative"
+      }
+    },
+    "mark": "bar"
+  }
+}
+
+vegaEmbed('#spec9', spec9, {actions: false})
+
+var spec10 = {
+  "config": {
+    "view": {
+      "width": 400,
+      "height": 300
+    }
+  },
+  "layer": [
+    {
+      "mark": "rule",
+      "encoding": {
+        "x": {
+          "type": "nominal",
+          "field": "Origin"
+        },
+        "y": {
+          "type": "quantitative",
+          "aggregate": "min",
+          "axis": {
+            "title": "Horsepower"
+          },
+          "field": "Horsepower"
+        },
+        "y2": {
+          "type": "quantitative",
+          "aggregate": "q1",
+          "field": "Horsepower"
+        }
+      },
+      "width": 400
+    },
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "type": "nominal",
+          "field": "Origin"
+        },
+        "y": {
+          "type": "quantitative",
+          "aggregate": "q1",
+          "field": "Horsepower"
+        },
+        "y2": {
+          "type": "quantitative",
+          "aggregate": "q3",
+          "field": "Horsepower"
+        }
+      },
+      "width": 400
+    },
+    {
+      "mark": "rule",
+      "encoding": {
+        "x": {
+          "type": "nominal",
+          "field": "Origin"
+        },
+        "y": {
+          "type": "quantitative",
+          "aggregate": "max",
+          "field": "Horsepower"
+        },
+        "y2": {
+          "type": "quantitative",
+          "aggregate": "q3",
+          "field": "Horsepower"
+        }
+      },
+      "width": 400
+    },
+    {
+      "mark": {
+        "type": "tick",
+        "color": "white"
+      },
+      "encoding": {
+        "x": {
+          "type": "nominal",
+          "field": "Origin"
+        },
+        "y": {
+          "type": "quantitative",
+          "aggregate": "median",
+          "field": "Horsepower"
+        },
+        "y2": {
+          "type": "quantitative",
+          "aggregate": "median",
+          "field": "Horsepower"
+        }
+      },
+      "width": 400
+    }
+  ],
+  "data": cars,
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json"
+}
+
+vegaEmbed('#spec10', spec10, {actions: false})
+
+var spec11 = {
+  "config": {
+    "view": {
+      "width": 400,
+      "height": 300
+    }
+  },
+  "layer": [
+    {
+      "mark": "point",
+      "encoding": {
+        "color": {
+          "type": "nominal",
+          "field": "Origin"
+        },
+        "x": {
+          "type": "quantitative",
+          "field": "Miles_per_Gallon"
+        },
+        "y": {
+          "type": "quantitative",
+          "field": "Horsepower"
+        }
+      },
+      "selection": {
+        "selector004": {
+          "type": "single",
+          "on": "mouseover",
+          "nearest": true,
+          "empty": "none",
+          "fields": [
+            "_vgsid_"
+          ],
+          "resolve": "global"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 3
+      },
+      "encoding": {
+        "text": {
+          "condition": {
+            "type": "nominal",
+            "field": "Name",
+            "selection": "selector004"
+          },
+          "value": ""
+        },
+        "x": {
+          "type": "quantitative",
+          "field": "Miles_per_Gallon"
+        },
+        "y": {
+          "type": "quantitative",
+          "field": "Horsepower"
+        }
+      }
+    }
+  ],
+  "data": cars,
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json"
+}
+
+vegaEmbed('#spec11', spec11, {actions: false})
+
+var spec12 = {
+  "config": {
+    "view": {
+      "width": 750,
+      "height": 300
+    }
+  },
+  "vconcat": [
+    {
+      "mark": "point",
+      "encoding": {
+        "color": {
+          "condition": {
+            "type": "nominal",
+            "field": "Origin",
+            "selection": "selector001"
+          },
+          "value": "lightgray"
+        },
+        "x": {
+          "type": "quantitative",
+          "field": "Horsepower"
+        },
+        "y": {
+          "type": "quantitative",
+          "field": "Miles_per_Gallon"
+        }
+      },
+      "selection": {
+        "selector001": {
+          "type": "interval",
+          "on": "[mousedown, window:mouseup] > window:mousemove!",
+          "encodings": [
+            "x",
+            "y"
+          ],
+          "translate": "[mousedown, window:mouseup] > window:mousemove!",
+          "zoom": "wheel!",
+          "mark": {
+            "fill": "#333",
+            "fillOpacity": 0.125,
+            "stroke": "white"
+          },
+          "resolve": "global"
+        }
+      },
+      "width": 750
+    },
+    {
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "type": "nominal",
+          "field": "Origin"
+        },
+        "x": {
+          "type": "quantitative",
+          "aggregate": "count",
+          "field": "Origin"
+        },
+        "y": {
+          "type": "nominal",
+          "field": "Origin"
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "selection": "selector001"
+          }
+        }
+      ]
+    }
+  ],
+  "data": cars,
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json"
+}
+
+vegaEmbed('#spec12', spec12, {actions: false})

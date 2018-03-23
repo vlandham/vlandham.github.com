@@ -237,5 +237,162 @@ We will play a bit more with selections later on in the tutorial.
 
 ## Summarizing Your Data
 
-Often times we are interested in visualizing an aggregation of the data, rather then just raw values. Altair comes equipped with a number of aggregation and binning functions that can be applied to specific encoding.
+Often times we are interested in visualizing an aggregation of the data, rather then just raw values. Altair comes equipped with a number of [aggregation and binning](https://altair-viz.github.io/user_guide/encoding.html#binning-and-aggregation) functions that can be applied to specific encoding.
 
+For example, we can use the `count()` aggregation to turn our facetted scatterplot into a histogram.
+
+```python
+alt.Chart(cars).mark_bar().encode(
+    alt.X('Horsepower', bin=True),
+    y='count(*):Q',
+    color='Origin',
+).facet(column='Origin:N')
+```
+
+<div id="spec8"></div>
+
+In this example we also see an alternative way to specify encodings. Using `alt.X()` we can provide options to the encoding, like the `bin` flag.
+
+And, as you might expect, this default binning can be customized. Altair provides the [BinParams](https://altair-viz.github.io/user_guide/API.html#altair.BinParams) object to manage binning specifics.
+
+Here's the same chart, but with 40 bins per facet.
+
+```python
+alt.Chart(cars).mark_bar().encode(
+    alt.X('Horsepower', bin=alt.BinParams(maxbins=40)),
+    y='count(*):Q',
+    color='Origin',
+).facet(column='Origin:N')
+```
+
+<div id="spec9"></div>
+
+## Layering Marks
+
+Let's finish up with a look at how to combine charts to make much more sophisticated visualizations.
+
+First, we can [layer charts](https://altair-viz.github.io/user_guide/compound_charts.html#layered-charts) on top of one another to make Marks that are availible by default.
+
+Altair provides the `layer()` method to do this, as well as a shorthand version using the `+` operator.
+
+Here is an example of using this capability to create a box-and-whisker plot (derived from one of the [newly created examples](https://altair-viz.github.io/gallery/boxplot_max_min.html)). It uses `layer()` so that the data doesn't have to be repeated over and over in the chart. Also note the use of a base chart that each piece of the box plot reuse.
+
+```python
+def boxplot(data, x, y, ytype='Q', xtype='N'):
+    # make all the aggregation strings up front
+    min_agg = f'min({y}):{ytype}'
+    max_agg = f'max({y}):{ytype}'
+    median_agg = f'median({y}):{ytype}'
+    q1_agg = f'q1({y}):{ytype}'
+    q3_agg = f'q3({y}):{ytype}'
+    x_val = f'{x}:{xtype}'
+
+    # create a single base chart
+    # which the other layers will
+    # be augmented from
+    base = alt.Chart().encode(
+        x=x_val
+    ).properties(
+        width=400
+    )
+
+    # now we only need to specify what is unique
+    # to each layer!
+    whisker_low = base.mark_rule().encode(
+        y=alt.Y(min_agg, axis=alt.Axis(title=y)),
+        y2=q1_agg
+    )
+
+    box = base.mark_bar().encode(
+        y=q1_agg,
+        y2=q3_agg
+    )
+
+    midline = base.mark_tick(
+        color='white',
+    ).encode(
+        y=median_agg,
+        y2=median_agg
+    )
+
+    whisker_high = base.mark_rule().encode(
+        y=max_agg,
+        y2=q3_agg
+    )
+
+    # combine with layer()
+    return alt.layer(whisker_low, box, whisker_high, midline, data=data)
+
+# now we can use this function
+boxplot(cars, x='Origin', y='Horsepower')
+```
+
+<div id="spec10"></div>
+
+Pretty cool, right?
+
+## Layers and Interactions
+
+We can use interaction with layered charts too!
+
+Here is a quick attempt at an scatterplot that shows more details on hover. The text is a separate layer that is conditionally displayed.
+
+We get to see [selection_single](https://altair-viz.github.io/user_guide/API.html#altair.selection_single) in action, which allows us to select a single thing at a time. We can customize it to make it work on mouseover.
+
+```python
+# the 'empty' setting makes all text hidden before any mouseover occurs.
+pointer = alt.selection_single(on='mouseover', nearest=True, empty='none')
+
+base = alt.Chart().encode(
+    x='Miles_per_Gallon', y='Horsepower'
+)
+
+chart = alt.layer(
+    base.mark_point().properties(selection=pointer).encode(color='Origin'),
+    base.mark_text(dx=8, dy=3, align='left').encode(text=alt.condition(pointer, 'Name', alt.value(''))),
+    data=cars
+)
+
+chart
+```
+
+<div id="spec11"></div>
+
+As for real tooltips, the relevant parties are [still discussing the details](https://github.com/altair-viz/altair/issues/240), but I'm sure something will be figured out soon.
+
+## Concatenating Charts
+
+Another way charts can be combined in Altair is through concatenation. We can concatenate charts either vertically or horizontally.
+
+* The`alt.vconcat()` method or the `&` operand is used to vertically concat.
+* The`alt.hconcat()` method or the `|` operand is used to horizontally concat.
+
+Let's finish with an interactive dashboard made from two charts. Brushing on the top chart filters the bottom one. This chart uses Altair's [data transformation](https://altair-viz.github.io/user_guide/transform.html) to filter the bottom chart based on the selection. We won't discuss this feature more, but definitely worth exploring!
+
+```python
+brush = alt.selection(type='interval')
+
+# the top scatterplot
+points = alt.Chart().mark_point().encode(
+    x='Horsepower:Q',
+    y='Miles_per_Gallon:Q',
+    color=alt.condition(brush, 'Origin:N', alt.value('lightgray'))
+).properties(
+    selection=brush,
+    width=800
+)
+
+# the bottom bar plot
+bars = alt.Chart().mark_bar().encode(
+    y='Origin:N',
+    color='Origin:N',
+    x='count(Origin):Q'
+).transform_filter(
+    brush.ref() # the filter transform uses the selection
+)
+
+chart = alt.vconcat(points, bars, data=cars)
+chart
+```
+
+<div id="spec12"></div>
