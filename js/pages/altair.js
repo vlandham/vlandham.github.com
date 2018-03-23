@@ -4467,6 +4467,1286 @@ cars =     {"values": [
   }
 ]}
 
+var candy = {
+  "values": [
+    {
+      "competitorname": "100 Grand",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 1,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.73199999,
+      "pricepercent": 0.86000001,
+      "winpercent": 66.971725
+    },
+    {
+      "competitorname": "3 Musketeers",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 1,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.51099998,
+      "winpercent": 67.602936
+    },
+    {
+      "competitorname": "One dime",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.011000000000000001,
+      "pricepercent": 0.11599999999999999,
+      "winpercent": 32.261086
+    },
+    {
+      "competitorname": "One quarter",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.011000000000000001,
+      "pricepercent": 0.51099998,
+      "winpercent": 46.116505
+    },
+    {
+      "competitorname": "Air Heads",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.90600002,
+      "pricepercent": 0.51099998,
+      "winpercent": 52.341465
+    },
+    {
+      "competitorname": "Almond Joy",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.465,
+      "pricepercent": 0.76700002,
+      "winpercent": 50.347546
+    },
+    {
+      "competitorname": "Baby Ruth",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 1,
+      "nougat": 1,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.76700002,
+      "winpercent": 56.914547
+    },
+    {
+      "competitorname": "Boston Baked Beans",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.31299999,
+      "pricepercent": 0.51099998,
+      "winpercent": 23.417824
+    },
+    {
+      "competitorname": "Candy Corn",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.90600002,
+      "pricepercent": 0.32499999,
+      "winpercent": 38.010963000000004
+    },
+    {
+      "competitorname": "Caramel Apple Pops",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.32499999,
+      "winpercent": 34.517681
+    },
+    {
+      "competitorname": "Charleston Chew",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 1,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.51099998,
+      "winpercent": 38.975037
+    },
+    {
+      "competitorname": "Chewey Lemonhead Fruit Mix",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.73199999,
+      "pricepercent": 0.51099998,
+      "winpercent": 36.017628
+    },
+    {
+      "competitorname": "Chiclets",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.046,
+      "pricepercent": 0.32499999,
+      "winpercent": 24.524988
+    },
+    {
+      "competitorname": "Dots",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.73199999,
+      "pricepercent": 0.51099998,
+      "winpercent": 42.272076
+    },
+    {
+      "competitorname": "Dum Dums",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.73199999,
+      "pricepercent": 0.034000002,
+      "winpercent": 39.460556
+    },
+    {
+      "competitorname": "Fruit Chews",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.127,
+      "pricepercent": 0.034000002,
+      "winpercent": 43.088924
+    },
+    {
+      "competitorname": "Fun Dip",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.73199999,
+      "pricepercent": 0.32499999,
+      "winpercent": 39.185505
+    },
+    {
+      "competitorname": "Gobstopper",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.90600002,
+      "pricepercent": 0.45300001,
+      "winpercent": 46.783348
+    },
+    {
+      "competitorname": "Haribo Gold Bears",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.465,
+      "pricepercent": 0.465,
+      "winpercent": 57.11974
+    },
+    {
+      "competitorname": "Haribo Happy Cola",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.465,
+      "pricepercent": 0.465,
+      "winpercent": 34.158958
+    },
+    {
+      "competitorname": "Haribo Sour Bears",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.465,
+      "pricepercent": 0.465,
+      "winpercent": 51.41243
+    },
+    {
+      "competitorname": "Haribo Twin Snakes",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.465,
+      "pricepercent": 0.465,
+      "winpercent": 42.178771999999995
+    },
+    {
+      "competitorname": "HersheyÕs Kisses",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.127,
+      "pricepercent": 0.093000002,
+      "winpercent": 55.375454000000005
+    },
+    {
+      "competitorname": "HersheyÕs Krackel",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 1,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.43000001,
+      "pricepercent": 0.91799998,
+      "winpercent": 62.28448100000001
+    },
+    {
+      "competitorname": "HersheyÕs Milk Chocolate",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.43000001,
+      "pricepercent": 0.91799998,
+      "winpercent": 56.490501
+    },
+    {
+      "competitorname": "HersheyÕs Special Dark",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.43000001,
+      "pricepercent": 0.91799998,
+      "winpercent": 59.236121999999995
+    },
+    {
+      "competitorname": "Jawbusters",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.093000002,
+      "pricepercent": 0.51099998,
+      "winpercent": 28.127439000000003
+    },
+    {
+      "competitorname": "Junior Mints",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.19699999999999998,
+      "pricepercent": 0.51099998,
+      "winpercent": 57.21925
+    },
+    {
+      "competitorname": "Kit Kat",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 1,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.31299999,
+      "pricepercent": 0.51099998,
+      "winpercent": 76.7686
+    },
+    {
+      "competitorname": "Laffy Taffy",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.22,
+      "pricepercent": 0.11599999999999999,
+      "winpercent": 41.389557
+    },
+    {
+      "competitorname": "Lemonhead",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.046,
+      "pricepercent": 0.10400000000000001,
+      "winpercent": 39.141056
+    },
+    {
+      "competitorname": "Lifesavers big ring gummies",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.26699999,
+      "pricepercent": 0.27900001,
+      "winpercent": 52.911392000000006
+    },
+    {
+      "competitorname": "Peanut butter M&MÕs",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.82499999,
+      "pricepercent": 0.65100002,
+      "winpercent": 71.46505
+    },
+    {
+      "competitorname": "M&MÕs",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.82499999,
+      "pricepercent": 0.65100002,
+      "winpercent": 66.574585
+    },
+    {
+      "competitorname": "Mike & Ike",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.87199998,
+      "pricepercent": 0.32499999,
+      "winpercent": 46.411716
+    },
+    {
+      "competitorname": "Milk Duds",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.30199999,
+      "pricepercent": 0.51099998,
+      "winpercent": 55.064071999999996
+    },
+    {
+      "competitorname": "Milky Way",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 1,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.65100002,
+      "winpercent": 73.099556
+    },
+    {
+      "competitorname": "Milky Way Midnight",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 1,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.73199999,
+      "pricepercent": 0.44100001,
+      "winpercent": 60.800701000000004
+    },
+    {
+      "competitorname": "Milky Way Simply Caramel",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.96499997,
+      "pricepercent": 0.86000001,
+      "winpercent": 64.35334
+    },
+    {
+      "competitorname": "Mounds",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.31299999,
+      "pricepercent": 0.86000001,
+      "winpercent": 47.829754
+    },
+    {
+      "competitorname": "Mr Good Bar",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.31299999,
+      "pricepercent": 0.91799998,
+      "winpercent": 54.526451
+    },
+    {
+      "competitorname": "Nerds",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.84799999,
+      "pricepercent": 0.32499999,
+      "winpercent": 55.354046
+    },
+    {
+      "competitorname": "Nestle Butterfinger",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.76700002,
+      "winpercent": 70.735641
+    },
+    {
+      "competitorname": "Nestle Crunch",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 1,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.31299999,
+      "pricepercent": 0.76700002,
+      "winpercent": 66.47068
+    },
+    {
+      "competitorname": "Nik L Nip",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.19699999999999998,
+      "pricepercent": 0.97600001,
+      "winpercent": 22.445341
+    },
+    {
+      "competitorname": "Now & Later",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.22,
+      "pricepercent": 0.32499999,
+      "winpercent": 39.4468
+    },
+    {
+      "competitorname": "Payday",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 1,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.465,
+      "pricepercent": 0.76700002,
+      "winpercent": 46.296597
+    },
+    {
+      "competitorname": "Peanut M&Ms",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.59299999,
+      "pricepercent": 0.65100002,
+      "winpercent": 69.483788
+    },
+    {
+      "competitorname": "Pixie Sticks",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.093000002,
+      "pricepercent": 0.023,
+      "winpercent": 37.722336
+    },
+    {
+      "competitorname": "Pop Rocks",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.83700001,
+      "winpercent": 41.265511
+    },
+    {
+      "competitorname": "Red vines",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.58099997,
+      "pricepercent": 0.11599999999999999,
+      "winpercent": 37.348521999999996
+    },
+    {
+      "competitorname": "ReeseÕs Miniatures",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.034000002,
+      "pricepercent": 0.27900001,
+      "winpercent": 81.86625699999999
+    },
+    {
+      "competitorname": "ReeseÕs Peanut Butter cup",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.72000003,
+      "pricepercent": 0.65100002,
+      "winpercent": 84.18029
+    },
+    {
+      "competitorname": "ReeseÕs pieces",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.40599999,
+      "pricepercent": 0.65100002,
+      "winpercent": 73.43499
+    },
+    {
+      "competitorname": "ReeseÕs stuffed with pieces",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.98799998,
+      "pricepercent": 0.65100002,
+      "winpercent": 72.887901
+    },
+    {
+      "competitorname": "Ring pop",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.73199999,
+      "pricepercent": 0.96499997,
+      "winpercent": 35.290756
+    },
+    {
+      "competitorname": "Rolo",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.86000001,
+      "pricepercent": 0.86000001,
+      "winpercent": 65.716286
+    },
+    {
+      "competitorname": "Root Beer Barrels",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.73199999,
+      "pricepercent": 0.06899999799999999,
+      "winpercent": 29.703691
+    },
+    {
+      "competitorname": "Runts",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.87199998,
+      "pricepercent": 0.27900001,
+      "winpercent": 42.849144
+    },
+    {
+      "competitorname": "Sixlets",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.22,
+      "pricepercent": 0.081,
+      "winpercent": 34.722
+    },
+    {
+      "competitorname": "Skittles original",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.94099998,
+      "pricepercent": 0.22,
+      "winpercent": 63.08514
+    },
+    {
+      "competitorname": "Skittles wildberry",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.94099998,
+      "pricepercent": 0.22,
+      "winpercent": 55.103694999999995
+    },
+    {
+      "competitorname": "Nestle Smarties",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.26699999,
+      "pricepercent": 0.97600001,
+      "winpercent": 37.887188
+    },
+    {
+      "competitorname": "Smarties candy",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.26699999,
+      "pricepercent": 0.11599999999999999,
+      "winpercent": 45.995827
+    },
+    {
+      "competitorname": "Snickers",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 1,
+      "nougat": 1,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.546,
+      "pricepercent": 0.65100002,
+      "winpercent": 76.67378199999999
+    },
+    {
+      "competitorname": "Snickers Crisper",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 1,
+      "nougat": 0,
+      "crispedricewafer": 1,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.65100002,
+      "winpercent": 59.529251
+    },
+    {
+      "competitorname": "Sour Patch Kids",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.06899999799999999,
+      "pricepercent": 0.11599999999999999,
+      "winpercent": 59.863997999999995
+    },
+    {
+      "competitorname": "Sour Patch Tricksters",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.06899999799999999,
+      "pricepercent": 0.11599999999999999,
+      "winpercent": 52.825947
+    },
+    {
+      "competitorname": "Starburst",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.15099999,
+      "pricepercent": 0.22,
+      "winpercent": 67.037628
+    },
+    {
+      "competitorname": "Strawberry bon bons",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.56900001,
+      "pricepercent": 0.057999998,
+      "winpercent": 34.578990999999995
+    },
+    {
+      "competitorname": "Sugar Babies",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.96499997,
+      "pricepercent": 0.76700002,
+      "winpercent": 33.43755
+    },
+    {
+      "competitorname": "Sugar Daddy",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.41800001,
+      "pricepercent": 0.32499999,
+      "winpercent": 32.230995
+    },
+    {
+      "competitorname": "Super Bubble",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.162,
+      "pricepercent": 0.11599999999999999,
+      "winpercent": 27.303865000000002
+    },
+    {
+      "competitorname": "Swedish Fish",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.755,
+      "winpercent": 54.861111
+    },
+    {
+      "competitorname": "Tootsie Pop",
+      "chocolate": 1,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.60399997,
+      "pricepercent": 0.32499999,
+      "winpercent": 48.982651000000004
+    },
+    {
+      "competitorname": "Tootsie Roll Juniors",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.31299999,
+      "pricepercent": 0.51099998,
+      "winpercent": 43.068897
+    },
+    {
+      "competitorname": "Tootsie Roll Midgies",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.17399999,
+      "pricepercent": 0.011000000000000001,
+      "winpercent": 45.736748
+    },
+    {
+      "competitorname": "Tootsie Roll Snack Bars",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.465,
+      "pricepercent": 0.32499999,
+      "winpercent": 49.653503
+    },
+    {
+      "competitorname": "Trolli Sour Bites",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.31299999,
+      "pricepercent": 0.255,
+      "winpercent": 47.173229
+    },
+    {
+      "competitorname": "Twix",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 1,
+      "hard": 0,
+      "bar": 1,
+      "pluribus": 0,
+      "sugarpercent": 0.546,
+      "pricepercent": 0.90600002,
+      "winpercent": 81.642914
+    },
+    {
+      "competitorname": "Twizzlers",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.22,
+      "pricepercent": 0.11599999999999999,
+      "winpercent": 45.466282
+    },
+    {
+      "competitorname": "Warheads",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.093000002,
+      "pricepercent": 0.11599999999999999,
+      "winpercent": 39.011897999999995
+    },
+    {
+      "competitorname": "WelchÕs Fruit Snacks",
+      "chocolate": 0,
+      "fruity": 1,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.31299999,
+      "pricepercent": 0.31299999,
+      "winpercent": 44.375519
+    },
+    {
+      "competitorname": "WertherÕs Original Caramel",
+      "chocolate": 0,
+      "fruity": 0,
+      "caramel": 1,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 0,
+      "hard": 1,
+      "bar": 0,
+      "pluribus": 0,
+      "sugarpercent": 0.18600000000000003,
+      "pricepercent": 0.26699999,
+      "winpercent": 41.904308
+    },
+    {
+      "competitorname": "Whoppers",
+      "chocolate": 1,
+      "fruity": 0,
+      "caramel": 0,
+      "peanutyalmondy": 0,
+      "nougat": 0,
+      "crispedricewafer": 1,
+      "hard": 0,
+      "bar": 0,
+      "pluribus": 1,
+      "sugarpercent": 0.87199998,
+      "pricepercent": 0.84799999,
+      "winpercent": 49.524113
+    }
+  ]
+}
+
 var spec1 = {
   "config": {
     "view": {
@@ -4492,6 +5772,8 @@ var spec1 = {
   },
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json"
 }
+
+vegaEmbed('#spec1', spec1, {actions: false})
 
 var spec2 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
@@ -4557,4 +5839,182 @@ var spec3 = {
   }
 }
 
+
 vegaEmbed('#spec3', spec3, {actions: false})
+
+var spec4 = {
+  "config": {
+    "view": {
+      "width": 400,
+      "height": 300
+    }
+  },
+  "data": candy,
+  "mark": "point",
+  "encoding": {
+    "color": {
+      "type": "nominal",
+      "field": "hard"
+    },
+    "x": {
+      "type": "quantitative",
+      "field": "sugarpercent"
+    },
+    "y": {
+      "type": "quantitative",
+      "field": "winpercent"
+    }
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json"
+}
+
+vegaEmbed('#spec4', spec4, {actions: false})
+
+var spec5 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "config": {
+    "view": {
+      "height": 300,
+      "width": 240
+    }
+  },
+  "data": cars,
+  "facet": {
+    "column": {
+      "field": "Origin",
+      "type": "nominal"
+    }
+  },
+  "spec": {
+    "encoding": {
+      "color": {
+        "field": "Origin",
+        "type": "nominal"
+      },
+      "x": {
+        "field": "Horsepower",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "Miles_per_Gallon",
+        "type": "quantitative"
+      },
+    },
+    "mark": "point"
+  }
+}
+
+vegaEmbed('#spec5', spec5, {actions: false})
+
+var spec6 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "config": {
+    "view": {
+      "height": 300,
+      "width": 240
+    }
+  },
+  "data": cars,
+  "facet": {
+    "column": {
+      "field": "Origin",
+      "type": "nominal"
+    }
+  },
+  "spec": {
+    "encoding": {
+      "color": {
+        "field": "Origin",
+        "type": "nominal"
+      },
+      "x": {
+        "field": "Horsepower",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "Miles_per_Gallon",
+        "type": "quantitative"
+      }
+    },
+    "mark": "point",
+    "selection": {
+      "selector001": {
+        "bind": "scales",
+        "encodings": [
+          "x",
+          "y"
+        ],
+        "mark": {
+          "fill": "#333",
+          "fillOpacity": 0.125,
+          "stroke": "white"
+        },
+        "on": "[mousedown, window:mouseup] > window:mousemove!",
+        "resolve": "global",
+        "translate": "[mousedown, window:mouseup] > window:mousemove!",
+        "type": "interval",
+        "zoom": "wheel!"
+      }
+    }
+  }
+}
+
+vegaEmbed('#spec6', spec6, {actions: false})
+
+var spec7 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "config": {
+    "view": {
+      "height": 300,
+      "width": 240
+    }
+  },
+  "data": cars,
+  "facet": {
+    "column": {
+      "field": "Origin",
+      "type": "nominal"
+    }
+  },
+  "spec": {
+    "encoding": {
+      "color": {
+        "condition": {
+          "field": "Origin",
+          "selection": "selector002",
+          "type": "nominal"
+        },
+        "value": "lightgray"
+      },
+      "x": {
+        "field": "Horsepower",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "Miles_per_Gallon",
+        "type": "quantitative"
+      }
+    },
+    "mark": "point",
+    "selection": {
+      "selector002": {
+        "encodings": [
+          "x",
+          "y"
+        ],
+        "mark": {
+          "fill": "#333",
+          "fillOpacity": 0.125,
+          "stroke": "white"
+        },
+        "on": "[mousedown, window:mouseup] > window:mousemove!",
+        "resolve": "global",
+        "translate": "[mousedown, window:mouseup] > window:mousemove!",
+        "type": "interval",
+        "zoom": "wheel!"
+      }
+    }
+  }
+}
+
+vegaEmbed('#spec7', spec7, {actions: false})
