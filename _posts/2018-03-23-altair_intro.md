@@ -171,7 +171,7 @@ alt.Chart(cars).mark_bar(opacity=0.2).encode(
 
 ## Faceting
 
-One feature I always look for in a new visualization tool or package is faceting based on a categorical variable. Many of the python packages I’ve seen require loops to accomplish this task, which I feel takes you out of the 'what' you are trying to visualize and keeps you stuck in the 'how'. Fortunately, Altair doesn’t require this cognitive break.
+One feature I always look for in a new visualization tool or package is faceting based on a categorical variable. When dealing with matplotlib, this kind of visualization typically requires loops to create, which I feel takes you out of the 'what' you are trying to visualize and keeps you stuck in the 'how'. Fortunately, Altair doesn’t require this cognitive break.
 
 You can just use the [facet()](https://altair-viz.github.io/user_guide/compound_charts.html#faceted-charts) method!
 
