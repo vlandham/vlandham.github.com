@@ -19,13 +19,13 @@ categories:
 
 Recently I attended a wonderful talk by [Jake VanderPlas](https://twitter.com/jakevdp) (and hosted by the always astute [Eli Bressert](https://twitter.com/astrobiased)) about a wonderful package he has been working on to make visualization in python easier.
 
-As a long time [ggplot2](http://ggplot2.tidyverse.org/), I'm quick to bemoan the challenges of succinctly visualizing data in python. While there are many visualization packages out there, none of them seem to approach the intuitiveness, completeness, and consistency found in R's go-to tooling.
+As a long time [ggplot2](http://ggplot2.tidyverse.org/) user, I'm quick to bemoan the challenges of succinctly visualizing data in python. While there are many visualization packages out there, none of them seem to approach the intuitiveness, completeness, and consistency found in R's go-to tooling.
 
 I'm happy to say that this new python package [Altair](https://altair-viz.github.io/index.html) might put an end to my grumblings (and yours) once and for all.
 
-I'd like to take you through the basics of experimenting with Altair to show a bit of what it can do. None of this is more than what you will find in the documentation, but just describes some of my experiences starting to learn how to use this tool.
+I'd like to take you through the basics of experimenting with Altair to show a bit of what it can do. None of my ramblings is really more than what you will find in [the documentation](https://altair-viz.github.io/getting_started/overview.html), but I will describe some of my experiences in starting to learn how to use this tool.
 
-## What is Altair
+## What is Altair?
 
 Altair provides a way to write declarative data visualization code in python by harnessing the power of [Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/). Ok, so what is Vega?
 
@@ -33,11 +33,13 @@ Vega is a visualization grammer (think [Grammar of Graphics](http://vita.had.co.
 
 Vega-lite provides a format to specify data, data encodings, and even [interactions](https://vega.github.io/vega/docs/event-streams/), all in a relatively simple and intuitive specification.
 
-In turn, Altair provides a way to generate these Vega-lite specifications using an intuitive and pythonic API.
+These packages and [many more](https://vega.github.io/) have been created out of the blood, sweat, and tears of the [UW Interactive Data Lab](https://idl.cs.washington.edu/). [Arvind](https://twitter.com/arvindsatya1), [Ham](https://twitter.com/kanitw), [Dom](https://twitter.com/domoritz), [Jeff](https://twitter.com/jeffrey_heer), and all the rest: we can't thank you enough for this vision and these amazing tools!
 
-Intrigued? Then let's get started!
+Anyway, back to Altair.
 
-## Jupyter Lab
+Altair provides a way to generate these Vega-lite specifications using an intuitive and pythonic API. So we can write python, but get out Vega-Lite. Intrigued? Then let's get started!
+
+## JupyterLab Experimentation
 
 All my experimentation has been done using the newly-ready-for-use [JupyterLab](https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906), the successor to Jupyter Notebooks.
 
@@ -97,7 +99,7 @@ alt.Chart(cars).mark_point().encode(
     color='Origin',
 )
 ```
-Note: The result is a Vega-Lite specification that is rendered automatically inside of JupyterLab. To show the result in this post, I will use the handle-dandy [Vega Embed](https://github.com/vega/vega-embed) to display the spec below.
+Note: The result is a Vega-Lite specification that is rendered automatically inside of JupyterLab. To show the result in this post, I will use the handy-dandy [Vega Embed](https://github.com/vega/vega-embed) to display the spec below.
 
 <div id='spec1'></div>
 
@@ -169,7 +171,7 @@ alt.Chart(cars).mark_bar(opacity=0.2).encode(
 
 ## Faceting
 
-One feature i always look for in a new visualization tool or package is faceting based on a categorical variable. Many of the python packages I’ve seen require loops to accomplish this task, which I feel takes you out of the 'what' you are trying to visualize and keeps you stuck in the 'how'. Fortunately, Altair doesn’t require this cognitive break.
+One feature I always look for in a new visualization tool or package is faceting based on a categorical variable. Many of the python packages I’ve seen require loops to accomplish this task, which I feel takes you out of the 'what' you are trying to visualize and keeps you stuck in the 'how'. Fortunately, Altair doesn’t require this cognitive break.
 
 You can just use the [facet()](https://altair-viz.github.io/user_guide/compound_charts.html#faceted-charts) method!
 
@@ -183,7 +185,7 @@ alt.Chart(cars).mark_point().encode(
 
 <div id='spec5'></div>
 
-Notice the strange `:Q` trailing our data attribute. This is a special shorthand to indicate to Vega-Lite what type of data value `Origin` is. While you might think that the tool should be able to figure this out automatically, remember we are ultimate just building up a JSON specification - and so some of these nuances need to be supplied explicitly.
+Notice the strange `:Q` trailing our data attribute. This is a special shorthand to indicate to Vega-Lite what type of data value `Origin` is. While you might think that the tool should be able to figure this out automatically, remember we are ultimately just building up a JSON specification - and so some of these nuances need to be supplied explicitly.
 
 ## A Grammar of Interaction
 
@@ -239,7 +241,7 @@ We will play a bit more with selections later on in the tutorial.
 
 Often times we are interested in visualizing an aggregation of the data, rather then just raw values. Altair comes equipped with a number of [aggregation and binning](https://altair-viz.github.io/user_guide/encoding.html#binning-and-aggregation) functions that can be applied to specific encoding.
 
-For example, we can use the `count()` aggregation to turn our facetted scatterplot into a histogram.
+For example, we can use the `count()` aggregation to turn our faceted scatterplot into a histogram.
 
 ```python
 alt.Chart(cars).mark_bar().encode(
@@ -269,9 +271,9 @@ alt.Chart(cars).mark_bar().encode(
 
 ## Layering Marks
 
-Let's finish up with a look at how to combine charts to make much more sophisticated visualizations.
+We will wrap up this tutorial with a look at how to combine charts to make much more sophisticated visualizations.
 
-First, we can [layer charts](https://altair-viz.github.io/user_guide/compound_charts.html#layered-charts) on top of one another to make Marks that are availible by default.
+First, we can [layer charts](https://altair-viz.github.io/user_guide/compound_charts.html#layered-charts) on top of one another to make Marks that are available by default.
 
 Altair provides the `layer()` method to do this, as well as a shorthand version using the `+` operator.
 
@@ -335,9 +337,9 @@ Pretty cool, right?
 
 We can use interaction with layered charts too!
 
-Here is a quick attempt at an scatterplot that shows more details on hover. The text is a separate layer that is conditionally displayed.
+Here is a quick attempt at an scatterplot that shows more details when hovering over each point. The text is a separate layer that is conditionally displayed.
 
-We get to see [selection_single](https://altair-viz.github.io/user_guide/API.html#altair.selection_single) in action, which allows us to select a single thing at a time. We can customize it to make it work on mouseover.
+We get to see [selection_single()](https://altair-viz.github.io/user_guide/API.html#altair.selection_single) in action, which allows us to select one thing at a time. We can customize it to make it work on mouseover.
 
 ```python
 # the 'empty' setting makes all text hidden before any mouseover occurs.
@@ -389,10 +391,27 @@ bars = alt.Chart().mark_bar().encode(
     x='count(Origin):Q'
 ).transform_filter(
     brush.ref() # the filter transform uses the selection
+                # to filter the input data to this chart
 )
 
 chart = alt.vconcat(points, bars, data=cars)
 chart
 ```
 
+_Make sure to brush around on the top chart!_
+
 <div id="spec12"></div>
+
+## Limitations and Looking Forward
+
+Hopefully this long drawn out demo of Altair at least gets people excited about the potential for this tool and the promise of declarative chart making in python.
+
+That being said, like any great thing, there are some caveats. Here are a few:
+
+* The API is still pretty new. Some of this could break!
+* The documentation is still incomplete. Sometimes you need to look at Altair and Vega-Lite docs to find an answer.
+* The number of data points Altair can handle is currently pretty low. Right now it is capped at 5,000, but that is modifiable.
+* As noted above, tooltips are still on the way.
+* It would be cool to have the ability to extend Altair to make new Mark/encoding types. The `boxplot` function above would then be created inline as `alt.mark_boxplot()` or something similar.
+
+But even with these slight short-comings, I am excited about this great new package, and can't wait to try it on more interesting datasets in the future. I hope you are excited too!
