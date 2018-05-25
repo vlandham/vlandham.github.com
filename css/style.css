@@ -185,25 +185,3 @@ a img {
 blockquote {
   color: #777;
 }
-
-/*pre, code, kbd, samp,
-code[class*="language-"],
-pre[class*="language-"] {
-  font-family: Menlo, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-}
-pre[class*="language-"] {
-  margin: 0;
-  margin-bottom: 2.5rem;
-}*/
-
-/*div[class*="language-"] >
-pre[class*="highlight"] {
-  background: #f6f6f6;
-  border: 0;
-  border-left: 6px solid #eee;
-}
-
-pre > code {
-  padding: 0;
-  border: 0;
-}*/
