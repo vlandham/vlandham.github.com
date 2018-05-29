@@ -93,15 +93,14 @@ function createHopPlot() {
       ctx.scale(scale, scale);
     }
 
-    // update();
 
-    t = d3.interval(update, interval);
+    t = d3.interval(updateHOP, interval);
 
     // update();
     // d3.timer();
   };
 
-  function update(elapsed) {
+  function updateHOP(elapsed) {
     ctx.save();
     // ctx.globalAlpha = 0.2;
     if (trails) {
@@ -131,7 +130,7 @@ function createHopPlot() {
       t.stop();
     } else {
       running = true;
-      t = d3.interval(update, interval);
+      t = d3.interval(updateHOP, interval);
     }
   }
 
@@ -209,7 +208,7 @@ var basedir = '../../../data/uncertainty/icons';
 
 function createMorphIcon() {
 
-  var values = [{ id: 'battle', time: 0.5}, {id: 'riot', time: 0.5 }];
+  var values = [{ id: 'A', time: 0.5}, {id: 'C', time: 0.5 }];
 
   var timeScale = d3.scaleLinear()
     .domain([0, 1])
@@ -284,24 +283,24 @@ function createMorphIcon() {
 
 var icon1 = createMorphIcon();
 var icon2 = createMorphIcon().values([
-  { id: 'battle', time: 0.7 },
-  { id: 'strategic', time: 0.2 },
-  { id: 'civilians', time: 0.1 }]);
+  { id: 'A', time: 0.7 },
+  { id: 'D', time: 0.2 },
+  { id: 'E', time: 0.1 }]);
 
 var icon3 = createMorphIcon().values([
-  { id: 'remote', time: 0.4 },
-  { id: 'strategic', time: 0.3 },
-  { id: 'civilians', time: 0.3 }]);
+  { id: 'B', time: 0.4 },
+  { id: 'D', time: 0.3 },
+  { id: 'E', time: 0.3 }]);
 
 var icon4 = createMorphIcon().values([
-  { id: 'battle', time: 0.6 },
-  { id: 'civilians', time: 0.4 }
+  { id: 'A', time: 0.6 },
+  { id: 'E', time: 0.4 }
   ]);
 
 var icon5 = createMorphIcon().values([
-  { id: 'riot', time: 0.5 },
-  { id: 'battle', time: 0.3 },
-  { id: 'civilians', time: 0.2 }]);
+  { id: 'C', time: 0.5 },
+  { id: 'A', time: 0.3 },
+  { id: 'E', time: 0.2 }]);
 
 function showIcons(selection, icons) {
   var iconE = d3.select(selection).selectAll('.icon')
@@ -316,20 +315,21 @@ function showIcons(selection, icons) {
       .attr('height',30);
   });
   iconE.append('p')
+    .classed('icon-label', 'true')
     .text(function(d) { return d; });
 }
 
 function loadVis(error, battle, remote, riot, strategic, civilians) {
-  console.log(civilians)
+  // console.log(civilians)
   var icons = {
-    battle: battle.getElementsByTagName('svg')[0],
-    remote: remote.getElementsByTagName('svg')[0],
-    riot: riot.getElementsByTagName('svg')[0],
-    strategic: strategic.getElementsByTagName('svg')[0],
-    civilians: civilians.getElementsByTagName('svg')[0],
+    A: battle.getElementsByTagName('svg')[0],
+    B: remote.getElementsByTagName('svg')[0],
+    C: riot.getElementsByTagName('svg')[0],
+    D: strategic.getElementsByTagName('svg')[0],
+    E: civilians.getElementsByTagName('svg')[0],
   };
 
-  // showIcons('#iconsall', icons);
+  showIcons('#iconsall', icons);
 
   icon1('#icon1', icons);
   icon2('#icon2', icons);
@@ -406,13 +406,13 @@ function createWanderingDots() {
       ctx.scale(scale, scale);
     }
 
-    t = d3.timer(update);
+    t = d3.timer(updateDots);
 
     // update();
     // d3.timer();
   };
 
-  function update(elapsed) {
+  function updateDots(elapsed) {
     ctx.save();
     ctx.clearRect(0, 0, width, height);
 
@@ -458,7 +458,7 @@ function createWanderingDots() {
       t.stop();
     } else {
       running = true;
-      t.restart(update);
+      t.restart(updateDots);
     }
   }
 
@@ -609,10 +609,10 @@ function createWanderingDotsBounded() {
       ctx.scale(scale, scale);
     }
 
-    t = d3.timer(update);
+    t = d3.timer(updateParts);
   };
 
-  function update(elapsed) {
+  function updateParts(elapsed) {
     ctx.save();
     ctx.clearRect(0, 0, width, height);
 
@@ -659,7 +659,7 @@ function createWanderingDotsBounded() {
       t.stop();
     } else {
       running = true;
-      t.restart(update);
+      t.restart(updateParts);
     }
   }
 
@@ -745,3 +745,192 @@ d3.json(adminFile, (err, admin) => {
   // const plotc3 = createWanderingDots().boundary(pixelCoords).centroidPull(1.0);
   // plotc3('#dotc3');
 })
+
+
+//*****************
+// WANDERING HULLS
+//*****************
+
+
+
+function createWanderingHull() {
+  const width = 300;
+  const height = 300;
+  let ctx = null;
+  let particles = [];
+  let t = null;
+  let numParticles = 10;
+  let spaceR = 100;
+  let running = true;
+  let color = "rgba(0,0,0,1.0)"
+  var showPath = true;
+
+  const tau = 2 * Math.PI;
+
+  function setupParticles() {
+    particles = new Array(numParticles);
+
+    for (let i = 0; i < numParticles; ++i) {
+      particles[i] = {
+        x: width / 2,
+        y: height / 2,
+        vx: 0,
+        vy: 0,
+      };
+    }
+  }
+
+  const chart = function wrapper(selection) {
+    setupParticles();
+
+    const div = d3.select(selection).append('div')
+      .attr('class', 'vis')
+      .style('width', width + 'px');
+
+    const canvas = div.append('canvas')
+      .attr('width', width)
+      .attr('height', height);
+
+    div.append('button')
+      .attr('class', 'toggle-btn')
+      .on('click', toggle)
+      .text('start/stop');
+
+    const scale = window.devicePixelRatio;
+    ctx = canvas.node().getContext('2d');
+    if (scale > 1) {
+      canvas.style('width', width + 'px');
+      canvas.style('height', height + 'px');
+      canvas.attr('width', width * scale);
+      canvas.attr('height', height * scale);
+      ctx.scale(scale, scale);
+    }
+
+    t = d3.timer(updateHull);
+
+    // updateHull();
+    // d3.timer();
+  };
+
+  function updateHull(elapsed) {
+    const points = particles.map(function (p) { return [p.x, p.y]; });
+    const hull = d3.polygonHull(points);
+    ctx.save();
+    ctx.clearRect(0, 0, width, height);
+
+    ctx.moveTo(hull[0][0], hull[0][1]);
+    for (var i = 1, n = hull.length; i < n; ++i) {
+      ctx.lineTo(hull[i][0], hull[i][1]);
+    }
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+    if (showPath) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 15;
+      ctx.lineJoin = "round";
+      ctx.stroke();
+    }
+
+    // ctx.arc(width / 2, height / 2, width / 4, 0, tau);
+    // ctx.clip();
+
+    const spaceX = width / 2;
+    const spaceY = height / 2;
+
+    for (let i = 0; i < numParticles; ++i) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (Math.pow(p.x - spaceX, 2) + Math.pow(p.y - spaceY, 2) > Math.pow(spaceR, 2)) {
+        p.vx = -1 * p.vx;
+        p.vy = -1 * p.vy;
+        // p.vy = -1 * p.vy;
+        // p.x = width / 2;
+        // p.y = height / 2;
+      }
+      // if (p.x < -width) {
+      //   p.x = width / 2;
+      // } else if (p.x > width) {
+      //   p.x = width / 2;
+      // }
+      // if (p.y < -height) {
+      //   p.y = height / 2;
+      // } else if (p.y > height) {
+      //   p.y -= height / 2;
+      // }
+
+      p.vx += 0.2 * (Math.random() - 0.5) - 0.01 * p.vx;
+      p.vy += 0.2 * (Math.random() - 0.5) - 0.01 * p.vy;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 0, 0, tau);
+      ctx.fill();
+    }
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function toggle() {
+    if (running) {
+      running = false;
+      t.stop();
+    } else {
+      running = true;
+      t.restart(updateHull);
+    }
+  }
+
+  chart.radius = function radius(_) {
+    if (!arguments.length) {
+      return spaceR;
+    }
+
+    spaceR = _;
+    return this;
+  };
+
+  chart.color = function setColor(_) {
+    if (!arguments.length) {
+      return color;
+    }
+
+    color = _;
+    return this;
+  };
+
+  chart.count = function count(_) {
+    if (!arguments.length) {
+      return numParticles;
+    }
+
+    numParticles = _;
+    return this;
+  };
+
+  chart.showPath = function setShowPath(_) {
+    if (!arguments.length) {
+      return showPath;
+    }
+
+    showPath = _;
+    return this;
+  };
+
+  return chart;
+}
+
+const hulPlot = createWanderingHull();
+const hulPlot2 = createWanderingHull().radius(50);
+const hulPlot3 = createWanderingHull().radius(10);
+
+hulPlot('#hull1');
+// hulPlot2('#hull2');
+hulPlot3('#hull3');
+
+// const hulPlot4 = createWanderingHull().color("rgba(0,0,0,0.4)").showPath(false);
+// const hulPlot5 = createWanderingHull().radius(10).color('rgba(0,0,0,0.4)').showPath(false);
+// hulPlot4('#hull4');
+// hulPlot5('#hull5');
+

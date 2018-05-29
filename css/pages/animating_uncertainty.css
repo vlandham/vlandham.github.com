@@ -3,6 +3,15 @@
   font-weight: bold;
 }
 
+.icon-label {
+  text-align: center;
+}
+
+.icon-container {
+  text-align: center;
+  margin:auto;
+}
+
 .row {
   padding-bottom: 40px;
 }
@@ -12,7 +21,9 @@
   text-align: center;
 }
 
-#iconsall {
+#iconsall, #othericons {
+  margin: auto;
+  text-align: center;
   clear:both;
   padding-bottom: 14px;
   height: 100%;
