@@ -2,6 +2,7 @@
 layout: post
 title: Visualizing Bird Songs with Web Audio
 css: spectrogram.css
+source: https://github.com/vlandham/spectrogramJS
 categories:
 - vis
 ---
@@ -18,7 +19,7 @@ categories:
 
 ----
 
-**WARNING:** The visualization and tools discussed below use a still-in-development API - browser support is patchy. I tested with the latest version of Google Chrome (32.0). It also appears to work in Firefox 26. It doesn’t work in IE at all.
+**UPDATE (07/04/2018):** The amazingly talented [Eren Cakmak](https://github.com/eren-ck) has contributed a significantly updated version of [spectrogramJS](https://github.com/vlandham/spectrogramJS). This new version uses D3v5, has zoom capabilities, and allows you to specify a color scheme for your spectrogram. Thanks so much to Eren for these contributions!
 
 ----
 
