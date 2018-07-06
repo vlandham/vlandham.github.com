@@ -11,6 +11,8 @@ categories:
 
 I was honored to be asked to talk at [Uber's Visualization Nights](https://www.uber.com/p/visualization/visualization-nights/) in Seattle, August 31st, 2017. Here's the [Meetup Link](https://www.meetup.com/Uber-Engineering-Events-Seattle/events/242258284/).
 
+In May 2018, I also was fortunate to present a version of this talk at the [Mini-Conference on Data Visualization and AI](http://data.em-lyon.com/2018/04/26/mini-conference-on-data-visualization-and-ai/) currated by [Lynn Cherny](http://ghostweather.com/) in Lyon, France.
+
 As you can guess by the amazingly clever title, it was a very serious topic. I used my recent [How Long Does it Take to (Quick) Draw a Dog?](http://vallandingham.me/quickdraw/) visualization to talk about histograms and other fun aggregate views of data.
 
 ## Slides
