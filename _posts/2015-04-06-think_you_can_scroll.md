@@ -6,7 +6,7 @@ twitter_type: summary_large_image
 description: Slides and resources from Jim Vallandingham's OpenVis Conf 2015 talk on scrolling in data visualization and interactive storytelling.
 img: http://vallandingham.me/images/vis/scroll/talk.png
 categories:
-- talk
+  - talk
 ---
 
 This April, I had the privilege of coming back to [OpenVis Conf](http://openvisconf.com/) for a second time as a presenter. This is doublely special for me as I recently became an [Open Web Engineer](http://bocoup.com/weblog/author/jim-vallandingham/) at Bocoup - the organizers of this great conference (though it was after they had already accepted my talk).

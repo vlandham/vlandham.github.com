@@ -6,13 +6,13 @@ twitter_type: summary_large_image
 description: Join me in exploring Altair - a great python package for data vis
 img: http://vallandingham.me/images/altair/altair_twitter.jpg
 jslibs:
-- 'https://cdn.jsdelivr.net/npm/vega@3'
-- 'https://cdn.jsdelivr.net/npm/vega-lite@2'
-- 'https://cdn.jsdelivr.net/npm/vega-embed@3'
-js: 'altair.js'
+  - "https://cdn.jsdelivr.net/npm/vega@3"
+  - "https://cdn.jsdelivr.net/npm/vega-lite@2"
+  - "https://cdn.jsdelivr.net/npm/vega-embed@3"
+js: "altair.js"
 zoom: false
 categories:
-- tutorial
+  - tutorial
 ---
 
 <img class="center" src="{{ "images/altair/banner.png" | absolute_url }}" alt="Triangle Example" style=""/>
@@ -53,8 +53,8 @@ It is exactly this new feature that Altair leverages. It generates the Vega-Lite
 
 These instructions are based on:
 
-* jupyterlab v0.31.8
-* altair v2.0.0rc1
+- jupyterlab v0.31.8
+- altair v2.0.0rc1
 
 And might need a bit of updating as Altair is developed. First, I created a new python 3 [conda environment](https://conda.io/docs/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) to work in. Then installed jupyterlab via pip:
 
@@ -99,6 +99,7 @@ alt.Chart(cars).mark_point().encode(
     color='Origin',
 )
 ```
+
 Note: The result is a Vega-Lite specification that is rendered automatically inside of JupyterLab. To show the result in this post, I will use the handy-dandy [Vega Embed](https://github.com/vega/vega-embed) to display the spec below.
 
 <div id='spec1'></div>
@@ -115,7 +116,7 @@ Now I know these test datasets are boring and dumb and boring and useless and bo
 
 If there is one rational to possibly hide my laziness behind, it is that when using a boring dataset for an introductory tutorial we can focus more on the tool used to visualize it, rather than spend time looking for insights in the data. A pitiful rational, I know, so before we move on, I wanted to show how easy it can be to load up your own data and visualize with Altair.
 
-So we will use the wonderful [FiveThirtyEight data repository](https://github.com/fivethirtyeight/data/tree/master/candy-power-ranking)  to pick out a dataset about [people's favorite candy](http://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking/).
+So we will use the wonderful [FiveThirtyEight data repository](https://github.com/fivethirtyeight/data/tree/master/candy-power-ranking) to pick out a dataset about [people's favorite candy](http://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking/).
 
 Here's how you would load and visualize this data using [pandas](https://pandas.pydata.org/) and Altair:
 
@@ -136,7 +137,6 @@ alt.Chart(candy).mark_point().encode(
 Nearly the same command, but completely different data (we will explain that `:N` in a second).
 
 Most of the rest of this tutorial will be using the `cars` dataset because of my slovenliness, but keep in mind the ideas can be applied to any data.
-
 
 ## Marks Marks Everywhere
 
@@ -167,7 +167,6 @@ alt.Chart(cars).mark_bar(opacity=0.2).encode(
 ```
 
 <div id='spec3'></div>
-
 
 ## Faceting
 
@@ -207,15 +206,15 @@ alt.Chart(cars).mark_point().encode(
 
 <div id='spec6'></div>
 
-But this is only the beginning! With Altair, we can build up much more complex interactions using [selections](https://altair-viz.github.io/user_guide/selections.html). As the Vega-Lite documentation [puts it](https://vega.github.io/vega-lite/docs/selection.html):
+But this is only the beginning! With Altair, we can build up much more complex interactions using [selections](https://altair-viz.github.io/user_guide/interactions.html). As the Vega-Lite documentation [puts it](https://vega.github.io/vega-lite/docs/selection.html):
 
 > They map user input (e.g., mouse moves and clicks, touch presses, etc.) into data queries, which can subsequently be used to drive conditional encoding rules, filter data points, or determine scale domains.
 
 Altair comes with 3 basic selection types:
 
-* `selection_single()` - for interacting with a single element at a time.
-* `selection_multi()` - for selecting multiple items at once through clicking or mouseover.
-* `selection_interval()` - for selecting multiple items through a brushing interaction.
+- `selection_single()` - for interacting with a single element at a time.
+- `selection_multi()` - for selecting multiple items at once through clicking or mouseover.
+- `selection_interval()` - for selecting multiple items through a brushing interaction.
 
 Here's an example of using a `selection_interval()` to make a brush interaction that works across our previously faceted chart.
 
@@ -366,8 +365,8 @@ As for real tooltips, the relevant parties are [still discussing the details](ht
 
 Another way charts can be combined in Altair is through concatenation. We can concatenate charts either vertically or horizontally.
 
-* The`alt.vconcat()` method or the `&` operand is used to vertically concat.
-* The`alt.hconcat()` method or the `|` operand is used to horizontally concat.
+- The`alt.vconcat()` method or the `&` operand is used to vertically concat.
+- The`alt.hconcat()` method or the `|` operand is used to horizontally concat.
 
 Let's finish with an interactive dashboard made from two charts. Brushing on the top chart filters the bottom one. This chart uses Altair's [data transformation](https://altair-viz.github.io/user_guide/transform.html) to filter the bottom chart based on the selection. We won't discuss this feature more, but definitely worth exploring!
 
@@ -408,10 +407,10 @@ Hopefully this long drawn out demo of Altair at least gets people excited about 
 
 That being said, like any great thing, there are some caveats. Here are a few:
 
-* The API is still pretty new. Some of this could break!
-* The documentation is still incomplete. Sometimes you need to look at Altair and Vega-Lite docs to find an answer.
-* The number of data points Altair can handle is currently pretty low. Right now it is capped at 5,000, but that is modifiable.
-* As noted above, tooltips are still on the way.
-* It would be cool to have the ability to extend Altair to make new Mark/encoding types. The `boxplot` function above would then be created inline as `alt.mark_boxplot()` or something similar.
+- The API is still pretty new. Some of this could break!
+- The documentation is still incomplete. Sometimes you need to look at Altair and Vega-Lite docs to find an answer.
+- The number of data points Altair can handle is currently pretty low. Right now it is capped at 5,000, but that is modifiable.
+- As noted above, tooltips are still on the way.
+- It would be cool to have the ability to extend Altair to make new Mark/encoding types. The `boxplot` function above would then be created inline as `alt.mark_boxplot()` or something similar.
 
 But even with these slight short-comings, I am excited about this great new package, and can't wait to try it on more interesting datasets in the future. I hope you are excited too!

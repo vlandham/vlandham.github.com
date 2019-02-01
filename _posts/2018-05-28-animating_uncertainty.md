@@ -5,11 +5,11 @@ twitter: true
 twitter_type: summary_large_image
 description: A look at visualizing certain types of uncertainty using animation.
 img: http://vallandingham.me/images/uncertainty/uncertainty_twitter.png
-js: 'animating_uncertainty.js'
-css: 'animating_uncertainty.css'
+js: "animating_uncertainty.js"
+css: "animating_uncertainty.css"
 zoom: true
 categories:
-- tutorial
+  - tutorial
 ---
 
 <img class="zoom center" src="{{ "images/uncertainty/uncertainty_twitter.png" | absolute_url }}" alt="Examples of what this post is about" />
@@ -30,10 +30,10 @@ Now, visualization possibilities are what I typically think of first when I thin
 
 If I were to rename his headers a bit, the possible options I see him suggesting include:
 
-* Modification of glyphs (Obscurity)
-* Additional glyphs (error bars and other overlays)
-* Standalone visualizations (e.g. showing distributions)
-* Animation (Simulation)
+- Modification of glyphs (Obscurity)
+- Additional glyphs (error bars and other overlays)
+- Standalone visualizations (e.g. showing distributions)
+- Animation (Simulation)
 
 These categories are a bit generic, and are probably not comprehensive, but provide one way to slice up the uncertainty visualization space.
 
@@ -41,14 +41,14 @@ These categories are a bit generic, and are probably not comprehensive, but prov
 
 The other dimension we might split on is around different types of data that exist and thus can have uncertainty associated with them. Here I'm talking about [statistical data types](https://en.wikipedia.org/wiki/Statistical_data_type) as opposed to data types of a particular programming language. Briefly, the main data types I like to think about are:
 
-* Categorical (sometimes called [nominal](http://www.mymarketresearchmethods.com/types-of-data-nominal-ordinal-interval-ratio/))
-* Ordinal (where the values are discrete, but order matters)
-* Quantitative (aka continuous or real-valued)
+- Categorical (sometimes called [nominal](http://www.mymarketresearchmethods.com/types-of-data-nominal-ordinal-interval-ratio/))
+- Ordinal (where the values are discrete, but order matters)
+- Quantitative (aka continuous or real-valued)
 
 To this basic list, we can add a few more types that I believe warrant separating:
 
-* Temporal (dates, hours, minutes - time is special!)
-* Spatial (or geographical, e.g. lat & lon values)
+- Temporal (dates, hours, minutes - time is special!)
+- Spatial (or geographical, e.g. lat & lon values)
 
 ### An Uncertain Taxonomy
 
@@ -231,7 +231,6 @@ Unfortunately we didn't perform a controlled academic study around these represe
 One of the main pieces of feedback that has stuck with me is that the shifting visual representation made them feel a bit _uncomfortable_. But uncomfortable in a good way!
 
 With more traditional uncertainty visualizations it can be easy to see the level of uncertainty, but ultimately ignore it, choosing the average over the error-bars, for example. While simpler aggregates are easy additions to these visuals, the animation provides perhaps a more visceral experience of the uncertainty that is harder to ignore.
-
 
 ## Filling in the Cube
 

@@ -2,7 +2,7 @@
 layout: post
 title: iBook Widgets with D3.js
 categories:
-- tutorial
+  - tutorial
 ---
 
 ### Create a HTML Widget for iBooks using d3.js without Dashcode
@@ -11,7 +11,7 @@ categories:
 <img src="http://vallandingham.me/images/ibooks/ibooks_author_icon.png" alt="ibooks author icon">
 
 </div>
-With the release of [iBooks Author](http://www.apple.com/ibooks-author/) , the idea of using powerful javascript libraries inside using their [HTML Module](http://www.apple.com/ibooks-author/gallery.html) functionality probably came to a lot of people. I have certainly been thinking about the potential power of something like [d3.js](http://mbostock.github.com/d3/) or [leaflet.js](http://leaflet.cloudmade.com/) embedded in an interactive text-book.
+With the release of [iBooks Author](http://www.apple.com/ibooks-author/) , the idea of using powerful javascript libraries inside using their [HTML Module](http://www.apple.com/ibooks-author/gallery.html) functionality probably came to a lot of people. I have certainly been thinking about the potential power of something like [d3.js](http://mbostock.github.com/d3/) or [leaflet.js](https://leafletjs.com/) embedded in an interactive text-book.
 
 When iBooks Author was announced, I spent 5 minutes entertaining this idea, but soon was frustrated with having to come up to speed with Dashcode and other Apple developer tools - when all I really wanted to do was make a fun, interactive visualization.
 
@@ -19,8 +19,7 @@ Recently, I stumbled upon [ibooksauthor.es](http://ibooksauthor.es/) a blog by M
 
 Consider this write-up a slight spin on the same idea, but using d3.js, with a hint of automation.
 
-Anatomy of a Dashcode Widget
-----------------------------
+## Anatomy of a Dashcode Widget
 
 <div class="left">
 <img src="http://vallandingham.me/images/ibooks/widgt_icon.png" alt="dashcode widget icon">
@@ -46,21 +45,19 @@ If I look at the default ‘Countdown’ widget from Dashcode, without any modif
 
 Where the `Parts/` directory stores Dashcode javascript libraries. The required components to a widget are just a subset of these files:
 
--   Info.plist - the plist file that tells a user of the widget how to run it.
--   Default.png - a preview image of the widget when it is not running.
--   main.html - or some html file to give it some functionality.
+- Info.plist - the plist file that tells a user of the widget how to run it.
+- Default.png - a preview image of the widget when it is not running.
+- main.html - or some html file to give it some functionality.
 
 And most likely you’ll want one or more javascript files - as we are trying to make an interactive visualization.
 
-Creating An Interactive Dashcode Widget
----------------------------------------
+## Creating An Interactive Dashcode Widget
 
 So again, our goal is to create an interactive widget using d3.js, without the need for using Dashcode directly.
 
 To this end, I’ve created a [vis widget starting point](https://github.com/vlandham/vis_widget) that includes the necessary files to kick start just such a project.
 
 Here’s what it’ll look like. Click for the actual interactive visualization. You can click and drag the circles around:
-
 
 You can see, its not much to look at - but its something to start with.
 
@@ -79,9 +76,9 @@ And then open up `http://0.0.0.0:3000` in your web browser to view the visualiza
 
 Looking at the `js/vis.js` code, you can see this is a pretty basic (i.e. useless) visualization. However it does prove out some important functionality:
 
-* Loading of a bundled data file using `d3.csv` works without any issues.
-* D3's [drag behavior](https://github.com/mbostock/d3/wiki/Drag-Behavior) works well in this environment.
-* Custom css and javascript libraries are possible inside an iBook Widget.
+- Loading of a bundled data file using `d3.csv` works without any issues.
+- D3's [drag behavior](https://github.com/mbostock/d3/wiki/Drag-Behavior) works well in this environment.
+- Custom css and javascript libraries are possible inside an iBook Widget.
 
 ### Creating Your Own Vis Widget
 
@@ -89,11 +86,11 @@ To create your own vis widget, simply fork or clone this repository, then modify
 
 When you have a visualization you like ready, follow these steps:
 
-* Create your own Default.png by taking a screen-shot, or otherwise exporting a preview image of your visualization.
-** Make sure to get the dimensions right (see below).
-* Tweak your Info.plist as needed (see below).
-* Run `make` in your vis_widget directory
-* Drag your newly created `.wdgt` file to iBooks Author
+- Create your own Default.png by taking a screen-shot, or otherwise exporting a preview image of your visualization.
+  \*\* Make sure to get the dimensions right (see below).
+- Tweak your Info.plist as needed (see below).
+- Run `make` in your vis_widget directory
+- Drag your newly created `.wdgt` file to iBooks Author
 
 The `Makefile` provided is super simple. It just copies the `vis_widget` directory and moves it the `vis.wdgt` without modifying it. It should create a `.wdgt` package suitable for transferring to iBooks Author.
 

@@ -2,7 +2,7 @@
 layout: post
 title: Galaxy Server Install and Setup
 categories:
-- bioinfo
+  - bioinfo
 ---
 
 ### Installing Galaxy on Scientific Linux 6
@@ -11,24 +11,22 @@ categories:
 
 What follows is a brain dump of the initial setup and configuration of this tool. Sorry about the length.
 
-Goals for sever configuration
------------------------------
+## Goals for sever configuration
 
--   Follow all recommended settings for production level Galaxy server
--   Use Nginx proxy front-end
-    -   Enable as much of proxy components as possible
--   Use local postgreSQL server
--   Try to make these instructions as complete as possible
+- Follow all recommended settings for production level Galaxy server
+- Use Nginx proxy front-end
+  - Enable as much of proxy components as possible
+- Use local postgreSQL server
+- Try to make these instructions as complete as possible
 
 Future goals for follow up configuration include
 
--   Enable and configure as many of the tools as possible
--   Provide easy access to local directories of sequencing data inside Galaxy
--   Experiment with with Galaxy Toolshed
--   Experiment with cluster configurations
+- Enable and configure as many of the tools as possible
+- Provide easy access to local directories of sequencing data inside Galaxy
+- Experiment with with Galaxy Toolshed
+- Experiment with cluster configurations
 
-About the System
-----------------
+## About the System
 
 Scientific Linux release 6.1 (Carbon)
 
@@ -37,23 +35,25 @@ Will use separate `galaxy` user to run galaxy
 Galaxy user’s home directory will be located:
 `/usr/local/galaxy`
 
-Resources
----------
+## Resources
 
 Most information comes from [apapow.net](http://www.agapow.net/science/bioinformatics/galaxy/installing-galaxy)
 
 And [the galaxy wikis Production Server page](http://wiki.g2.bx.psu.edu/Admin/Config/Performance/Production%20Server)
 
-Check base install
-------------------
+## Check base install
 
 ### Ensure python is installed and at 2.6
 
 {% highlight bash %}
 which python
+
 # /usr/bin/python
+
 python --version
+
 # Python 2.6.6
+
 {% endhighlight %}
 
 ### Ensure PostgreSQL is installed
@@ -62,8 +62,7 @@ python --version
 sudo yum install postgresql postgresql-server
 {% endhighlight %}
 
-Modify PostgreSQL config file
------------------------------
+## Modify PostgreSQL config file
 
 Tricky part to getting postgreSQL working is the `pg_hba.conf` file. Edit it to allow local connections.
 
@@ -74,14 +73,13 @@ sudo vim /var/lib/pgsql/data/pg_hba.conf
 [A blog post explaining the syntax of this file](http://www.depesz.com/index.php/2007/10/04/ident/) . It should look something like:
 
 {% highlight bash %}
-local   all         all                               trust
-host    all         all         127.0.0.1/32          trust
-host    all         all         ::1/128               trust
-host    all         all         0.0.0.0/0             md5
+local all all trust
+host all all 127.0.0.1/32 trust
+host all all ::1/128 trust
+host all all 0.0.0.0/0 md5
 {% endhighlight %}
 
-Startup PostgreSQL
-------------------
+## Startup PostgreSQL
 
 {% highlight bash %}
 sudo service postgresql initdb
@@ -89,8 +87,7 @@ sudo chkconfig postgresql on
 sudo service postgresql start
 {% endhighlight %}
 
-Add galaxy user
----------------
+## Add galaxy user
 
 **Note**
 
@@ -106,18 +103,20 @@ sudo /usr/sbin/useradd galaxy --home /usr/local/galaxy
 passwd galaxy
 {% endhighlight %}
 
-Install dependency packages
----------------------------
+## Install dependency packages
 
 {% highlight bash %}
+
 # install git just to have
-sudo yum install git 
+
+sudo yum install git
+
 # install mercurial to download galaxy
+
 sudo yum install mercurial
 {% endhighlight %}
 
-Install Galaxy
---------------
+## Install Galaxy
 
 ### Switch to galaxy user
 
@@ -144,7 +143,9 @@ wget https://raw.github.com/pypa/virtualenv/master/virtualenv.py
 python ./virtualenv.py --no-site-packages galaxy_env
 . ./galaxy_env/bin/activate
 which python
+
 # ~/galaxy_env/bin/python
+
 {% endhighlight %}
 
 ### Configure galaxy user
@@ -154,21 +155,22 @@ Edit `~/.bashrc` to define `TEMP` and to add virtualenv source
 {% highlight bash %}
 source ~/galaxy_env/bin/activate
 
-TEMP=$HOME/galaxy-dist/database/tmp 
-export TEMP 
+TEMP=\$HOME/galaxy-dist/database/tmp
+export TEMP
 {% endhighlight %}
 
 Ensure that `~/.bash_profile` sources `~/.bashrc`
 
 {% highlight bash %}
+
 # this should be in ~/.bash_profile
+
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+. ~/.bashrc
 fi
 {% endhighlight %}
 
-Setup PostgreSQL database for Galaxy
-------------------------------------
+## Setup PostgreSQL database for Galaxy
 
 Login as postgres user
 
@@ -199,4 +201,3 @@ GRANT ALL PRIVILEGES ON DATABASE galaxy_prod to galaxy;
 Test galaxy PostgreSQL user.
 
 Exit out of postgres user. Return to galaxy user and then attempt to connect to database.
-

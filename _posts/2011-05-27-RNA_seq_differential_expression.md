@@ -2,7 +2,7 @@
 layout: post
 title: "RNA-seq: Finding Differentially Expressed Genes"
 categories:
-- bioinfo
+  - bioinfo
 ---
 
 Here are some notes on processing RNA-seq data to find differentially expressed genes.
@@ -11,32 +11,29 @@ A much abbreviated version of this pipeline comes from [Cufflink’s Tutorial Pa
 
 The extended version given below follows the more exploratory pattern of someone who hasn’t done much (any) NGS data analysis before.
 
-Tools Used
-----------
+## Tools Used
 
--   [TopHat](http://tophat.cbcb.umd.edu/manual.html) v1.1.2
--   [Cufflinks](http://cufflinks.cbcb.umd.edu/tutorial.html) v1.0.1
--   [Samtools](http://samtools.sourceforge.net) v0.1.16
+- [TopHat](http://tophat.cbcb.umd.edu/manual.html) v1.1.2
+- [Cufflinks](http://cufflinks.cbcb.umd.edu/tutorial.html) v1.0.1
+- [Samtools](http://samtools.sourceforge.net) v0.1.16
 
-Requirements
-------------
+## Requirements
 
 ### Sequence Files
 
-We are starting from Illumina generated [Fastq sequence](http://en.wikipedia.org/wiki/FASTQ_format) files. The reads contained in these files are paired-end and 40bp long. We are using mouse data. The naming convention follows the format: s\_LANE\_PAIRED\_sequence.txt. So s\_1\_1\_sequence.txt is the “left” side of the paired-end data on lane 1 and s\_1\_2\_sequence.txt is the “right” side.
+We are starting from Illumina generated [Fastq sequence](http://en.wikipedia.org/wiki/FASTQ_format) files. The reads contained in these files are paired-end and 40bp long. We are using mouse data. The naming convention follows the format: s_LANE_PAIRED_sequence.txt. So s_1_1_sequence.txt is the “left” side of the paired-end data on lane 1 and s_1_2_sequence.txt is the “right” side.
 
 ### Pre-built Index
 
-There are a number of pre-built indexes that [TopHat makers provide](ftp://ftp.cbcb.umd.edu/pub/data/bowtie_indexes/) . For the mouse genome, they have “m\_musculus\_ncbi37”, “mm8”, and “mm9” currently listed in their ftp directory.
+There are a number of pre-built indexes that [TopHat makers provide](ftp://ftp.cbcb.umd.edu/pub/data/bowtie_indexes/) . For the mouse genome, they have “m_musculus_ncbi37”, “mm8”, and “mm9” currently listed in their ftp directory.
 
-We also have our own indexes, in our genomes directory. The index used in the initial run was labelled **Mus\_musculus.NCBIM37.52**.
+We also have our own indexes, in our genomes directory. The index used in the initial run was labelled **Mus_musculus.NCBIM37.52**.
 
 ### Gene Model Annotations
 
-We also want to supply TopHat with a list of gene model annotations. This is in [GTF v2.2](http://mblab.wustl.edu/GTF22.html) format, and the chromosome names must match those in the index. For the initial run \*Mus\_musculus.NCBIM37.52.gtf was used.
+We also want to supply TopHat with a list of gene model annotations. This is in [GTF v2.2](http://mblab.wustl.edu/GTF22.html) format, and the chromosome names must match those in the index. For the initial run \*Mus_musculus.NCBIM37.52.gtf was used.
 
-Pipeline Run
-------------
+## Pipeline Run
 
 The pipeline looks to be pretty simple:
 
@@ -60,9 +57,9 @@ This is a required setting for paired-end data with **no default value**. For th
 
 Also, when speaking to associates, it sounds like their formula incorrect - or at least misleading. Here, I’ll try to explain it a bit more clearly as how we see it.
 
-We are trying to provide TopHat the average distance between the ends of the paired-end reads. So, we have our library which is composed of fragmented cDNA (the DNA insert), ligated to adapter sequences on both sides. This library is size selected **after** the adapters are ligated to the DNA insert. So, a 300bp library would have 300bp - Adapter\_Length size inserts.
+We are trying to provide TopHat the average distance between the ends of the paired-end reads. So, we have our library which is composed of fragmented cDNA (the DNA insert), ligated to adapter sequences on both sides. This library is size selected **after** the adapters are ligated to the DNA insert. So, a 300bp library would have 300bp - Adapter_Length size inserts.
 
-The trick is that during sequencing, sequencing starts at the DNA insert - **not** at the beginning of the adaptor. You can see that this is the case from Illumina documentation. For example in the [Cluster Generation step shown here](http://www.dkfz.de/gpcf/850.html) - it ends with the sequencing primer being hybridized to the DNA-templates. So, in order to figure out the distance between pair-end sequences, we need to subtract the Adapter\_Length from the library size. There are adapter sequences on both sides of the DNA insert, so we need to subtract from both sides as we are reading from both sides. The total length of the Left\_Adapter + Right\_Adapter should suffice - this is what I’m calling Adapter\_Length.
+The trick is that during sequencing, sequencing starts at the DNA insert - **not** at the beginning of the adaptor. You can see that this is the case from Illumina documentation. For example in the [Cluster Generation step shown here](http://www.dkfz.de/gpcf/850.html) - it ends with the sequencing primer being hybridized to the DNA-templates. So, in order to figure out the distance between pair-end sequences, we need to subtract the Adapter_Length from the library size. There are adapter sequences on both sides of the DNA insert, so we need to subtract from both sides as we are reading from both sides. The total length of the Left_Adapter + Right_Adapter should suffice - this is what I’m calling Adapter_Length.
 
 ##### Mate-pair Distance Diagram
 
@@ -70,20 +67,20 @@ p=. ![](images/rna_seq/paired_end_distance.png)
 
 In total, to determine a good value for `-r` we need:
 
--   The **size-selection** target for the final library (usually around 300bp)
--   The **read length** (here 40bp)
--   The **adapter length** (for TruSeq adapters this looks to be 120bp or 121bp. For other paired-end adaptors, it is 98bp.).
+- The **size-selection** target for the final library (usually around 300bp)
+- The **read length** (here 40bp)
+- The **adapter length** (for TruSeq adapters this looks to be 120bp or 121bp. For other paired-end adaptors, it is 98bp.).
 
 The formula then becomes:
 
 {% highlight ruby %}
-Inner_Distance = Library_Size - (2 * Read_Length) - Adapter_Length
+Inner_Distance = Library_Size - (2 \* Read_Length) - Adapter_Length
 {% endhighlight %}
 
 Or, for our specific run:
 
 {% highlight ruby %}
-315 - (2 * 40) - 121 = 114
+315 - (2 \* 40) - 121 = 114
 {% endhighlight %}
 
 315 was the reported average size of the library for this particular sample.
@@ -94,7 +91,7 @@ I didn’t fully understand all this on my initial run of the TopHat. So, my `-r
 
 ##### `-G/--GTF`
 
-Full path to the .gtf file for mouse that matches the index file you will be using (see above). In my case, **Mus\_musculus.NCBIM37.52.gtf**. This is on a separate file system, but that does not seem to be a big deal.
+Full path to the .gtf file for mouse that matches the index file you will be using (see above). In my case, **Mus_musculus.NCBIM37.52.gtf**. This is on a separate file system, but that does not seem to be a big deal.
 
 ##### Threads
 
@@ -112,7 +109,7 @@ As all the files generated by TopHat have the same name from run to run, it is b
 
 The total TopHat execution string looks something like:
 
-``` terminal
+```terminal
 tophat -r 122 -G /full/gtf/path/Mus_musculus.NCBIM37.52.gtf \
 -p 4 -o unique_output_dir/tophat/ \
 /full/index/path/Mus_musculus.NCBIM37.52 s_1_1_sequence.txt s_1_2_sequence.txt
@@ -137,7 +134,7 @@ Running `samtools` on the command line with no arguments provides a short help s
 Here is the output for the first TopHat run that used 122bp for the `-r` parameter:
 
 {% highlight bash %}
-$ samtools flagstat accepted_hits.bam
+\$ samtools flagstat accepted_hits.bam
 
 102925213 + 0 in total (QC-passed reads + QC-failed reads)
 0 + 0 duplicates
@@ -182,35 +179,46 @@ To clarify, the flag that it looks to be counting is `0x2` in the sam/bam file. 
 
 {% highlight bash %}
 samtools view -c -f 0x2 accepted_hits.bam
+
 # 65032742
+
 # same number as above in properly paired
+
 {% endhighlight %}
 
 According to an [unanswered SEQAnswers question](http://seqanswers.com/forums/showthread.php?t=8186) , TopHat might not be setting this flag correctly or perhaps this flag is used differently in TopHat. I haven’t found any answers from the TopHat developers, and I haven’t looked in the source code yet.
 
 ##### samtools view
 
-The **main question** I would like to answer about this data is how many of the raw sequences were aligned and made it into the accepted\_hits.bam file. Fastq files have 4 lines per sequence. So, to find the total number of sequences, one can use `wc -l` and divide by 4:
+The **main question** I would like to answer about this data is how many of the raw sequences were aligned and made it into the accepted_hits.bam file. Fastq files have 4 lines per sequence. So, to find the total number of sequences, one can use `wc -l` and divide by 4:
 
 {% highlight bash %}
 wc -l s_1_1_sequence.txt
+
 # 188366840
+
 # 188366840 / 4 = 47091710
+
 # multiply by 2 to get
+
 # 94183420 reads from both pairs
+
 {% endhighlight %}
 
-Then we need to know the number of unique alignments in the accepted\_hits.bam file. It is possible for one sequence from the fastq file to align multiple times.
+Then we need to know the number of unique alignments in the accepted_hits.bam file. It is possible for one sequence from the fastq file to align multiple times.
 
-The accepted\_hits.bam have collapsed together the two pairs, so the last component of the sequence names - the `/1` and `/2` are missing. (Look at `head s_1_1_sequence.txt`, then look at the first few values of field 1 of `samtools view accepted_hits.bam` and you will see the name difference). Hence, the total number will be 2 times the number of unique names found in the .bam file. Here is a piping of commands that should pull out the name of the read and then count unique names to determine how many unique read were aligned:
+The accepted_hits.bam have collapsed together the two pairs, so the last component of the sequence names - the `/1` and `/2` are missing. (Look at `head s_1_1_sequence.txt`, then look at the first few values of field 1 of `samtools view accepted_hits.bam` and you will see the name difference). Hence, the total number will be 2 times the number of unique names found in the .bam file. Here is a piping of commands that should pull out the name of the read and then count unique names to determine how many unique read were aligned:
 
 {% highlight bash %}
 samtools view accepted_hits.bam | cut -f 1 | sort | uniq | wc -l
+
 # 45153786
-# 45153786 * 2 = 90307572
+
+# 45153786 \* 2 = 90307572
+
 {% endhighlight %}
 
-So, from all this, we find that the total number of reads from the original sequence files that made it to the accepted\_hits.bam file is:
+So, from all this, we find that the total number of reads from the original sequence files that made it to the accepted_hits.bam file is:
 
 {% highlight ruby %}
 90307572 / 94183420 = 0.958 = 96%
@@ -218,7 +226,7 @@ So, from all this, we find that the total number of reads from the original sequ
 
 ##### fastqc
 
-It is also possible to run fastqc on .bam files. I did that for the accepted\_hits.bam file, but didn’t get too much from the resulting output.
+It is also possible to run fastqc on .bam files. I did that for the accepted_hits.bam file, but didn’t get too much from the resulting output.
 
 ##### Increased `-r` parameter
 
@@ -242,7 +250,9 @@ However, I get the same number of unique mappings from the samtools view:
 
 {% highlight bash %}
 samtools view accepted_hits.bam | cut -f 1 | sort | uniq | wc -l
+
 # 45153786
+
 {% endhighlight %}
 
 So we will stick with `-r 122`
@@ -297,7 +307,7 @@ Bam files produced by TopHat runs
 
 For this experiment, we have two wild type sample replicates and two mutant sample replicates. Thus, we call Cuffdiff like:
 
-``` terminal
+```terminal
 cuffdiff -p 4 -o unique_output_dir/tophat/ -L wt,mut \
 /full/gtf/path/Mus_musculus.NCBIM37.52.gtf wt_1.bam,wt_2.bam mut_1.bam,mut_2.bam
 ```

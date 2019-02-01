@@ -2,7 +2,7 @@
 layout: post
 title: Kansas City Streets Map Remix
 categories:
-- tutorial
+  - tutorial
 ---
 
 Technologies change with the times. Nothing stays the same. Awhile back, I [experimented with TileMill](http://vallandingham.me/kansas_city_streets_map_with_tilemill.html) to create a “streets only” view of Kansas City - with hopefully enough detail in the instructions that you could do it yourself for your own hometown.
@@ -13,8 +13,7 @@ This means, to make street maps, we might not need to import any additional data
 
 I wanted to try my hand at revamping the simple streets only Kansas City map using these new technologies. Join me, won’t you, on this adventure!
 
-Start Me Up
------------
+## Start Me Up
 
 After registering for a Mapbox account and downloading Mapbox Studio, we are introduced to Mapbox Studio by a nice little default map.
 
@@ -45,12 +44,11 @@ We could start with a blank slate, but I was intrigued by the “High Contrast�
 
 </div>
 
-Style Me Up
------------
+## Style Me Up
 
 Already, its looking pretty awesome!
 
-On the left, we can see the [CartoCSS](https://www.mapbox.com/tilemill/docs/crashcourse/styling/) that is used to make the map look the way it does. There are multiple style files, each one focusing on styling different portions of the map. The files provided with this style are *style* for general map features, *road* for styling roads at different zoom levels, and *labels* for (you guessed it) labels.
+On the left, we can see the [CartoCSS](https://www.mapbox.com/tilemill/docs/crashcourse/styling/) that is used to make the map look the way it does. There are multiple style files, each one focusing on styling different portions of the map. The files provided with this style are _style_ for general map features, _road_ for styling roads at different zoom levels, and _labels_ for (you guessed it) labels.
 
 Real quick, let’s switch to our region of choice - Kansas City, using the nifty built in search feature.
 
@@ -62,7 +60,7 @@ No panning and dragging necessary!
 
 Ok, now lets start styling.
 
-First, we can ditch the *labels* style file, as we don’t want any labels at all. Click on the *labels* tab and then the little minus sign next to it. After confirming to remove, the style file is gone - but the labels remain. What?
+First, we can ditch the _labels_ style file, as we don’t want any labels at all. Click on the _labels_ tab and then the little minus sign next to it. After confirming to remove, the style file is gone - but the labels remain. What?
 
 Turns out we have to save to get the update to show up (as was the case with TileMill).
 
@@ -73,14 +71,14 @@ Clicking on the “Save As” button allows you to find a place to save the styl
 
 </div>
 
-Now we want to style some roads. The plan is to copy most of the style from my [previous streets style](https://gist.github.com/vlandham/2312647#file_style.css) . This means I’ll end up deleting most of the built in *roads* styles too - but I wanted to keep it around to get a feel for how to work with this new data source.
+Now we want to style some roads. The plan is to copy most of the style from my [previous streets style](https://gist.github.com/vlandham/2312647#file_style.css) . This means I’ll end up deleting most of the built in _roads_ styles too - but I wanted to keep it around to get a feel for how to work with this new data source.
 
-Looking at the styles in *roads*, we can see that `#road` entries have a `class` associated with their [OpenStreetMap tags](http://wiki.openstreetmap.org/wiki/Key:highway) . Here is a sample:
+Looking at the styles in _roads_, we can see that `#road` entries have a `class` associated with their [OpenStreetMap tags](http://wiki.openstreetmap.org/wiki/Key:highway) . Here is a sample:
 
 <script src="https://gist.github.com/vlandham/35adbfc0ac5876544bcc.js?file=old_roads.css">
 </script>
 
-To confirm that these classes are in the data, we can switch to the *data explore* view to see the metadata behind all these little lines on our map.
+To confirm that these classes are in the data, we can switch to the _data explore_ view to see the metadata behind all these little lines on our map.
 
 <div class="center">
 <img class="center" src="http://vallandingham.me/images/vis/kc_map/07_menu_anno.png" alt="menu" style=""/>
@@ -96,7 +94,7 @@ Pretty darn impressive, if you ask me.
 
 </div>
 
-We can see that indeed each road has a property called *class* which seem to match the OSM names. So, I need to modify my original stylings to use these classes.
+We can see that indeed each road has a property called _class_ which seem to match the OSM names. So, I need to modify my original stylings to use these classes.
 
 (Also, the class names are listed in the description section of the roads layer data)
 
@@ -105,10 +103,11 @@ We can see that indeed each road has a property called *class* which seem to mat
 
 </div>
 
-I deleted the *roads* stylesheet now (even though it was really cool and useful to learn from), and augmented my old CartoCSS a bit. Here is the styling I came up with.
+I deleted the _roads_ stylesheet now (even though it was really cool and useful to learn from), and augmented my old CartoCSS a bit. Here is the styling I came up with.
 
 <script src="https://gist.github.com/vlandham/35adbfc0ac5876544bcc.js?file=style.css">
 </script>
+
 I’m sure I’m missing out on a ton of cool CartoCSS features, but I just wanted to get something out quick.
 
 It looks like you have to zoom in to see all the road types (not sure how to override these default zoom levels for all roads).
@@ -118,8 +117,7 @@ It looks like you have to zoom in to see all the road types (not sure how to ove
 
 </div>
 
-Extract Me Out
---------------
+## Extract Me Out
 
 So now we have a basic road map, we want to get it out of Mapbox Studio to print.
 
@@ -129,8 +127,8 @@ However, you can export high resolution pngs, so let’s try that out.
 
 Currently, there are two great tutorials from Mapbox about printing from Mapbox Studio:
 
--   [High resolution prints](https://www.mapbox.com/blog/high-res-prints-from-mapbox-studio/)
--   [Web to canvas prints](https://www.mapbox.com/blog/web-to-canvas-print/)
+- [High resolution prints](https://www.mapbox.com/blog/high-res-prints-from-mapbox-studio/)
+- [Web to canvas prints](https://www.mapbox.com/blog/web-to-canvas-print/)
 
 Both might be more useful then my own ramblings, so refer to them if I’m not doing it for you.
 

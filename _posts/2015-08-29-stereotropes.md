@@ -6,7 +6,7 @@ twitter_type: summary
 description:
 img:
 categories:
-- vis
+  - vis
 ---
 
 <div class="center">
@@ -21,8 +21,6 @@ A project I was fortunate to work on, in collaboration with the other members of
 
 Also check out our detailed [Stereotropes Design Post](https://bocoup.com/weblog/stereotropes-design/) for more on how and why it was made.
 
-
 <div class="center">
 <a href="http://stereotropes.bocoup.com"><img class="center" src="http://vallandingham.me/images/stereotropes/gender-visualization.png" alt="trope adjectives" style="width:700px;"/></a>
 </div>
-

@@ -2,7 +2,7 @@
 layout: post
 title: Interactive Networks Visualizations (FlowingData)
 categories:
-- tutorial
+  - tutorial
 ---
 
 Check out my [tutorial on FlowingData](http://flowingdata.com/2012/08/02/how-to-make-an-interactive-network-visualization/) and learn how you can use D3.js to make some awesome interactive networks.

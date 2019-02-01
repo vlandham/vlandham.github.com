@@ -2,7 +2,7 @@
 layout: post
 title: VisKC for KC based Visualizations
 categories:
-- none
+  - none
 ---
 
 As I have been busy [creating](http://flowingdata.com/2012/08/02/how-to-make-an-interactive-network-visualization/) [tutorials](http://flowingdata.com/2013/01/17/how-to-animate-transitions-between-multiple-charts/) for FlowingData, I haven’t updated this site in a while.

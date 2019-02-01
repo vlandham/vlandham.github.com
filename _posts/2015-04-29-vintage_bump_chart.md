@@ -6,11 +6,10 @@ twitter_type: summary
 description:
 img:
 categories:
-- vis
+  - vis
 ---
 
 A quick shoutout for another vintage visualization I implemented in code:
-
 
 <div class="center">
 <a href="http://vallandingham.me/census_bump/"><img class="center" src="http://vallandingham.me/images/vis/census_bump.png" alt="census bump" style=""/></a>

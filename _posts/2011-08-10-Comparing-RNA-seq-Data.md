@@ -2,7 +2,7 @@
 layout: post
 title: "RNA-seq: Comparing Similar Libraries"
 categories:
-- bioinfo
+  - bioinfo
 ---
 
 This task involves comparing RNA-seq data generated from 3 similar libraries. The difference between the libraries is the number of cells collected to be used in the construction of the libraries. This dataset contains 2 samples each from libraries constructed from 1,000, 10,000 and 30,000 mouse bone marrow derived hematopoietic stem cells.
@@ -11,36 +11,33 @@ The idea, as it was explained to me, is to see if researchers can get away with 
 
 Not a very concrete question, but perhaps a good one all the same.
 
-Analysis Goals
---------------
+## Analysis Goals
 
 Discussing with other analysts about what to do, Here are some questions I’d like to answer during analysis:
 
--   What is the percent FPKM change as we move from higher number of cells to lower number?
--   How does gene coverage change from high to low?
-    -   Does coverage overall go down with fewer cell numbers?
-    -   Are there spots in the exome that are lacking in the low cell number samples that have coverage in the higher cell number samples?
--   How do the numbers of multi-reads change?
-    -   Multi-reads are those reads that map to multiple places on the genome. Does the percentage of the total number of aligned reads that are considered multi-reads increase in low cell number samples?
--   Does the absolute number of genes covered at all by the data change?
-    -   Here we would like to see if more cells provide more information in terms of the number of genes found in the data. We might expect that the lower cell numbers would have more genes missing from the RNA-seq data, due to lower coverage.
-    -   Information could be graphed with cell numbers on x-axis, and on the y-axis, show the percentage of the total number of genes of the organism that were detected in the data.
+- What is the percent FPKM change as we move from higher number of cells to lower number?
+- How does gene coverage change from high to low?
+  - Does coverage overall go down with fewer cell numbers?
+  - Are there spots in the exome that are lacking in the low cell number samples that have coverage in the higher cell number samples?
+- How do the numbers of multi-reads change?
+  - Multi-reads are those reads that map to multiple places on the genome. Does the percentage of the total number of aligned reads that are considered multi-reads increase in low cell number samples?
+- Does the absolute number of genes covered at all by the data change?
+  - Here we would like to see if more cells provide more information in terms of the number of genes found in the data. We might expect that the lower cell numbers would have more genes missing from the RNA-seq data, due to lower coverage.
+  - Information could be graphed with cell numbers on x-axis, and on the y-axis, show the percentage of the total number of genes of the organism that were detected in the data.
 
-Tools Used
-----------
+## Tools Used
 
 It is my attempt to get a cohesive picture of each of these datasets, so as to better understand what is different about them. So I used a number of tools that can provide various details about the dataset, along with the normal alignment and RPKM tools.
 
--   [TopHat](http://tophat.cbcb.umd.edu/manual.html) v1.3.1
--   [Cufflinks](http://cufflinks.cbcb.umd.edu/tutorial.html) v1.0.3
--   [Samtools](http://samtools.sourceforge.net) v0.1.16
--   [picard](http://picard.sourceforge.net/) v1.49
--   [BEDTools](http://code.google.com/p/bedtools/) v2.12
--   [fastqc](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/) v0.9.3
--   [FASTX-Toolkit](http://hannonlab.cshl.edu/fastx_toolkit/)
+- [TopHat](http://tophat.cbcb.umd.edu/manual.html) v1.3.1
+- [Cufflinks](http://cufflinks.cbcb.umd.edu/tutorial.html) v1.0.3
+- [Samtools](http://samtools.sourceforge.net) v0.1.16
+- [picard](http://picard.sourceforge.net/) v1.49
+- [BEDTools](http://code.google.com/p/bedtools/) v2.12
+- [fastqc](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/) v0.9.3
+- [FASTX-Toolkit](http://hannonlab.cshl.edu/fastx_toolkit/)
 
-Pipeline
---------
+## Pipeline
 
 The initial process is similar to my previous RNA-seq analysis. However after alignment and RPKM values are determined, we need to do a lot more analysis to see patterns between datasets
 
@@ -62,7 +59,7 @@ The initial look at the data using fastqc indicated serious degradation of the q
 
 Here’s how Fastx was called:
 
-``` terminal
+```terminal
 zcat sequence.fastq.gz | fastx_trimmer -f 1 -l 25 -z -o sequence.trim.fastq.gz -Q33
 ```
 
@@ -72,7 +69,7 @@ As we are using CASAVA 1.8, everything comes compressed. So `zcat` is used to de
 
 Most of the defaults were used. Because of the short reads, Tophat was complaining that the `--segment-length` parameter should be made to be equal to roughly half the read length. So that’s what I did. Also, The gene model annotation file (`.gtf`) was provided so that it wouldn’t try to figure out junctions de-novo.
 
-``` terminal
+```terminal
 tophat -G /n/data1/genomes/bowtie-index/mm9/Ens_63/mm9.Ens_63.gtf -p 4 \
 --segment-length 12  -o tophat /n/data1/genomes/bowtie-index/mm9/mm9 sequence.trim.fastq.gz
 ```
@@ -83,7 +80,7 @@ Where the `-G` flag provides the gene model annotation, and the second to last p
 
 Similar to TopHat, most of the defaults were used:
 
-``` terminal
+```terminal
 cufflinks -p 4 -o cufflinks -G /path/to/GTF/file.gtf accepted_hits.bam
 ```
 
@@ -93,7 +90,7 @@ Where the input BAM file for each sample was the output produced by TopHat.
 
 I wanted to see what information picard’s **CollectAlignmentSummaryMetrics** tool would provide, so I ran this on all the bam files. Picard and GATK can be particular about the order of the bam files. So, first I used picard’s **AddOrReplaceReadGroups** and it’s **ReorderSam** to get the bam files in a state where they would be taken by picard without dying:
 
-``` terminal
+```terminal
 java -jar picard/AddOrReplaceReadGroups.jar INPUT=accepted_hits.bam OUTPUT=accepted_hits.group.bam \
 VALIDATION_STRINGENCY=LENIENT SORT_ORDER=coordinate RGLB=1 RGPL=illumina RGPU=1 RGSM=name
 
@@ -119,8 +116,7 @@ There are some particulars about this bed file that other analysts helped me und
 coverageBed -s -split -abam ./accepted_hits.bam -b ./mm9.Ens_63.exons.bed > ./coverageBed.out.txt
 ```
 
-Analysis
---------
+## Analysis
 
 ### Coverage
 
@@ -128,14 +124,14 @@ As mentioned above, I used BEDTools to get coverage information of the exons cov
 
 The command executed should provide an output file that contains a line for each line in the input `.bed` file. Each output line starts with the corresponding bed file line and then ends with a few more tab-delimited fields:
 
--   Number of reads in A (the bam file) that overlap the B (the bed file) line’s interval by at least one base pair.
--   Number of bases in B that have some coverage from A.
--   The length of the interval of B
--   The fraction of bases in B that have some coverage from A.
+- Number of reads in A (the bam file) that overlap the B (the bed file) line’s interval by at least one base pair.
+- Number of bases in B that have some coverage from A.
+- The length of the interval of B
+- The fraction of bases in B that have some coverage from A.
 
 From this run, an example would be:
 
-``` terminal
+```terminal
 chr1    59768115        59768968        exon281764      1       +       172     342     853     0.4009379
 ```
 
@@ -143,12 +139,12 @@ So, for this particular exon, we can see that of the 853 bases in the exon, 342 
 
 Further analysis of this output was performed with R. Eventually, I extracted from these bed files:
 
--   Total number of exons that were covered by some amount of reads from the sample.
--   Number of exons per chromosome that were covered.
--   Percentage of all exons that were covered by sample (both for the whole sample and by chromosome).
--   Total number of unique genes that were covered by some reads.
-    -   Found by getting the unique gene names from the exons list.
--   Percentage of unique genes covered by reads.
+- Total number of exons that were covered by some amount of reads from the sample.
+- Number of exons per chromosome that were covered.
+- Percentage of all exons that were covered by sample (both for the whole sample and by chromosome).
+- Total number of unique genes that were covered by some reads.
+  - Found by getting the unique gene names from the exons list.
+- Percentage of unique genes covered by reads.
 
 I’m unsure as to what a meaningful criteria is for the “some amount of reads” coverage stipulation. Should it be at least X number of bases covered by reads, Y number of reads on the exon, or Z percentage of the exon covered?
 

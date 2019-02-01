@@ -2,31 +2,34 @@
 layout: post
 title: Building a Bubble Cloud
 categories:
-- tutorial
+  - tutorial
 ---
 
-For the 2012 Republican and Democratic national conventions, [Mike Bostock](http://bost.ocks.org/mike/) , [Shan Carter](http://shancarter.com/) , and [Matthew Ericson](http://www.ericson.net/content/) have created a series of visualizations highlighting the words being used in the speeches of both gatherings. These word-cloud-like word bubble clouds (what I’ll call *bubble clouds*, unless you can think of a better name) serve as a great interface for looking at the differences in the two conventions and for browsing through quotes from the talks.
+<div class="alert alert-danger">
+  <p>This post is very old and no longer represents the current state of how to use D3 properly. You should check out my updated <a href="http://vallandingham.me/bubble_charts_with_d3v4.html">Creating Bubble Charts with D3v4</a> instead!</p>
+</div>
+
+For the 2012 Republican and Democratic national conventions, [Mike Bostock](http://bost.ocks.org/mike/) , [Shan Carter](http://shancarter.com/) , and [Matthew Ericson](http://www.ericson.net/content/) have created a series of visualizations highlighting the words being used in the speeches of both gatherings. These word-cloud-like word bubble clouds (what I’ll call _bubble clouds_, unless you can think of a better name) serve as a great interface for looking at the differences in the two conventions and for browsing through quotes from the talks.
 
 Check them out here:
 
-<div class="center">
-<div class="image-container" style="width:60%;text-align:center;margin:auto;">
-<a href="http://www.nytimes.com/interactive/2012/08/28/us/politics/convention-word-counts.html"><img class="center" src="http://vallandingham.me/images/vis/rep.png" alt="republican image" style="border:1px dotted #cccccc; padding-right:10px; float:left;"/></a>
+<div class="row">
+  <div class="one-third column">
+    <a href="http://www.nytimes.com/interactive/2012/08/28/us/politics/convention-word-counts.html"><img class="center" src="http://vallandingham.me/images/vis/rep.png" alt="republican image" style="border:1px dotted #cccccc; padding-right:10px; float:left;"/></a>
+  </div>
+  <div class="one-third column">
+  <a href="http://www.nytimes.com/interactive/2012/09/04/us/politics/democratic-convention-words.html"><img class="center" src="http://vallandingham.me/images/vis/dem.png" alt="democratic image" style="border:1px dotted #cccccc; padding-right:10px; float:left;"/></a>
+  </div>
+  <div class="one-third column">
+  <a href="http://www.nytimes.com/interactive/2012/09/06/us/politics/convention-word-counts.html"><img class="center" src="http://vallandingham.me/images/vis/combo.png" alt="combo image" style="border:1px dotted #cccccc; float:left; clear:right;"/></a>
+  </div>
 
-<a href="http://www.nytimes.com/interactive/2012/09/04/us/politics/democratic-convention-words.html"><img class="center" src="http://vallandingham.me/images/vis/dem.png" alt="democratic image" style="border:1px dotted #cccccc; padding-right:10px; float:left;"/></a>
-
-<a href="http://www.nytimes.com/interactive/2012/09/06/us/politics/convention-word-counts.html"><img class="center" src="http://vallandingham.me/images/vis/combo.png" alt="combo image" style="border:1px dotted #cccccc; float:left; clear:right;"/></a>
-
-</div>
-</div>
-<div class="clearfix">
 </div>
 <br/>
 
-While there is a lot that could be discussed about all the little things that contribute to the quality and polish of these visualizations, in this tutorial we will look at some of the implementation details that make them *tick*.
+While there is a lot that could be discussed about all the little things that contribute to the quality and polish of these visualizations, in this tutorial we will look at some of the implementation details that make them _tick_.
 
-Bubble Cloud Demo
------------------
+## Bubble Cloud Demo
 
 I’ve created a basic bubble cloud visualization that tries to replicate some of the functionality of the NYT version. Click on the [image below to see the demo](http://vallandingham.me/bubble_cloud/) .
 
@@ -44,17 +47,16 @@ This visualization uses D3’s force-directed layout, so if you aren’t familia
 
 While I won’t be going over the basics of the force layout, hopefully there is still enough in this implementation to keep things interesting. The main topics I want to cover here are:
 
--   The use of SVG and plain html components in the same visualization
--   Saving the state of the visualization using links
--   Creating a custom gravity effect
--   Creating a custom collision detection mechanism
+- The use of SVG and plain html components in the same visualization
+- Saving the state of the visualization using links
+- Creating a custom gravity effect
+- Creating a custom collision detection mechanism
 
 [Here is all the CoffeeScript that makes this visualization](https://github.com/vlandham/bubble_cloud/blob/gh-pages/coffee/vis.coffee) in case you want to follow along in the actual code. Sorry in advanced to the CoffeeScript haters.
 
 Ready to get started? Let’s go!
 
-You got HTML in my SVG!
------------------------
+## You got HTML in my SVG!
 
 Typically when using [D3](http://d3js.org/) , the more advanced visualizations are made with SVG. In a previous tutorial, we [dabbled in a SVG-less D3 world](http://vallandingham.me/d3_without_svg.html) , but the trade-offs were steep.
 
@@ -88,7 +90,6 @@ And this combo plater actually works out pretty well. To get started, here’s h
         .append("div")
         .attr("id", "bubble-labels")
 ```
-
 
 Here `this` refers to the `#vis` div. For the labels, we add a container `div` called `#bubble-labels`. Adding the circles that make up the nodes for the visualization is stuff we have seen before, so lets focus on the labels. First we bind the same data we use to build up the nodes to `.bubble-label` elements in our `label` selection:
 
@@ -175,10 +176,9 @@ To close off this label issue, here is how the `dx` and `dy` properties are used
 
 And there you have it. A nice way to use SVG and Html together, keeping with the D3 paradigm of binding data and using the same data backend for both.
 
-A Way to Save State
--------------------
+## A Way to Save State
 
-By *saving state*, I mean being able to return to or share a particular view of a visualization. The way to do this in web-based interactive visualizations is by modifying the url so as to encode the current state of the visualization in the url itself.
+By _saving state_, I mean being able to return to or share a particular view of a visualization. The way to do this in web-based interactive visualizations is by modifying the url so as to encode the current state of the visualization in the url itself.
 
 It’s an important detail, and one that is commonly missing from even professionally created visualizations. I liked Bryan Conner’s remark on this subject when discussing the [Money Ball WSJ political donor visualization](http://thewhyaxis.info/moneyball/) :
 
@@ -235,8 +235,7 @@ This decouples the event handling implementation from the visualization and woul
 
 Of course you can use your own custom event to perform the same decoupling, but I think it is nice having state saving via url modification and user interaction changes wrapped up in this nice little package.
 
-Spreading Gravity Thin
-----------------------
+## Spreading Gravity Thin
 
 In D3, the [gravity](https://github.com/mbostock/d3/wiki/Force-Layout#wiki-gravity) component of a force actually draws nodes towards the center of the force layout. It is useful to ensure your nodes don’t fly off the screen. But the default gravity implementation is symmetrical, meaning it pulls on a node’s vertical and horizontal positions equally.
 
@@ -313,10 +312,9 @@ Here we are reducing the alpha value to be applied to the `x` movement by 8. Whe
 
 Redistributing nodes like this allows more content below it to be ‘above the fold’ without running the risk of cutting off the bottom of the bubbles.
 
-Don’t Burst Your Bubbles
-------------------------
+## Don’t Burst Your Bubbles
 
-As we saw in the [bubble chart tutorial](http://vallandingham.me/bubble_charts_in_d3.html) , a form of collision avoidance can be implemented in D3 by making the charge associated with each node a function of the size of the node. This provides a visually interesting, *organic*, experience, where bubbles push on one another in an particle-like way.
+As we saw in the [bubble chart tutorial](http://vallandingham.me/bubble_charts_in_d3.html) , a form of collision avoidance can be implemented in D3 by making the charge associated with each node a function of the size of the node. This provides a visually interesting, _organic_, experience, where bubbles push on one another in an particle-like way.
 
 The bubbles in these word visualizations act in a subtly but significantly different manner. Here the nodes bounce off one another, maintaining a rigid parameter space around themselves. So how is this affect achieved in D3? By implementing a custom collision detection and avoidance algorithm!
 
@@ -377,8 +375,7 @@ A Quadtree is a tree-like data structure in which each internal node has four ch
 
 D3 has a sparsely documented [Quadtree](https://github.com/mbostock/d3/blob/master/src/geom/quadtree.js) implementation which is used in the force layout in this manner to make it fast. While this Quadtree implementation is a great option to have, and should be considered for collisions between many nodes, I think the brute-force version provides the same basic idea, without more technical overhead.
 
-Your Own Bubble Cloud in the Sky
---------------------------------
+## Your Own Bubble Cloud in the Sky
 
 That does it for this tutorial. Hopefully this provides a bit more insight into these great pieces from the New York Times (and hopefully they don’t mind me continuing to exploit their great pieces).
 

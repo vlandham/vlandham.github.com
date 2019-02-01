@@ -2,7 +2,7 @@
 layout: post
 title: Mapping Seattle - Streets
 categories:
-- vis
+  - vis
 ---
 
 Recently, I’ve up-rooted my family and transplanted from Kansas City, MO to Seattle, WA. This represents the first major venture out of the Midwest for my wife, dauther, and myself. Its exciting and scary and fun and difficult.
@@ -23,7 +23,7 @@ Now on to my actual maps!
 
 First, we have all the bus routes and other public transportation.
 
-Click on the image to get to a super-big *png* version. I’ll try to work on vector-based versions as well, but my machine was having problems with that.
+Click on the image to get to a super-big _png_ version. I’ll try to work on vector-based versions as well, but my machine was having problems with that.
 
 <div class="center">
 <a href="http://vallandingham.me/images/seattle/seattle_public_transportation_big.png"><img class="center" src="http://vallandingham.me/images/seattle/small/seattle_public_transport_small.png" alt="Seattle Public Transportation" style="border:1px dotted #cccccc;"/></a>
@@ -33,7 +33,7 @@ From this, we can guess at where the downtown is located - the dense ball of pat
 
 As a bonus, we get to see some of the ferry routes that arc away from the city’s center over to the islands of the Olympic Peninsula.
 
-The rest of these maps focus on interesting features of how streets are named here. First, as you drive around, you notice almost all the streets have a direction as part of their name. The direction is in front of the name for streets that run East / West ( *West Thurman Street* ) and at the end of the name for Streets that run North / South ( *13th Avenue West* ).
+The rest of these maps focus on interesting features of how streets are named here. First, as you drive around, you notice almost all the streets have a direction as part of their name. The direction is in front of the name for streets that run East / West ( _West Thurman Street_ ) and at the end of the name for Streets that run North / South ( _13th Avenue West_ ).
 
 I wanted to find out where the boundaries of these directions were. Are all the West streets in one location, or scattered around? What section(s) of Seattle are ‘North’ or ‘Northwest’? These are some of the questions I had. So, (instead of researching this question) I decided to make a map! Here, the color of the streets based on their direction.
 

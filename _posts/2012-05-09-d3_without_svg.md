@@ -3,8 +3,9 @@ layout: post
 title: D3 Without SVG
 css: d3_no_svg.css
 categories:
-- tutorial
+  - tutorial
 ---
+
 <script src="https://code.jquery.com/jquery-1.12.1.min.js">
 <script type="text/javascript" src="vis/js/libs/es5-shim.min.js">
 </script>
@@ -21,8 +22,7 @@ I think its a great piece. One detail that isn’t immediately apparent until yo
 
 Here I’d like to look at just this one facet of how this visualization was made: how they use D3 without SVG.
 
-SVG-less D3 Demo
-----------------
+## SVG-less D3 Demo
 
 To explore how the NYT group created their visualization, I’ve created a small demo using the same methods they did. The result is below:
 
@@ -31,8 +31,7 @@ To explore how the NYT group created their visualization, I’ve created a small
 <br/>
 <a href="#" id="move"><strong>Move</strong></a>
 
-Overview
---------
+## Overview
 
 [Here is the code for this visualization on github](https://github.com/vlandham/vlandham.github.com/blob/master/vis/js/d3_no_svg.js)
 
@@ -40,16 +39,15 @@ Overview
 
 Before looking at the implementation details, let’s get a high-level overview of how this works:
 
-First we create a *class* that represents a bubble in the vis. This class is called `SimpleBubble`. It stores the data as well as the visual representation for that data. Here, the visual component is a series of `divs` that are styled using css.
+First we create a _class_ that represents a bubble in the vis. This class is called `SimpleBubble`. It stores the data as well as the visual representation for that data. Here, the visual component is a series of `divs` that are styled using css.
 
-By *class* I really mean that it is a constructor function with additional methods added to it’s [prototype object](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/prototype) . In javascript, there are no classes, but an object inherits properties from it’s prototype object. And functions in javascript are [really Function objects](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function) . So a function has a prototype object to inherit functionality from. By defining ‘methods’ at the prototype level, we can instantiate instances of the function object (in this case, the bubbles in the graph), and they retain these methods. There are lots of posts online that explain javascript prototypes more. [Here is one about OO in JS](http://mckoss.com/jscript/object.htm) .
+By _class_ I really mean that it is a constructor function with additional methods added to it’s [prototype object](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/prototype) . In javascript, there are no classes, but an object inherits properties from it’s prototype object. And functions in javascript are [really Function objects](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function) . So a function has a prototype object to inherit functionality from. By defining ‘methods’ at the prototype level, we can instantiate instances of the function object (in this case, the bubbles in the graph), and they retain these methods. There are lots of posts online that explain javascript prototypes more. [Here is one about OO in JS](http://mckoss.com/jscript/object.htm) .
 
 Next we create a class that represents the entire visualization. This `SimpleVis` class is handed the data we want to visualize, and the name of the `DOM` element to build the visualization at. It then instantiates `SimpleBubble` objects to store and visualize this data. The D3 [force layout](https://github.com/mbostock/d3/wiki/Force-Layout) is used to position/move the bubbles and is kept at the `SimpleVis` level.
 
 Sound good? Ok, lets look at the nitty-gritty of how this works.
 
-Useful jQuery Methods
----------------------
+## Useful jQuery Methods
 
 This visualization depends a lot on jQuery to make things easier. Before we look at the demo code, it might be useful to explain the jQuery methods used.
 
@@ -67,35 +65,34 @@ The `proxy` method wraps a function in a particular [context](https://developer.
 
 The compliment to `append`, `remove` removes an element from the `DOM`. We use it here as a way to get rid of the tooltip box. Probably not the most efficient method, but it works.
 
-Now that the jQuery introduction is over, lets look in more detail at the two *classes* that make up this demo, starting with our data container/view class `SimpleBubble`.
+Now that the jQuery introduction is over, lets look in more detail at the two _classes_ that make up this demo, starting with our data container/view class `SimpleBubble`.
 
-SimpleBubble
-------------
+## SimpleBubble
 
 As mentioned above, instances of `SimpleBubble` store the data and `DOM` elements used to represent a bubble. Below is its `init` function which gets called in the constructor when we say something like `var b = new SimpleBubble(data, id, canvas);` :
 
 {% highlight javascript %}
 SimpleBubble.prototype.init = function() {
-  /* Elements that make up the bubbles display*/
-  this.el = $("<div class='bubble' id='bubble-" + this.id + "'></div>");
+/_ Elements that make up the bubbles display_/
+this.el = $("<div class='bubble' id='bubble-" + this.id + "'></div>");
   this.elFill = $("<div class='bubbleFill'></div>");
-  this.el.append(this.elFill);
+this.el.append(this.elFill);
 
-  /* Attach mouse interaction to root element */
-  /* Note use of $.proxy to maintain context */
-  this.el.on('mouseover', $.proxy(this.showToolTip, this));
+/_ Attach mouse interaction to root element _/
+/_ Note use of \$.proxy to maintain context _/
+this.el.on('mouseover', $.proxy(this.showToolTip, this));
   this.el.on('mouseout', $.proxy(this.hideToolTip, this));
 
-  /* Set CSS of Elements  */
-  this.radius = this.data;
-  this.boxSize = this.data * 2;
+/_ Set CSS of Elements _/
+this.radius = this.data;
+this.boxSize = this.data \* 2;
 
-  this.elFill.css({
-    width: this.boxSize,
-    height: this.boxSize,
-    left: -this.boxSize / 2,
-    top: -this.boxSize / 2,
-    "background-color": colors(this.data)});
+this.elFill.css({
+width: this.boxSize,
+height: this.boxSize,
+left: -this.boxSize / 2,
+top: -this.boxSize / 2,
+"background-color": colors(this.data)});
 };
 {% endhighlight %}
 
@@ -111,17 +108,17 @@ Getting the positioning correct requires just the right css position incantation
 
 {% highlight css %}
 .bubble {
-  display: block;
-  position: absolute;
+display: block;
+position: absolute;
 }
 
 .bubbleFill {
-  position: absolute;
-  display: block;
-  border: solid 1px white;
-  -webkit-border-radius: 70px;
-  -moz-border-radius: 70px;
-  border-radius: 70px;
+position: absolute;
+display: block;
+border: solid 1px white;
+-webkit-border-radius: 70px;
+-moz-border-radius: 70px;
+border-radius: 70px;
 }
 {% endhighlight %}
 
@@ -133,7 +130,7 @@ Speaking of moving the bubbles, let’s look really quickly at the `move` method
 
 {% highlight javascript %}
 SimpleBubble.prototype.move = function() {
-  this.el.css({top: this.y, left:this.x});
+this.el.css({top: this.y, left:this.x});
 };
 {% endhighlight %}
 
@@ -143,49 +140,48 @@ The `data` given to the bubble instance in this demo is a simple integer used to
 
 The tooltip labels are lazily done, because I got lazy, so lets not focus on those, ok?
 
-SimpleVis
----------
+## SimpleVis
 
 `SimpleVis` stores the force layout, creates new `SimpleBubble` instances for each data point, and moves these bubbles based on the force layout. Most of this functionality is in it’s `init` method, so lets look at that:
 
 {% highlight javascript %}
 SimpleVis.prototype.init = function() {
-  /* Store reference to original this */
-  var me = this;
+/_ Store reference to original this _/
+var me = this;
 
-  /* Initialize root visualization element */
-  this.canvas.css({
-    width: this.width,
-    height: this.height,
-    "background-color": "#eee",
-    position: "relative"});
+/_ Initialize root visualization element _/
+this.canvas.css({
+width: this.width,
+height: this.height,
+"background-color": "#eee",
+position: "relative"});
 
-  /* Create Bubbles */
-  for(var i=0; i< this.data.length; i++) {
-    var b = new SimpleBubble(this.data[i], i, this.canvas);
-    /* Define Starting locations */
-    b.x = b.boxSize + (20 * (i+1));
-    b.y = b.boxSize + (10 * (i+1));
-    this.bubbles.push(b);
-    /* Add root bubble element to visualization */
-    this.canvas.append(b.el);
-  };
+/_ Create Bubbles _/
+for(var i=0; i< this.data.length; i++) {
+var b = new SimpleBubble(this.data[i], i, this.canvas);
+/_ Define Starting locations _/
+b.x = b.boxSize + (20 _ (i+1));
+b.y = b.boxSize + (10 _ (i+1));
+this.bubbles.push(b);
+/_ Add root bubble element to visualization _/
+this.canvas.append(b.el);
+};
 
-  /* Setup force layout */
-  this.force = d3.layout.force()
-    .nodes(this.bubbles)
-    .gravity(0)
-    .charge(this.bubbleCharge)
-    .friction(0.87)
-    .size([this.width, this.height])
-    .on("tick", function(e) {
-      me.bubbles.forEach( function(b) {
-        me.setBubbleLocation(b, e.alpha, me.centers);
-        b.move();
-      });
-    });
+/_ Setup force layout _/
+this.force = d3.layout.force()
+.nodes(this.bubbles)
+.gravity(0)
+.charge(this.bubbleCharge)
+.friction(0.87)
+.size([this.width, this.height])
+.on("tick", function(e) {
+me.bubbles.forEach( function(b) {
+me.setBubbleLocation(b, e.alpha, me.centers);
+b.move();
+});
+});
 
-  this.force.start();
+this.force.start();
 };
 {% endhighlight %}
 
@@ -200,9 +196,9 @@ We use `me` so that we can refer to the original `SimpleVis` inside of the `tick
 The force’s `charge` parameter is defined by a function that will be passed each node. Lets look at this function really quickly:
 
 {% highlight javascript %}
-  this.bubbleCharge = function(d) {
-    return -Math.pow(d.radius,1) * 8;
-  };
+this.bubbleCharge = function(d) {
+return -Math.pow(d.radius,1) \* 8;
+};
 {% endhighlight %}
 
 So, just like before, it uses the node’s radius to determine a relative charge to push away other nodes with. Quick and easy collision ‘detection’.
@@ -211,16 +207,15 @@ Lastly, lets checkout the `setBubbleLocation` method:
 
 {% highlight javascript %}
 SimpleVis.prototype.setBubbleLocation = function(bubble, alpha, centers) {
-  var center = centers[this.bin(bubble.id)];
-  bubble.y = bubble.y + (center.y - bubble.y) * (0.115) * alpha;
-  bubble.x = bubble.x + (center.x - bubble.x) * (0.115) * alpha;
+var center = centers[this.bin(bubble.id)];
+bubble.y = bubble.y + (center.y - bubble.y) _ (0.115) _ alpha;
+bubble.x = bubble.x + (center.x - bubble.x) _ (0.115) _ alpha;
 };
 {% endhighlight %}
 
 We can see that we get a center location based on the bubble’s `id`, then modify the `x` and `y` variables to move the bubble closer to that position. This movement is tempered by the force’s `alpha`, which will decay as time goes on.
 
-Caveats and Trade Offs
-----------------------
+## Caveats and Trade Offs
 
 ### The Binding Question
 
@@ -238,8 +233,7 @@ Specifically, the round appearance of the bubbles is created using the CSS `bord
 
 Generating a bunch of `.gif` images for this demo isn’t something I’m prepared to do, so I’ll have to be satisfied with boxes in IE. But otherwise it is impressive how cross-platform the NYT visualization is. They include a number of tweaks to optimize the experience for the iPad as well. Something that I might look at more later.
 
-Other Tips
-----------
+## Other Tips
 
 ### es5-shim
 

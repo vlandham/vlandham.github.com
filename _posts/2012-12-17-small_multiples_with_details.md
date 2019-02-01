@@ -2,15 +2,14 @@
 layout: post
 title: Small Multiples with Details on Demand
 categories:
-- tutorial
+  - tutorial
 ---
 
 Small multiples are a great way to show changes in data. By lining up multiple visualizations, they effectively allow for direct comparisons to be made with little effort. This is in contrast to potential alternatives such as video or animation, which force the observer to remember previous shots of the visualization to perform the same comparisons.
 
-But some times the *small* in small multiples can be limiting. It can be difficult to cram in relevant annotations, scales or other data that should be in your data visualization to help explain your point. You want to use small multiples because Tufte says they’re [the best](http://www.marquis-kyle.com.au/mt/000034.htm) , but you also don’t want your visualization to end up on [Junk Charts](http://junkcharts.typepad.com/) because you splattered clutter everywhere. Is there any hope?
+But some times the _small_ in small multiples can be limiting. It can be difficult to cram in relevant annotations, scales or other data that should be in your data visualization to help explain your point. You want to use small multiples because Tufte says they’re [the best](http://www.marquis-kyle.com.au/mt/000034.htm) , but you also don’t want your visualization to end up on [Junk Charts](http://junkcharts.typepad.com/) because you splattered clutter everywhere. Is there any hope?
 
-A Manifest Solution
--------------------
+## A Manifest Solution
 
 Recently, [Michael Porath](https://twitter.com/poezn) provided an interesting graphic that I think includes an elegant solution to address the needs of the small but detailed visualization. I’ll call this method: **Small Multiples with Details on Demand**.
 
@@ -18,8 +17,7 @@ In [Manifest Destiny](http://michaelporath.com/projects/manifest-destiny/#overvi
 
 In this blog post we will look at a way to implement this effect using [D3.js](http://d3js.org/) and jQuery.
 
-C02 Emitted Over the Years
---------------------------
+## C02 Emitted Over the Years
 
 To isolate and explain this functionality, I’ve created a small multiple visualization of CO2 emissions that incorporates much of this functionality. [Check it out](http://vallandingham.me/co2_small_multiple/) by clicking the image below.
 
@@ -31,12 +29,11 @@ The [code is available on github](https://github.com/vlandham/co2_small_multiple
 
 C02 emissions for the current leading CO2 producers are displayed for each year between 1961 and 2008. But the top polluters now weren’t always the top polluters back then. We see the steady increase in emissions in China. We see Japan struggle to maintain lower emissions in the 80’s and 90’s. We see the decadent United States, boldly and consistently dioxiding the world - especially when compared to all of the European Union.
 
-The details on demand element of the visualization is demonstrated when you click on a plot. Each bar chart gets a zoomed in *detail view*, providing more details about that year. In the example, the detail view is pretty simple, but the idea is that more complex annotations and interactions can occur here to provide more insights into the data without compromising the small multiples view.
+The details on demand element of the visualization is demonstrated when you click on a plot. Each bar chart gets a zoomed in _detail view_, providing more details about that year. In the example, the detail view is pretty simple, but the idea is that more complex annotations and interactions can occur here to provide more insights into the data without compromising the small multiples view.
 
 Ready to learn how to create one on your own? Let’s get started!
 
-Above the Smog: An Overview of the Implementation
--------------------------------------------------
+## Above the Smog: An Overview of the Implementation
 
 The general idea for implementing this method isn’t too tricky:
 
@@ -50,26 +47,25 @@ Finally, D3 transitions are used to zoom the detailed chart front and center whi
 
 Now that we have the stratospheric perspective, let’s hit a few of the more tricky details. We’ll start with some details on the underlying html and CSS - but don’t worry! We will take a hard look at the visualization implementation too.
 
-Building our Smog Factory: Proper Positioning of DOM Elements
--------------------------------------------------------------
+## Building our Smog Factory: Proper Positioning of DOM Elements
 
 To make this look good, it is important to get all the elements on the page positioned correctly. We have a few things to worry about: the positioning of the small multiple graphs, the detail view overlay covering the current viewing area, and a clean transition between small multiple and detail view.
 
 Here is the overall structure of the html that will hold both the small multiple SVGs as well as the detail view:
 
 {% highlight html %}
-    <div id="main" role="main">
-      <div id="vis">
-        <div id="previews"></div>
-        <div id="detail" class="hidden">
-          <div id="detail_panel">
-            <svg width="800" height="800">
-            <g id="detail_view"></g>
-            </svg>
-          </div> <!-- end #detail_panel -->
-        </div> <!-- end #detail -->
-      </div> <!-- end #vis -->
-    </div> <!-- end #main -->
+<div id="main" role="main">
+<div id="vis">
+<div id="previews"></div>
+<div id="detail" class="hidden">
+<div id="detail_panel">
+<svg width="800" height="800">
+<g id="detail_view"></g>
+</svg>
+</div> <!-- end #detail_panel -->
+</div> <!-- end #detail -->
+</div> <!-- end #vis -->
+</div> <!-- end #main -->
 {% endhighlight %}
 
 The `#previews` div is where each of the charts in the small multiple view will be created. It is currently empty as will generate these divs dynamically using D3.
@@ -89,11 +85,11 @@ In our example, as in the original visualization, the header and footer are [fix
   position: fixed;
   top: 128px;
   width: 100%;
-  background-color:rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 ```
 
-You can see I’m also using [rgba](https://developer.mozilla.org/en-US/docs/CSS/color_value#rgba()) CSS3 to make the background semi-transparent.
+You can see I’m also using [rgba](<https://developer.mozilla.org/en-US/docs/CSS/color_value#rgba()>) CSS3 to make the background semi-transparent.
 
 Check out the [rest of the stylesheet]() for details on positioning of other components.
 
@@ -105,18 +101,18 @@ The transition is controlled by two classes `.hidden` and `.visible`. Here’s w
 
 {% highlight css %}
 .hidden {
-  opacity: 0;
-  transition: opacity 500ms ease-in;
-  -webkit-transition: opacity 500ms ease-in;
-  -moz-transition: opacity 500ms ease-in;
-  z-index: 0 !important;
+opacity: 0;
+transition: opacity 500ms ease-in;
+-webkit-transition: opacity 500ms ease-in;
+-moz-transition: opacity 500ms ease-in;
+z-index: 0 !important;
 }
 
 .visible {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-  -webkit-transition: opacity 500ms ease-in;
-  -moz-transition: opacity 500ms ease-in;
+opacity: 1;
+transition: opacity 500ms ease-in;
+-webkit-transition: opacity 500ms ease-in;
+-moz-transition: opacity 500ms ease-in;
 }
 {% endhighlight %}
 
@@ -124,18 +120,17 @@ We will apply the `.hidden` class to the small multiple view when the detail vie
 
 Likewise, the `.visible` class will make the elements reappear gradually over time. A nice subtle effect with just a bit of CSS.
 
-Year by Year: Building the Small Multiple View
-----------------------------------------------
+## Year by Year: Building the Small Multiple View
 
 Ok, enough with the layout, let’s get to the visualization! The [full coffeescript code is here](https://github.com/vlandham/co2_small_multiple/blob/gh-pages/coffee/vis.coffee) - and below we will walk through some of the important parts.
 
-----
+---
 
 **Coffeescript Implementation**
 
 This visualization is written in [CoffeeScript](http://coffeescript.org/) . I just enjoy it so much more than Javascript, I couldn’t bear to change. I invite you to take a 20 minute look at CoffeeScript - if you aren’t already familiar. It is a really simple language and really allows us to focus on the implementation details - rather then syntax.
 
-----
+---
 
 First up, we need to create a separate `div` and SVG element for each of the charts in the small multiple. We will do this by using D3’s `data` method to bind the data to an [empty selection](http://bost.ocks.org/mike/join/) and then appending the needed elements.
 
@@ -143,25 +138,25 @@ To better understand what the code is doing, here is what the data looks like:
 
 {% highlight coffeescript %}
 [
-  {
-    "year": 1961,
-    "values": [
-      {
-        "name": "China",
-        "value": 552066.85,
-        "percent_world": 0.059
-      },
-      {
-        "name": "USA",
-        ...
-      }
-    ]
-  },
-  {
-    "year": 1962,
-    ...
-  }
-  ...
+{
+"year": 1961,
+"values": [
+{
+"name": "China",
+"value": 552066.85,
+"percent_world": 0.059
+},
+{
+"name": "USA",
+...
+}
+]
+},
+{
+"year": 1962,
+...
+}
+...
 ]
 {% endhighlight %}
 
@@ -169,11 +164,9 @@ So data is an array of objects. Each object represents a single year’s data. T
 
 And here’s the code:
 
-{% highlight coffeescript %}
-      # bind data to svg elements so there will be a svg for
-      # each year
-      pre = d3.select(this).select("#previews")
-        .selectAll(".preview").data(data)
+{% highlight coffeescript %} # bind data to svg elements so there will be a svg for # each year
+pre = d3.select(this).select("#previews")
+.selectAll(".preview").data(data)
 
       # create the svg elements
       pre.enter()
@@ -188,15 +181,15 @@ And here’s the code:
 
       # create a group for displaying the bar chart in
       previews = svgs.append("g")
+
 {% endhighlight %}
 
 There are **no** div’s with class `.preview` initially, so when we use `enter()` this will create a `div` for each year. Inside each `div`, we append a SVG element. Both elements share the same width and height. We will use the position information of the preview div’s to figure out where to start the detail view transition. Inside the SVG, we create a group element to draw the chart in.
 
 Next let’s draw the actual charts. I wanted to use the same code to draw the basic chart in both the small multiples view and the detail view. To make this happen, I encapsulated the code in a function called `drawChart()` and then execute this function to draw all the small multiple charts by calling it through D3’s `each()` function:
 
-{% highlight coffeescript %}
-    # draw the graphs for each data element.
-    previews.each(drawChart)
+{% highlight coffeescript %} # draw the graphs for each data element.
+previews.each(drawChart)
 {% endhighlight %}
 
 The `each()` function will execute `drawChart()` for [each of the SVG elements](https://github.com/mbostock/d3/wiki/Selections#wiki-each) .
@@ -206,15 +199,12 @@ This drawing function will be passed to arguments: the data associated with the 
 So what does `drawChart()` look like?
 
 {% highlight coffeescript %}
-  drawChart = (d,i) ->
-    # the 'this' element is the group
-    # element which the bar chart will
-    # live in
-    base = d3.select(this)
-    base.append("rect")
-      .attr("width", graphWidth)
-      .attr("height", graphHeight)
-      .attr("class", "background")
+drawChart = (d,i) -> # the 'this' element is the group # element which the bar chart will # live in
+base = d3.select(this)
+base.append("rect")
+.attr("width", graphWidth)
+.attr("height", graphHeight)
+.attr("class", "background")
 
     # create the bars
     graph = base.append("g")
@@ -236,6 +226,7 @@ So what does `drawChart()` look like?
       .attr("text-anchor", "middle")
       .attr("x", graphWidth / 2)
       .attr("dy", "1.3em")
+
 {% endhighlight %}
 
 This is pretty standard D3 for chart creation, based on [existing bar chart examples](http://bl.ocks.org/3885304) .
@@ -250,29 +241,27 @@ As part of the bar creation, we also assign `mouseover` and `mouseout` functions
 
 So what’s going on?
 
-After executing `drawChart()`, we perform *one more step* with our small multiple bar charts:
+After executing `drawChart()`, we perform _one more step_ with our small multiple bar charts:
 
 {% highlight coffeescript %}
-      previews.append("rect")
-        .attr("width", graphWidth)
-        .attr("height", graphHeight)
-        .attr("class", "mouse_preview")
-        .on("click", showDetail)
+previews.append("rect")
+.attr("width", graphWidth)
+.attr("height", graphHeight)
+.attr("class", "mouse_preview")
+.on("click", showDetail)
 {% endhighlight %}
 
 This overlays a transparent rectangle on top of each small multiple. When this rect is clicked, it will execute the `showDetail` function. It also prevents mouse interactions from reaching the bars underneath.
 
 With relatively little code, we can make a nice small multiples display without duplicating code.
 
-The Dirty Details: Building the Detail View
--------------------------------------------
+## The Dirty Details: Building the Detail View
 
 **But we’re not done yet!** Let’s investigate what happens when a small multiple is clicked - by looking at `showDetail()`. First, the creation and drawing code:
 
 {% highlight coffeescript %}
-  showDetail = (d,i) ->
-    # switch the css on which divs are hidden
-    toggleHidden(true)
+showDetail = (d,i) -> # switch the css on which divs are hidden
+toggleHidden(true)
 
     detailView = d3.select("#detail_view")
     detailView.selectAll('.main').remove()
@@ -292,20 +281,18 @@ The Dirty Details: Building the Detail View
 
     # add details specific to the detail view
     main.each(drawDetails)
+
 {% endhighlight %}
 
 First, `toggleHidden(true)` swaps the `.hidden` and `.visible` CSS classes we looked at earlier, starting the transition to fade out the background and fade in the detail view.
 
 Then we create a new `g` element inside our detail view’s SVG with the class `.main`. We use `data([d])` to bind the data as `d` in this function refers to a single year’s data object. We want to use all the D3 functions - even when dealing with a single object - so binding to an array containing just this element is a good way to do that.
 
-We use the same `drawChart()` function to create a bar chart in the detail view SVG. This chart will be initially identical to one of the charts in the small multiple view. The `drawDetails()` function adds annotations to the detail view chart to make it, well… more *detailed*.
+We use the same `drawChart()` function to create a bar chart in the detail view SVG. This chart will be initially identical to one of the charts in the small multiple view. The `drawDetails()` function adds annotations to the detail view chart to make it, well… more _detailed_.
 
 {% highlight coffeescript %}
-  drawDetails = (d,i) ->
-    # like in 'drawChart', 'this'
-    # is the group element to draw
-    # the details in
-    graph = d3.select(this)
+drawDetails = (d,i) -> # like in 'drawChart', 'this' # is the group element to draw # the details in
+graph = d3.select(this)
 
     # add names under bars
     graph.selectAll(".name")
@@ -330,6 +317,7 @@ We use the same `drawChart()` function to create a bar chart in the detail view 
       .attr("dy", (d) -> if yScale(d.value) < 10 then "-0.3em" else "1.1em")
       .attr("x", (d) -> xScale(d.name) + xScale.rangeBand() / 2)
       .attr("font-size", 5)
+
 {% endhighlight %}
 
 We can see that the `d`, `i`, and `this` variables all behave the same as in `drawChart()`.
@@ -344,11 +332,8 @@ But now its time for the **big finish** - like a beautify butterfly the detail v
 
 I’ve left most of my comments in the code snippet - even though it takes away some of the suspense.
 
-{% highlight coffeescript %}
-    # getPosition is a helper function to
-    # return the relative location of the graph
-    # to be viewed in the detail view
-    pos = getPosition(i)
+{% highlight coffeescript %} # getPosition is a helper function to # return the relative location of the graph # to be viewed in the detail view
+pos = getPosition(i)
 
     # scrollTop returns the number of pixels
     # hidden on the top of the window because of
@@ -365,6 +350,7 @@ I’ve left most of my comments in the code snippet - even though it takes away 
       .delay(500)
       .duration(500)
       .attr('transform', "translate(#{40},#{0}) scale(#{scaleFactor})")
+
 {% endhighlight %}
 
 First we figure out where the small multiple that was clicked is currently in the browser’s window. Then we transition the detail view’s chart to this location immediately.

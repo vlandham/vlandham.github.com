@@ -2,13 +2,12 @@
 layout: post
 title: Bioinformatic File Cheatsheet
 categories:
-- bioinfo
+  - bioinfo
 ---
 
 Some quick notes on common file formats used in the bioinformatic world I am now part of.
 
-GFFv2
------
+## GFFv2
 
 Apparently there are 3 different versions of GFF from 2 different sources.
 GFFv2 and GFFv3 are the most interesting currently.
@@ -23,7 +22,7 @@ Nine required fields that must be tab-separated.
 
 1.  seqname - The name of the sequence. Must be a chromosome or scaffold.
 2.  source - The program or database that generated this feature.
-3.  feature - The name of this type of feature. Some examples of standard feature types are “CDS”, “start\_codon”, “stop\_codon”, and “exon”.
+3.  feature - The name of this type of feature. Some examples of standard feature types are “CDS”, “start_codon”, “stop_codon”, and “exon”.
 4.  start - The starting position of the feature in the sequence. The first base is numbered 1.
 5.  end - The ending position of the feature (inclusive).
 6.  score - A score between 0 and 1000. If no score, then ‘.’ is used
@@ -33,14 +32,13 @@ Nine required fields that must be tab-separated.
 
 ### Application Support
 
--   [UCSC Genome Browser](http://genome.ucsc.edu/FAQ/FAQformat.html#format3)
+- [UCSC Genome Browser](http://genome.ucsc.edu/FAQ/FAQformat.html#format3)
 
 ### Source
 
 **GFF v1** & **GFF v2** come from [The Sanger Institute](http://www.sanger.ac.uk/resources/software/gff/)
 
-GFFv3
------
+## GFFv3
 
 ### Name
 
@@ -52,7 +50,7 @@ Generic Feature Format (v3)
 
 ### Application Support
 
--   [SnpEff](http://snpeff.sourceforge.net/supportNewGenome.html) - for new genome creation
+- [SnpEff](http://snpeff.sourceforge.net/supportNewGenome.html) - for new genome creation
 
 ### Source
 
@@ -61,7 +59,7 @@ Generic Feature Format (v3)
 ### Example
 
      0  ##gff-version   3
-     1  ##sequence-region   ctg123 1 1497228       
+     1  ##sequence-region   ctg123 1 1497228
      2  ctg123 . gene            1000  9000  .  +  .  ID=gene00001;Name=EDEN
 
      3  ctg123 . TF_binding_site 1000  1012  .  +  .  ID=tfbs00001;Parent=gene00001
@@ -76,8 +74,7 @@ Generic Feature Format (v3)
     10  ctg123 . exon            5000  5500  .  +  .  ID=exon00004;Parent=mRNA00001,mRNA00002,mRNA00003
     11  ctg123 . exon            7000  9000  .  +  .  ID=exon00005;Parent=mRNA00001,mRNA00002,mRNA00003
 
-BED
----
+## BED
 
 ### Name
 
@@ -107,7 +104,7 @@ BED
 
 ### Application Support
 
--   [USCS Genome Browser](http://genome.ucsc.edu/FAQ/FAQformat.html)
+- [USCS Genome Browser](http://genome.ucsc.edu/FAQ/FAQformat.html)
 
 ### Source
 

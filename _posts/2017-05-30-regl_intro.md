@@ -9,7 +9,7 @@ img: http://vallandingham.me/images/regl/regl_twitter.png
 demo: https://bl.ocks.org/vlandham/af509ae70a7560b5a72cd3e3da4ff8cf
 source: https://github.com/vlandham/regl_explore
 categories:
-- tutorial
+  - tutorial
 ---
 
 <img class="center" src="{{ "images/regl/banner.png" | absolute_url }}" alt="Triangle Example" style=""/>
@@ -32,13 +32,12 @@ This falls short of the [amazing regl visualizations](http://peterbeshai.com/bea
 
 And if you want to just skip to the results, I've made a bunch of blocks to illustrate the concepts covered:
 
-* [Plain regl triangle](https://bl.ocks.org/vlandham/adc721dde94802802810000f481ed744)
-* [regl triangle in a loop](https://bl.ocks.org/vlandham/315500b61d28eb0bba8959ca66a68e37)
-* [regl triangle moving](https://bl.ocks.org/vlandham/48f3abf115332ac4e67f0f86ee9fe61d)
-* [regl triangle using props](https://bl.ocks.org/vlandham/a925897220c4b1154b091aba6fcf842c)
-* [Displaying dots with regl](https://bl.ocks.org/vlandham/0223315b7a1896e5a22c89f283d1b0fc)
-* [Data Stream with regl](https://bl.ocks.org/vlandham/af509ae70a7560b5a72cd3e3da4ff8cf)
-
+- [Plain regl triangle](https://bl.ocks.org/vlandham/adc721dde94802802810000f481ed744)
+- [regl triangle in a loop](https://bl.ocks.org/vlandham/315500b61d28eb0bba8959ca66a68e37)
+- [regl triangle moving](https://bl.ocks.org/vlandham/48f3abf115332ac4e67f0f86ee9fe61d)
+- [regl triangle using props](https://bl.ocks.org/vlandham/a925897220c4b1154b091aba6fcf842c)
+- [Displaying dots with regl](https://bl.ocks.org/vlandham/0223315b7a1896e5a22c89f283d1b0fc)
+- [Data Stream with regl](https://bl.ocks.org/vlandham/af509ae70a7560b5a72cd3e3da4ff8cf)
 
 ## What is WebGL?
 
@@ -79,8 +78,8 @@ As an aside, The Book of Shaders also has a [great shader editor](http://editor.
 
 Here are some other resources that I shamelessly borrowed from, and might cover these concepts more elegantly than me:
 
-* [WebGL Fundamentals](https://webglfundamentals.org/webgl/lessons/webgl-fundamentals.html)
-* [HTML5 Rocks Shader Intro](https://www.html5rocks.com/en/tutorials/webgl/shaders/)
+- [WebGL Fundamentals](https://webglfundamentals.org/webgl/lessons/webgl-fundamentals.html)
+- [HTML5 Rocks Shader Intro](https://www.html5rocks.com/en/tutorials/webgl/shaders/)
 
 ## Setting up an Exploration Environment
 
@@ -133,8 +132,8 @@ npm install --save-dev browserify budo
 
 Here's a short description of what the development packages provide us:
 
-* [browserify](http://browserify.org/) is a package that allows us to `require` other javascript modules in the browser (the `require` function comes from the [node](https://nodejs.org/en/) world and browserify brings it to the web).
-* [budo](https://github.com/mattdesl/budo) is a development web server that works well with browserify and provides auto-reloading your browser every time you make a change to your code. Handy!
+- [browserify](http://browserify.org/) is a package that allows us to `require` other javascript modules in the browser (the `require` function comes from the [node](https://nodejs.org/en/) world and browserify brings it to the web).
+- [budo](https://github.com/mattdesl/budo) is a development web server that works well with browserify and provides auto-reloading your browser every time you make a change to your code. Handy!
 
 The `--save-dev` flag puts them in the `devDependencies` of the `package.json` file. These packages are needed only to develop and build the project.
 
@@ -149,7 +148,7 @@ touch index.js
 `touch` is a unix command that creates an empty file if no file exists. Inside our `index.js`, let's write a simple test to ensure it is getting loaded (regl-less for now)
 
 ```js
-console.log('hello!');
+console.log("hello!");
 ```
 
 Now we need to make browserify and budo work for us to build and serve this script.
@@ -183,10 +182,9 @@ We will start by displaying a triangle which is the [first example](http://regl.
 Let's put this in our `index.js` file, and then go over the details:
 
 ```js
-const regl = require('regl')();
+const regl = require("regl")();
 
 const drawTriangle = regl({
-
   // fragment shader
   frag: `
   precision mediump float;
@@ -205,11 +203,7 @@ const drawTriangle = regl({
 
   // attributes
   attributes: {
-    position: [
-      [-1, 0],
-      [0, -1],
-      [1, 1]
-    ]
+    position: [[-1, 0], [0, -1], [1, 1]]
   },
 
   // uniforms
@@ -240,9 +234,9 @@ Next we create a regl draw command by calling `regl()`. As the [docs state](http
 
 Minimally, a regl draw command takes an object with a few [parameters](https://github.com/regl-project/regl/blob/gh-pages/API.md#parameters):
 
-* **frag** which specifies the fragment shader code (written in GLSL).
-* **vert** which specifies the vertex shader code (again in GLSL).
-* **count** which indicates the number of vertices to draw.
+- **frag** which specifies the fragment shader code (written in GLSL).
+- **vert** which specifies the vertex shader code (again in GLSL).
+- **count** which indicates the number of vertices to draw.
 
 In this example, both shaders are written as one big string (we will see how to improve this setup later). This draw command also provides more parameters: `attributes` and `uniforms` which we will look at below.
 
@@ -259,7 +253,7 @@ Also note the general structure of a shader. You start with the declaration of v
 We run the draw command by calling it on the last line:
 
 ```js
-drawTriangle()
+drawTriangle();
 ```
 
 And a triangle is born!
@@ -294,7 +288,7 @@ uniforms: {
 }
 ```
 
-This indicates that there will be a `color` uniform available to the `vert` and `frag` shaders. This `color` variable is a [vec4](https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Vectors) - a vector of length 4 - as seen in the declaration in the fragment shader, so it is declared here as an array with 4 values.
+This indicates that there will be a `color` uniform available to the `vert` and `frag` shaders. This `color` variable is a [vec4](<https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Vectors>) - a vector of length 4 - as seen in the declaration in the fragment shader, so it is declared here as an array with 4 values.
 
 (Check out the Book of Shaders [Color Chapter](https://thebookofshaders.com/06/) to learn more about how colors are defined in GLSL).
 
@@ -340,7 +334,6 @@ Change our call to `drawTriangle()` to this:
 
 ```js
 regl.frame(function(context) {
-
   drawTriangle();
 });
 ```
@@ -380,9 +373,9 @@ regl allows for inputs to its draw commands to come from [3 possible sources](ht
 
 If you are familiar with React, as the [regl documentation states](https://github.com/regl-project/regl/blob/gh-pages/API.md#inputs), you can use this knowledge to better understand these input options.
 
-* regl's Context is analogous to React's [Context](https://facebook.github.io/react/docs/context.html)
-* regl's Props is similar to React's Component  [Props](https://facebook.github.io/react/docs/components-and-props.html).
-* regl's `this` parallels a Component's [State](https://facebook.github.io/react/docs/state-and-lifecycle.html) in React.
+- regl's Context is analogous to React's [Context](https://facebook.github.io/react/docs/context.html)
+- regl's Props is similar to React's Component [Props](https://facebook.github.io/react/docs/components-and-props.html).
+- regl's `this` parallels a Component's [State](https://facebook.github.io/react/docs/state-and-lifecycle.html) in React.
 
 But how do you use these regl inputs in your draw command?
 
@@ -428,7 +421,7 @@ So, for example, if instead of using a static value for `color` we wanted to pas
 
 ```js
 drawTriangle({
-  color: [0.208, 0.304, 1.000, 1.000]
+  color: [0.208, 0.304, 1.0, 1.0]
 });
 ```
 
@@ -473,10 +466,9 @@ The first thing I want to cover is the minimum set of changes we need to convert
 Here is the full code to get us started (which should look very similar to our triangle code for now). Below we will go over the changes.
 
 ```js
-const regl = require('regl')();
+const regl = require("regl")();
 
 const drawDots = regl({
-
   frag: `
   precision mediump float;
   uniform vec4 color;
@@ -516,18 +508,17 @@ const drawDots = regl({
     },
     // @change: Add a pointWidth uniform -
     //  set by a prop
-    pointWidth: regl.prop('pointWidth')
+    pointWidth: regl.prop("pointWidth")
   },
 
   count: 3,
   // @change: Set our primitive to points
-  primitive: 'points'
-
-})
+  primitive: "points"
+});
 
 regl.frame(function(context) {
   drawDots({
-    color: [0.208, 0.304, 1.000, 1.000],
+    color: [0.208, 0.304, 1.0, 1.0],
     // @change: Pass in the pointWidth prop
     pointWidth: 10.0
   });
@@ -547,7 +538,7 @@ So what changed?
 The smallest but most important change is near the bottom of the `drawDots` draw command. We need to switch the `primitive` type to `"points"` in our regl setup:
 
 ```js
-primitive: 'points'
+primitive: "points";
 ```
 
 This tells WebGL which [primitive type](https://github.com/regl-project/regl/blob/gh-pages/API.md#drawing) to use in the display.
@@ -569,7 +560,7 @@ So, hopefully you have some inklings on how you might accomplish this, given wha
 Here is the final code block:
 
 ```js
-const regl = require('regl')();
+const regl = require("regl")();
 
 // Helper function to create a random float between
 // some defined range. This is used to create some
@@ -593,19 +584,18 @@ var MAX_SPEED = 25;
 var POINT_SIZE = 10;
 var POINT_COUNT = 400;
 
-
 // Helper function to generate some fake data.
 // Each data point has an x and y and a 'speed'
 // value that indicates how fast it travels
 function createData(dataCount) {
   var data = [];
-  for(var i = 0; i < dataCount; i++) {
+  for (var i = 0; i < dataCount; i++) {
     var datum = {
       id: i,
       speed: randomFromInterval(1, MAX_SPEED),
       y: randomIntFromInterval(POINT_SIZE, MAX_HEIGHT),
       x: 0,
-      size: randomIntFromInterval(POINT_SIZE, POINT_SIZE * 3),
+      size: randomIntFromInterval(POINT_SIZE, POINT_SIZE * 3)
     };
 
     data.push(datum);
@@ -618,14 +608,13 @@ function createData(dataCount) {
 // its x position.
 function updateData(data) {
   data.forEach(function(datum) {
-    datum.x += datum.speed
+    datum.x += datum.speed;
     // reset x if its gone past max width
     datum.x = datum.x > MAX_WIDTH ? 0 : datum.x;
   });
 }
 
 const drawDots = regl({
-
   frag: `
   precision mediump float;
   uniform vec4 color;
@@ -667,38 +656,37 @@ const drawDots = regl({
     // we pass in
     position: function(context, props) {
       return props.points.map(function(point) {
-        return [point.x, point.y]
+        return [point.x, point.y];
       });
     },
     // Now pointWidth is an attribute, as each
     // point will have a different size.
     pointWidth: function(context, props) {
-      return  props.points.map(function(point) {
+      return props.points.map(function(point) {
         return point.size;
       });
-    },
+    }
   },
 
   uniforms: {
     color: function(context, props) {
       // just to be a bit strange, oscillate the color a bit.
-      return [Math.cos(context.tick / 100), 0.304, 1.000, 1.000];
+      return [Math.cos(context.tick / 100), 0.304, 1.0, 1.0];
     },
     // FYI: there is a helper method for grabbing
     // values out of the context as well.
     // These uniforms are used in our fragment shader to
     // convert our x / y values to WebGL coordinate space.
-    stageWidth: regl.context('drawingBufferWidth'),
-    stageHeight: regl.context('drawingBufferHeight')
+    stageWidth: regl.context("drawingBufferWidth"),
+    stageHeight: regl.context("drawingBufferHeight")
   },
 
   count: function(context, props) {
     // set the count based on the number of points we have
-    return props.points.length
+    return props.points.length;
   },
-  primitive: 'points'
-
-})
+  primitive: "points"
+});
 
 var points = createData(POINT_COUNT);
 
@@ -758,8 +746,8 @@ npm install --save-dev glslify
 
 What is glslify? Two things:
 
-* A way to import glsl code from a `.glsl` file so you don't have to write shaders as giant strings.
-* A mechanism that allows you to import glsl code that other people have written - so you can use them in your own shaders. This provides a sort of NPM for shader code (which is a pretty cool idea).
+- A way to import glsl code from a `.glsl` file so you don't have to write shaders as giant strings.
+- A mechanism that allows you to import glsl code that other people have written - so you can use them in your own shaders. This provides a sort of NPM for shader code (which is a pretty cool idea).
 
 We will focus on the first of glslify's abilities, but I hope to get to experiment with [existing glsl packages](http://stack.gl/packages/) soon.
 
@@ -772,12 +760,13 @@ In order to enable glslify in our development environment, we need to tell brows
   ]
 }
 ```
+
 Now we are ready to extract our GLSL code into their own files.
 
 To do this you can create a sub-directory in your project (I called it `shaders`) and here create two files:
 
-* `shaders/draw_dots.fs.glsl`
-* `shaders/draw_dots.vs.glsl`
+- `shaders/draw_dots.fs.glsl`
+- `shaders/draw_dots.vs.glsl`
 
 The `fs` will store our fragment shader, and the `vs` will store our vertex shader.
 
@@ -815,7 +804,7 @@ There is plenty more to explore! As always, be sure to share your regl experienc
 
 ## Bonus: Circle Points
 
-Just in case your next comment is  "great, but how do I make these points circles?", I've got you covered!
+Just in case your next comment is "great, but how do I make these points circles?", I've got you covered!
 
 Check out this [block](https://bl.ocks.org/vlandham/0415aa443992f71288e86137208fa690).
 

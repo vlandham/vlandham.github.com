@@ -2,7 +2,7 @@
 layout: post
 title: Animate Transitions Between Charts (FlowingData)
 categories:
-- tutorial
+  - tutorial
 ---
 
 Check out my [tutorial on FlowingData](http://flowingdata.com/2013/01/17/how-to-animate-transitions-between-multiple-charts/) and learn how you can use D3.js to transition between different chart types with nifty cool animations!

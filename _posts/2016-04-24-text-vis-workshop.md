@@ -6,7 +6,7 @@ twitter_type: summary_large_image
 description: Workshop given for OpenVis Conf 2016 on how to analyze and visualize text in inventive and informative ways.
 img: http://vallandingham.me/images/vis/textvis_workshop.png
 categories:
-- talk
+  - talk
 ---
 
 For [OpenVis Conf 2016](https://openvisconf.com/2016/), we had the wonderful opportunity of offering workshops to conference goers.
@@ -32,7 +32,6 @@ After learning 'enough to be dangerous' about text analysis methods, we jumped o
 The day ended with a short collaborative hackathon. Small groups were formed based on common interests and we all got to work building our own text visualizations. The results were impressive! Even after a full day of workshopping, the amount of interaction and the progress made by the teams was far more than I expected.
 
 It was a great day, and I believe from the reviews and the interactions I've had since then that folks really enjoyed it.
-
 
 ## Talk
 

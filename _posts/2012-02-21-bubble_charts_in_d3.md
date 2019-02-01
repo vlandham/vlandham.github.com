@@ -2,13 +2,17 @@
 layout: post
 title: Creating Animated Bubble Charts in D3
 categories:
-- tutorial
+  - tutorial
 ---
 
 <div class="left">
 <img src="http://vallandingham.me/images/vis/nyt_thumb.png" alt="nyt bubble chart">
-
 </div>
+
+<div class="alert alert-danger">
+  <p>This post is very old and no longer represents the current state of how to use D3 properly. You should check out my updated <a href="http://vallandingham.me/bubble_charts_with_d3v4.html">Creating Bubble Charts with D3v4</a> instead!</p>
+</div>
+
 **Update:** I moved the code to [its own github repo](https://github.com/vlandham/gates_bubbles) - to make it easier to consume and maintain.
 
 **Update #2** I've rewritten this tutorial [in straight JavaScript](http://vallandingham.me/bubble_charts_in_js.html). So if you aren't that in to CoffeeScript, check the new one out!
@@ -19,8 +23,7 @@ As [FlowingData commenters point out](http://flowingdata.com/2012/02/15/slicing-
 
 In this post, we attempt to tease out some of the details of how this graphic works.
 
-Simple Animated Bubble Chart
-----------------------------
+## Simple Animated Bubble Chart
 
 In order to better understand the budget visualization, I’ve created a similar bubble chart that displays information about what education-based donations the Gates Foundation has made.
 
@@ -42,8 +45,7 @@ The data for this visualization comes from the [Washington Posts DataPost](http:
 
 The rest of this tutorial will walk through the functionality behind this Gates Foundation visualization. This visualization is just a sketch of the functionality in the New York Times graphic - so we can see the relevant parts clearly.
 
-D3’s Force Layout
------------------
+## D3’s Force Layout
 
 The [Force Layout](https://github.com/mbostock/d3/wiki/Force-Layout) component of D3.js is used to great effect to provide most of the functionality behind the transitions, animations, and collisions in the visualization.
 
@@ -81,7 +83,7 @@ The `charge` in a force layout refers to how nodes in the environment push away 
 
 #### alpha
 
-The `alpha` is the layout is described as the simulation’s *cooling factor* . I don’t know if that makes sense to me or not.
+The `alpha` is the layout is described as the simulation’s _cooling factor_ . I don’t know if that makes sense to me or not.
 
 What I do know is that `alpha` starts at `0.1`. After a few hundred ticks, `alpha` is decreased some amount. This continues until `alpha` is really small (for example `0.005`), and then the simulation ends.
 
@@ -89,8 +91,7 @@ What this means is that `alpha` can be used to scale the movement of nodes in th
 
 This allows you to damper the effects of the forces in your visualization over time. Without taking `alpha` into account, things like `gravity` would exert a consistent force on your nodes and pull them all into a clump.
 
-How This Bubble Chart Works
----------------------------
+## How This Bubble Chart Works
 
 Ok, we didn’t cover everything in the force layout, but we got through all the relevant bits for this visualization. Let me know if I messed anything up.
 
@@ -108,7 +109,7 @@ The trick is that along with a static value, `charge` can also take a **function
 
 {% highlight coffeescript %}
 charge: (d) ->
-  -Math.pow(d.radius, 2.0) / 8
+-Math.pow(d.radius, 2.0) / 8
 {% endhighlight %}
 
 Pretty simple right? But, for me at least, it was unclear from the [charge documentation](https://github.com/mbostock/d3/wiki/Force-Layout#wiki-charge) , that this function based approach was possible.
@@ -123,15 +124,15 @@ Here is the code that is used to configure and startup the force directed simula
 
 {% highlight coffeescript %}
 display_group_all: () =>
-  @force.gravity(-0.01)
-    .charge(this.charge)
-    .friction(0.9)
-    .on "tick", (e) =>
-      @circles.each(this.move_towards_center(e.alpha))
-        .attr("cx", (d) -> d.x)
-        .attr("cy", (d) -> d.y)
+@force.gravity(-0.01)
+.charge(this.charge)
+.friction(0.9)
+.on "tick", (e) =>
+@circles.each(this.move_towards_center(e.alpha))
+.attr("cx", (d) -> d.x)
+.attr("cy", (d) -> d.y)
 
-  @force.start()
+@force.start()
 {% endhighlight %}
 
 So `@force` is an instance variable of BubbleChart holding the force layout for the visualization. You can see the use of the charge method for the layout’s `charge` input. We set its gravity to `-0.01` and its friction value to `0.9` (which is the default). This says that nodes should be ever so slightly pushed away from the center of the layout, but there should be just enough friction to prevent them from scattering away.
@@ -144,16 +145,18 @@ So, nodes push away from one another based on their diameter - providing nice lo
 
 The original graphic has some nice transitions between views of the data, where bubbles are pulled apart into separate groups. I’ve replicated this somewhat by having a view that divides up Gate’s grants by year.
 
-How is this done? Well, lets start with the all-together view first. The position of each node is determined by the function called for each *tick* of the simulation. This function gets passed in the tick event, which includes the `alpha` for this iteration of the simulation.
+How is this done? Well, lets start with the all-together view first. The position of each node is determined by the function called for each _tick_ of the simulation. This function gets passed in the tick event, which includes the `alpha` for this iteration of the simulation.
 
 We can see this function in the code segment above. I’ll highlight it again here:
 
 {% highlight coffeescript %}
+
 # ...
+
 .on "tick", (e) =>
-  @circles.each(this.move_towards_center(e.alpha))
-    .attr("cx", (d) -> d.x)
-    .attr("cy", (d) -> d.y)
+@circles.each(this.move_towards_center(e.alpha))
+.attr("cx", (d) -> d.x)
+.attr("cy", (d) -> d.y)
 {% endhighlight %}
 
 The `@circles` instance variable holds the svg circles that represent each node. So what this code does is for every tick event, for each circle in `@circles`, the `move_towards_center` method is called, with the current `alpha` value passed in. Then, The `cx` and `cy` of each circle is set based on it’s data’s `x` and `y` values.
@@ -161,10 +164,10 @@ The `@circles` instance variable holds the svg circles that represent each node.
 So, `move_towards_center` **must** be doing something with the data’s `x` and `y` values to get things to move. And indeed it is:
 
 {% highlight coffeescript %}
-move_towards_center: (alpha) =>
-  (d) =>
-    d.x = d.x + (@center.x - d.x) * (@damper + 0.02) * alpha
-    d.y = d.y + (@center.y - d.y) * (@damper + 0.02) * alpha
+move*towards_center: (alpha) =>
+(d) =>
+d.x = d.x + (@center.x - d.x) * (@damper + 0.02) _ alpha
+d.y = d.y + (@center.y - d.y) _ (@damper + 0.02) \_ alpha
 {% endhighlight %}
 
 So `move_towards_center` returns a function that is called for each circle, passing in its data. Inside this function, the `x` and `y` values of the data are pushed towards the `@center` point (which is set to the center of the visualization). This push towards the center is dampened by a constant, 0.02 + `@damper` and `alpha`.
@@ -177,31 +180,31 @@ Ok, we’ve now seen how the nodes in the simulation move towards one point, wha
 
 {% highlight coffeescript %}
 display_by_year: () =>
-  @force.gravity(@layout_gravity)
-    .charge(this.charge)
-    .friction(0.9)
-    .on "tick", (e) =>
-      @circles.each(this.move_towards_year(e.alpha))
-        .attr("cx", (d) -> d.x)
-        .attr("cy", (d) -> d.y)
-  @force.start()
+@force.gravity(@layout_gravity)
+.charge(this.charge)
+.friction(0.9)
+.on "tick", (e) =>
+@circles.each(this.move_towards_year(e.alpha))
+.attr("cx", (d) -> d.x)
+.attr("cy", (d) -> d.y)
+@force.start()
 
-move_towards_year: (alpha) =>
-  (d) =>
-    target = @year_centers[d.year]
-    d.x = d.x + (target.x - d.x) * (@damper + 0.02) * alpha * 1.1
-    d.y = d.y + (target.y - d.y) * (@damper + 0.02) * alpha * 1.1
+move*towards_year: (alpha) =>
+(d) =>
+target = @year_centers[d.year]
+d.x = d.x + (target.x - d.x) * (@damper + 0.02) _ alpha _ 1.1
+d.y = d.y + (target.y - d.y) _ (@damper + 0.02) _ alpha \_ 1.1
 {% endhighlight %}
 
-The switch to displaying by year is done by restarting the force simulation. This time the *tick* function calls `move_towards_year`. Otherwise it’s about the same as `display_group_all`.
+The switch to displaying by year is done by restarting the force simulation. This time the _tick_ function calls `move_towards_year`. Otherwise it’s about the same as `display_group_all`.
 
 `move_towards_year` is almost the same as `move_towards_center`. The difference being that first the correct year point is extracted from `@year_centers`. Here’s what that variable looks like:
 
 {% highlight coffeescript %}
 @year_centers = {
-  "2008": {x: @width / 3, y: @height / 2},
-  "2009": {x: @width / 2, y: @height / 2},
-  "2010": {x: 2 * @width / 3, y: @height / 2}
+"2008": {x: @width / 3, y: @height / 2},
+"2009": {x: @width / 2, y: @height / 2},
+"2010": {x: 2 \* @width / 3, y: @height / 2}
 }
 {% endhighlight %}
 
@@ -209,7 +212,7 @@ You can see this is just an associative array where each year has its own locati
 
 `move_towards_year` also multiplies by `1.1` to speed up the transition a bit. Again, these numbers take some tweaking and experimentation to find. The code could be simplified a bit if you wanted to pass in the unique multipliers for each transition.
 
-So we’ve seen a general pattern for both of these views: setup the *tick* method to iterate over all the nodes to change their locations. This was done using the `each` method.
+So we’ve seen a general pattern for both of these views: setup the _tick_ method to iterate over all the nodes to change their locations. This was done using the `each` method.
 
 In fact you can chain multiple `each` methods that call different move functions. This would allow you to push and pull your nodes in various ways depending on their features. The NYT graphic uses at least two move functions for these transitions. One to move nodes towards a group point (like above), and one to move nodes towards their respective color band.
 

@@ -8,14 +8,16 @@ img: http://vallandingham.me/images/vis/bubble_chart/bubble_chart_twitter.jpg
 demo: http://vallandingham.me/bubble_chart/
 source: https://github.com/vlandham/bubble_chart
 categories:
-- tutorial
+  - tutorial
 ---
 
 <div class="left">
 <img style="width:200px;" src="http://vallandingham.me/images/vis/bubble_chart/thumb.png" alt="nyt bubble chart">
 </div>
 
-**Update:** If you would like to use D3v4 to create a bubble chart, [check out my new updated tutorial](http://vallandingham.me//bubble_charts_with_d3v4.html).
+<div class="alert alert-danger">
+  <p>This post is very old and no longer represents the current state of how to use D3 properly. You should check out my updated <a href="http://vallandingham.me/bubble_charts_with_d3v4.html">Creating Bubble Charts with D3v4</a> instead!</p>
+</div>
 
 This tutorial is a **remake** of my [original Gates bubble chart](http://vallandingham.me/bubble_charts_in_d3.html) tutorial. The content, data, and visualization are all the same. The difference is this one is remade **with absolutely no CoffeeScript**. JavaScript has moved on. I've moved on. I hope this tutorial continues to be useful for folks who don't want to learn or deal with CoffeeScript. I've also stripped out jQuery, Bootstrap, and other cruft - allowing us to focus just on the bubbles.
 
@@ -83,7 +85,7 @@ The `charge` in a force layout refers to how nodes in the environment push away 
 
 ### alpha
 
-The `alpha` is the layout is described as the simulation’s *cooling factor* . I don’t know if that makes sense to me or not.
+The `alpha` is the layout is described as the simulation’s _cooling factor_ . I don’t know if that makes sense to me or not.
 
 What I do know is that `alpha` starts at `0.1`. After a few hundred ticks, `alpha` is decreased some amount. This continues until `alpha` is really small (for example `0.005`), and then the simulation ends.
 
@@ -114,7 +116,8 @@ function charge(d) {
 }
 
 // Creation of d3 force layout
-var force = d3.layout.force()
+var force = d3.layout
+  .force()
   .size([width, height])
   .charge(charge) // <- Using the charge function in the force layout
   .gravity(-0.01)
@@ -133,9 +136,7 @@ We set its gravity to `-0.01` and its friction value to `0.9` (which is the defa
 
 So, nodes push away from one another based on their diameter - providing nice looking collision detection. The gravity and friction settings work along with this pushing to ensure nodes are sucked together or pushed away too far. It is a nice combo.
 
-
 Here is the code that is used to configure and startup the force directed simulation:
-
 
 ### Animation and Transitions
 
@@ -146,17 +147,22 @@ How is this done? Well, let's start with the "single group" view first. The posi
 ```javascript
 // Group circles into a single blob.
 function groupBubbles() {
-  force.on('tick', function (e) {
-    bubbles.each(moveToCenter(e.alpha))
-      .attr('cx', function (d) { return d.x; })
-      .attr('cy', function (d) { return d.y; });
+  force.on("tick", function(e) {
+    bubbles
+      .each(moveToCenter(e.alpha))
+      .attr("cx", function(d) {
+        return d.x;
+      })
+      .attr("cy", function(d) {
+        return d.y;
+      });
   });
 
   force.start();
 }
 
 function moveToCenter(alpha) {
-  return function (d) {
+  return function(d) {
     d.x = d.x + (center.x - d.x) * damper * alpha;
     d.y = d.y + (center.y - d.y) * damper * alpha;
   };
@@ -178,17 +184,22 @@ Ok, we’ve now seen how the nodes in the simulation move towards one point, wha
 ```javascript
 // Split circles based on year.
 function splitBubbles() {
-  force.on('tick', function (e) {
-    bubbles.each(moveToYears(e.alpha))
-      .attr('cx', function (d) { return d.x; })
-      .attr('cy', function (d) { return d.y; });
+  force.on("tick", function(e) {
+    bubbles
+      .each(moveToYears(e.alpha))
+      .attr("cx", function(d) {
+        return d.x;
+      })
+      .attr("cy", function(d) {
+        return d.y;
+      });
   });
 
   force.start();
 }
 
 function moveToYears(alpha) {
-  return function (d) {
+  return function(d) {
     var target = yearCenters[d.year];
     d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
     d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
@@ -196,7 +207,7 @@ function moveToYears(alpha) {
 }
 ```
 
-The switch to displaying by year is done by restarting the force simulation using `force.start()`. This time the *tick* function calls `moveToYears`.
+The switch to displaying by year is done by restarting the force simulation using `force.start()`. This time the _tick_ function calls `moveToYears`.
 
 `moveToYears` is almost the same as `moveToCenter`. The difference being that first the correct year point is extracted from `yearCenters`. Here’s what that object looks like:
 
@@ -204,7 +215,7 @@ The switch to displaying by year is done by restarting the force simulation usin
 var yearCenters = {
   2008: { x: width / 3, y: height / 2 },
   2009: { x: width / 2, y: height / 2 },
-  2010: { x: 2 * width / 3, y: height / 2 }
+  2010: { x: (2 * width) / 3, y: height / 2 }
 };
 ```
 
@@ -212,7 +223,7 @@ You can see each year has its own centroid position mapped to it.
 
 `moveToYears` also multiplied by `1.1` to speed up the transition a bit. Again, these numbers take some tweaking and experimentation to find. The code could be simplified a bit if you wanted to pass in the unique multipliers for each transition.
 
-So we’ve seen a general pattern for both of these views: setup the *tick* method to iterate over all the nodes to change their locations. This was done using the `each` method.
+So we’ve seen a general pattern for both of these views: setup the _tick_ method to iterate over all the nodes to change their locations. This was done using the `each` method.
 
 In fact you can chain multiple `each` methods that call different move functions. This would allow you to push and pull your nodes in various ways depending on their features. The NYT graphic uses at least two move functions for these transitions. One to move nodes towards a group point (like above), and one to move nodes towards their respective color band.
 

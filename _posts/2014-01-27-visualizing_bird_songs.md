@@ -4,9 +4,8 @@ title: Visualizing Bird Songs with Web Audio
 css: spectrogram.css
 source: https://github.com/vlandham/spectrogramJS
 categories:
-- vis
+  - vis
 ---
-
 
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -17,14 +16,13 @@ categories:
 
 </div>
 
-----
+---
 
 **UPDATE (07/04/2018):** The amazingly talented [Eren Cakmak](https://github.com/eren-ck) has contributed a significantly updated version of [spectrogramJS](https://github.com/vlandham/spectrogramJS). This new version uses D3v5, has zoom capabilities, and allows you to specify a color scheme for your spectrogram. Thanks so much to Eren for these contributions!
 
-----
+---
 
-Bird-based Visualizations
--------------------------
+## Bird-based Visualizations
 
 Recently, I rediscovered a wonderful book on my shelf, which ended up sparking a bit of visualization exploration.
 
@@ -63,7 +61,7 @@ Its called [SpectrogramJS](https://github.com/vlandham/spectrogramJS) and you ca
 var sample = new Spectrogram('vis/data/bird\_short.ogg', "\#bird\_vis", {width:600, height:200});
 </script>
 
-Click *analyze* to begin processing the provided sound. Once done, you can hit *play* again to follow along with the spectrogram as the sound plays.
+Click _analyze_ to begin processing the provided sound. Once done, you can hit _play_ again to follow along with the spectrogram as the sound plays.
 
 Simple, but I think pretty true to the original - while being more useful then a static image.
 
@@ -71,10 +69,9 @@ Check out the [SpectrogramJS github](https://github.com/vlandham/spectrogramJS) 
 
 More on how SpectrogramJS was built below.
 
-Reinventing the Wheel
----------------------
+## Reinventing the Wheel
 
-It turns out others before me have heard the spectrogram’s siren call, and have developed software to generate similar charts. [Audacity](http://audacity.sourceforge.net/) appears to have a [spectrogram view](http://www.youtube.com/watch?v=7WYw3qoTdU4) . In fact, the [Raven](http://www.birds.cornell.edu/brp/Raven/RavenOverview.html) product suite, which includes the free *Raven Lite*, looks to be a powerful tool specifically for the purposes of analyzing bird songs and other animal calls using spectrograms.
+It turns out others before me have heard the spectrogram’s siren call, and have developed software to generate similar charts. [Audacity](http://audacity.sourceforge.net/) appears to have a [spectrogram view](http://www.youtube.com/watch?v=7WYw3qoTdU4) . In fact, the [Raven](http://www.birds.cornell.edu/brp/Raven/RavenOverview.html) product suite, which includes the free _Raven Lite_, looks to be a powerful tool specifically for the purposes of analyzing bird songs and other animal calls using spectrograms.
 
 Ok, so the spectrogram ground is pretty well covered. Implementing my own version wouldn’t necessarily be practical - or even useful - in light of these other much more robust systems. Or at least, these were my initial thoughts.
 
@@ -82,8 +79,7 @@ However, these tools are heavyweights in their field. And with all that power an
 
 What about a lightweight tool for quick and dirty spectrogram creations? One that could provide interactive capabilities outside of traditional applications and instead provide a web-based experience.
 
-HTML5 Web Audio API to the Rescue!
-----------------------------------
+## HTML5 Web Audio API to the Rescue!
 
 So, I turned to the still developing [Web Audio API](https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html) to see if such a web-based experience could be had. It turns out that this API has audio analysis capabilities that make it suited for [all sorts](https://github.com/michaelbromley/soundcloud-visualizer) of audio visualizations.
 
@@ -95,7 +91,7 @@ I am just dipping my toes in the Audio API stream right now, but most of my know
 
 From what I understand, the Web Audio API is used by creating and connecting nodes together in a directed graph, called the [audio context](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext) . These nodes can be audio sources, audio outputs, or nodes to analyze and manipulate.
 
-It is these *analyzing* nodes that we take advantage of to allow for the analysis of the temporal and frequency aspects of a sound. My audio context looks pretty simple for this visualization:
+It is these _analyzing_ nodes that we take advantage of to allow for the analysis of the temporal and frequency aspects of a sound. My audio context looks pretty simple for this visualization:
 
 <div class="center">
 <img class="center" src="http://vallandingham.me/images/vis/audio_nodes.png" alt="node connections" style=""/>
@@ -110,10 +106,10 @@ The sampling callback is pretty simple. After some setup, it really just appends
 
 ```javascript
 this.count += 1;
-this.curTime =  (this.sampleRate * this.count) / this.buffer.sampleRate;
+this.curTime = (this.sampleRate * this.count) / this.buffer.sampleRate;
 this.analyser.getByteFrequencyData(this.freqs);
 
-var d = {'key':this.curTime, 'values':new Uint8Array(this.freqs)};
+var d = { key: this.curTime, values: new Uint8Array(this.freqs) };
 this.data.push(d);
 ```
 
@@ -130,31 +126,33 @@ Spectrogram.prototype.draw = function() {
   this.svg.select(".x.axis").call(this.xAxis);
   this.svg.select(".y.axis").call(this.yAxis);
 
-  var visContext = d3.select(this.selector).select(".vis_canvas")[0][0].getContext('2d');
+  var visContext = d3
+    .select(this.selector)
+    .select(".vis_canvas")[0][0]
+    .getContext("2d");
 
   // clear canvas to prepare for new draw
   visContext.clearRect(0, 0, this.width + this.margin.left, this.height);
 
   this.data.forEach(function(d) {
-    for(var i = 0; i < d.values.length - 1; i++) {
+    for (var i = 0; i < d.values.length - 1; i++) {
       var v = d.values[i];
       var x = that.xScale(d.key);
       var y = that.yScale(that.getBinFrequency(i));
 
       // draw to canvas
       visContext.fillStyle = that.zScale(v);
-      visContext.fillRect(x,y,that.dotWidth, that.dotHeight);
+      visContext.fillRect(x, y, that.dotWidth, that.dotHeight);
     }
   });
-}
+};
 ```
 
 As shown in the previous code snippet, `d.key` is the time point being sampled. `d.values` is the actual frequency data. Each value in `d.values`, `v` is plotted on the graph - its numerical value dictating its fill color.
 
 For a 4 second audio clip (with a sample rate of 44.1 kHz), processing each 512 frames, you get around 358,000 data points to visualize. You can bump the processing down to every 256 frames to get 716,800 if you want - but things get a bit lethargic when updating the visualization. Still, that’s a lot of points to look at!
 
-Future Work
------------
+## Future Work
 
 Right now SpectrogramJS is a bit of a proof of concept. A lot more could go into making it more interactive, add features, and clean up the horrendous code.
 

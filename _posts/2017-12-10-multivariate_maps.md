@@ -7,7 +7,7 @@ description: A collection of attempts to encode multiple variables on a map.
 img: http://vallandingham.me/images/multivar_map/multivar_twitter.jpg
 zoom: true
 categories:
-- tutorial
+  - tutorial
 ---
 
 There are many types of maps that are used to display data. [Choropleths](http://axismaps.github.io/thematic-cartography/articles/choropleth.html) and [Cartograms](https://en.wikipedia.org/wiki/Cartogram) provide two great examples. I gave a talk, long long ago, about some of [these map varieties](http://vallandingham.me/city_camp_abstract_maps_notes.html).
@@ -17,7 +17,6 @@ Most of these more common map types focus on a particular variable that is displ
 Here is my attempt to collect examples of multivariate maps I've found and organize them into a loose categorization. Follow along, or dive into the references, to spur on your own investigations and inspirations!
 
 Before we begin, certainly you've heard by now that, even for geo-related data, a map is _not_ always the right answer. With this collection, I am just trying to enumerate the various methods that have been attempted, without too much judgement as to whether it is a 'good' or 'bad' encoding. Ok? Ok!
-
 
 ## 3D
 
@@ -53,7 +52,7 @@ This tool is provided as an ArcGIS add-on for creating hillshaded versions of ch
 
 Source: [Topographical Crime Maps](http://www.neatorama.com/2010/06/08/topographical-crime-maps/#!nT1i3)
 
-This was created by [Doug McCune](http://dougmccune.com/blog/). It is not really multivariate, but I always really loved the style where he retains the basemap visual but uses hillshading to show geo-data in a very organic way. It seems like a technique that should have caught on more.  
+This was created by [Doug McCune](http://dougmccune.com/blog/). It is not really multivariate, but I always really loved the style where he retains the basemap visual but uses hillshading to show geo-data in a very organic way. It seems like a technique that should have caught on more.
 
 **Data Mountains**
 
@@ -148,7 +147,6 @@ Source: [Moral Statistics of France](https://projecteuclid.org/download/pdfview_
 Source: [Atlas of American Agriculture](https://archive.org/stream/AtlasOfAmericanAgriculture/5797#page/n33/mode/2up)
 
 Probably my favorite of the bunch, but that's just cause [I like old maps](http://vallandingham.me/seattle_maps/).
-
 
 ## See Also
 

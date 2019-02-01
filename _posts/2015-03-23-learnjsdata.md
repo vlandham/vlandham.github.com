@@ -6,7 +6,7 @@ img: http://vallandingham.me/images/learnjsdata/learnjsdata_logo.png
 twitter: true
 twitter_type: summary
 categories:
-- tutorial
+  - tutorial
 ---
 
 Recently Bocoup released a new guide: [LearnJSData.com](http://learnjsdata.com/).
@@ -37,7 +37,6 @@ But in just 7 days, Learn JS Data has had nearly 4,000 visitors. And people seem
 <img class="center" src="http://vallandingham.me/images/learnjsdata/visitors.png" alt="learn js data" style=""/>
 </div>
 
-
 And the community isn't just consuming. Folks are actively improving and adding content!
 
 Already, we have a completely new task around [combining data](http://learnjsdata.com/combine_data.html) contributed completely by [Timo Grossenbacher](https://twitter.com/grssnbchr). And [Davo Galavotti](https://gyrosco.pe/davo/) and friends are already working on a Spanish translation of the entire guide!
@@ -47,4 +46,3 @@ The experience has really driven home the power of collaboration for me. This pr
 This process also allowed me to get a bit more insight into the _specialness_ of Bocoup. Because of the responsibility, dedication, and care Bocoup has shown in the Open Source and Open Web worlds, people seem to feel comfortable with contributing to Bocoup projects. They know that the same care and responsibility will be taken with their contributions. Its an interesting facet of these communities that I hadn't experienced, or even considered before.
 
 So, go checkout [LearnJSData.com](http://learnjsdata.com/), and give us some [feedback](https://github.com/vlandham/js_data/issues) on how to improve it. And who knows, you just might find it useful yourself!
-

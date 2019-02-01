@@ -2,7 +2,7 @@
 layout: post
 title: Recreating Old Visualizations with New Technology
 categories:
-- vis
+  - vis
 ---
 
 ### Using d3 and coffeescript to reproduce old charts
@@ -19,6 +19,6 @@ I choose to try out [d3.js](http://mbostock.github.com/d3/) for this experiment.
 
 The process of recreating these graphs was a lot of fun and results are in [my visualization section](vis/index.html#old_vis_d3) . Here’s an image of my d3 version of the example above ([click](vis/nationality_by_city.html) for the actual d3 version):
 
-[![](images/vis/rumsey_stat_1_recreate.png)](vis/nationality\_by\_city.html)
+[![](images/vis/rumsey_stat_1_recreate.png)](vis/nationality_by_city.html)
 
 Though I only have a few examples (3 right now, but I hope to have time to make more), I believe it shows some of the potential power of d3 in terms of customizing exactly how you want your visualizations to look. In the future, I might look at adding functionality like interactions and transformations of the raw data - all of which should be pretty easy with d3.

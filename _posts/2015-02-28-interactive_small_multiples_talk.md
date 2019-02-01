@@ -2,7 +2,7 @@
 layout: post
 title: Interactive Small Multiples
 categories:
-- talk
+  - talk
 ---
 
 Based around the findings of my [linked small multiples tutorial](http://vallandingham.me/linked_small_multiples.html) - I gave a talk about different types of interactions you can use with small multiples and how you might build one yourself.

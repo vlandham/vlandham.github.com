@@ -6,7 +6,7 @@ twitter_type: summary_large_image
 description: Talk about Quick Draw and Histograms for Uber-hosted Visualization Night Meetup.
 img: http://vallandingham.me/images/vis/quickdraw_talk.png
 categories:
-- talk
+  - talk
 ---
 
 I was honored to be asked to talk at [Uber's Visualization Nights](https://www.uber.com/p/visualization/visualization-nights/) in Seattle, August 31st, 2017. Here's the [Meetup Link](https://www.meetup.com/Uber-Engineering-Events-Seattle/events/242258284/).
@@ -33,11 +33,11 @@ Here is a list of references I used during the talk. Thanks to all the prior wor
 
 [Deborah Schmidt: Letter Collages](http://frauzufall.de/en/2017/google-quick-draw/)
 
-[Forma Fluens](formafluens.io/index.html)
+[Forma Fluens](http://formafluens.io/index.html)
 
 [Quartz: How do you draw a circle?](https://qz.com/994486/the-way-you-draw-circles-says-a-lot-about-you/)
 
-[Yannick Assogba: PCA Quick Draw Exploration](clome.info/work/quickdraw/explore/)
+[Yannick Assogba: PCA Quick Draw Exploration](http://clome.info/work/quickdraw/explore/)
 
 ### Histogram Examples
 
@@ -57,11 +57,11 @@ Here is a list of references I used during the talk. Thanks to all the prior wor
 
 [NYT: Summers Getting Hotter](https://www.nytimes.com/interactive/2017/07/28/climate/more-frequent-extreme-summer-heat.html)
 
-[Pianogram](joeycloud.net/v/pianogram/)
+[Pianogram](http://joeycloud.net/v/pianogram/)
 
-[Via Velox](infovis-mannheim.de/viavelox/)
+[Via Velox](https://infovis-mannheim.de/viavelox/)
 
-[LA Times: Disneyland Wait Times](www.latimes.com/projects/la-fi-disneyland-ride-wait-time/)
+[LA Times: Disneyland Wait Times](http://www.latimes.com/projects/la-fi-disneyland-ride-wait-time/)
 
 [The Pudding: Free Willy by the Numbers](https://pudding.cool/2017/07/cetaceans/)
 

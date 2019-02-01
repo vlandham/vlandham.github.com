@@ -2,7 +2,7 @@
 layout: post
 title: Steps for Building a Stepper Visualization
 categories:
-- tutorial
+  - tutorial
 ---
 
 As the NYT’s Amanda Cox has said [in some of her talks](http://blog.visual.ly/10-things-you-can-learn-from-the-new-york-times-data-visualizations/) , annotating a visualization is one of the most important, but also one of the hardest things to do. In this post, we won’t tackle the ‘what’ to annotate, but an example of the ‘how’ to implement an annotation layer that needs to change as a user progresses through a visualization. [Here’s what we will be building](http://vallandingham.me/stepper_example/final/)
@@ -25,8 +25,7 @@ As the user clicks on each step of the stepper, the visualization changes - alon
 
 Before we get started, let me say that everything presented in this demo is pretty basic html and javascript. I just wanted to have a concise example of one way to implement a stepper for web-based. That being said, if you aren’t too bored already, then let’s get started!
 
-Overview
---------
+## Overview
 
 The method I will present here is largely based on the implementation shown in the Obama Budget visualization. There are dozens of ways this kind of stepper could be implemented. Here are some pros to this process:
 
@@ -48,8 +47,7 @@ So the basic steps we will follow will be to:
 2.  Style them using css
 3.  Transition between them using jQuery
 
-The Annotation Html
--------------------
+## The Annotation Html
 
 Each step will have its own `div`, with a unique `id`, and a `class` identifying it as a step `div`. Inside this `div`, each chunk of annotation text can be separated in its own `div` for positioning.
 
@@ -61,14 +59,14 @@ A simple example would look something like this:
 
 <script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/build1/stepper.html">
 </script>
+
 Our `vis-container` div wraps the entire visualization. The annotation sets for each step are contained in their own div with an `.annotation-step` class, and all annotation steps are children of `#annotation-steps`.
 
 The `#vis-canvas` div would be where the actual visualization would be created.
 
 If we were to stop now, [here is what it would look like](http://vallandingham.me/stepper_example/build1/)
 
-The CSS
--------
+## The CSS
 
 So far our annotation layer isn’t very impressive. The text for all the steps are visible at the same time, and they go down the page instead of being stacked on top of one another. Let’s look at the minium amount of css that is required to get our annotation layer looking right.
 
@@ -84,6 +82,7 @@ Our basic stylings now look like this:
 
 <script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/build2/stepper.css">
 </script>
+
 The comments in the code should let you follow what is going on.
 
 Note that we have hidden all the `.annotation-step` divs, but we would like to start by showing the annotations for the first step. This can be done by adding `style="display:block;"` to the html of the first step’s div. This overrides the `display:none;` in our css file.
@@ -97,15 +96,16 @@ While we are at it, lets make the stepper look half-way decent. The Obama Budget
 
 <script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/build2/nav.css">
 </script>
+
 As an aside, I <strong>am</strong> using a [reset css file](https://github.com/vlandham/stepper_example/blob/gh-pages/final/css/reset.css) in addition to the css above. This is from the [HTML5 Boilerplate template](http://html5boilerplate.com/) .
 
-The Javascript
---------------
+## The Javascript
 
 Our javascript needs to switch the annotations to a new step when a step link is pressed, and look classy doing it. To do this, we will rely on the consistent naming of the id’s of the `.step-link` anchors and the id’s of the `annotation-step` divs. First, lets hook up a click callback function for the step links:
 
 <script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/build3/stepper.js">
 </script>
+
 This code is using [jQuery 1.7.2](http://jquery.com/) , but shouldn’t really be too version specific.
 
 Basically, we just need to get the new step’s id somehow (this uses jQuery’s `attr` method), and use it to switch to the next step.
@@ -116,12 +116,12 @@ Here is the entire js for this demo:
 
 <script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/final/js/stepper.js">
 </script>
+
 So in `switchStep`, we use jQuery’s `.toggleClass` method to de-activate all steps and then activate the new step.
 
 In `switchAnnotation`, we do much the same thing with the annotation step divs. First we hide all the annotation steps, then use the `newStep` to find the step that should be turned on. To make things a little special, we use the `fadeIn` method to have the annotation appear after a bit of a delay. Fancy!
 
-Bonus: D3 Only Version
-----------------------
+## Bonus: D3 Only Version
 
 Since as of late, I’ve been excited to use [D3.js](http://d3js.org/) , I was interested in how difficult it would be do implement this functionality just D3 instead of jQuery. It turns out, its not too hard at all.
 
@@ -131,6 +131,7 @@ The javascript code is below:
 
 <script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/final_d3/js/stepper.js">
 </script>
+
 You can see it might be a bit more verbose, but it gets the job done. A few things to point out with this D3 example:
 
 ##### Be mindful of when to use `.select` or `.selectAll`

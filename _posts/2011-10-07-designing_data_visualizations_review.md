@@ -2,7 +2,7 @@
 layout: post
 title: Designing Data Visualizations Review
 categories:
-- tutorial
+  - tutorial
 ---
 
 Having just finished reading [Designing Data Visualization](http://shop.oreilly.com/product/0636920022060.do) by [Noah Iliinsky](http://twitter.com/#!/noahi) and [Julie Steele](http://twitter.com/#!/jsteeleeditor), I wanted to provide a short review of this book.
@@ -29,7 +29,7 @@ Part 2 is where the meat of the book is, as stated in the Preface:
 
 The encoding of data dimensions into visual components is something I have been really looking for more info on - and where Designing Data Visualizations shines. DDV provides a clean, systematic way of understanding, prioritizing, and applying the myriad of the possible encodings available to visualization designers.
 
-Encoding of data is certainly a main topic of other data visualization books and papers. The [Classic Paper Reading List](http://fellinlovewithdata.com/guides/7-classic-foundational-vis-papers) from [Fell in Love with Data](http://fellinlovewithdata.com/) , for example, includes *Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods*, which is mainly on encoding. And as Enrico summarizes:
+Encoding of data is certainly a main topic of other data visualization books and papers. The [Classic Paper Reading List](http://fellinlovewithdata.com/guides/7-classic-foundational-vis-papers) from [Fell in Love with Data](http://fellinlovewithdata.com/) , for example, includes _Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods_, which is mainly on encoding. And as Enrico summarizes:
 
 > [V]isual encoding is hard stuff and you shouldn’t take it too lightly. And that visual primitives do have a ranking that you have to take into account if you want to design effective data visualizations.
 

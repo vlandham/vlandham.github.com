@@ -10,7 +10,7 @@ demo: http://vallandingham.me/shaw_bros/
 source: http://vallandingham.me/shaw_bros/analyze/analyze_shaw.nb.html
 zoom: true
 categories:
-- tutorial
+  - tutorial
 ---
 
 Recently, I've been a bit caught up in old Kung Fu movies. Shorting any technical explorations, I have instead been diving head-first into any and all Netflix accessible martial arts masterpieces from the 70's and 80's.
@@ -27,7 +27,7 @@ I figured this company's entire martial arts collection would provide for a cons
 
 So here is a bit of data exploration fun. The analysis is in R, using tips and tricks from Hadley Wickham's wonderful new [Data Science in R](http://r4ds.had.co.nz/) book.
 
-The full analysis code can be found in this [R Notebook](http://vallandingham.me/shaw_bros/analyze/analyze_shaw.nb.html), which includes the code and graphs in an integrated format. And (spoilers!), the end [Actor Collaboration Network](http://vallandingham.me/shaw_bros/) and the rest of the  code can be [found on github](https://github.com/vlandham/shaw_bros).
+The full analysis code can be found in this [R Notebook](http://vallandingham.me/shaw_bros/analyze/analyze_shaw.nb.html), which includes the code and graphs in an integrated format. And (spoilers!), the end [Actor Collaboration Network](http://vallandingham.me/shaw_bros/) and the rest of the code can be [found on github](https://github.com/vlandham/shaw_bros).
 
 Come for the Kung Fu, stay for the [word embedding](http://vallandingham.me/shaw_bros_analysis.html#silly-kung-fu-titles-with-word2vec) and [interactive networks](http://vallandingham.me/shaw_bros_analysis.html#finding-a-mob-of-venoms)!
 
@@ -47,7 +47,7 @@ _Looks pretty sweet to me, I'll have to check it out_
 
 The studio hits its stride in the early 70’s, with a lull in the mid 70’s and another spike in the late 70’s / early 80’s. Keep in mind that even during the lull, most years the studio is still putting out 10 or more Kung Fu movies.
 
-To create this graph, I first loaded my raw JSON file into R using the [tidyjson](https://cran.r-project.org/web/packages/tidyjson/vignettes/introduction-to-tidyjson.html) package like this:
+To create this graph, I first loaded my raw JSON file into R using the [tidyjson](https://github.com/sailthru/tidyjson) package like this:
 
 ```R
 # load the library
@@ -70,6 +70,7 @@ films <- shaw_json %>% as.tbl_json %>% gather_array %>%
   )
 
 ```
+
 I then graphed count by year using [ggplot]():
 
 ```R
@@ -92,7 +93,7 @@ As you might expect, these two metrics are highly correlated:
 
 Basically, anything with more than 400 watches or 100 likes seems like a good place to start. The standout, with over 800 watches is 1984's [Eight Diagram Pole Fighter](https://letterboxd.com/film/eight-diagram-pole-fighter/). Not the catchiest title, but as one reviewer puts it:
 
-> Some of the raddest fights from any Shaw Bros films I've seen (specially that last one).  
+> Some of the raddest fights from any Shaw Bros films I've seen (specially that last one).
 
 I haven't seen this one yet, so I can't comment - but it's definitely on my list!
 
@@ -193,8 +194,7 @@ Now the count-per-year isn't mind-blowing or anything, but it does seem interest
 
 I wanted to investigate a bit further. One of the first Swordsman movies they created was [The One Armed Swordsman](https://letterboxd.com/film/the-one-armed-swordsman/), and [according to Wikipedia](https://en.wikipedia.org/wiki/One-Armed_Swordsman) it was a big hit.
 
-> It was the first of the new style of wuxia films emphasizing male anti-heroes, violent swordplay and heavy bloodletting. It was the first Hong Kong film to make HK$1 million at the local box office, propelling its star Jimmy Wang to super stardom.
-
+> It was the first of the new style of wuxia films emphasizing male anti-heroes, violent swordplay and heavy bloodletting. It was the first Hong Kong film to make HK\$1 million at the local box office, propelling its star Jimmy Wang to super stardom.
 
 I must confess, being a casual enjoyer of Kung Fu, I was not familiar with the term "Wuxia", so this needed a bit more investigation.
 
@@ -295,4 +295,4 @@ With it, you can clearly pick out the Venom Mob on the right, in the screenshot.
 
 The code is based on my [interactive network Flowing Data tutorial](http://flowingdata.com/2012/08/02/how-to-make-an-interactive-network-visualization/), which recently has been updated to use [plain old Javascript and D3v4](https://github.com/vlandham/interactive-network-v4).
 
-That wraps up my little data-driven exploration of Shaw Brothers films. As with any analysis, there's plenty more to explore - but hopefully this was fun for you too, and inspires some data-driven exploration of your own.  
+That wraps up my little data-driven exploration of Shaw Brothers films. As with any analysis, there's plenty more to explore - but hopefully this was fun for you too, and inspires some data-driven exploration of your own.

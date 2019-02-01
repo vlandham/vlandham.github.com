@@ -2,7 +2,7 @@
 layout: post
 title: Visualizing the Racial Divide
 categories:
-- vis
+  - vis
 ---
 
 ### Using d3 and force-directed maps to see the impact of segregation in cities
@@ -19,7 +19,7 @@ Force-directed maps is a name you could give to a force-directed graph made up o
 
 I decided to use this concept to show how segregation in a city can ‘break it apart’. Here’s an example from Kansas City:
 
-[![](http://vallandingham.me/images/vis/kc_divide_before_after.png)](http://vallandingham.me/vis/racial\_divide.html)
+[![](http://vallandingham.me/images/vis/kc_divide_before_after.png)](http://vallandingham.me/vis/racial_divide.html)
 
 [See animated visualizations for a number of cities here](http://vallandingham.me/vis/racial_divide.html)
 

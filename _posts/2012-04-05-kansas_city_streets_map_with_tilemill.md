@@ -2,7 +2,7 @@
 layout: post
 title: Kansas City Streets Visualized
 categories:
-- vis
+  - vis
 ---
 
 ### Using Tilemill and OpenStreetMaps for Printable Map-Art
@@ -19,8 +19,7 @@ Gregor used street data in Adobe Illustrator form from the wonderful [Cloudmade 
 
 So I decided to try a slight variation on the theme: use Shapefiles from OSM and style them using [TileMill](http://mapbox.com/tilemill/) . Here I’ll spell out some of the specifics on how this works.
 
-Metro Extracts
---------------
+## Metro Extracts
 
 While it would be possible to use [Osmosis](http://wiki.openstreetmap.org/wiki/Osmosis) to extract my local cities OSM data, fortunately for me, this was not necessary.
 
@@ -28,10 +27,9 @@ The wonderful [Metro Extracts](http://metro.teczno.com/) provided as a service b
 
 The one gotcha with this service is that, unlike Cloudemade’s downloads, these extracts have not been converted to Illustrator format. I’m sure that getting it in that format wouldn’t be too hard, but honestly I’m pretty aweful at Illustrator, so wanted to try out a different way to style this data.
 
-To this end, I grabbed the *imposm shapefiles* to work with in TileMill.
+To this end, I grabbed the _imposm shapefiles_ to work with in TileMill.
 
-TileMill
---------
+## TileMill
 
 [TileMill](http://mapbox.com/tilemill/) is a great tool from the MapBox team. Its really meant create and style map tiles to be hosted on a service like their [map publishing platform](http://mapbox.com/plans/) . They have some great looking [map styles](http://mapbox.com/maps/) and you can upload your own custom tiles or data, like the NYPL Lab’s [1940s Census Tiles](https://tiles.mapbox.com/nypllabs/map/nyc1940-16) used on their [Direct Me NYC](http://directme.nypl.org/) site.
 
@@ -71,8 +69,7 @@ You should have a nice view of all the roads in KC (or whatever metro you choose
 </div>
 Now lets style these roads!
 
-Carto
------
+## Carto
 
 [Carto](http://mapbox.com/tilemill/docs/manual/carto/) is the styling syntax used by TileMill. It looks a lot like CSS, but is based on [less](http://lesscss.org/) so has support for variables and conditional effects, which we will make use of here.
 
@@ -84,6 +81,7 @@ Here, I’ll provide a shortened version of the code, to talk about:
 
 <script src="https://gist.github.com/2312647.js?file=short.css">
 </script>
+
 Lets go over the details.
 
 First we create two variables, `@minor_color` and `@major_color`, to store the two colors used to style the different road types.
@@ -94,7 +92,7 @@ The stylings after that override this default setting for certain types of roads
 
 First we hide a number of types that aren’t roads. The above example hides railways. I used QGIS to find all the different types of roads in the shapefile, but there are probably lots of ways to do that.
 
-Then, for major roads and highways, we increase the line width and use the darker `@major_color`. These major road stylings use the *New symbolizer* syntax (the `::newsymbol`) which creates a ordering of overlays. A poor-mans version of separate layers. This works because we start with small roads and overlay larger ones. So the **order** of the stylings **matter**. Something to keep in mind.
+Then, for major roads and highways, we increase the line width and use the darker `@major_color`. These major road stylings use the _New symbolizer_ syntax (the `::newsymbol`) which creates a ordering of overlays. A poor-mans version of separate layers. This works because we start with small roads and overlay larger ones. So the **order** of the stylings **matter**. Something to keep in mind.
 
 The nice thing about this approach is that we can try out all sorts of different stylings really easily. Want to make major roads green and highways really fat? No problem. A two line change and you have:
 
@@ -104,17 +102,15 @@ The nice thing about this approach is that we can try out all sorts of different
 </div>
 TileMill makes it really easy to explore different combinations of styles.
 
-Export
-------
+## Export
 
 Once you have something you like, its time to get it into a format suitable for printing.
 
-Select **Export** at the top-right of the screen. Then select **SVG**. You might need to zoom into your region of interest again and crop using *shift-drag* as necessary. When you have the cropping how you want it, select **Export**.
+Select **Export** at the top-right of the screen. Then select **SVG**. You might need to zoom into your region of interest again and crop using _shift-drag_ as necessary. When you have the cropping how you want it, select **Export**.
 
-This will generate a file in your TileMill’s *export directory*. I believe, by default, it is in `~/Documents/MapBox/export`.
+This will generate a file in your TileMill’s _export directory_. I believe, by default, it is in `~/Documents/MapBox/export`.
 
-Finishing Touches
------------------
+## Finishing Touches
 
 Ok, so I would be misleading if I didn’t mention that I finished up by importing the SVG into Illustrator to add a white border and to resize it to be 20x24in. Theoretically, you could do this part in any editor capable of handling SVGs. However, none of the actual styling of the map was done in Illustrator.
 
