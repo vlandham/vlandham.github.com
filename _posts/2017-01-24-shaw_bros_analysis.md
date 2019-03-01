@@ -233,7 +233,7 @@ See? kind of funny at least in theory. I did this for every title, for a number 
 
 But, I made a little toy for exploring these new titles anyways, check it out!
 
-<iframe frameborder="0" height="300px" src="http://vallandingham.me/shaw_bros/titles.html" width="100%" id="titlesIframe" scrolling="no" style="overflow: hidden;"></iframe>
+<iframe frameborder="0" height="300px" src="https://vallandingham.me/shaw_bros/titles.html" width="100%" id="titlesIframe" scrolling="no" style="overflow: hidden;"></iframe>
 
 The [raw results](https://github.com/vlandham/shaw_bros/tree/master/data/titles) and the [code I used](https://github.com/vlandham/shaw_bros/blob/master/tools/title_fun.ipynb) to generate these are also available.
 
