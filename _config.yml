@@ -1,9 +1,9 @@
-source:      .
+source: .
 destination: ./_site
-includes:    ./_includes
-url: "http://vallandingham.me"
+includes: ./_includes
+url: "https://vallandingham.me"
 
-permalink:   /:title.html
+permalink: /:title.html
 
 #base_url: http://vlandham.com
 #base_url: /
@@ -11,15 +11,12 @@ description: ""
 
 encoding: utf-8
 
-
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       ogtype: "website"
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
