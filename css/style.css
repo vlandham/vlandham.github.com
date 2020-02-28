@@ -33,6 +33,14 @@ a img {
     display: none;
   }
 }
+@media only screen and (max-width: 500px) {
+  .posts {
+    white-space: inherit;
+  }
+  .posts .columns {
+    margin-bottom: 10px;
+  }
+}
 
 .heading-anchor {
   color: #ccc;
