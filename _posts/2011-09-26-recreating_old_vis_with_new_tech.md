@@ -2,7 +2,7 @@
 layout: post
 title: Recreating Old Visualizations with New Technology
 categories:
-  - vis
+  - tutorial
 ---
 
 ### Using d3 and coffeescript to reproduce old charts

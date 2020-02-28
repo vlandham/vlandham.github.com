@@ -2,7 +2,7 @@
 layout: post
 title: Experiments!
 categories:
-  - vis
+  - tutorial
 ---
 
 Want some more data visualization attempts, studies, and undertakings? Check out my new [Experiments Section](http://vallandingham.me/experiments/)

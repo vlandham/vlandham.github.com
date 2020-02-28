@@ -6,7 +6,7 @@ twitter_type: summary
 description:
 img:
 categories:
-  - vis
+  - tutorial
 ---
 
 <div class="center">

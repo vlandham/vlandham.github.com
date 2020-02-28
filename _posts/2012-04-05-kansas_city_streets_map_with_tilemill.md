@@ -2,7 +2,7 @@
 layout: post
 title: Kansas City Streets Visualized
 categories:
-  - vis
+  - tutorial
 ---
 
 ### Using Tilemill and OpenStreetMaps for Printable Map-Art

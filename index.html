@@ -7,35 +7,35 @@ twitter_type: summary_large_image
 description: Visualizations by Jim Vallandingham.
 img: http://vallandingham.me/images/vis/vis_card.png
 ---
+
 <div class="main-body">
-  <h2>Tutorials &amp; Posts</h2>
-  <ul class="posts">
-    {% for post in site.categories.tutorial %}
-    <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+  <h2>Writing</h2>
+  {% for post in site.categories.tutorial %}
+  <div class="row posts">
+    <div class="ten columns">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+    <div class="two columns post-date">
+      {{ post.date | date: "%Y-%m-%d"}}
+    </div>
+  </div>
+  {% endfor %}
 
-  <h2>Visualizations</h2>
-  <ul class="posts">
-    {% for post in site.categories.vis %}
-    <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-    <li>
-      <a class="post_title" href="http://vallandingham.me/vis/">More Visualizations</a>
-    </li>
-  </ul>
+  <h2>Talks</h2>
+  {% for post in site.categories.talk %}
+  <div class="row posts">
+    <div class="ten columns"><a href="{{ post.url }}">{{ post.title }}</a></div>
+  </div>
+  {% endfor %}
 
-  <h2>Talks &amp; Workshops</h2>
-  <ul class="posts">
-    {% for post in site.categories.talk %}
-    <li><a class="post_title" href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-
-  <h2>Random Collections</h2>
-  <ul class="posts">
+  <h2>Collections</h2>
     {% for collection in site.data.collections %}
-    <li><a class="post_title" href="{{ collection.url }}">{{ collection.title }}</a></li>
+  <div class="row posts">
+    <div class="ten columns">
+      <a href="{{ collection.url }}"
+        >{{ collection.title }}</a
+      >
+    </div>
+  </div>
     {% endfor %}
-  </ul>
-</div>
+<//div>

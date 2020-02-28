@@ -1,5 +1,5 @@
 a {
-  color: #6e6e6e;
+  color: #333;
   text-decoration: underline;
 }
 
@@ -12,9 +12,27 @@ a img {
   border: 0;
 }
 
-/*.banner {
-  max-width: 800px;
-}*/
+.posts a {
+  text-decoration: none;
+}
+
+.posts a:hover {
+  text-decoration: underline;
+}
+
+.posts {
+  white-space: nowrap;
+}
+
+#menu a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 750px) {
+  .post-date {
+    display: none;
+  }
+}
 
 .heading-anchor {
   color: #ccc;
@@ -172,6 +190,10 @@ a img {
 
 .main-body li {
   margin-bottom: 0.5rem;
+}
+
+.main-body h2 {
+  padding-top: 20px;
 }
 
 .post {

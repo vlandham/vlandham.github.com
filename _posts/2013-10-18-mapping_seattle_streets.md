@@ -2,7 +2,7 @@
 layout: post
 title: Mapping Seattle - Streets
 categories:
-  - vis
+  - tutorial
 ---
 
 Recently, I’ve up-rooted my family and transplanted from Kansas City, MO to Seattle, WA. This represents the first major venture out of the Midwest for my wife, dauther, and myself. Its exciting and scary and fun and difficult.

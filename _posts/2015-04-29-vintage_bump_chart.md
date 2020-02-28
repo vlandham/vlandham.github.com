@@ -6,7 +6,7 @@ twitter_type: summary
 description:
 img:
 categories:
-  - vis
+  - tutorial
 ---
 
 A quick shoutout for another vintage visualization I implemented in code:

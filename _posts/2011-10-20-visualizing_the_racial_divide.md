@@ -2,7 +2,7 @@
 layout: post
 title: Visualizing the Racial Divide
 categories:
-  - vis
+  - tutorial
 ---
 
 ### Using d3 and force-directed maps to see the impact of segregation in cities
