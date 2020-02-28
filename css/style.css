@@ -102,7 +102,8 @@ a img {
 
 #menu .posts-link.posts,
 #menu .vis-link.vis,
-#menu .about-link.about {
+#menu .about-link.about,
+#menu .projects-link.projects {
   text-decoration: underline;
 }
 
@@ -232,4 +233,21 @@ a img {
 
 blockquote {
   color: #777;
+}
+
+.project-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  padding-top: 5px;
+}
+
+.project-box a.project {
+  text-decoration: none;
+}
+
+.project-box a.project img {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
 }

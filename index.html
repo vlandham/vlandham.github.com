@@ -27,15 +27,4 @@ img: http://vallandingham.me/images/vis/vis_card.png
     <div class="ten columns"><a href="{{ post.url }}">{{ post.title }}</a></div>
   </div>
   {% endfor %}
-
-  <h2>Collections</h2>
-    {% for collection in site.data.collections %}
-  <div class="row posts">
-    <div class="ten columns">
-      <a href="{{ collection.url }}"
-        >{{ collection.title }}</a
-      >
-    </div>
-  </div>
-    {% endfor %}
-<//div>
+</div>

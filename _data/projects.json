@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Visualizations",
+    "url": "//vallandingham.me/vis",
+    "description": "I make visualizations.",
+    "img": "vis.jpg"
+  },
+  {
+    "title": "Experiments",
+    "url": "//vallandingham.me/experiments",
+    "description": "Unpolished, but fun visual experiments.",
+    "img": "experiments.jpg"
+  },
+  {
+    "title": "Bocoup",
+    "url": "https://bocoup.com/services/datavis",
+    "description": "I worked on the DataVis team at Bocoup and made a lot of cool things for clients.",
+    "img": "bocoup.jpg"
+  },
+  {
+    "title": "Seattle In Context",
+    "url": "//vallandingham.me/seattle",
+    "description": "Maps, trivia, and jokes to understand downtown Seattle just a bit more.",
+    "img": "seattleincontext.jpg"
+  },
+  {
+    "title": "Historic Seattle Maps",
+    "url": "//vallandingham.me/seattle_maps",
+    "description": "A collection of historic Seattle maps, organized for easy browsing.",
+    "img": "seattlemaps.jpg"
+  },
+  {
+    "title": "Seattle Atlas",
+    "url": "https://github.com/vlandham/seattle-atlas",
+    "description": "A way to download Seattle data easily and consistently.",
+    "img": "seattleatlas.jpg"
+  },
+  {
+    "title": "LearnJSData",
+    "url": "http://learnjsdata.com/",
+    "description": "A site to learn how to understand data using JavaScript.",
+    "img": "learnjsdata.jpg"
+  },
+  {
+    "title": "textkit",
+    "url": "http://learntextvis.github.io/textkit/",
+    "description": "A command-line utility for simple natural language processing.",
+    "img": "textkit.jpg"
+  },
+  {
+    "title": "illuminati",
+    "url": "https://github.com/vlandham/illuminati",
+    "description": "An automated genomic analysis pipeline.",
+    "img": "illuminati.jpg"
+  }
+]

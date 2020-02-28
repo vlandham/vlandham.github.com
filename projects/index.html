@@ -1,0 +1,20 @@
+---
+layout: default
+title: Projects
+id: projects
+twitter: true
+twitter_type: summary_large_image
+description: Projects by Jim Vallandingham.
+img: http://vallandingham.me/images/vis/vis_card.png
+---
+
+<h2>Projects</h2>
+<div class="project-box">
+  {% for project in site.data.projects %}
+  <a href="{{project.url}}" class="project">
+    <img alt src="/images/projects/{{project.img}}" />
+    <strong>{{project.title}}</strong>
+    <span>{{project.description}}</span>
+  </a>
+  {% endfor %}
+</div>
