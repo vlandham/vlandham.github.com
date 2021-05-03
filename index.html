@@ -16,7 +16,7 @@ img: http://vallandingham.me/images/vis/vis_card.png
       <a href="{{ post.url }}">{{ post.title }}</a>
     </div>
     <div class="two columns post-date">
-      {{ post.date | date: "%Y-%m-%d"}}
+      <span>{{ post.date | date: "%Y-%m-%d"}}</span>
     </div>
   </div>
   {% endfor %}
