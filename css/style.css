@@ -234,6 +234,10 @@ h6 {
   text-align: center;
 }
 
+.video {
+  max-width: 800px;
+}
+
 .twitter-tweet {
   margin: auto;
 }
