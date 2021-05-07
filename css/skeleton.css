@@ -189,9 +189,8 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: Karla, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", sans-serif;
   color: #222;
 }
 
@@ -203,9 +202,10 @@ h3,
 h4,
 h5,
 h6 {
+  font-weight: bold;
+  letter-spacing: 0.035em;
   margin-top: 0;
   margin-bottom: 2rem;
-  font-weight: 300;
 }
 h1 {
   font-size: 4rem;

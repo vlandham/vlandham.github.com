@@ -29,7 +29,7 @@ a img {
 }
 
 .post-date {
-  font-family: Helvetica, "Helvetica Neue", sans-serif;
+  /* font-family: Helvetica, "Helvetica Neue", sans-serif; */
   font-weight: 300;
 }
 
@@ -210,23 +210,14 @@ a img {
   padding-top: 20px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  font-weight: bold;
-  letter-spacing: 0.035em;
-}
-
 .post {
   font-size: 1.8rem;
   line-height: 1.7;
   max-width: 860px;
+}
+
+.section {
+  font-size: 1.8rem;
 }
 
 .center {
