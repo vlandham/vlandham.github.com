@@ -1,28 +1,20 @@
 #!/usr/bin/env ruby
 
-# Script to create a jekyll blog post using a template. It takes one input parameter
-# which is the title of the blog post
+# Create a new blog post in _posts.
 # e.g. command:
 # $ ./new.rb "helper script to create new posts using jekyll"
 
-# Some constants
-TEMPLATE = "template.textile"
-TARGET_DIR = "_posts"
+title = ARGV[0] or abort "usage: ./new.rb \"Post title\""
+slug = title.downcase.strip.gsub(/[^a-z0-9]+/, '-').gsub(/^-|-$/, '')
+filepath = File.join("_posts", "#{Time.now.strftime('%Y-%m-%d')}-#{slug}.md")
+abort "#{filepath} already exists" if File.exist?(filepath)
 
-# Get the title which was passed as an argument
-title = ARGV[0]
-# Get the filename
-filename = title.gsub(' ','-')
-filename = "#{ Time.now.strftime('%Y-%m-%d') }-#{filename}.md"
-filepath = File.join(TARGET_DIR, filename)
+File.write(filepath, <<~POST)
+  ---
+  layout: post
+  title: #{title.dump}
+  ---
 
-# Create a copy of the template with the title replaced
-new_post = File.read(TEMPLATE)
-new_post.gsub!('TITLE', title);
-
-# Write out the file to the target directory
-new_post_file = File.open(filepath, 'w')
-new_post_file.puts new_post
-new_post_file.close
+POST
 
 puts "created => #{filepath}"

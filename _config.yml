@@ -10,6 +10,7 @@ permalink: /:title.html
 description: ""
 
 encoding: utf-8
+timezone: UTC
 
 defaults:
   - scope:
