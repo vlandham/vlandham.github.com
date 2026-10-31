@@ -293,7 +293,7 @@ blockquote {
 
 .project-box {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-gap: 30px;
   padding-top: 5px;
 }
@@ -305,7 +305,21 @@ blockquote {
 .project-box a.project img {
   display: block;
   width: 100%;
+  height: auto;
   margin-bottom: 10px;
+}
+
+.project-title {
+  display: block;
+}
+
+.project-box a.project:hover .project-title {
+  text-decoration: underline;
+}
+
+.project-description {
+  display: block;
+  line-height: 1.5;
 }
 
 /* Charts and diagrams are drawn for a white background. */
