@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ page.title }} - Jim Vallandingham</title>
+    {% if page.title %}{% capture full_title %}{{ page.title }} - Jim Vallandingham{% endcapture %}{% else %}{% assign full_title = "Jim Vallandingham" %}{% endif %}
+    <title>{{ full_title }}</title>
     {% assign description = page.description | default: site.description %}
     {% if description != "" %}<meta name="description" content="{{ description | escape }}" />{% endif %}
     <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
     <meta property="og:site_name" content="Jim Vallandingham" />
     <meta property="og:url" content="{{ page.url | absolute_url }}" />
-    <meta property="og:title" content="{{ page.title | escape }}" />
+    <meta property="og:title" content="{{ page.title | default: 'Jim Vallandingham' | escape }}" />
     <meta property="og:type" content="{{ page.ogtype | default: 'website' }}" />
     {% if description != "" %}<meta property="og:description" content="{{ description | escape }}" />{% endif %}
     {% if page.img %}<meta property="og:image" content="{{ page.img | absolute_url }}" />{% endif %}
@@ -74,7 +75,7 @@
           </div>
           <div id="menu">
             <ul>
-              <li><a class="posts-link {{ page.id }}" href="/">Posts</a></li>
+              <li><a class="posts-link {{ page.id }}" href="/">Writing</a></li>
               <li>
                 <a class="vis-link {{ page.id }}" href="/vis">Visualizations</a>
               </li>

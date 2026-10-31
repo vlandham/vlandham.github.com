@@ -59,18 +59,6 @@ a img {
   border: 0;
 }
 
-.posts a {
-  text-decoration: none;
-}
-
-.posts a:hover {
-  text-decoration: underline;
-}
-
-.posts {
-  white-space: nowrap;
-}
-
 #menu a:hover {
   text-decoration: underline;
 }
@@ -80,19 +68,6 @@ a img {
   font-weight: 300;
 }
 
-@media only screen and (max-width: 750px) {
-  .post-date {
-    display: none;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .posts {
-    white-space: inherit;
-  }
-  .posts .columns {
-    margin-bottom: 10px;
-  }
-}
 
 .heading-anchor {
   color: var(--text-faint);
@@ -419,4 +394,98 @@ h2 + .eyebrow {
 .theme-toggle button[aria-pressed="true"] {
   color: var(--text-strong);
   border-color: var(--text-strong);
+}
+
+/* Home page */
+.intro {
+  max-width: 680px;
+  margin-top: 1rem;
+  font-size: 2.1rem;
+  line-height: 1.55;
+}
+
+.featured {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px;
+}
+
+@media (min-width: 750px) {
+  .featured {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+.featured-item {
+  text-decoration: none;
+}
+
+.featured-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+  background-color: #fff;
+}
+
+.featured-item strong {
+  display: block;
+  line-height: 1.35;
+}
+
+.featured-item:hover strong {
+  text-decoration: underline;
+}
+
+.featured-item span {
+  color: var(--text-dim);
+  font-size: 1.5rem;
+}
+
+.featured-more {
+  margin-top: 1.5rem;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0 0 1rem;
+}
+
+.post-list li {
+  margin-bottom: 0.4rem;
+}
+
+.post-list a {
+  text-decoration: none;
+}
+
+.post-list a:hover {
+  text-decoration: underline;
+}
+
+.main-body h2 + .eyebrow {
+  margin-top: 0.5rem;
+}
+
+/* Keep the header to two tidy lines on phones. */
+@media (max-width: 549px) {
+  #header {
+    padding: 1em 0;
+  }
+
+  #header h1 {
+    font-size: 3rem;
+  }
+
+  #menu ul {
+    text-align: left;
+    padding-right: 0;
+  }
+
+  #menu ul li a {
+    font-size: 1.15em;
+    padding: 0 1.2rem 0 0;
+  }
 }

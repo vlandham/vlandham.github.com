@@ -1,30 +1,51 @@
 ---
 layout: default
-title: Home
 id: posts
-twitter: true
 twitter_type: summary_large_image
-description: Visualizations by Jim Vallandingham.
-img: http://vallandingham.me/images/vis/vis_card.png
+description: Writing, visualizations, and projects by Jim Vallandingham.
+img: /images/vis/vis_card.png
 ---
 
 <div class="main-body">
-  <h2>Writing</h2>
-  {% for post in site.categories.tutorial %}
-  <div class="row posts">
-    <div class="ten columns">
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </div>
-    <div class="two columns post-date">
-      <span>{{ post.date | date: "%Y-%m-%d"}}</span>
-    </div>
+  <p class="intro">
+    I'm a software developer focused on data visualization, data analysis, and
+    data science. This site collects my writing and talks, along with
+    <a href="/vis/">visualizations</a> and <a href="/projects/">projects</a>
+    I've made over the years. More <a href="/about.html">about me</a>.
+  </p>
+
+  <h2>Selected Work</h2>
+  <div class="featured">
+    {% assign featured = site.data.vis | where: "featured", true %}
+    {% for item in featured %}
+    <a class="featured-item" href="{{ item.url }}">
+      <img src="{{ item.image }}" alt="{{ item.alt }}" />
+      <strong>{{ item.title }}</strong>
+      <span>{{ item.year }}</span>
+    </a>
+    {% endfor %}
   </div>
+  <p class="featured-more"><a href="/vis/">All visualizations →</a></p>
+
+  <h2>Writing</h2>
+  {% assign years = site.categories.tutorial | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in years %}
+  <h3 class="eyebrow">{{ year.name }}</h3>
+  <ul class="post-list">
+    {% for post in year.items %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
   {% endfor %}
 
   <h2>Talks</h2>
-  {% for post in site.categories.talk %}
-  <div class="row posts">
-    <div class="ten columns"><a href="{{ post.url }}">{{ post.title }}</a></div>
-  </div>
+  {% assign years = site.categories.talk | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in years %}
+  <h3 class="eyebrow">{{ year.name }}</h3>
+  <ul class="post-list">
+    {% for post in year.items %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
   {% endfor %}
 </div>

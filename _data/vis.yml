@@ -3,6 +3,7 @@
 - id: seriesheat
   title: "SeriesHeat"
   year: 2021
+  featured: true
   url: "/seriesheat"
   image: /images/vis/banners/seriesheat.jpg
   image_size: [1400, 400]
@@ -23,6 +24,7 @@
 - id: process_simulation
   title: "Process Simulation Animation"
   year: 2020
+  featured: true
   url: "/process_simulation/"
   image: /images/vis/banners/process_simulation.jpg
   image_size: [1602, 400]
@@ -48,6 +50,7 @@
 - id: quickdraw
   title: "Quick Draw Visualization"
   year: 2017
+  featured: true
   url: "/quickdraw/"
   image: /images/vis/banners/quickdraw.jpg
   image_size: [1600, 391]
@@ -165,6 +168,7 @@
 - id: vintage_bump_chart
   title: "Vintage Bump Chart in Code"
   year: 2015
+  featured: true
   url: "/census_bump/"
   image: /images/vis/banners/bumpchart.png
   image_size: [1600, 200]

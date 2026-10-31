@@ -30,13 +30,22 @@ layout: default
 	{{ content }}
 </div>
 
-{% if page.previous or page.next %}
-<nav class="post-nav" aria-label="More posts">
-  {% if page.previous %}
-  <a class="post-nav-prev" href="{{ page.previous.url }}"><span>← Older</span>{{ page.previous.title }}</a>
+{% comment %}Only link between posts listed on the home page (tutorials and talks).{% endcomment %}
+{% assign listed = site.posts | where_exp: "post", "post.categories contains 'tutorial' or post.categories contains 'talk'" %}
+{% assign newer = nil %}{% assign older = nil %}
+{% for post in listed %}
+  {% if post.url == page.url %}
+    {% unless forloop.first %}{% assign i = forloop.index0 | minus: 1 %}{% assign newer = listed[i] %}{% endunless %}
+    {% unless forloop.last %}{% assign older = listed[forloop.index] %}{% endunless %}
   {% endif %}
-  {% if page.next %}
-  <a class="post-nav-next" href="{{ page.next.url }}"><span>Newer →</span>{{ page.next.title }}</a>
+{% endfor %}
+{% if older or newer %}
+<nav class="post-nav" aria-label="More posts">
+  {% if older %}
+  <a class="post-nav-prev" href="{{ older.url }}"><span>← Older</span>{{ older.title }}</a>
+  {% endif %}
+  {% if newer %}
+  <a class="post-nav-next" href="{{ newer.url }}"><span>Newer →</span>{{ newer.title }}</a>
   {% endif %}
 </nav>
 {% endif %}
