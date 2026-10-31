@@ -11,7 +11,7 @@ description: "Data visualization, tutorials, and projects by Jim Vallandingham."
 
 # Cloudflare Web Analytics site token (Cloudflare dashboard → Web Analytics).
 # The beacon only loads in production builds when this is set.
-# cloudflare_analytics_token: ""
+cloudflare_analytics_token: "2b4df352ecf04cab9fc322e072c3ef88"
 
 encoding: utf-8
 timezone: UTC

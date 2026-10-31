@@ -59,7 +59,7 @@
     <script src="/js/main.js" defer></script>
     {% if site.cloudflare_analytics_token and jekyll.environment == "production" %}
     <script
-      defer
+      type="module"
       src="https://static.cloudflareinsights.com/beacon.min.js"
       data-cf-beacon='{"token": "{{ site.cloudflare_analytics_token }}"}'
     ></script>
