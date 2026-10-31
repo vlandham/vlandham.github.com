@@ -1,0 +1,417 @@
+# Entries for /vis/, newest first. `description` is Markdown.
+
+- id: seriesheat
+  title: "SeriesHeat"
+  year: 2021
+  url: "/seriesheat"
+  image: /images/vis/banners/seriesheat.jpg
+  alt: "Heatmap of TV episode ratings, with seasons as rows and episodes as columns"
+  description: |
+    Using data from IMDb, this project allows people to explore average ratings of any TV Series made. Simply type in a TV Show and get a heatmap of seasons vs episodes. Its just that easy! The visualization approach was inspired by a static display showing how Simpson's episodes had degraded over time. Here, I wanted to expand that insight to any show out there.
+
+- id: good_government
+  title: "Good Governments Help People Succeed"
+  year: 2019
+  url: "/world_gov_challenge/"
+  image: /images/vis/banners/good_government.jpg
+  alt: "Orange connected scatterplot lines tracing countries' metrics over time"
+  description: |
+    My entry for the [World Data Visualization Prize](https://web.archive.org/web/20230320095759/https://wdvp.worldgovernmentsummit.org/). This interactive provides a way to explore countries through metrics related to both country power and progress, as well as individual human growth and opportunity. Through the use of lots and lots of connected scatterplots, we find that governments can achieve success in being good for both the individuals being governed, and good in the amount of wealth produced.
+  links:
+    - label: "R Notebook Analysis"
+      url: "/world_gov_challenge/analysis.nb.html"
+    - label: "Source Code"
+      url: "https://github.com/vlandham/world_gov_challenge"
+
+- id: process_simulation
+  title: "Process Simulation Animation"
+  year: 2020
+  url: "/process_simulation/"
+  image: /images/vis/banners/process_simulation.jpg
+  alt: "Colored particles flowing from a circle into grids of dots representing process phases"
+  description: |
+    How can we explain complex processes where items move between many different categories? One way is through animation! This ambiguous visualization shows an example of many particles moving through multiple phases of a process at different rates.
+
+- id: sundry
+  title: "Sundry"
+  year: 2021
+  url: "/projects/sundry.html"
+  image: /images/vis/banners/sundry.jpg
+  alt: "Density chart of model performance for one data cluster"
+  description: |
+    A hack-week project to try to replicate some of Uber Manifold's capabilities in visualizing the performance of multiple statistical models. The novelity of this approach is in its use of input data clusters to compare model results.
+
+- id: quickdraw
+  title: "Quick Draw Visualization"
+  year: 2017
+  url: "/quickdraw/"
+  image: /images/vis/banners/quickdraw.jpg
+  alt: "Four histograms comparing drawing times for different Quick Draw doodles"
+  description: |
+    A fun visual exploration of the Google's newly released [Quick Draw dataset](https://quickdraw.withgoogle.com/data). This work focuses on the amount of time doodlers spent drawing a variety of draw categories. Check it out to enjoy the linked histograms and be surprised by the results!
+
+- id: cancerbrowser
+  title: "HMS Cancer Browser"
+  year: 2016
+  url: "https://www.cancerbrowser.org"
+  image: /images/vis/banners/cancerbrowser.jpg
+  alt: "Bar chart comparing protein levels for genes like EpCAM, Akt, and ErbB3"
+  description: |
+    Bocoup Collaborated with the Harvard Medical School to create an interactive tool for exploring and connecting a number datasets around various types of breast cancer cell lines.
+
+    We were able to quickly create a functional tool that is expandable enough to allow for additional datasets to be added in the future. It was a lot of fun working in the bioinformatic domain, creating an interactive tool for scientists to use to discover novel connections between drugs and cancer cell types.
+
+- id: kungfu
+  title: "Kung Fu Film Data Exploration"
+  year: 2017
+  url: "/shaw_bros_analysis.html"
+  image: /images/vis/banners/kungfu.jpg
+  alt: "Network of kung fu actors, with lines connecting Ku Feng to films and co-stars"
+  description: |
+    This data exploration project looks at the rich and complex history of classic Kung Fu films from the Shaw Brothers film studio. This non-serious dataset is used to demonstrate a number of techniques: Using R for data exploration and analysis, creating interactive networks of social graphs, and using Word2Vec for a bit of text generative fun.
+
+- id: mlab
+  title: "Measurement Lab Visualization"
+  year: 2017
+  url: "https://bocoup.com/blog/visualizing-the-health-of-the-internet-with-measurement-lab"
+  image: /images/vis/banners/mlab.jpg
+  alt: "Dashboard of Internet speed line charts with a filter sidebar"
+  description: |
+    How do you visualize the "Health of the Internet"? That was the challenge posed Bocoup Data Vis by the non-profit Measurement Lab. To answer this question, we got a chance to flex our _Big Data_ chops, needing to aggregate over 800 million Internet speed tests into city, state, and country level statistics. We used BigQuery, Google Dataflow, and Bigtable to query, wrangle, and store the data needed to power this visualization. The end result is an interactive tool that can be used by consumers and researchers to explore, discover, and research Internet help problems.
+
+- id: nplegends
+  title: "NP Legends"
+  year: 2016
+  url: "/nplegends/"
+  image: /images/vis/banners/nplegends.jpg
+  alt: "Grid of National Park map symbols such as picnic tables, parking, and campgrounds"
+  description: |
+    This experiment started with that age-old question: "What symbols are used the most often in National Park maps?"
+
+    I know you, like myself, have had this thought in your head at least a dozen times in your life. NP Legends serves to begin to provide an answer on this very important topic.
+
+- id: openvis_tweets
+  title: "OpenVis Conf Tweets"
+  year: 2016
+  url: "/openvis_tweets/"
+  image: /images/vis/banners/openvis_tweets.jpg
+  alt: "Clusters of green circles showing tweet activity over time"
+  description: |
+    What are folks tweeting about [OpenVis Conf](https://openvisconf.com/) speakers? What content from OpenVis Conf speakers is most popular?
+
+- id: speaker_web
+  title: "Web of Speakers"
+  year: 2015
+  url: "/speaker_web/"
+  image: /images/vis/banners/speaker_web.png
+  alt: "Network of conference speakers drawn as rows of green circles with connecting arcs"
+  description: |
+    What is the relationship of all the data visualization conferences? A web of speakers!
+
+- id: textarc
+  title: "TextArc in D3"
+  year: 2016
+  url: "/textarc/"
+  image: /images/vis/banners/textarc.jpg
+  alt: "Words from a text scattered in white on a black background, TextArc style"
+  description: |
+    Awhile ago for fun I implemented part of a [classic text visualization](https://web.archive.org/web/20201120101309/http://textarc.org/) using JavaScript. [Check it out here!](/textarc/).
+
+- id: buoyant
+  title: "Buoyant Microservice Prototype"
+  year: 2016
+  url: "https://bocoup.com/work/buoyant"
+  image: /images/vis/banners/buoyant.jpg
+  alt: "Blue and orange lines flowing through a circle labeled events"
+  description: |
+    As part as my role as a data visualization and open web engineer at [Bocoup](https://bocoup.com/), I got a chance to to work on a prototype for visualizing network traffic and communication channels in micro-service networks to be used as part of [Buoyant's Microservice Tools](https://buoyant.io/). Read more on our [case study](https://bocoup.com/work/buoyant).
+
+    [Buoyant Prototype Case Study](https://bocoup.com/work/buoyant)
+
+- id: experiments
+  title: "Experiments!"
+  year: 2014
+  url: "/experiments/"
+  image: /images/vis/banners/experiments.jpg
+  alt: "Line drawing of a face on a grid next to a scatter of green dots"
+  description: |
+    Check out my new section of incomplete, unrefined, but still fun visualizations. Experiments!
+
+    Who knows, you might find something you like.
+
+- id: stocks
+  title: "Stock Display"
+  year: 2015
+  url: "/stock_display/"
+  image: /images/vis/banners/stocks.png
+  alt: "Row of small area charts of stock prices labeled with ticker symbols"
+  description: |
+    An interactive exploration of a set of stocks in a hypothetical portfolio
+
+- id: stereotropes
+  title: "Stereotropes"
+  year: 2015
+  url: "https://web.archive.org/web/20150813075749/http://stereotropes.bocoup.com/"
+  archived: true
+  image: /images/vis/banners/stereotropes.png
+  alt: "Adjectives such as ancient, bad, and terrible linked to character tropes"
+  description: |
+    A piece by the Bocoup Data Vis Team, which I am fortunate to be a part of. Stereotropes looks at the words used to describe film and TV tropes and visualizes this language along gender lines. This free-form exploration of adjectives and gender provides interesting insights into what these tropes mean to us when they are used. Also, enjoy our [Stereotropes design post](https://web.archive.org/web/20160412153238/https://bocoup.com/weblog/stereotropes-design), which covers a lot of how we approached this topic and how the visuals came to be.
+
+- id: vintage_bump_chart
+  title: "Vintage Bump Chart in Code"
+  year: 2015
+  url: "/census_bump/"
+  image: /images/vis/banners/bumpchart.png
+  alt: "Vintage-style bump chart with ranked bands crossing between columns"
+  description: |
+    Implementing classic visualizations is always a fun experience for me - and this crazy bump chart was no exception! The visualization was produced originally for the US Statistical Atlas of 1890 by Henry Gannett and shows the top cities by population, with data from over 100 years! Lessons learned from implementing this can be found in my [writeup on Bocoup's blog](https://web.archive.org/web/20160528171847/https://bocoup.com/weblog/vintage-visualization-restoration-bump-chart).
+
+- id: bird_songs
+  title: "Web Audio Spectrograms"
+  year: 2014
+  url: "/visualizing_bird_songs.html"
+  image: /images/vis/banners/birdsongs.png
+  alt: "Three spectrograms of bird songs"
+  description: |
+    Bringing bird song visualizations to the modern web!
+
+    This is an exploration of the HTML5 Web Audio API for the use of visualizing bird songs and other sounds using a spectrogram. Spectrograms are an interesting way to visualize audio over time - and this project let's you create spectrograms on the fly - in the browser!
+  links:
+    - label: "SpectrogramJS"
+      url: "https://github.com/vlandham/spectrogramJS"
+
+- id: seattle_atlas
+  title: "Seattle Atlas"
+  year: 2014
+  url: "https://github.com/vlandham/seattle-atlas"
+  image: /images/vis/banners/seattle.png
+  alt: "Map of Seattle streets drawn in thin gray lines"
+  description: |
+    A little project to try to bring together many potential data sources for making maps about and for the city of Seattle.
+
+    Not a full visualization, but the start of a toolkit to make maps and other visualizations, Seattle Atlas uses the power of [Make](https://bost.ocks.org/mike/make/) to allow for easy downloading and conversion of shapefiles and data from a variety of sources.
+
+- id: sentence_drawings
+  title: "Sentence Drawings"
+  year: 2013
+  url: "/sentence_drawings/"
+  image: /images/vis/banners/sentences.png
+  alt: "Orange path drawing whose turns follow the sentences of a text"
+  description: |
+    [Stefanie Posavec](https://www.stefanieposavec.com/) is known for her manually curated and hand drawn visualizations that illuminate variations of structure and form in great works of literature.
+
+    In this remix, automation is used in place of thoughtful analysis to recreate a selection of her [First Chapters](https://web.archive.org/web/20140105053747/http://www.itsbeenreal.co.uk/index.php?/wwwords/first-chapters/), in which a layout technique she calls "sentence drawings" is used to display the first chapters of classic books. Implemented in D3.
+
+- id: small_mults
+  title: "Interactive Small Multiples"
+  year: 2014
+  url: "https://flowingdata.com/2014/10/15/linked-small-multiples/"
+  image: /images/vis/banners/small_mults.png
+  alt: "Small multiple area charts with peak values labeled"
+  description: |
+    Another FlowingData tutorial! This time around building interactive small multiples in D3.
+
+- id: track_tag_love
+  title: "Track Tag Love"
+  year: 2013
+  url: "/msd/vis/"
+  image: /images/vis/banners/tracktaglove.png
+  alt: "Gray circles of different sizes representing song tags"
+  description: |
+    An experiment that allows users to explore their most-listened to songs, and the tags associated with these songs. User names are faked - but the rest of the data is real. User-song play counts come from the [Million Song Dataset](http://millionsongdataset.com/). Tag data comes from [Last.fm](http://millionsongdataset.com/lastfm/).
+
+    Visualization includes a force-directed layout with tag nodes suspended in a circular orientation. Song nodes are drawn towards the tags they are associated with. Also enjoy the dot plot and interactive slopegraph!
+
+- id: remix
+  title: "Everything Is A Remix"
+  year: 2013
+  url: "/remix/"
+  image: /images/vis/banners/remix.png
+  alt: "Two hatched panels comparing patterns, one black and one red"
+  description: |
+    Just in case you need a simplified, animated version of the iconic _The Basic Elements of Creativity_ visual, here you go!
+
+    The quote and original inspiration come from the wonderful [video series by Kirby Ferguson](https://web.archive.org/web/20130106001942/http://www.everythingisaremix.info/everything-is-a-remix-part-3/) of the same name.
+
+    Remix this and enjoy!
+  links:
+    - label: "Remix Github Repo"
+      url: "https://github.com/vlandham/remix"
+
+- id: dallas_scatterplot
+  title: "Dallas Neighborhood Comparison Tool"
+  year: 2013
+  url: "https://web.archive.org/web/20130414111551/http://res.dallasnews.com/news/community-news/best-neighborhoods/compareneighborhoods/"
+  archived: true
+  image: /images/vis/banners/texas.png
+  alt: "Green and blue circles from a neighborhood comparison scatterplot"
+  description: |
+    I was asked to contribute to an online interactive piece for the [Dallas Morning News](https://www.dallasnews.com/) that allowed readers to compare Dallas neighborhoods on a number of different metrics.
+
+    This piece provides both scatter plot and interactive map, allowing the user to zoom in on one of over 500 neighborhoods in the metro area. An accompanying piece allows users to discover neighborhoods that best match their tastes over a number of factors.
+  links:
+    - label: "Find Your Ideal Neighborhood"
+      url: "https://web.archive.org/web/20150106091035/http://res.dallasnews.com/news/community-news/best-neighborhoods/sliders/"
+
+- id: transitions_tutorial
+  title: "Transitions Between Charts Tutorial"
+  year: 2013
+  url: "https://flowingdata.com/2013/01/17/how-to-animate-transitions-between-multiple-charts/"
+  image: /images/vis/banners/flow.png
+  alt: "Colorful streamgraph layers"
+  description: |
+    Another [Flowing Data](https://flowingdata.com) tutorial! This tutorial is again combined with a demo of animating between chart types in a visualization
+
+    The data for this demo was aggregated from New York City [311 call requests](https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9). Here, we look at the requests around the time of the Sandy Hurricane of 2012 from different perspectives.
+
+- id: network_tutorial
+  title: "Interactive Network Visualization Tutorial"
+  year: 2012
+  url: "https://flowingdata.com/2012/08/02/how-to-make-an-interactive-network-visualization/"
+  image: /images/vis/banners/network.png
+  alt: "Network graph of colored circle nodes connected by gray lines"
+  description: |
+    This tutorial was written for the popular data visualization site [Flowing Data](https://flowingdata.com). The tutorial is paired with source code and a demonstration site for building an interactive network visualization
+
+    The data used to demonstrate this type of visualization is song similarity data from [last.fm](https://www.last.fm/api). The visualization includes the ability to search for songs, filter based on song popularity, and change the layout of the visualization.
+
+- id: small_multiples
+  title: "Small Multiples With Details On Demand"
+  year: 2012
+  url: "/small_multiples_with_details.html"
+  image: /images/vis/banners/small_multiples.png
+  alt: "Grid of small bar charts in blue, green, and orange"
+  description: |
+    Small Multiples are a powerful way to display changes over time. In this experiment, I look at an expansion to the basic small multiples idea by adding interactive overlays for showing details of a particular small multiple.
+
+    In this example, we look at CO2 emissions over time. However, the methodology demonstrated could be used in any small multiples visualization where additional information on individual graphs would be valuable.
+
+- id: bubble_cloud
+  title: "Bubble Cloud"
+  year: 2012
+  url: "/bubble_cloud/"
+  image: /images/vis/banners/bubbles.png
+  alt: "Bubble cloud of words like Holmes, money, and morning, sized by frequency"
+  description: |
+    Based on the NYT's [convention word usage visualizations](https://www.nytimes.com/interactive/2012/09/06/us/politics/convention-word-counts.html), this bubble cloud visualization provides an interesting alternative to the traditional word cloud.
+
+    Custom forces provide a unique user experience. Bubbles can be clicked and moved around for more interactivity.
+
+    The [Bubble Cloud Tutorial](/building_a_bubble_cloud.html) goes over the details of the implementation.
+
+- id: bubble_chart
+  title: "Animated Bubble Chart"
+  year: 2012
+  url: "/bubble_chart/"
+  image: /images/vis/banners/moving_bubbles.png
+  alt: "Clusters of green and red bubbles representing grant amounts"
+  description: |
+    This simple visualization was made as a demonstration of how the [New York Times Budget Chart](https://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html) works.
+
+    Each bubble represents a grant from the Gates Foundation given to an educational system. Fluid animations are used to transition views from a single group to multiple groups based on year.
+
+    The [Original Blog Post](/bubble_charts_in_js.html) describes how its done.
+
+- id: collaboration_network
+  title: "Stowers Collaboration Network"
+  year: 2012
+  url: "https://web.archive.org/web/20120511044052/http://www.stowers.org/stowersreport/maps"
+  archived: true
+  image: /images/vis/banners/collaborations.png
+  alt: "Network of blue, green, and orange nodes linked by gray lines"
+  description: |
+    This interactive network visualization explores the relationships between individuals and groups at the Stowers Institute for Medical Research.
+
+    Each connection represents a research paper collaboration between scientists. Scientists are grouped by what lab they are a member of. The user can move groups and individuals around to explore relationships between labs.
+
+    The network was featured as a special in both online and print forms of the [Stowers Report - Spring 2012](https://web.archive.org/web/20201127111905/https://www.stowers.org/media/stowers-report-spring-2012). Source code can be found [on github](https://github.com/vlandham/collab_source)
+
+- id: gsa_leases
+  title: "GSA Lease Dashboard"
+  year: 2012
+  url: "https://web.archive.org/web/20210418103729/https://www.capitolmarkets.com/gsa-leased-investment-opportunity/"
+  archived: true
+  image: /images/vis/banners/gsa.png
+  alt: "Map of the United States with blue circles marking GSA leased properties"
+  description: |
+    Developed for [Colliers International](https://www.colliers.com/en-US/government) for their [Capitol Markets](https://www.capitolmarkets.com/) blog, this interactive dashboard allows for the exploration of government leased properties based on important factors.
+
+    Custom sliders allow users to filter over 5,500 GSA properties in the USA. Locations are displayed on an interactive map and metrics for the filtered properties are automatically updated.
+
+- id: feltronifier
+  title: "Feltronifier For Maps"
+  year: 2012
+  url: "/feltronifier/"
+  image: /images/vis/banners/feltron.png
+  alt: "Teal map of Kansas City with a highlighted route"
+  description: |
+    A fun little web-app that allows you to make custom Delaunay-style maps in the tradition of the [Feltron Report](https://feltron.com/).
+
+    Add new points, change the background and annotation colors, modify the annotations, and then save the resulting visualization for later. Uses D3.js and a number of jQuery plugins to make magical things happen.
+
+- id: movie_vis
+  title: "We're In The Money"
+  year: 2012
+  url: "/vis/movie"
+  image: /images/vis/banners/scatter.png
+  alt: "Red, green, and pink circles from a scatterplot of movie budgets and profits"
+  description: |
+    How much do the movies we love make? How about the duds we should have missed? This visualization allows the user to explore the relationships between film budget, profits, and user ratings. Search through Hollywood films from 2007 - 2011. Filter based on genre and story type.
+
+    Created for and using data from the [Information Is Beautiful Awards Movie Visualization Contest](https://www.informationisbeautifulawards.com/). Works best in Google Chrome
+
+- id: racial_divide
+  title: "Visualizing The Racial Divide"
+  year: 2011
+  url: "/racial_divide/"
+  image: /images/vis/banners/racial_divide.png
+  alt: "Teal and dark map regions pushed apart by a force-directed layout"
+  description: |
+    An interesting use of force-directed graphs combined with geographical maps: the force-directed map. Used here to create a visual representation of how segregation in U.S. cities affects communities today.
+
+    Areas with sharply segregated boundaries push away from each other, while areas of homogeneity stay largely static
+
+    The [Original Blog Post](/visualizing_the_racial_divide.html) describes the visualization in more detail. Uses d3.js and looks best in Google Chrome.
+
+- id: earworms_humdrums
+  title: "Earworms vs Humdrums"
+  year: 2013
+  url: "/msd/top/"
+  image: /images/vis/banners/earworms.png
+  alt: "Red dots on dotted lines comparing listen counts, labeled +3.39x"
+  description: |
+    As part of the initial analysis for [Track Tag Love](#track_tag_love), I created this simple chart which attempts to compare between songs that are heard relatively few times - given the number of people who have listened to them, and songs that are listened to many times by many users.
+
+    I didn't come to any startling conclusions - and so the analysis was not furthered. However, the light use of interaction to increase annotation and emphasize might be worth exploring further in the future.
+
+- id: old_vis_d3
+  title: "Old Visualizations Made New Again"
+  year: 2011
+  url: "/vis/nationality_by_city.html"
+  image: /images/vis/banners/old_vis.png
+  alt: "Recreated vintage chart of stacked colored bars"
+  description: |
+    A selection of charts from the turn of the century recreated using [d3.js](https://d3js.org/). I wanted to get a chance to practice basic visualization techniques using d3, as well as learn a bit of [coffeescript](https://coffeescript.org/) in the process. I am also fascinated with America's past. Thus, recreating old visualizations using modern technologies seemed like a good fit.
+
+    [Here is my original blog post on this visualization](/recreating_old_vis_with_new_tech.html).
+
+    With these recreations, I attempt to stay true to the original design. Because the process of extracting the raw data out of the original graphs is rather labor intensive, not all the data points are displayed in these updated versions. Also, because of the manual process, values might not exactly match the originals. Visualizations look good in Chrome and Firefox 4.
+  links:
+    - label: "Composition Of Church Membership By State: 1890"
+      url: "/vis/church_by_state.html"
+    - label: "Proportion Of Foreign Born In Large Cities: 1900"
+      url: "/vis/nationality_by_city.html"
+    - label: "Proportions Of Persons In Certain Occupations: 1900"
+      url: "/vis/jobs_by_state.html"
+
+- id: matlab_license
+  title: "License Usage Dashboard"
+  year: 2012
+  url: "/vis/matlab_license.html"
+  image: /images/vis/banners/matlab.png
+  alt: "Blue and red bars showing software license usage over time"
+  description: |
+    Managing licenses for shared applications, and knowing when to add more licenses can be tricky. This dashboard satisfies a need of knowing how often the licenses for a particular piece of shared software, Matlab, were being maxed out. Matlab has an interesting license structure in which each package has their own number of licenses - independent of the overall Matlab licenses. So there was a need to track each package's license separately.
+
+    This simple dashboard provides an overview of when licenses are being used, when these licenses are being maxed out, and who is using these licenses.
