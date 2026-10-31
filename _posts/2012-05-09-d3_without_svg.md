@@ -1,5 +1,6 @@
 ---
 layout: post
+light_only: true
 title: D3 Without SVG
 css: d3_no_svg.css
 categories:

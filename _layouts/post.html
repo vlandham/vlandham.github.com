@@ -16,6 +16,8 @@ layout: default
       {% endcase %}
     {{ page.date | date: "%Y" }}
   </li>
+  {% assign words = content | strip_html | number_of_words %}
+  <li class="post-reading-time">{{ words | divided_by: 230 | at_least: 1 }} min read</li>
   {% if page.demo %}
   <li class="post-demo"><a target="_blank" href="{{ page.demo }}">Demo</a></li>
   {% endif %}
@@ -28,5 +30,13 @@ layout: default
 	{{ content }}
 </div>
 
-{% include comments.html %}
-<div class='clearfix'></div>
+{% if page.previous or page.next %}
+<nav class="post-nav" aria-label="More posts">
+  {% if page.previous %}
+  <a class="post-nav-prev" href="{{ page.previous.url }}"><span>← Older</span>{{ page.previous.title }}</a>
+  {% endif %}
+  {% if page.next %}
+  <a class="post-nav-next" href="{{ page.next.url }}"><span>Newer →</span>{{ page.next.title }}</a>
+  {% endif %}
+</nav>
+{% endif %}

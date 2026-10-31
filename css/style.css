@@ -1,11 +1,58 @@
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-sans-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-sans-latin-italic.woff2") format("woff2");
+}
+
+/* Colors follow the system setting unless the theme toggle picks one. */
+:root {
+  color-scheme: light dark;
+  --bg: #fff;
+  --bg: light-dark(#fff, #161616);
+  --text: #222;
+  --text: light-dark(#222, #d8d8d8);
+  --text-strong: #3d3d3d;
+  --text-strong: light-dark(#3d3d3d, #ececec);
+  --text-dim: #888;
+  --text-dim: light-dark(#888, #9a9a9a);
+  --text-faint: #ccc;
+  --text-faint: light-dark(#ccc, #555);
+  --link: #333;
+  --link: light-dark(#333, #e4e4e4);
+  --border: #e1e1e1;
+  --border: light-dark(#e1e1e1, #333);
+  --code-bg: #f1f1f1;
+  --code-bg: light-dark(#f1f1f1, #242424);
+  --quote: #777;
+  --quote: light-dark(#777, #a3a3a3);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 a {
-  color: #333;
+  color: var(--link);
   text-decoration: underline;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #3d3d3d;
+  color: var(--text-strong);
 }
 
 a img {
@@ -48,7 +95,7 @@ a img {
 }
 
 .heading-anchor {
-  color: #ccc;
+  color: var(--text-faint);
   font-weight: 300;
   padding-right: 0;
   margin-left: -30px;
@@ -79,11 +126,11 @@ a img {
 
 #header h1 a {
   text-decoration: none;
-  color: #3d3d3d;
+  color: var(--text-strong);
 }
 
 #menu {
-  border-top: 3px solid #3d3d3d;
+  border-top: 3px solid var(--text-strong);
 }
 
 #menu ul {
@@ -114,7 +161,7 @@ a img {
 
 #footer {
   margin-bottom: 2em;
-  color: #3e423a;
+  color: var(--text-dim);
   font-size: 0.9em;
   padding: 0.5em;
   text-align: right;
@@ -151,13 +198,13 @@ a img {
 }
 
 .post-info {
-  color: #888;
+  color: var(--text-dim);
   font-size: 1.7rem;
 }
 
 .post-info-list li::before {
   content: "•";
-  color: #ccc;
+  color: var(--text-faint);
   margin-right: 1rem;
 }
 
@@ -240,7 +287,7 @@ a img {
 }
 
 blockquote {
-  color: #777;
+  color: var(--quote);
 }
 
 .project-box {
@@ -258,4 +305,90 @@ blockquote {
   display: block;
   width: 100%;
   margin-bottom: 10px;
+}
+
+/* Charts and diagrams are drawn for a white background. */
+.post img {
+  background-color: #fff;
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 4rem 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 1.7rem;
+}
+
+.post-nav a {
+  text-decoration: none;
+  max-width: 48%;
+}
+
+.post-nav a:hover {
+  text-decoration: underline;
+}
+
+.post-nav span {
+  display: block;
+  color: var(--text-dim);
+  font-size: 1.4rem;
+}
+
+.post-nav-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.highlighter-rouge {
+  position: relative;
+}
+
+.copy-code {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  height: auto;
+  margin: 0;
+  padding: 0.2rem 0.8rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--text-dim);
+  background: var(--bg);
+  border-color: var(--border);
+  opacity: 0;
+  transition: 0.2s opacity;
+}
+
+.highlighter-rouge:hover .copy-code,
+.copy-code:focus {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .copy-code {
+    opacity: 1;
+  }
+}
+
+.theme-toggle button {
+  height: auto;
+  margin: 0 0 0 0.3rem;
+  padding: 0 0.8rem;
+  font-size: 1.2rem;
+  line-height: 2;
+  letter-spacing: normal;
+  text-transform: none;
+  font-weight: 400;
+  color: var(--text-dim);
+  border-color: var(--border);
+}
+
+.theme-toggle button[aria-pressed="true"] {
+  color: var(--text-strong);
+  border-color: var(--text-strong);
 }

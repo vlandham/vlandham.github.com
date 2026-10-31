@@ -20,6 +20,19 @@ Then open http://localhost:4000.
 ./new.rb "My post title"
 ```
 
+## Post Front Matter
+
+Optional flags used by the layouts:
+
+- `d3: true` – load D3 v4 globally (only pages that need it).
+- `light_only: true` – keep the page in light mode, for embedded visualizations drawn for a white background.
+- `js` / `css` – page-specific files in `js/pages/` and `css/pages/`.
+- `jquery`, `jslibs`, `zoom` – extra libraries.
+
+## Analytics
+
+Set `cloudflare_analytics_token` in `_config.yml` to enable Cloudflare Web Analytics in production builds.
+
 ## Deploying
 
 Pushing to `main` builds and deploys the site via GitHub Actions
