@@ -86,7 +86,7 @@ In this instance we are going to drag the column `Medal_Type` over to the Filter
 Here is a little animated gif of the whole process:
 
 <div class="center">
-<img class="center" src="http://vallandingham.me/images/lyra/bind.gif" alt="" style="border:0px dotted #cccccc;"/>
+<video class="center" src="/images/lyra/bind.mp4" width="480" height="460" autoplay loop muted playsinline></video>
 
 </div>
 I’ll break it down step-by-step for the anti-gif folks out there. Here’s the `Medal_Type` move.
@@ -316,7 +316,7 @@ For *Type* we are going to use `X`. For orient, we are going to use `bottom`. No
 Once its dropped in, you should see your scale appear at the bottom of the preview panel. Pretty slick!
 
 <div class="center">
-<img class="center" src="http://vallandingham.me/images/lyra/scale.gif" alt="" style="border:0px dotted #cccccc;"/>
+<video class="center" src="/images/lyra/scale.mp4" width="600" height="374" autoplay loop muted playsinline></video>
 
 </div>
 I changed all the colors of each element of the axis to `#777777`. I did try messing with the other properties of the axis mark and ended up screwing everything up. This will probably not be an issue in the future - but be advised - right now it seems a little picky.

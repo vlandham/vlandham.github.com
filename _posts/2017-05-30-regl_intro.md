@@ -26,7 +26,7 @@ We will start with the triangle. Try to understand WebGL and regl in the context
 
 The final result will be a data stream visualization:
 
-<a href="https://bl.ocks.org/vlandham/af509ae70a7560b5a72cd3e3da4ff8cf"><img class="center" src="{{ "images/regl/data_stream.gif" | absolute_url }}" alt="Data Stream" style=""/></a>
+<a href="https://bl.ocks.org/vlandham/af509ae70a7560b5a72cd3e3da4ff8cf"><video class="center" src="/images/regl/data_stream.mp4" width="664" height="240" autoplay loop muted playsinline aria-label="Data Stream"></video></a>
 
 This falls short of the [amazing regl visualizations](http://peterbeshai.com/beautifully-animate-points-with-webgl-and-regl.html) Peter Beshai has recently produced and discussed, but hopefully this tutorial can serve as a stepping stone towards this greatness.
 
@@ -403,7 +403,7 @@ attributes: {
 
 And our triangle should start flying around on the screen!
 
-<a href="https://bl.ocks.org/vlandham/48f3abf115332ac4e67f0f86ee9fe61d"><img class="center" src="{{ "images/regl/triangle_loop.gif" | absolute_url }}" alt="Triangle Example moving in loop" style=""/></a>
+<a href="https://bl.ocks.org/vlandham/48f3abf115332ac4e67f0f86ee9fe61d"><video class="center" src="/images/regl/triangle_loop.mp4" width="610" height="314" autoplay loop muted playsinline aria-label="Triangle Example moving in loop"></video></a>
 
 [Block](https://bl.ocks.org/vlandham/48f3abf115332ac4e67f0f86ee9fe61d)
 
@@ -704,7 +704,7 @@ regl.frame(function(context) {
 
 And this makes a data stream!
 
-<a href="https://bl.ocks.org/vlandham/af509ae70a7560b5a72cd3e3da4ff8cf"><img class="center" src="{{ "images/regl/data_stream.gif" | absolute_url }}" alt="Triangle Example with props" style=""/></a>
+<a href="https://bl.ocks.org/vlandham/af509ae70a7560b5a72cd3e3da4ff8cf"><video class="center" src="/images/regl/data_stream.mp4" width="664" height="240" autoplay loop muted playsinline aria-label="Triangle Example with props"></video></a>
 
 [Block](https://bl.ocks.org/vlandham/af509ae70a7560b5a72cd3e3da4ff8cf)
 

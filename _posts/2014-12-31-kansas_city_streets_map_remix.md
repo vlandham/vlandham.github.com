@@ -53,7 +53,7 @@ On the left, we can see the [CartoCSS](https://www.mapbox.com/tilemill/docs/cras
 Real quick, let’s switch to our region of choice - Kansas City, using the nifty built in search feature.
 
 <div class="center">
-<img class="center" src="http://vallandingham.me/images/vis/kc_map/search.gif" alt="new project" style=""/>
+<video class="center" src="/images/vis/kc_map/search.mp4" width="640" height="400" autoplay loop muted playsinline aria-label="new project"></video>
 
 </div>
 No panning and dragging necessary!

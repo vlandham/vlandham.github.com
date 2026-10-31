@@ -281,7 +281,8 @@ a img {
   margin: auto;
 }
 
-.post img {
+.post img,
+.post video {
   max-width: 100%;
   height: auto;
 }
