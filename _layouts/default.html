@@ -15,8 +15,6 @@
     {% if description != "" %}<meta property="og:description" content="{{ description | escape }}" />{% endif %}
     {% if page.img %}<meta property="og:image" content="{{ page.img | absolute_url }}" />{% endif %}
     <meta name="twitter:card" content="{{ page.twitter_type | default: 'summary' }}" />
-    <meta name="twitter:site" content="@vlandham" />
-    <meta name="twitter:creator" content="@vlandham" />
 
     <link rel="alternate" type="application/atom+xml" title="Jim Vallandingham" href="/atom.xml" />
     <link rel="me" href="https://github.com/vlandham" />
@@ -102,7 +100,6 @@
           >
           · <a href="https://github.com/vlandham">GitHub</a>
           · <a href="https://www.linkedin.com/in/jim-vallandingham-61b4174">LinkedIn</a>
-          · <a href="https://twitter.com/vlandham">Twitter</a>
           · <a href="/atom.xml">Feed</a>
         </p>
         {% unless page.light_only %}

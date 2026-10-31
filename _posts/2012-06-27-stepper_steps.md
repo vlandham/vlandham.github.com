@@ -57,8 +57,56 @@ The stepper nav links can be built out of an unsorted list, like any other navig
 
 A simple example would look something like this:
 
-<script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/build1/stepper.html">
-</script>
+[`build1/stepper.html`](https://github.com/vlandham/stepper_example/blob/gh-pages/build1/stepper.html):
+
+```html
+<!--Step navigation UI-->
+<div id="vis-nav">
+  <a href="#" id="step1" class="step-link active">Step1</a>
+  <a href="#" id="step2" class="step-link">Step2</a>
+  <a href="#" id="step3" class="step-link">Step3</a>
+</div>
+
+<!--Container for visualization-->
+<div id="vis-container">
+  <div id="annotation-steps">
+
+    <!--Each steps annotation contained in a div-->
+    <div class="annotation-step" id="step1-annotation">
+
+      <!--Each annotation in a separate div for positioning-->
+      <div class="annotation" id="step1-left-annotation" >
+        <h4>Left Annotation Title</h4>
+        <p>Here is the annotation text for the <strong>left</strong> annotation of step 1</p>
+      </div>
+      <div class="annotation" id="step1-right-annotation" >
+        <h4>Right Annotation Title</h4>
+        <p>Here is the annotation text for the <strong>right</strong> annotation of step 1</p>
+      </div>
+    </div>
+    <div class="annotation-step" id="step2-annotation">
+      <div class="annotation" id="step2-center-annotation" >
+        <h4>Center Annotation Title</h4>
+        <p>Here is the annotation text for the center annotation of step 2.<br/>
+          We are using absolute positioning of these divs</p>
+      </div>
+    </div>
+    <div class="annotation-step" id="step3-annotation">
+      <div class="annotation" id="step3-high-annotation" >
+        <h4>High Annotation Title</h4>
+        <p>This is text up high.</p>
+      </div>
+      <div class="annotation" id="step3-low-annotation" >
+        <h4>Low Annotation Title</h4>
+        <p>This is text down low.</p>
+      </div>
+    </div>
+  </div>
+  <div id="vis-canvas">
+    <!--Draw visualization here-->
+  </div>
+</div>
+```
 
 Our `vis-container` div wraps the entire visualization. The annotation sets for each step are contained in their own div with an `.annotation-step` class, and all annotation steps are children of `#annotation-steps`.
 
@@ -80,22 +128,96 @@ We finish off with some `z-index` to ensure the annotation layer and stepper con
 
 Our basic stylings now look like this:
 
-<script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/build2/stepper.css">
-</script>
+[`build2/stepper.css`](https://github.com/vlandham/stepper_example/blob/gh-pages/build2/stepper.css):
+
+```css
+
+/* Here is our relatively positioned
+ * container div to hold the rest of the
+ * visualization */
+
+#vis-container {
+  position: relative;
+  width: 980px;
+  height: 700px;
+  margin-top: 10px;
+}
+
+/* All the .annotation-step divs are inside
+ * #annotation-steps. z-index ensures annotations
+ * stay on top of visualization. */
+
+#annotation-steps {
+  position: absolute;
+  z-index: 40;
+}
+
+#vis-nav {
+  z-index: 20;
+}
+
+/* This is where you would create the actual visualization.
+ * Right now, lets just change the background color. */
+
+#vis-canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+/* By default, all annotation-steps are hidden. */
+
+.annotation-step {
+  position: absolute;
+  display: none;
+}
+
+/* Finally we can position each annotation exactly how
+ * we want. */
+
+.annotation {
+  position: absolute;
+}
+
+#step1-left-annotation {
+  left: 30px;
+  top: 120px;
+  width: 200px;
+}
+
+/* The rest of the annotation positions are in the final
+ * demo. */
+```
 
 The comments in the code should let you follow what is going on.
 
 Note that we have hidden all the `.annotation-step` divs, but we would like to start by showing the annotations for the first step. This can be done by adding `style="display:block;"` to the html of the first step’s div. This overrides the `display:none;` in our css file.
 
-<code>
-
+```html
 <div class="annotation-step" id="step1-annotation" style="display:block;">
-</code>
+```
 
 While we are at it, lets make the stepper look half-way decent. The Obama Budget visualization uses a nice looking multipart button, complete with fancy rounded corners and shadows. You can find a close approximation to this style from [Twitter Bootstrap’s Button Group](http://twitter.github.com/bootstrap/components.html#buttonGroups) . Twitter Bootstrap makes it easy to make your UI elements look good. For this demo, however, I didn’t want to pull in their css and add any complexity. So instead, we will just style them as simple boxes:
 
-<script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/build2/nav.css">
-</script>
+[`build2/nav.css`](https://github.com/vlandham/stepper_example/blob/gh-pages/build2/nav.css):
+
+```css
+
+/* Basic styling for the step links */
+a.step-link {
+  padding: 5px;
+  background-color: #444;
+  color: #666;
+  text-decoration: none;
+}
+
+a.step-link:hover, a.active {
+  color: #ddd;
+}
+```
 
 As an aside, I <strong>am</strong> using a [reset css file](https://github.com/vlandham/stepper_example/blob/gh-pages/final/css/reset.css) in addition to the css above. This is from the [HTML5 Boilerplate template](http://html5boilerplate.com/) .
 
@@ -103,8 +225,18 @@ As an aside, I <strong>am</strong> using a [reset css file](https://github.com/v
 
 Our javascript needs to switch the annotations to a new step when a step link is pressed, and look classy doing it. To do this, we will rely on the consistent naming of the id’s of the `.step-link` anchors and the id’s of the `annotation-step` divs. First, lets hook up a click callback function for the step links:
 
-<script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/build3/stepper.js">
-</script>
+[`build3/stepper.js`](https://github.com/vlandham/stepper_example/blob/gh-pages/build3/stepper.js):
+
+```javascript
+$(document).ready(function() {
+  $("a.step-link").click(function(e) {
+    var clickedStep = $(this).attr('id');
+    switchStep(clickedStep);
+    switchAnnotation(clickedStep);
+    return false;
+  });
+});
+```
 
 This code is using [jQuery 1.7.2](http://jquery.com/) , but shouldn’t really be too version specific.
 
@@ -114,8 +246,31 @@ I’ve broken up the switching of the step into two functions: `switchStep` chan
 
 Here is the entire js for this demo:
 
-<script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/final/js/stepper.js">
-</script>
+[`final/js/stepper.js`](https://github.com/vlandham/stepper_example/blob/gh-pages/final/js/stepper.js):
+
+```javascript
+
+function switchStep(newStep)
+{
+  $(".step-link").toggleClass("active", false);
+  $("#" + newStep).toggleClass("active", true);
+}
+
+function switchAnnotation(newStep)
+{
+  $(".annotation-step").hide();
+  $("#" + newStep + "-annotation").delay(300).fadeIn(500);
+}
+
+$(document).ready(function() {
+  $("a.step-link").click(function(e) {
+    var clickedStep = $(this).attr('id');
+    switchStep(clickedStep);
+    switchAnnotation(clickedStep);
+    return false;
+  });
+});
+```
 
 So in `switchStep`, we use jQuery’s `.toggleClass` method to de-activate all steps and then activate the new step.
 
@@ -129,8 +284,35 @@ Here’s the [example just using D3](http://vallandingham.me/stepper_example/fin
 
 The javascript code is below:
 
-<script src="http://gist-it.appspot.com/github/vlandham/stepper_example/raw/gh-pages/final_d3/js/stepper.js">
-</script>
+[`final_d3/js/stepper.js`](https://github.com/vlandham/stepper_example/blob/gh-pages/final_d3/js/stepper.js):
+
+```javascript
+
+function switchStep(newStep)
+{
+  d3.selectAll(".step-link").classed("active", false);
+  d3.select("#" + newStep).classed("active", true);
+}
+
+function switchAnnotation(newStep)
+{
+  d3.selectAll(".annotation-step")
+    .style("display", "none")
+    .style("opacity", 0.0);
+
+  d3.select("#" + newStep + "-annotation")
+    .style("display", "block")
+    .transition().delay(300).duration(500)
+      .style("opacity", 1);
+}
+
+d3.selectAll("a.step-link").on("click", function(d) {
+  var clickedStep = d3.select(this).attr("id");
+  switchStep(clickedStep);
+  switchAnnotation(clickedStep);
+  return false;
+});
+```
 
 You can see it might be a bit more verbose, but it gets the job done. A few things to point out with this D3 example:
 
