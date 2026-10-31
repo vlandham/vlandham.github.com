@@ -1,45 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"{% if page.light_only %} data-theme="light" data-theme-locked{% endif %}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ page.title }} - Jim Vallandingham</title>
-    {% if page.twitter %}
-    <meta name="twitter:card" content="{{ page.twitter_type }}" />
-    <meta name="twitter:site" content="@vlandham" />
-    <meta name="twitter:creator" content="@vlandham" />
-    <meta name="twitter:title" content="{{ page.title }}" />
-    <meta name="twitter:description" content="{{ page.description }}" />
-    <meta name="twitter:image:src" content="{{ page.img }}" />
-    {% else %}
-    <meta name="twitter:site" content="@vlandham" />
-    <meta name="twitter:creator" content="@vlandham" />
-    <meta name="twitter:title" content="{{ page.title }}" />
-    {% endif %} {% if page.twitter_type %}
-    <meta name="twitter:card" content="{{ page.twitter_type }}" />
-    {% endif %}
+    {% assign description = page.description | default: site.description %}
+    {% if description != "" %}<meta name="description" content="{{ description | escape }}" />{% endif %}
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
+    <meta property="og:site_name" content="Jim Vallandingham" />
     <meta property="og:url" content="{{ page.url | absolute_url }}" />
-    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:title" content="{{ page.title | escape }}" />
+    <meta property="og:type" content="{{ page.ogtype | default: 'website' }}" />
+    {% if description != "" %}<meta property="og:description" content="{{ description | escape }}" />{% endif %}
+    {% if page.img %}<meta property="og:image" content="{{ page.img | absolute_url }}" />{% endif %}
+    <meta name="twitter:card" content="{{ page.twitter_type | default: 'summary' }}" />
+    <meta name="twitter:site" content="@vlandham" />
+    <meta name="twitter:creator" content="@vlandham" />
 
-    {% if page.ogtype %}
-    <meta property="og:type" content="{{ page.ogtype }}" />
-    {% endif %} {% if page.description %}
-    <meta name="twitter:description" content="{{ page.description }}" />
-    <meta property="og:description" content="{{ page.description }}" />
-    {% endif %} {% if page.img %}
-    <meta property="og:image" content="{{ page.img | absolute_path }}" />
-    <meta name="twitter:image:src" content="{{ page.img | absolute_path }}" />
+    <link rel="alternate" type="application/atom+xml" title="Jim Vallandingham" href="/atom.xml" />
+    <link rel="me" href="https://github.com/vlandham" />
+    <link rel="me" href="https://www.linkedin.com/in/jim-vallandingham-61b4174" />
+
+    <script>
+      // Apply a saved theme choice before first paint to avoid a flash.
+      (function () {
+        var root = document.documentElement;
+        if (root.hasAttribute("data-theme-locked")) return;
+        try {
+          var theme = localStorage.getItem("theme");
+          if (theme === "light" || theme === "dark") root.dataset.theme = theme;
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preload" href="/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/skeleton.css" />
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    {% if page.css %}
+    <link rel="stylesheet" href="/css/pages/{{ page.css }}" />
     {% endif %}
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
-
-    <script src="//d3js.org/d3.v4.min.js"></script>
-
+    {% if page.d3 %}
+    <script src="https://cdn.jsdelivr.net/npm/d3@4.13.0/build/d3.min.js"></script>
+    {% endif %}
     {% if page.jquery %}
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -47,26 +53,18 @@
       crossorigin="anonymous"
     ></script>
     {% endif %} {% if page.zoom %}
-    <script src="https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js"></script>
+    <script src="/js/medium-zoom.min.js"></script>
     {% endif %} {% if page.jslibs %} {% for lib in page.jslibs %}
     <script src="{{ lib }}"></script>
     {% endfor %} {% endif %}
 
-    <link
-      href="http://feeds.feedburner.com/jim-vallandingham"
-      rel="alternate"
-      title="Jim Vallandingham"
-      type="application/atom+xml"
-    />
-
-    <link rel="stylesheet" href="/css/normalize.css" type="text/css" />
-    <link rel="stylesheet" href="/css/skeleton.css" type="text/css" />
-
-    <link rel="stylesheet" href="/css/github.css" type="text/css" />
-    <link rel="stylesheet" href="/css/style.css" type="text/css" />
-
-    {% if page.css %}
-    <link rel="stylesheet" href="/css/pages/{{ page.css }}" />
+    <script src="/js/main.js" defer></script>
+    {% if site.cloudflare_analytics_token and jekyll.environment == "production" %}
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "{{ site.cloudflare_analytics_token }}"}'
+    ></script>
     {% endif %}
   </head>
   <body>
@@ -92,7 +90,7 @@
               </li>
             </ul>
           </div>
-          <div id="content">{{ content }}</div>
+          <div id="content">{{ content | replace: '<img ', '<img loading="lazy" decoding="async" ' }}</div>
         </div>
       </div>
       <div id="footer">
@@ -100,25 +98,30 @@
           Jim Vallandingham<br />
           <a
             href="mailto:&#118;&#108;&#097;&#110;&#100;&#104;&#097;&#109;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;"
-            >&#118;&#108;&#097;&#110;&#100;&#104;&#097;&#109;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a
-          ><br />
-          <a href="http://twitter.com/vlandham">@vlandham</a>
+            >Email</a
+          >
+          · <a href="https://github.com/vlandham">GitHub</a>
+          · <a href="https://www.linkedin.com/in/jim-vallandingham-61b4174">LinkedIn</a>
+          · <a href="https://twitter.com/vlandham">Twitter</a>
+          · <a href="/atom.xml">Feed</a>
         </p>
-        <!-- http://www.wbwip.com/wbw/emailencoder.html -->
+        {% unless page.light_only %}
+        <p class="theme-toggle" hidden>
+          Theme:
+          <button type="button" data-theme-choice="auto">Auto</button>
+          <button type="button" data-theme-choice="light">Light</button>
+          <button type="button" data-theme-choice="dark">Dark</button>
+        </p>
+        {% endunless %}
       </div>
     </div>
-    <script src="/js/main.js"></script>
     {% if page.js %}
-    <script
-      src="/js/pages/{{ page.js }}"
-      type="text/javascript"
-      charset="utf-8"
-    ></script>
+    <script src="/js/pages/{{ page.js }}"></script>
     {% endif %}
+    {% if page.zoom %}
     <script>
-      {% if page.zoom %}
-        mediumZoom(".zoom")
-      {% endif %}
+      mediumZoom(".zoom");
     </script>
+    {% endif %}
   </body>
 </html>

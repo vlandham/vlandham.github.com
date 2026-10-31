@@ -1,5 +1,6 @@
 ---
 layout: post
+light_only: true
 title: An Introduction to Altair
 twitter: true
 twitter_type: summary_large_image

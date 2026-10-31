@@ -7,7 +7,11 @@ permalink: /:title.html
 
 #base_url: http://vlandham.com
 #base_url: /
-description: ""
+description: "Data visualization, tutorials, and projects by Jim Vallandingham."
+
+# Cloudflare Web Analytics site token (Cloudflare dashboard → Web Analytics).
+# The beacon only loads in production builds when this is set.
+# cloudflare_analytics_token: ""
 
 encoding: utf-8
 timezone: UTC

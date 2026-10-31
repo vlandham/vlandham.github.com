@@ -1,5 +1,7 @@
 ---
 layout: post
+light_only: true
+d3: true
 title: Animating Uncertainty
 twitter: true
 twitter_type: summary_large_image

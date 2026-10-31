@@ -191,7 +191,8 @@ body {
   font-weight: 400;
   font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont,
     "Helvetica Neue", sans-serif;
-  color: #222;
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 /* Typography
@@ -436,8 +437,8 @@ code {
   margin: 0 0.2rem;
   font-size: 90%;
   white-space: nowrap;
-  background: #f1f1f1;
-  border: 1px solid #e1e1e1;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 pre > code {
@@ -452,7 +453,7 @@ th,
 td {
   padding: 12px 15px;
   text-align: left;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid var(--border);
 }
 th:first-child,
 td:first-child {
@@ -510,7 +511,7 @@ hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
-  border-top: 1px solid #e1e1e1;
+  border-top: 1px solid var(--border);
 }
 
 /* Clearing

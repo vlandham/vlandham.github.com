@@ -1,0 +1,117 @@
+/* Generated from Rouge GitHub light/dark themes; light-dark() follows color-scheme. */
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: light-dark(#24292f, #c9d1d9);
+  background-color: light-dark(#f6f8fa, #161b22);
+}
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt, .highlight .kv {
+  color: light-dark(#cf222e, #ff7b72);
+}
+.highlight .gr {
+  color: light-dark(#f6f8fa, #f0f6fc);
+}
+.highlight .gd {
+  color: light-dark(#82071e, #ffdcd7);
+  background-color: light-dark(#ffebe9, #67060c);
+}
+.highlight .nb {
+  color: light-dark(#953800, #ffa657);
+}
+.highlight .nc {
+  color: light-dark(#953800, #ffa657);
+}
+.highlight .no {
+  color: light-dark(#953800, #ffa657);
+}
+.highlight .nn {
+  color: light-dark(#953800, #ffa657);
+}
+.highlight .sr {
+  color: light-dark(#116329, #7ee787);
+}
+.highlight .na {
+  color: light-dark(#116329, #7ee787);
+}
+.highlight .nt {
+  color: light-dark(#116329, #7ee787);
+}
+.highlight .gi {
+  color: light-dark(#116329, #aff5b4);
+  background-color: light-dark(#dafbe1, #033a16);
+}
+.highlight .ges {
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .kc {
+  color: light-dark(#0550ae, #79c0ff);
+}
+.highlight .l, .highlight .ld, .highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: light-dark(#0550ae, #79c0ff);
+}
+.highlight .sb {
+  color: light-dark(#0550ae, #79c0ff);
+}
+.highlight .bp {
+  color: light-dark(#0550ae, #79c0ff);
+}
+.highlight .ne {
+  color: light-dark(#0550ae, #79c0ff);
+}
+.highlight .nl {
+  color: light-dark(#0550ae, #79c0ff);
+}
+.highlight .py {
+  color: light-dark(#0550ae, #79c0ff);
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm {
+  color: light-dark(#0550ae, #79c0ff);
+}
+.highlight .o, .highlight .ow {
+  color: light-dark(#0550ae, #79c0ff);
+}
+.highlight .gh {
+  color: light-dark(#0550ae, #1f6feb);
+  font-weight: bold;
+}
+.highlight .gu {
+  color: light-dark(#0550ae, #1f6feb);
+  font-weight: bold;
+}
+.highlight .s, .highlight .sa, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .sx, .highlight .s1, .highlight .ss {
+  color: light-dark(#0a3069, #a5d6ff);
+}
+.highlight .nd {
+  color: light-dark(#8250df, #d2a8ff);
+}
+.highlight .nf, .highlight .fm {
+  color: light-dark(#8250df, #d2a8ff);
+}
+.highlight .err {
+  color: light-dark(#f6f8fa, #f0f6fc);
+  background-color: light-dark(#82071e, #8e1519);
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cp, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: light-dark(#6e7781, #8b949e);
+}
+.highlight .gl {
+  color: light-dark(#6e7781, #8b949e);
+}
+.highlight .gt {
+  color: light-dark(#6e7781, #8b949e);
+}
+.highlight .ni {
+  color: light-dark(#24292f, #c9d1d9);
+}
+.highlight .si {
+  color: light-dark(#24292f, #c9d1d9);
+}
+.highlight .ge {
+  color: light-dark(#24292f, #c9d1d9);
+  font-style: italic;
+}
+.highlight .gs {
+  color: light-dark(#24292f, #c9d1d9);
+  font-weight: bold;
+}

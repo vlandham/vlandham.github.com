@@ -1,5 +1,6 @@
 ---
 layout: post
+light_only: true
 title: Visualizing Bird Songs with Web Audio
 css: spectrogram.css
 source: https://github.com/vlandham/spectrogramJS
