@@ -38,3 +38,107 @@
   margin-right: 0.5rem;
   color: var(--text-dim);
 }
+
+/* Project contents: sticky sidebar on wide screens, "Jump to" menu otherwise. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.section {
+  scroll-margin-top: 1.5rem;
+}
+
+.vis-layout {
+  position: relative;
+}
+
+.vis-toc ul,
+.vis-jump ul {
+  list-style: none;
+  margin: 0 0 1rem;
+}
+
+.vis-toc li,
+.vis-jump li {
+  margin: 0;
+}
+
+.vis-toc a,
+.vis-jump a {
+  display: block;
+  padding: 0.2rem 0;
+  text-decoration: none;
+  line-height: 1.35;
+}
+
+.vis-toc a:hover,
+.vis-jump a:hover {
+  text-decoration: underline;
+}
+
+.vis-toc-year {
+  margin: 0 0 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+}
+
+.vis-toc {
+  display: none;
+}
+
+.vis-jump {
+  margin-bottom: 3rem;
+  max-width: 800px;
+  font-size: 1.6rem;
+}
+
+.vis-jump summary {
+  cursor: pointer;
+  color: var(--text-dim);
+}
+
+.vis-jump-list {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+}
+
+@media (min-width: 1250px) {
+  .vis-jump {
+    display: none;
+  }
+
+  /* Sit in the right margin, next to the 800px content column. */
+  .vis-toc {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 840px;
+    width: 210px;
+  }
+
+  .vis-toc-inner {
+    position: sticky;
+    top: 1.5rem;
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+    font-size: 1.35rem;
+    scrollbar-width: thin;
+  }
+
+  .vis-toc a {
+    color: var(--text-dim);
+    padding-left: 0.8rem;
+    border-left: 2px solid transparent;
+  }
+
+  .vis-toc a[aria-current="true"] {
+    color: var(--text-strong);
+    border-left-color: var(--text-strong);
+  }
+}

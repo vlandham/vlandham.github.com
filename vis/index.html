@@ -6,28 +6,52 @@ twitter_type: summary_large_image
 description: Visualizations by Jim Vallandingham.
 img: /images/vis/vis_card.png
 css: vis.css
+js: vis.js
 ---
 
-{% comment %}Entries live in _data/vis.yml.{% endcomment %}
-{% for item in site.data.vis %}
-<div id="{{ item.id }}" class="section">
-  <h2>
-    <a href="{{ item.url }}">{{ item.title }}</a>
-    <span class="vis-year">{{ item.year }}</span>
-  </h2>
-  <a href="{{ item.url }}" tabindex="-1"
-    ><img class="banner" src="{{ item.image }}" alt="{{ item.alt }}"
-  /></a>
-  {{ item.description | markdownify }}
-  {% if item.archived %}
-  <p class="vis-note">The original site is offline; links go to an Internet Archive copy.</p>
-  {% endif %}
-  {% if item.links %}
-  <ul class="list-inline vis-links">
-    {% for link in item.links %}
-    <li><a href="{{ link.url }}">{{ link.label }}</a></li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-</div>
+{% comment %}Entries live in _data/vis.yml, newest first.{% endcomment %}
+{% assign years = site.data.vis | group_by: "year" %}
+{% capture toc %}
+{% for year in years %}
+<p class="vis-toc-year">{{ year.name }}</p>
+<ul>
+  {% for item in year.items %}
+  <li><a href="#{{ item.id }}">{{ item.title }}</a></li>
+  {% endfor %}
+</ul>
 {% endfor %}
+{% endcapture %}
+
+<div class="vis-layout">
+  <nav class="vis-toc" aria-label="Projects">
+    <div class="vis-toc-inner">{{ toc }}</div>
+  </nav>
+
+  <details class="vis-jump">
+    <summary>Jump to a project</summary>
+    <nav class="vis-jump-list" aria-label="Projects">{{ toc }}</nav>
+  </details>
+
+  {% for item in site.data.vis %}
+  <div id="{{ item.id }}" class="section">
+    <h2>
+      <a href="{{ item.url }}">{{ item.title }}</a>
+      <span class="vis-year">{{ item.year }}</span>
+    </h2>
+    <a href="{{ item.url }}" tabindex="-1"
+      ><img class="banner" src="{{ item.image }}" alt="{{ item.alt }}"{% if item.image_size %} width="{{ item.image_size[0] }}" height="{{ item.image_size[1] }}"{% endif %}
+    /></a>
+    {{ item.description | markdownify }}
+    {% if item.archived %}
+    <p class="vis-note">The original site is offline; links go to an Internet Archive copy.</p>
+    {% endif %}
+    {% if item.links %}
+    <ul class="list-inline vis-links">
+      {% for link in item.links %}
+      <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
