@@ -8,8 +8,11 @@ img: /images/vis/vis_card.png
 ---
 
 <h2>Projects</h2>
+{% assign groups = site.data.projects | group_by: "group" %}
+{% for group in groups %}
+<h3 class="eyebrow">{{ group.name | escape }}</h3>
 <div class="project-box">
-  {% for project in site.data.projects %}
+  {% for project in group.items %}
   <a href="{{ project.url }}" class="project">
     <img alt="" src="/images/projects/{{ project.img }}" width="800" height="600" />
     <strong class="project-title">{{ project.title }}</strong>
@@ -17,3 +20,4 @@ img: /images/vis/vis_card.png
   </a>
   {% endfor %}
 </div>
+{% endfor %}

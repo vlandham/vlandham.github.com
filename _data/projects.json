@@ -1,59 +1,69 @@
 [
   {
+    "group": "Visualization",
     "title": "Visualizations",
     "url": "/vis/",
     "description": "I make visualizations.",
     "img": "vis.jpg"
   },
   {
+    "group": "Visualization",
     "title": "Experiments",
     "url": "/experiments/",
     "description": "Unpolished, but fun visual experiments.",
     "img": "experiments.jpg"
   },
   {
+    "group": "Visualization",
     "title": "Bocoup",
     "url": "https://web.archive.org/web/20230930160628/https://bocoup.com/services/datavis",
     "description": "I worked on the DataVis team at Bocoup and made a lot of cool things for clients.",
     "img": "bocoup.jpg"
   },
   {
-    "title": "Seattle In Context",
-    "url": "/seattle/",
-    "description": "Maps, trivia, and jokes to understand downtown Seattle just a bit more.",
-    "img": "seattleincontext.jpg"
-  },
-  {
-    "title": "Historic Seattle Maps",
-    "url": "/seattle_maps/",
-    "description": "A collection of historic Seattle maps, organized for easy browsing.",
-    "img": "seattlemaps.jpg"
-  },
-  {
-    "title": "Seattle Atlas",
-    "url": "https://github.com/vlandham/seattle-atlas",
-    "description": "A way to download Seattle data easily and consistently.",
-    "img": "seattleatlas.jpg"
-  },
-  {
-    "title": "LearnJSData",
-    "url": "http://learnjsdata.com/",
-    "description": "A site to learn how to understand data using JavaScript.",
-    "img": "learnjsdata.jpg"
-  },
-  {
+    "group": "Visualization",
     "title": "Scrollytelling Examples",
     "url": "/scroll_talk/examples/",
     "description": "A collection of great scrollytelling examples from news outlets and other sources.",
     "img": "scrollytelling.jpg"
   },
   {
+    "group": "Seattle",
+    "title": "Seattle In Context",
+    "url": "/seattle/",
+    "description": "Maps, trivia, and jokes to understand downtown Seattle just a bit more.",
+    "img": "seattleincontext.jpg"
+  },
+  {
+    "group": "Seattle",
+    "title": "Historic Seattle Maps",
+    "url": "/seattle_maps/",
+    "description": "A collection of historic Seattle maps, organized for easy browsing.",
+    "img": "seattlemaps.jpg"
+  },
+  {
+    "group": "Seattle",
+    "title": "Seattle Atlas",
+    "url": "https://github.com/vlandham/seattle-atlas",
+    "description": "A way to download Seattle data easily and consistently.",
+    "img": "seattleatlas.jpg"
+  },
+  {
+    "group": "Tools & Code",
+    "title": "LearnJSData",
+    "url": "http://learnjsdata.com/",
+    "description": "A site to learn how to understand data using JavaScript.",
+    "img": "learnjsdata.jpg"
+  },
+  {
+    "group": "Tools & Code",
     "title": "textkit",
     "url": "https://learntextvis.github.io/textkit/",
     "description": "A command-line utility for simple natural language processing.",
     "img": "textkit.jpg"
   },
   {
+    "group": "Tools & Code",
     "title": "illuminati",
     "url": "https://github.com/vlandham/illuminati",
     "description": "An automated genomic analysis pipeline.",
