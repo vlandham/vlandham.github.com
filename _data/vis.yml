@@ -1,5 +1,19 @@
 # Entries for /vis/, newest first. `description` is Markdown.
 
+- id: hive_horoscope
+  title: "Hive Horoscope"
+  year: 2026
+  featured: true
+  url: "/hive-horoscope/"
+  image: /images/vis/banners/hive_horoscope.jpg
+  image_size: [1600, 400]
+  alt: "A honeycomb of seven letters beside cards reading a Spelling Bee player's element, pangram timing, and busiest day"
+  description: |
+    What does the way you play the NYT Spelling Bee say about you? This project reads your Spelling Bee history (the words you found, the order you found them in, and when you stopped playing) and casts it as a natal chart. Are you a Lamplight Hunter who plays after dark, or a Dawn Forager? Do you open with a Big Swing, or ease in with The Warm-Up? Each reading is backed by small charts, so the astrology always comes with the numbers behind it. A bookmarklet pulls your history from your own signed-in browser, and nothing ever leaves it. You can also share a link with a friend and see how your hives compare!
+  links:
+    - label: "Source Code"
+      url: "https://github.com/vlandham/hive-horoscope"
+
 - id: seriesheat
   title: "SeriesHeat"
   year: 2021
@@ -24,7 +38,6 @@
 - id: process_simulation
   title: "Process Simulation Animation"
   year: 2020
-  featured: true
   url: "/process_simulation/"
   image: /images/vis/banners/process_simulation.jpg
   image_size: [1602, 400]
