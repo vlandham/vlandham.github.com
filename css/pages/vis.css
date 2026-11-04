@@ -5,12 +5,15 @@
 }
 
 .section h2 a {
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
 }
 
 .section h2 a:hover,
 .section:has(.banner:hover) h2 a {
-  text-decoration: underline;
+  text-decoration-color: currentColor;
 }
 
 .vis-year {
@@ -37,6 +40,19 @@
   content: "→";
   margin-right: 0.5rem;
   color: var(--text-dim);
+}
+
+.vis-links .vis-primary {
+  font-weight: 600;
+}
+
+.vis-links .vis-primary::before {
+  color: var(--text-strong);
+}
+
+/* External destinations get a ↗ after the label. */
+.vis-links .vis-primary a[href*="://"]::after {
+  content: " ↗";
 }
 
 /* Project contents: sticky sidebar on wide screens, "Jump to" menu otherwise. */

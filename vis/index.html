@@ -45,13 +45,20 @@ js: vis.js
     {% if item.archived %}
     <p class="vis-note">The original site is offline; links go to an Internet Archive copy.</p>
     {% endif %}
-    {% if item.links %}
+    {% if item.archived %}
+      {% assign primary = "View archived copy" %}
+    {% elsif item.url contains "://" %}
+      {% assign host = item.url | split: "/" | slice: 2 | first | remove_first: "www." %}
+      {% assign primary = "View on " | append: host %}
+    {% else %}
+      {% assign primary = "View project" %}
+    {% endif %}
     <ul class="list-inline vis-links">
+      <li class="vis-primary"><a href="{{ item.url }}">{{ primary }}</a></li>
       {% for link in item.links %}
       <li><a href="{{ link.url }}">{{ link.label }}</a></li>
       {% endfor %}
     </ul>
-    {% endif %}
   </div>
   {% endfor %}
 </div>
