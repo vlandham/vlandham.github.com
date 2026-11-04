@@ -26,6 +26,29 @@ layout: default
   {% endif %}
 </ul>
 </div>
+{% if page.talk %}
+<div class="talk-card">
+  {% if page.talk.events %}
+  <ul class="talk-events">
+    {% for event in page.talk.events %}<li>{{ event | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+  <ul class="list-inline arrow-links">
+    {% for link in page.talk.links %}
+    <li{% if forloop.first %} class="arrow-primary"{% endif %}><a href="{{ link.url }}">{{ link.label }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+<script>
+  // Links to a collapsed reference list (e.g. #references) open it.
+  function openTarget() {
+    var el = location.hash && document.getElementById(location.hash.slice(1));
+    if (el && el.tagName === "DETAILS") el.open = true;
+  }
+  addEventListener("hashchange", openTarget);
+  addEventListener("DOMContentLoaded", openTarget);
+</script>
+{% endif %}
 <div class="post">
 	{{ content }}
 </div>

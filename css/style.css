@@ -489,3 +489,120 @@ h2 + .eyebrow {
     padding: 0 1.2rem 0 0;
   }
 }
+
+/* Arrow link rows (/vis entries, talk summaries). First item can be .arrow-primary. */
+.arrow-links li::before {
+  content: "→";
+  margin-right: 0.5rem;
+  color: var(--text-dim);
+}
+
+.arrow-links .arrow-primary {
+  font-weight: 600;
+}
+
+.arrow-links .arrow-primary::before {
+  color: var(--text-strong);
+}
+
+/* External destinations get a ↗ after the label. */
+.arrow-links a[href*="://"]::after {
+  content: " ↗";
+}
+
+/* Talk summary under the post header: where it was given, then the key links. */
+.talk-card {
+  margin: 2rem 0 3rem;
+  padding: 1.4rem 1.8rem 0.4rem;
+  max-width: 860px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1.7rem;
+}
+
+.talk-events {
+  list-style: none;
+  margin: 0 0 1rem;
+  color: var(--text-dim);
+}
+
+.talk-events li {
+  margin: 0;
+}
+
+.talk-card .arrow-links {
+  margin-bottom: 1rem;
+}
+
+/* Reference lists: compact, two columns on wide screens. */
+.post .ref-list {
+  list-style: none;
+  margin: 0 0 2.5rem;
+  font-size: 1.6rem;
+  line-height: 1.45;
+}
+
+.post .ref-list li {
+  margin: 0 0 0.7rem;
+  break-inside: avoid;
+}
+
+.ref-source {
+  color: var(--text-dim);
+}
+
+@media (min-width: 750px) {
+  .post .ref-list {
+    columns: 2;
+    column-gap: 3rem;
+  }
+}
+
+.post details.refs {
+  margin-top: 3.5rem;
+}
+
+.post details.refs > summary {
+  display: block;
+  cursor: pointer;
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.post details.refs > summary::-webkit-details-marker {
+  display: none;
+}
+
+.post details.refs > summary::before {
+  content: "▸";
+  display: inline-block;
+  width: 1.2em;
+  color: var(--text-dim);
+}
+
+.post details.refs[open] > summary::before {
+  content: "▾";
+}
+
+.post details.refs > summary:hover {
+  color: var(--text-strong);
+}
+
+.ref-hint {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+.post details.refs[open] .ref-hint {
+  display: none;
+}
+
+.post details.refs h3 {
+  font-size: 1.4rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 1.5rem 0 1rem;
+}

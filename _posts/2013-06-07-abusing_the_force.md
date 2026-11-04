@@ -4,14 +4,24 @@ title: Abusing The Force Talk
 twitter: true
 twitter_type: summary_large_image
 description: Slides and resources from Jim Vallandingham's OpenVis Conf 2013 talk on using force directed layouts in interesting ways.
-img: http://vallandingham.me/images/vis/force_talk.png
+img: https://vallandingham.me/images/vis/force_talk.png
 categories:
   - talk
+talk:
+  events:
+    - "[OpenVis Conf](https://openvisconf.com/2013/) · Boston · April 2013"
+  links:
+    - label: "Video"
+      url: "https://www.youtube.com/watch?v=Mucmb33711A"
+    - label: "Slides"
+      url: "/force_talk/#0"
+    - label: "Source code"
+      url: "https://github.com/vlandham/force_talk"
 ---
 
-I was very fortunate to be able to speak at the first [OpenVis Conf](http://openvisconf.com/) in Boston in April 2013.
+I was very fortunate to be able to speak at the first [OpenVis Conf](https://openvisconf.com/) in Boston in April 2013.
 
-The speakers were wonderful. The [organizers](http://bocoup.com/) were graceful. The venue was delightful.
+The speakers were wonderful. The [organizers](https://bocoup.com/) were graceful. The venue was delightful.
 
 ## Video
 
@@ -23,7 +33,7 @@ or [the archived OpenVis 2013 Site](https://openvisconf.com/2013/).
 
 ## Slides
 
-[Here are my slides for Abusing the Force](http://vallandingham.me/force_talk/#0)
+[Here are my slides for Abusing the Force](/force_talk/#0)
 
 Use the arrow keys on your keyboard to navigate. Each slide is its own html page. The [source is all on github](https://github.com/vlandham/force_talk)
 

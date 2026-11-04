@@ -53,8 +53,8 @@ js: vis.js
     {% else %}
       {% assign primary = "View project" %}
     {% endif %}
-    <ul class="list-inline vis-links">
-      <li class="vis-primary"><a href="{{ item.url }}">{{ primary }}</a></li>
+    <ul class="list-inline arrow-links">
+      <li class="arrow-primary"><a href="{{ item.url }}">{{ primary }}</a></li>
       {% for link in item.links %}
       <li><a href="{{ link.url }}">{{ link.label }}</a></li>
       {% endfor %}

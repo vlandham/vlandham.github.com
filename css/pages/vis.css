@@ -36,25 +36,6 @@
   color: var(--text-dim);
 }
 
-.vis-links li::before {
-  content: "→";
-  margin-right: 0.5rem;
-  color: var(--text-dim);
-}
-
-.vis-links .vis-primary {
-  font-weight: 600;
-}
-
-.vis-links .vis-primary::before {
-  color: var(--text-strong);
-}
-
-/* External destinations get a ↗ after the label. */
-.vis-links .vis-primary a[href*="://"]::after {
-  content: " ↗";
-}
-
 /* Project contents: sticky sidebar on wide screens, "Jump to" menu otherwise. */
 @media (prefers-reduced-motion: no-preference) {
   html {
